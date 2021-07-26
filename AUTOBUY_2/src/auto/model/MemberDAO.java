@@ -14,6 +14,7 @@ public class MemberDAO {
 	MemberDTO info  = null;
 	int cnt = 0;	
 
+	// 연결
 		public void conn() {
 		try {
 			Class.forName("oracle.jdbc.driver.OracleDriver");
@@ -29,6 +30,7 @@ public class MemberDAO {
 		}
 	}
 		
+	// 종료
 		public void close() {
 			try {
 				if(rs != null) {
@@ -45,6 +47,7 @@ public class MemberDAO {
 			}
 		}
 		
+	// 회원가입
 		public int join(MemberDTO dto) {
 			try {
 				conn();
@@ -64,6 +67,38 @@ public class MemberDAO {
 			}
 			return cnt;
 			
+		}
+		
+	// 로그인
+		public MemberDTO login(String id, String pw) {
+			try {
+				conn();
+				String sql = "select * from web_member where customer_id = ? and customer_pw = ?";
+				psmt = conn.prepareStatement(sql);
+				psmt.setString(1, id);
+				psmt.setString(2, pw);
+				rs = psmt.executeQuery();
+				
+				if(rs.next()) {
+					String customer_id = rs.getString(1);
+					String customer_pw = rs.getString(2);
+					String nickName = rs.getString(3);
+					String store_name = rs.getString(4);
+					String customer_regist_number = rs.getString(5);
+					String address = rs.getString(6);
+					String ceo = rs.getString(7);
+					String tel = rs.getString(8);
+					String email = rs.getString(9);
+					String payment = rs.getString(10);
+					
+					info = new MemberDTO(customer_id, customer_pw, nickName, store_name, customer_regist_number, address, ceo, tel, email, payment);
+				}
+		
+			} catch(SQLException e) {
+				e.printStackTrace();
+			} finally {
+				close();
+			}return info;
 		}
 		
 }
