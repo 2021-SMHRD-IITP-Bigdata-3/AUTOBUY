@@ -1,12 +1,14 @@
+drop table member
+
 create table member
-(customer_id varchar(10) primary key,
-customer_pw varchar(12) not null,
-nick_name varchar(10) not null,
-store_name varchar(30),
-client_resgist_number varchar(30),
-address varchar(50),
-ceo varchar(10),
-tel varchar(13),
-email varchar(20),
-payment varchar(10),            
-);
+(customer_id varchar2(10) primary key,
+customer_pw varchar2(12) not null,
+nick_name varchar2(10) not null,
+store_name varchar2(30),
+client_resgist_number varchar2(30),
+address varchar2(50),
+ceo varchar2(10),
+tel varchar2(13),
+email varchar2(20),
+payment varchar2(10)           
+)
