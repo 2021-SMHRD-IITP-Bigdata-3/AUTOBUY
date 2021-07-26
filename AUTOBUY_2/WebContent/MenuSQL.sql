@@ -1,6 +1,7 @@
 drop sequence menu_num
+drop table menu
 drop table sale
-
+drop table material
 
 -- 메뉴 테이블 생성 ----------------------------------------------------
 create sequence menu_num
@@ -40,5 +41,16 @@ references menu(menu_num, menu_name)
 
 --------------------------------------------------------------------
 
+-- 원자재 테이블 생성 -----------------------------------------------------
+
+create table material(
+menu_num number(20) not null,
+menu_name varchar2(20) not null,
+product_num number(20) not null,
+product_name number(20) not null,
+necessary_qntty number(20) not null,
+constraint material_fk foreign key(menu_num, menu_name)
+references menu(menu_num, menu_name)
+)
 
 /
