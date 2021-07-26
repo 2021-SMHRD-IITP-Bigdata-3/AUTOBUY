@@ -30,6 +30,11 @@ text-align:left;
 			<p>비밀번호</p><div class="Sing_UP_PW"><input type="text"  name="pw"></div>	
 			<p>닉네임</p><div class="Sing_NickName"><input type="text" name="nickname"></div>
 			<br>
+			<input type="radio" value="거래처" id="Choice1" name="Choice">
+			 	<label for="Choice1">거래처</label>
+			<input type="radio" value="점포점주"  id="Choice2" name="Choice">
+			 	<label for="Choice2">점포점주</label>
+			<br><br>
 			<input type="submit" value="회원가입">
 		</form>
 	</div>
