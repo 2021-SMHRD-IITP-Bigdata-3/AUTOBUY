@@ -25,7 +25,7 @@ text-align:left;
 <body>
 	<div class="container">
 		<div class="Sign_Up_title">회원가입</div>
-		<form action="JoinServiceCon.jsp" method="post">
+		<form action="JoinServiceCon" method="post">
 			<p>아이디</p><div class="Sing_UP_ID"><input type="text"  name="id"></div>
 			<p>비밀번호</p><div class="Sing_UP_PW"><input type="text"  name="pw"></div>	
 			<p>닉네임</p><div class="Sing_NickName"><input type="text" name="nickname"></div>
