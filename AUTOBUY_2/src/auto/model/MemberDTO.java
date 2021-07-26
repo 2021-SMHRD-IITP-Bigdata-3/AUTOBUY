@@ -26,6 +26,17 @@ public class MemberDTO {
 		this.email = email;
 		this.payment = payment;
 	}
+	
+	
+
+	public MemberDTO(String customer_id, String customer_pw, String nickName) {
+		super();
+		this.customer_id = customer_id;
+		this.customer_pw = customer_pw;
+		this.nickName = nickName;
+	}
+
+
 
 	public String getCustomer_id() {
 		return customer_id;

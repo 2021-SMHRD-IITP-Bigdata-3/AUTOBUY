@@ -51,7 +51,7 @@ public class MemberDAO {
 		public int join(MemberDTO dto) {
 			try {
 				conn();
-				String sql = "insert into member values(?,?,?)";
+				String sql = "insert into member(customer_id, customer_pw, nickName) values(?,?,?)";
 				psmt = conn.prepareStatement(sql);
 				
 				psmt.setString(1, dto.getCustomer_id());
@@ -73,7 +73,7 @@ public class MemberDAO {
 		public MemberDTO login(String id, String pw) {
 			try {
 				conn();
-				String sql = "select * from web_member where customer_id = ? and customer_pw = ?";
+				String sql = "select * from member where customer_id = ? and customer_pw = ?";
 				psmt = conn.prepareStatement(sql);
 				psmt.setString(1, id);
 				psmt.setString(2, pw);

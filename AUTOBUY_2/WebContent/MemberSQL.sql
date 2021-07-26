@@ -13,5 +13,10 @@ email varchar2(20),
 payment varchar2(10)           
 )
 
+<<<<<<< HEAD
 insert into MEMBER(customer_id,customer_pw,nickName)
 values('ddd','dd','dd')
+=======
+insert into MEMBER
+values ('d','d','d','null')
+>>>>>>> branch 'master' of https://github.com/2021-SMHRD-IITP-Bigdata-3/AUTOBUY.git
