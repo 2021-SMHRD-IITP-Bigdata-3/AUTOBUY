@@ -96,10 +96,9 @@ button:hover {
 			<div class="card">레몬에이드</div>
 			<div class="card">페퍼민트 티</div>	
 			<div class="card">히비스커스 티</div>
-			<div class="card">청포도에이드</div>	
-			<div class="card">레몬에이드</div>
-			<div class="card">페퍼민트 티</div>	
-			<div class="card">히비스커스 티</div>		
+			<div class="card">딸바 스무디</div>
+			<div class="card">초바 스무디</div>
+	
 
 		</div>
 		<div class=bills>
@@ -107,18 +106,17 @@ button:hover {
 				<caption><h3>주문서</h3></caption>
 				<tr valign="top" height="3px">
 					<td width="5px">   </td>
-					<td width="15px" align="center"> </td>
-					<td width="120px" align="left"></td>
+					<td width="150px" align="left"></td>
 					<td width="35px" align="center"></td>
 					<td width="90" align="left"></td>							
 				</tr>
 				<tr valign="top">
-					<td width="5px">   </td>
+					<td width="5px"></td>
 					<td width="120px" align="left">아메리카노</td>
-					<td width="5px" align="center">-</td>
-					<td width="35px" align="center">1</td>
-					<td width="5px" align="center">+</td>
-					<td width="90" align="left">3500원</td>							
+					<td width="2px" align="right">-</td>
+					<td width="5px" align="center">1</td>
+					<td width="2px" align="left">+</td>
+					<td width="90px" align="center">3500원</td>							
 				</tr>												
 			</table>
 			<table class= bills2>
@@ -129,7 +127,7 @@ button:hover {
 			</table>
 			<div class=bills3>
 				<button><a href="main.jsp">마감</a></button>
-				<button>결제</button>							
+				<button><a href="main.jsp">결제</a></button>							
 			</div>	
 		</div>
 		
