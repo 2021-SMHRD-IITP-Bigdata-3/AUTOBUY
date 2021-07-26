@@ -100,8 +100,8 @@
 	<div class="container" >
 		<div class="header">
 			<div class="title"><p>AUTOBUY</p></div>
-			<div class="logout"><a href="#">로그아웃</a></div>
-			<div class="mypage"><a href="#">마이페이지</a></div>			
+			<div class="logout"><a href="LogoutServiceCon">로그아웃</a></div>
+			<div class="mypage"><a href="UpdateServiceCon">마이페이지</a></div>			
 		</div>
 		<div class="list">
 			<div class="list_1 list_common"><p><a href="#">제품목록</a></p></div>

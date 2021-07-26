@@ -33,12 +33,12 @@ public class JoinServiceCon extends HttpServlet {
 		
 		if(cnt>0) {
 			System.out.println("회원가입 성공");
-			moveURL = "Main.jsp";
+			moveURL = "Login.jsp";
 			HttpSession session = request.getSession();
 			session.setAttribute("id", id);
 		}else {
 			System.out.println("회원가입 실패");
-			moveURL = "Login.jsp";
+			moveURL = "Join.jsp";
 		}
 		response.sendRedirect(moveURL);
 		

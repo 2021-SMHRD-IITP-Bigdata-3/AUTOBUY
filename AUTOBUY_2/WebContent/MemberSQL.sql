@@ -1,4 +1,4 @@
-drop table member
+drop table member;
 
 --회원 테이블 생성----------------------------------------------------------------
 create table member
@@ -14,4 +14,5 @@ email varchar2(20),
 payment varchar2(10)           
 )
 
+select * from member;
 ------------------------------------------------------------------------------

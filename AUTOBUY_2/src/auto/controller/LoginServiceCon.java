@@ -6,13 +6,14 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import auto.model.MemberDAO;
 import auto.model.MemberDTO;
 
-@WebServlet("/loginServiceCon")
+@WebServlet("/LoginServiceCon")
 public class LoginServiceCon extends HttpServlet {
-	protected void doPut(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
 		request.setCharacterEncoding("EUC-KR");
 		
@@ -23,9 +24,23 @@ public class LoginServiceCon extends HttpServlet {
 		System.out.println("pw : " + pw);
 		
 		MemberDAO dao = new MemberDAO();
-	
+		MemberDTO info = dao.login(id, pw);
 		
 		
+		String moveURL = "";
+		
+		if(info != null) {
+			System.out.println("로그인 성공");
+			HttpSession session = request.getSession();  
+			session.setAttribute("info", info);  
+			moveURL = "Main.jsp";			
+		}else {
+			System.out.println("로그인 실패");
+			moveURL = "Login.jsp";
+		}
+		response.sendRedirect(moveURL);
+		
+
 		
 	}
 

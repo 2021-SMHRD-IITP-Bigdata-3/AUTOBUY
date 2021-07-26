@@ -31,13 +31,13 @@ font-size:20px;
 	<div class="container">
 		<div class="Login_title"><p>AUTO BUY</p></div>
 		<div class="small_title"><p>어서오세요. 자동발주 시스템 AUTO BUY입니다.</div>
-			<form action="LoginServiceCon.jsp" method="post">
+			<form action="LoginServiceCon" method="post">
 				<div class="ID">ID: <input type="text" placeholder="ID 입력하세요" name="id"></div>
 				<br><br>
 				<div class="PW">PW: <input type="text" placeholder="PW 입력하세요" name="pw"></div>
 				<input type="submit" value="Login">
 			</form>
-		<div class="Sign_Up"><p>회원가입</p></div>
+		<div class="Sign_Up"><a href="JoinServiceCon"><p>회원가입</p></a></div>
 	</div>
 </body>
 </html>
