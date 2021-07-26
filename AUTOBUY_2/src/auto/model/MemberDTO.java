@@ -1,4 +1,4 @@
-package pos.model;
+package auto.model;
 
 public class MemberDTO {
 	private String customer_id;

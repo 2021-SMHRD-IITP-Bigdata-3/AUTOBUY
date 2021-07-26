@@ -1,4 +1,4 @@
-package pos.model;
+package auto.model;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
