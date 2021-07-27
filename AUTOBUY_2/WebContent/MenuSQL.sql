@@ -1,7 +1,7 @@
-drop sequence menu_num
-drop table menu
-drop table sale
-drop table material
+drop sequence menu_num;
+drop table menu;
+drop table sale;
+drop table material;
 
 -- 메뉴 테이블 생성 ----------------------------------------------------
 create sequence menu_num

@@ -1,3 +1,4 @@
+<%@page import="auto.model.MemberDTO"%>
 <%@ page language="java" contentType="text/html; charset=EUC-KR"
     pageEncoding="EUC-KR"%>
 <!DOCTYPE html>
@@ -35,6 +36,12 @@
 	margin-top:12px;
 	}
 	.logout{
+	float:right;
+	font-size:25px;
+	margin-right:30px;
+	margin-top:12px;
+	}
+	.store_name{
 	float:right;
 	font-size:25px;
 	margin-right:30px;
@@ -118,11 +125,20 @@
 	</style>
 </head>
 <body>
+	<%
+		MemberDTO info = (MemberDTO)session.getAttribute("info");
+	%>
+
 	<div class="container" >
 		<div class="header">
 			<div class="title"><p>AUTOBUY</p></div>
+			<%if(info != null){%>
+				<div class="store_name">
+					<h4><%= info.getCustomer_id() %>님<h4>
+				</div>
+			<%} %>					
 			<div class="logout"><a href="LogoutServiceCon">로그아웃</a></div>
-			<div class="mypage"><a href="UpdateServiceCon">마이페이지</a></div>			
+			<div class="mypage"><a href="Update.jsp">마이페이지</a></div>			
 		</div>
 		<div class="list">
 			<div class="list_1 list_common"><p><a href="#">제품목록</a></p></div>
@@ -154,7 +170,7 @@
 		<div class ="footer">
 			<div class="banner">AUTOBUY</div>
 			<div class="company">주)오도바이절<br>
-								대표 : 송김정정 / 사업자 등록 번호 : 000-00-00000<br>
+								대표 : 송김정정 | 사업자 등록 번호 : 000-00-00000<br>
 								광주광역시 남구 송암로60 광주CGI센터</div>
 		</div>
 	</div>

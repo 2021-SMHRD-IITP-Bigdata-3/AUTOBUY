@@ -6,6 +6,8 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
+import auto.model.MemberDTO;
+
 public class MemberDAO {
 
 	Connection conn = null;
@@ -100,6 +102,38 @@ public class MemberDAO {
 				close();
 			}return info;
 		}
+		
+		// 개인정보수정
+		public int update(MemberDTO dto) {
+			
+			try {
+				conn();
+				String sql = "update member set customer_pw=?, nickName=?, store_name=?"
+						+ ", client_resgist_number=?, address=?, ceo=?, tel=?, email=?, payment=? where customer_id=?";
+				
+				psmt =  conn.prepareStatement(sql);
+				
+				psmt.setString(1, dto.getCustomer_pw());
+				psmt.setString(2, dto.getNickName());
+				psmt.setString(3, dto.getStore_name());
+				psmt.setString(4, dto.getCustomer_regist_number());
+				psmt.setString(5, dto.getAddress());
+				psmt.setString(6, dto.getCeo());
+				psmt.setString(7, dto.getTel());
+				psmt.setString(8, dto.getEmail());
+				psmt.setString(9, dto.getPayment());
+				psmt.setString(10, dto.getCustomer_id());
+				
+				cnt = psmt.executeUpdate();
+				
+			} catch (SQLException e) {
+				e.printStackTrace();
+			} finally {
+				close();
+			}
+			return cnt;
+		}
+	
 		
 }
 
