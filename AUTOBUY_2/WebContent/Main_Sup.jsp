@@ -5,6 +5,7 @@
 <head>
 <meta charset="EUC-KR">
 <title>Insert title here</title>
+<head>>
 <style>
 	.container{
 	border:1px solid black;
@@ -74,16 +75,6 @@
    	margin-left:50px;
    	margin-right:50px;
 	}
-	.small_title p{
-	width:500px;
-	margin-right:30px;
-	}
-	.add{
-	float:right;
-	font-size:25px;
-	margin-right:30px;
-	margin-top:12px;
-	}
 	.footer{
 	clear:both;
 	width:1400px;
@@ -104,17 +95,6 @@
 	margin-top:3px;
 	line-height:27px;
 	}
-	.list_board{
-	float:top;
-	width:1018px;
-	text-align:center;
-	font-size:25px;
-	}
-	.board{
-	margin-top:50px;
-	margin-left:50px;
-   	margin-right:50px;
-	}
 	</style>
 </head>
 <body>
@@ -125,31 +105,12 @@
 			<div class="mypage"><a href="UpdateServiceCon">마이페이지</a></div>			
 		</div>
 		<div class="list">
-			<div class="list_1 list_common"><p><a href="#">제품목록</a></p></div>
-			<div class="list_2 list_common"><p><a href="#">입고</a></p></div>
-			<div class="list_3 list_common"><p><a href="#">출고</a></p></div>
-			<div class="list_4 list_common"><p><a href="#">유통기한 관리</a></p></div>
-			<div class="list_5 list_common"><p><a href="#">거래처 관리</a></p></div>
-			<div class="list_6 list_common"><p><a href="#">대시보드</a></p></div>
-			<div class="list_7 list_common"><p><a href="#">조정</a></p></div>
-			<div class="list_8 list_common"><p><a href="#">제품 등록</a></p></div>
+			<div class="list_1 list_common"><p><a href="#">출고</a></p></div>
+			<div class="list_2 list_common"><p><a href="#">고객관리</a></p></div>
+			<div class="list_3 list_common"><p><a href="#">제품 등록</a></p></div>
 		</div>
 		<div class="content">
-			<div class="small_title"><p>제품목록</p></div>
-			<div class="add"><p><a href="#">+제품추가</a></p></div>
-			<div class="board">
-				<table class="list_board">
-					<tr>
-						<td>사진</td>
-						<td>제품명</td>
-						<td>재고량</td>
-						<td>거래처</td>
-					</tr>
-					<tr>
-					
-					</tr>		
-			 </table>
-			</div>
+			<div class="small_title"><p>출고</p></div>
 		</div>
 		<div class ="footer">
 			<div class="banner">AUTOBUY</div>
