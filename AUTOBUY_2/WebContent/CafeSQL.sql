@@ -33,11 +33,10 @@ menu_num number(20),
 menu_name varchar2(20),
 sold_qntty number(20),
 sold_date date,
+
 constraint menu_fk foreign key(menu_num, menu_name)
 references menu(menu_num, menu_name)
 )
-
-
 
 --------------------------------------------------------------------
 
@@ -49,6 +48,7 @@ menu_name varchar2(20) not null,
 product_num number(20) not null,
 product_name number(20) not null,
 necessary_qntty number(20) not null,
+
 constraint material_fk foreign key(menu_num, menu_name)
 references menu(menu_num, menu_name)
 )
