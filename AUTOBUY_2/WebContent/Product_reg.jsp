@@ -81,9 +81,13 @@
    	margin-left:50px;
    	margin-right:50px;
 	}
-	.small_title p{
-	width:500px;
+	.on_off{
+	float:right;
+	margin-top:30px;
 	margin-right:30px;
+	}
+	
+	
 	}
 	.add{
 	float:right;
@@ -118,7 +122,7 @@
 	font-size:25px;
 	}
 	.board{
-	margin-top:50px;
+	margin-top:70px;
 	margin-left:50px;
    	margin-right:50px;
 	}
@@ -152,13 +156,17 @@
 		</div>
 		<div class="content">
 			<div class="small_title"><p>제품등록</p></div>
+				<div class="on_off"><input type="radio" value="알람"  id="off" name="on_off">
+			 		<label for="Choice2">재고 부족 알람 OFF</label></div>
+				<div class="on_off"><input type="radio" value="알람"  id="on" name="on_off">
+			 		<label for="Choice2">재고 부족 알람 ON</label></div>
 			<div class="board">
 				<table class="list_board">
 					<tr>
 						<td>사진</td>
-						<td>제품명</td>
-						<td>재고량</td>
-						<td>거래처</td>
+						<td>제품</td>
+						<td>현재 재고</td>
+						<td>최소 재고</td>
 					</tr>
 					<tr>
 						<td></td>

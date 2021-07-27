@@ -113,7 +113,7 @@
 	}
 	.list_board{
 	float:top;
-	width:1018px;
+	width:90%;
 	text-align:center;
 	font-size:25px;
 	}
@@ -155,10 +155,10 @@
 			<div class="board">
 				<table class="list_board">
 					<tr>
-						<td>사진</td>
-						<td>제품명</td>
-						<td>재고량</td>
-						<td>거래처</td>
+						<td>이름</td>
+						<td>전화번호</td>
+						<td>이메일</td>
+						<td>메모</td>
 					</tr>
 					<tr>
 						<td></td>
