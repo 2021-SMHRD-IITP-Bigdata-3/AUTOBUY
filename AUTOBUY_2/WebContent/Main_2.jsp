@@ -111,16 +111,25 @@
 	margin-top:3px;
 	line-height:27px;
 	}
-	.list_board{
-	float:top;
-	width:1018px;
-	text-align:center;
-	font-size:25px;
-	}
 	.board{
-	margin-top:50px;
 	margin-left:50px;
-   	margin-right:50px;
+	float:left;
+	width:509px;
+	font-size:30px;
+	}
+	.board2{
+	float:left;
+	width:509px;
+	font-size:30px;
+	}
+	.list_board{
+	align:center;
+	}
+	.lsit_board2{
+	align:center;	
+	}
+	.content td{
+	width:4%;
 	}
 	</style>
 </head>
@@ -151,26 +160,28 @@
 			<div class="list_8 list_common"><p><a href="Product_reg.jsp">제품 등록</a></p></div>
 		</div>
 		<div class="content">
-			<div class="small_title"><p>제품목록</p></div>
-			<div class="add"><p><a href="Main_2.jsp">+제품추가</a></p></div>
+			<div class="small_title"><p> 제품 목록 > 제품 등록 </p></div>
 			<div class="board">
 				<table class="list_board">
 					<tr>
 						<td>사진</td>
 						<td>제품명</td>
-						<td>재고량</td>
 						<td>거래처</td>
+						<td></td>
 					</tr>
-					<tr>
-						<td></td>
-						<td></td>
-						<td></td>
-						<td></td>
-					</tr>		
 			 </table>
 			</div>
-			<input type="submit" value="제품 등록">
-		</div>
+			<div class="board2">
+				<table class="list_board2">
+					<tr>
+						<td>사진</td>
+						<td>재품명</td>
+						<td>거래처</td>
+						<td>수량</td>
+					</tr>
+				</table>
+			</div>
+			</div>
 		<div class ="footer">
 			<div class="banner">AUTOBUY</div>
 			<div class="company">주)오도바이절<br>

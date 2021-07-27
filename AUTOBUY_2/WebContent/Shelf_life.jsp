@@ -143,16 +143,15 @@
 		<div class="list">
 			<div class="list_1 list_common"><p><a href="Main.jsp">제품목록</a></p></div>
 			<div class="list_2 list_common"><p><a href="Incoming.jsp">입고</a></p></div>
-			<div class="list_3 list_common"><p><a href="Outgoing.jsp">출고</a></p></div>
-			<div class="list_4 list_common"><p><a href="Shelf_life.jsp">유통기한 관리</a></p></div>
+			<div class="list_3 list_common"><p><a href="Outgoing">출고</a></p></div>
+			<div class="list_4 list_common"><p><a href="Shelf_life">유통기한 관리</a></p></div>
 			<div class="list_5 list_common"><p><a href="Sup_con.jsp">거래처 관리</a></p></div>
 			<div class="list_6 list_common"><p><a href="Data.jsp">대시보드</a></p></div>
 			<div class="list_7 list_common"><p><a href="Limit.jsp">조정</a></p></div>
-			<div class="list_8 list_common"><p><a href="Product_reg.jsp">제품 등록</a></p></div>
+			<div class="list_8 list_common"><p><a href="Product_reg">제품 등록</a></p></div>
 		</div>
 		<div class="content">
-			<div class="small_title"><p>제품목록</p></div>
-			<div class="add"><p><a href="Main_2.jsp">+제품추가</a></p></div>
+			<div class="small_title"><p>유통기한 관리</p></div>
 			<div class="board">
 				<table class="list_board">
 					<tr>
@@ -169,7 +168,6 @@
 					</tr>		
 			 </table>
 			</div>
-			<input type="submit" value="제품 등록">
 		</div>
 		<div class ="footer">
 			<div class="banner">AUTOBUY</div>
