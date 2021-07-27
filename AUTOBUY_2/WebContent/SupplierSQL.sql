@@ -4,13 +4,21 @@ drop sequence product_num;
 
 --거래처 테이블 생성---------------------------------------------
 create table supplier(
-supplier_name varchar2(20) primary key,
+
+supplier_id varchar2(20) primary key,
+supplier_pw varchar2(20) not null,
+supplier_name varchar2(20) not null,
 supplier_regist  varchar2(20) not null,
 mannager varchar2(20) not null,
 supplier_tel varchar2(20) not null,
 supplier_email varchar2(20) not null,
 supplier_address varchar2(20) not null
 )
+
+insert into supplier values('니니언즈유통', '1022-110', '김영민','01012341234', 'y11@naver.com', '광주 광역시');
+insert into supplier values('언즈유통', '1022-110', '김영민','01012341234', 'y11@naver.com', '광주 광역시');
+
+
 ----------------------------------------------------------
 
 --거래처 전체 재고 테이블 생성--------------------------------------
@@ -25,10 +33,8 @@ supplier_name varchar2(20) not null,
 product_price number(20) not null,
 product_qntty number(20) not null,
 
-constraint pk_product primary key(product_num, product_name),
+constraint pk_product primary key(product_num, product_name)
 
-constraint fk_supplier_name foreign key(supplier_name)
-references supplier(supplier_name)
 )
 
 insert into product values(product_num.nextval, '빨대 100개입',   '니니언즈유통', 1000, 100000);
@@ -50,4 +56,4 @@ insert into product values(product_num.nextval, '자몽시럽 1L ',   '니니언즈유통'
 insert into product values(product_num.nextval, '페퍼민트티 20개입',   '니니언즈유통', 4000, 100000);
 insert into product values(product_num.nextval, '캐모마일티 20개입',   '니니언즈유통', 4000, 100000);
 
--------------------------------------------
+--------------------------------------------------------------------
