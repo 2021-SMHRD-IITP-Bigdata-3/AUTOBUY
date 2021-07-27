@@ -28,7 +28,7 @@ increment by 1;
 
 create table product(
 product_num  number(20) not null,
-product_name varchar2(20) not null,
+product_name varchar2(50) not null,
 supplier_name varchar2(20) not null,
 product_price number(20) not null,
 product_qntty number(20) not null,
@@ -36,6 +36,8 @@ product_qntty number(20) not null,
 constraint pk_product primary key(product_num, product_name)
 
 )
+
+select * from product
 
 insert into product values(product_num.nextval, '빨대 100개입',   '니니언즈유통', 1000, 100000);
 insert into product values(product_num.nextval, '컵 100개입',   '니니언즈유통', 10000, 100000);

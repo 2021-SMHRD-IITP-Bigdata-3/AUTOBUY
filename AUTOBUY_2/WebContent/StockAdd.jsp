@@ -109,6 +109,7 @@
 <body>
 <body>
 	<%
+		System.out.println("1");
 		MemberDTO info = (MemberDTO)session.getAttribute("info");
 		ProductDAO dao = new ProductDAO();
 		ArrayList<ProductDTO> list = new ArrayList<ProductDTO>();
