@@ -1,8 +1,11 @@
+<%@ page language="java" contentType="text/html; charset=EUC-KR"
+    pageEncoding="EUC-KR"%>
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="EUC-KR">
 <title>Insert title here</title>
+<head>>
 <style>
 	.container{
 	border:1px solid black;
@@ -78,9 +81,6 @@
 	height:84px;
 	border-top: 1px solid black;
 	}
-	.banner{
-	float:left;
-	}
 	.banner {
 	font-size:40px;
 	width:15%;
@@ -101,28 +101,24 @@
 	<div class="container" >
 		<div class="header">
 			<div class="title"><p>AUTOBUY</p></div>
-			<div class="logout"><a href="#">로그아웃</a></div>
-			<div class="mypage"><a href="#">마이페이지</a></div>			
+			<div class="logout"><a href="LogoutServiceCon">로그아웃</a></div>
+			<div class="mypage"><a href="UpdateServiceCon">마이페이지</a></div>			
 		</div>
 		<div class="list">
-			<div class="list_1 list_common"><p><a href="#">제품목록</a></p></div>
-			<div class="list_2 list_common"><p><a href="#">입고</a></p></div>
-			<div class="list_3 list_common"><p><a href="#">출고</a></p></div>
-			<div class="list_4 list_common"><p><a href="#">유통기한 관리</a></p></div>
-			<div class="list_5 list_common"><p><a href="#">거래처 관리</a></p></div>
-			<div class="list_6 list_common"><p><a href="#">대시보드</a></p></div>
-			<div class="list_7 list_common"><p><a href="#">조정</a></p></div>
-			<div class="list_8 list_common"><p><a href="#">제품 등록</a></p></div>
+			<div class="list_1 list_common"><p><a href="#">출고</a></p></div>
+			<div class="list_2 list_common"><p><a href="#">고객관리</a></p></div>
+			<div class="list_3 list_common"><p><a href="#">제품 등록</a></p></div>
 		</div>
 		<div class="content">
-			<div class="small_title"><p>제품목록</p></div>
+			<div class="small_title"><p>출고</p></div>
 		</div>
 		<div class ="footer">
 			<div class="banner">AUTOBUY</div>
 			<div class="company">주)오도바이절<br>
 								대표 : 송김정정 / 사업자 등록 번호 : 000-00-00000<br>
 								광주광역시 남구 송암로60 광주CGI센터</div>
+		</div>
 	</div>
-</div>
+
 </body>
 </html>

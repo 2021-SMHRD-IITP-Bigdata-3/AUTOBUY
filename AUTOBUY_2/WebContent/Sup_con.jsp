@@ -151,8 +151,7 @@
 			<div class="list_8 list_common"><p><a href="Product_reg.jsp">力前 殿废</a></p></div>
 		</div>
 		<div class="content">
-			<div class="small_title"><p>力前格废</p></div>
-			<div class="add"><p><a href="Main_2.jsp">+力前眠啊</a></p></div>
+			<div class="small_title"><p>芭贰贸 包府</p></div>
 			<div class="board">
 				<table class="list_board">
 					<tr>
@@ -169,7 +168,6 @@
 					</tr>		
 			 </table>
 			</div>
-			<input type="submit" value="力前 殿废">
 		</div>
 		<div class ="footer">
 			<div class="banner">AUTOBUY</div>
