@@ -33,7 +33,7 @@ font-size:20px;
 		<div class="small_title"><p>어서오세요. 자동발주 시스템 AUTO BUY입니다.</div>
 			<form action="LoginServiceCon" method="post">
 				<div class="ID">ID: <input type="text" placeholder="ID 입력하세요" name="id"></div>
-				<br><br>
+				<br>
 				<div class="PW">PW: <input type="text" placeholder="PW 입력하세요" name="pw"></div>
 				<input type="submit" value="Login">
 			</form>
