@@ -18,6 +18,15 @@ public class ProductDTO {
 		this.product_qntty = product_qntty;
 	}
 
+	
+	
+	public ProductDTO(String product_name, String supplier_name) {
+		super();
+		this.product_name = product_name;
+		this.supplier_name = supplier_name;
+	}
+
+
 
 	public int getProduct_num() {
 		return product_num;

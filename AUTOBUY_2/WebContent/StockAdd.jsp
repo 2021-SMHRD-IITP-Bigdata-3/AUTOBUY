@@ -111,11 +111,12 @@
 	<%
 		MemberDTO info = (MemberDTO)session.getAttribute("info");
 		ProductDAO dao = new ProductDAO();
+		String won = "원";
 		
 		ArrayList<ProductDTO> list = new ArrayList<ProductDTO>();
-						
-		if(info!=null){
-			list = dao.showProduct();
+		list = dao.showProduct();	
+		
+		if(list!=null){
 			System.out.println("성공");
 
 		}else{
@@ -148,19 +149,17 @@
 			<div class="small_title"><p>제품목록 > 제품등록</p></div>
 				<table>
 					<tr>
-						<td>사진</td>
 						<td>제품명</td>
+						<td>가격</td>
 						<td>거래처</td>
 					</tr>
 					<%for(int i = 0; i<list.size();i++){ %>
-											<tr>
-										
-												<td><%=list.get(i).getProduct_name() %></td>
-												<td><%=list.get(i).getProduct_price() %></td>
-												<td><%=list.get(i).getProduct_qntty() %></td>
-										
-											</tr>
-											<%} %>
+					<tr>
+						<td><%=list.get(i).getProduct_name() %></td>
+						<td><%=list.get(i).getProduct_price() %><%=won %></td>
+						<td><%=list.get(i).getSupplier_name() %></td>
+					</tr>
+					<%} %>
 				</table>
 			</div>
 		</div>

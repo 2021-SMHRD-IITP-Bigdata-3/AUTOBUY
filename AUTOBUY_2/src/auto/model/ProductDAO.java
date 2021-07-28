@@ -56,16 +56,15 @@ public class ProductDAO {
 			try {
 				conn();
 				String sql = "select * from product";
-				
 				psmt = conn.prepareStatement(sql);				
 				rs = psmt.executeQuery();
 				
 				while(rs.next()) {
-					int product_num = rs.getInt(1);
-					String product_name = rs.getString(2);
-					String supplier_name = rs.getString(3);
-					int product_price = rs.getInt(4);
-					int product_qntty = rs.getInt(5);	
+					int product_num = rs.getInt("product_num");
+					String product_name = rs.getString("product_name");
+					String supplier_name = rs.getString("supplier_name");
+					int product_price = rs.getInt("product_price");
+					int product_qntty = rs.getInt("product_qntty");	
 					ProductDTO dto = new ProductDTO(product_num, product_name, supplier_name, product_price, product_qntty);
 					list.add(dto);
 				}
@@ -76,9 +75,7 @@ public class ProductDAO {
 			}
 			return list;
 		}
-	
-			
-	
+						
 	
 
 }
