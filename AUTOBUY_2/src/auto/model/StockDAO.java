@@ -7,8 +7,8 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 
-public class ProductDAO {
-
+public class StockDAO {
+	
 	Connection conn = null;
 	PreparedStatement psmt = null;
 	ResultSet rs = null;
@@ -48,14 +48,14 @@ public class ProductDAO {
 		}
 	
 		
-		// 전체 제품 보여주기
-		public ArrayList<ProductDTO> showProduct() {	
+		// 카페 전체 제품 보여주기
+		public ArrayList<StockDTO> showStock() {	
 		
-			ArrayList<ProductDTO> list = new ArrayList<ProductDTO>();
+			ArrayList<StockDTO> list = new ArrayList<StockDTO>();
 			
 			try {
 				conn();
-				String sql = "select * from product";
+				String sql = "select * from stock";
 				psmt = conn.prepareStatement(sql);				
 				rs = psmt.executeQuery();
 				
@@ -63,9 +63,10 @@ public class ProductDAO {
 					int product_num = rs.getInt("product_num");
 					String product_name = rs.getString("product_name");
 					String supplier_name = rs.getString("supplier_name");
-					int product_price = rs.getInt("product_price");
-					int product_qntty = rs.getInt("product_qntty");	
-					ProductDTO dto = new ProductDTO(product_num, product_name, supplier_name, product_price, product_qntty);
+					int stock_qntty = rs.getInt("stock_qntty");
+					int minimum_qntty = rs.getInt("minimum_qntty");	
+					int standard_qntty = rs.getInt("standard_qntty");	
+					StockDTO dto = new StockDTO(product_num, product_name, supplier_name, stock_qntty, minimum_qntty, standard_qntty);
 					list.add(dto);
 				}
 			} catch (SQLException e) {
@@ -77,15 +78,14 @@ public class ProductDAO {
 		}
 		
 		
-		// 제품 하나씩 등록하는 메소드
-		public int registOneProduct(int product_num, String product_name, String supplier_name){		
+		// 재고 하나씩 삭제하는 메소드
+		public int deleteOneStock(int stock_num){		
+			
 			try {
 				conn();
-				String sql = "insert into stock(product_num, product_name, supplier_name) values(?, ?, ?)";
+				String sql = "delete from stock where product_num = ?";
 				psmt = conn.prepareStatement(sql);			
-				psmt.setInt(1, product_num);
-				psmt.setString(2, product_name);
-				psmt.setString(3, supplier_name);
+				psmt.setInt(1, stock_num);
 				cnt = psmt.executeUpdate();
 				
 			} catch (SQLException e) {
@@ -95,7 +95,8 @@ public class ProductDAO {
 			}			
 			return cnt;
 		}
-						
+	
+	
 	
 
 }
