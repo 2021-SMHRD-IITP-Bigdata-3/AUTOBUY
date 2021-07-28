@@ -109,21 +109,18 @@
 <body>
 <body>
 	<%
-		System.out.println("1");
 		MemberDTO info = (MemberDTO)session.getAttribute("info");
 		ProductDAO dao = new ProductDAO();
-		ArrayList<ProductDTO> list = new ArrayList<ProductDTO>();
 		
-		if(list!=null){
-			for(int i=0; i<list.size(); i++) {
-				System.out.println(list.get(i).getProduct_price());
-				System.out.println(list.get(i).getProduct_name());
-				System.out.println(list.get(i).getSupplier_name());	
-			}
+		ArrayList<ProductDTO> list = new ArrayList<ProductDTO>();
+						
+		if(info!=null){
+			list = dao.showProduct();
+			System.out.println("성공");
+
 		}else{
-				System.out.println("실패");
-			}									
-	
+			System.out.println("실패");
+		}
 	%>
 
 	<div class="container" >
@@ -155,11 +152,15 @@
 						<td>제품명</td>
 						<td>거래처</td>
 					</tr>
-					<tr>
-						<td><%=list.get(0).getProduct_price()%></td>
-						<td><%=list.get(0).getProduct_name()%></td>
-						<td><%=list.get(0).getSupplier_name()%></td>	
-					</tr>
+					<%for(int i = 0; i<list.size();i++){ %>
+											<tr>
+										
+												<td><%=list.get(i).getProduct_name() %></td>
+												<td><%=list.get(i).getProduct_price() %></td>
+												<td><%=list.get(i).getProduct_qntty() %></td>
+										
+											</tr>
+											<%} %>
 				</table>
 			</div>
 		</div>
@@ -169,7 +170,7 @@
 								대표 : 송김정정 | 사업자 등록 번호 : 000-00-00000<br>
 								광주광역시 남구 송암로60 광주CGI센터</div>
 		</div>
-	</div>
+	
 
 </body>
 

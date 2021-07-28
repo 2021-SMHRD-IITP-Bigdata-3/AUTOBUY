@@ -9,7 +9,7 @@ supplier_id varchar2(20) primary key,
 supplier_pw varchar2(20) not null,
 supplier_name varchar2(20) not null,
 supplier_regist  varchar2(20) not null,
-mannager varchar2(20) not null,
+supplier_mng varchar2(20) not null,
 supplier_tel varchar2(20) not null,
 supplier_email varchar2(20) not null,
 supplier_address varchar2(20) not null

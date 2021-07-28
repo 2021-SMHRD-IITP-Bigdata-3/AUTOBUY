@@ -1,6 +1,5 @@
 package auto.model;
 
-
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
@@ -67,13 +66,12 @@ public class ProductDAO {
 					String supplier_name = rs.getString(3);
 					int product_price = rs.getInt(4);
 					int product_qntty = rs.getInt(5);	
-					
 					ProductDTO dto = new ProductDTO(product_num, product_name, supplier_name, product_price, product_qntty);
-					list.add(dto);					
+					list.add(dto);
 				}
 			} catch (SQLException e) {
 				e.printStackTrace();
-			} finally {
+			} finally {	
 				close();
 			}
 			return list;
