@@ -138,7 +138,7 @@
 				</div>
 			<%} %>					
 			<div class="logout"><a href="LogoutServiceCon">로그아웃</a></div>
-			<div class="mypage"><a href="Update.jsp">마이페이지</a></div>			
+			<div class="mypage"><a href="Update.jsp"><img src="img/mypage.png" height="40px" width="40px"></a></div>			
 		</div>
 		<div class="list">
 			<div class="list_1 list_common"><p><a href="Main.jsp">제품목록</a></p></div>
@@ -152,7 +152,7 @@
 		</div>
 		<div class="content">
 			<div class="small_title"><p>제품목록</p></div>
-			<div class="add"><p><a href="Main_2.jsp">+제품추가</a></p></div>
+			<div class="add"><p><a href="StockAdd.jsp">+제품추가</a></p></div>
 			<div class="board">
 				<table class="list_board">
 					<tr>

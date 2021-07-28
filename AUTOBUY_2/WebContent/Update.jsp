@@ -1,3 +1,4 @@
+<%@page import="auto.model.MemberDTO"%>
 <%@ page language="java" contentType="text/html; charset=EUC-KR"
     pageEncoding="EUC-KR"%>
 <!DOCTYPE html>
@@ -31,26 +32,60 @@ float:left;
 </style>
 </head>
 <body>
+<%
+		MemberDTO info = (MemberDTO)session.getAttribute("info");
+%>
 <div class="container">
-	<div class="mypage_title">마이 페이지</div>
+	<div class="mypage_title">마이 페이지 </div>
 	<form action="UpdateServiceCon" method="post">
-	<p>대표자명</p><div class="CEO"><input type="text" name="ceo"></div>
-	<p>닉네임</p><div class="nickname"><input type="text" name="nickname"></div>
-	<p>비밀번호</p><div class="pw"><input type="text" name="pw"></div>
-	<p>이메일</p><div class="email"><input type="text" name="email"></div>
-	<p>상호명</p><div class="store_name"><input type="text" name="store_name"></div>
-	<p>사업자 등록번호</p><div class="sup_num"><input type="text" name="sup_num"></div>
-	<p>주소</p><div class="address"><input type="text" name="address"></div>
-	<p>전화번호</p><div class="tel"><input type="text" name="tel"></div>
+	<p>대표자명</p><div class="CEO">
+			<%if(info != null){%>
+					<h4><%= info.getCeo() %><h4>
+			<%} %></div>
+	<p>닉네임</p><div class="nickname">
+			<%if(info != null){%>
+					<h4><%= info.getCustomer_id() %><h4>
+
+			<%} %>
+			</div>
+	<p>비밀번호</p><div class="pw">
+			<%if(info != null){%>
+					<h4><%= info.getCustomer_pw() %><h4>
+			<%} %>	
+			</div>
+			
+	<p>이메일</p><div class="email">
+			<%if(info != null){%>
+					<h4><%= info.getEmail() %><h4>
+			<%} %>
+			</div>
+	<p>상호명</p><div class="store_name">
+			<%if(info != null){%>
+					<h4><%= info.getStore_name() %><h4>
+			<%} %>
+			</div>
+	<p>사업자 등록번호</p><div class="sup_num">
+			<%if(info != null){%>
+					<h4><%= info.getCustomer_regist_number() %><h4>
+			<%} %>
+			</div>
+	<p>주소</p><div class="address">
+			<%if(info != null){%>
+					<h4><%= info.getAddress() %><h4>
+			<%} %>
+			</div>
+	<p>전화번호</p><div class="tel"
+			><%if(info != null){%>
+					<h4><%= info.getTel() %><h4>
+			<%} %>
+			</div>
 	<p>결제 방식</p>		
-	 		<select name="payment" class="payment" >
-			    <option value="choice">선택</option>
-			    <option value="bank_book">무통장 입금</option>
-			    <option value="card">카드 결제</option>
-			    <option value="phone">휴대폰 결제</option>
-	 		</select>
+	 		<%if(info != null){%>
+					<h4><%= info.getPayment() %><h4>
+			<%} %>
 	 		<br><br>
-	 	<input type="submit" value="수정 완료">
+	 	<button><a href="Update_change.jsp">수정</a></button>
+	 	<button><a href="Main.jsp">수정 완료</a></button>
 	</form>
 	
 </div>
