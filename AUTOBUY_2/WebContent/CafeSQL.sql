@@ -11,17 +11,17 @@ start with 1
 
 create table menu(
 menu_num number(20),
-menu_name varchar2(20),
+menu_name varchar2(40),
 price number(20),
 constraint menu_pk primary key(menu_num, menu_name)
 )
 -- ¸Ş´º Å×ÀÌºí °ª »ğÀÔ--
-insert into menu values(menu_num.nextval, 'americano',3000);
-insert into menu values(menu_num.nextval, 'latte',4000);
-insert into menu values(menu_num.nextval, 'vanila_latte',4500);
-insert into menu values(menu_num.nextval, 'caramel_macchiato',5000);
-insert into menu values(menu_num.nextval, 'lemon_ade',4500);
-insert into menu values(menu_num.nextval, 'peppermint_tea',4500);
+insert into menu values(menu_num.nextval, '¾Æ¸Ş¸®Ä«³ë',3000);
+insert into menu values(menu_num.nextval, 'Ä«ÆäÄ«Æä¶ó¶¼',4000);
+insert into menu values(menu_num.nextval, '¹Ù´Ò¶ó¶ó¶¼',4500);
+insert into menu values(menu_num.nextval, 'Ä«¶ó¸á¸¶³¢¾ß¶Ç',5000);
+insert into menu values(menu_num.nextval, '·¹¸ó¿¡ÀÌµå',4500);
+insert into menu values(menu_num.nextval, 'ÆäÆÛ¹ÎÆ®Æ¼',4500);
 
 select * from menu;
 
@@ -42,15 +42,16 @@ on delete cascade
 
 select * from sale
 
+insert into sale values(1, '¾Æ¸Ş¸®Ä«³ë', 101, sysdate);
 --------------------------------------------------------------------
 
 -- ¿øÀÚÀç Å×ÀÌºí »ı¼º -----------------------------------------------------
 
 create table material(
 menu_num number(20) not null,
-menu_name varchar2(20) not null,
+menu_name varchar2(50) not null,
 product_num number(20) not null,
-product_name varchar2(20) not null,
+product_name varchar2(50) not null,
 necessary_qntty number(20,3) not null,
 
 constraint material_fk foreign key(menu_num, menu_name)
@@ -61,54 +62,54 @@ on delete cascade
 select * from material
 
 '¾Æ¸Ş¸®Ä«³ë' 
-insert into material values(1, 'americano', 101, '»¡´ë 100°³ÀÔ', 0.01);
-insert into material values(1, 'americano', 102, 'ÄÅ 100°³ÀÔ', 0.01);
-insert into material values(1, 'americano', 103, 'ÄÅ¶Ñ²± 100°³ÀÔ', 0.01);
-insert into material values(1, 'americano', 104, 'ÄÅÈ¦´õ 100°³ÀÔ', 0.01);
-insert into material values(1, 'americano', 105, '¿øµÎ 1kg', 0.02);
+insert into material values(1, '¾Æ¸Ş¸®Ä«³ë', 101, '»¡´ë 100°³ÀÔ', 0.01);
+insert into material values(1, '¾Æ¸Ş¸®Ä«³ë', 102, 'ÄÅ 100°³ÀÔ', 0.01);
+insert into material values(1, '¾Æ¸Ş¸®Ä«³ë', 103, 'ÄÅ¶Ñ²± 100°³ÀÔ', 0.01);
+insert into material values(1, '¾Æ¸Ş¸®Ä«³ë', 104, 'ÄÅÈ¦´õ 100°³ÀÔ', 0.01);
+insert into material values(1, '¾Æ¸Ş¸®Ä«³ë', 105, '¿øµÎ 1kg', 0.02);
 
-'¶ó¶¼'
-insert into material values(2, 'latte', 101, '»¡´ë 100°³ÀÔ', 0.01);
-insert into material values(2, 'latte', 102, 'ÄÅ 100°³ÀÔ', 0.01);
-insert into material values(2, 'latte', 103, 'ÄÅ¶Ñ²± 100°³ÀÔ', 0.01);
-insert into material values(2, 'latte', 104, 'ÄÅÈ¦´õ 100°³ÀÔ', 0.01);
-insert into material values(2, 'latte', 105, '¿øµÎ 1kg', 0.02);
-insert into material values(2, 'latte', 106, '¿ìÀ¯ 1L', 0.2);
+'Ä«Æä¶ó¶¼'
+insert into material values(2, 'Ä«Æä¶ó¶¼', 101, '»¡´ë 100°³ÀÔ', 0.01);
+insert into material values(2, 'Ä«Æä¶ó¶¼', 102, 'ÄÅ 100°³ÀÔ', 0.01);
+insert into material values(2, 'Ä«Æä¶ó¶¼', 103, 'ÄÅ¶Ñ²± 100°³ÀÔ', 0.01);
+insert into material values(2, 'Ä«Æä¶ó¶¼', 104, 'ÄÅÈ¦´õ 100°³ÀÔ', 0.01);
+insert into material values(2, 'Ä«Æä¶ó¶¼', 105, '¿øµÎ 1kg', 0.02);
+insert into material values(2, 'Ä«Æä¶ó¶¼', 106, '¿ìÀ¯ 1L', 0.2);
 
 '¹Ù´Ò¶ó¶ó¶¼'
-insert into material values(3, 'vanila_latte', 101, '»¡´ë 100°³ÀÔ', 0.01);
-insert into material values(3, 'vanila_latte', 102, 'ÄÅ 100°³ÀÔ', 0.01);
-insert into material values(3, 'vanila_latte', 103, 'ÄÅ¶Ñ²± 100°³ÀÔ', 0.01);
-insert into material values(3, 'vanila_latte', 104, 'ÄÅÈ¦´õ 100°³ÀÔ', 0.01);
-insert into material values(3, 'vanila_latte', 105, '¿øµÎ 1kg', 0.02);
-insert into material values(3, 'vanila_latte', 106, '¿ìÀ¯ 1L', 0.2);
-insert into material values(3, 'vanila_latte', 110, '¹Ù´Ò¶ó½Ã·´ 1L', 0.02);
+insert into material values(3, '¹Ù´Ò¶ó¶ó¶¼', 101, '»¡´ë 100°³ÀÔ', 0.01);
+insert into material values(3, '¹Ù´Ò¶ó¶ó¶¼', 102, 'ÄÅ 100°³ÀÔ', 0.01);
+insert into material values(3, '¹Ù´Ò¶ó¶ó¶¼', 103, 'ÄÅ¶Ñ²± 100°³ÀÔ', 0.01);
+insert into material values(3, '¹Ù´Ò¶ó¶ó¶¼', 104, 'ÄÅÈ¦´õ 100°³ÀÔ', 0.01);
+insert into material values(3, '¹Ù´Ò¶ó¶ó¶¼', 105, '¿øµÎ 1kg', 0.02);
+insert into material values(3, '¹Ù´Ò¶ó¶ó¶¼', 106, '¿ìÀ¯ 1L', 0.2);
+insert into material values(3, '¹Ù´Ò¶ó¶ó¶¼', 110, '¹Ù´Ò¶ó½Ã·´ 1L', 0.02);
 
 'Ä«¶ó¸á¸¶³¢¾ß¶Ç'
-insert into material values(4, 'caramel_macchiato', 101, '»¡´ë 100°³ÀÔ', 0.01);
-insert into material values(4, 'caramel_macchiato', 102, 'ÄÅ 100°³ÀÔ', 0.01);
-insert into material values(4, 'caramel_macchiato', 103, 'ÄÅ¶Ñ²± 100°³ÀÔ', 0.01);
-insert into material values(4, 'caramel_macchiato', 104, 'ÄÅÈ¦´õ 100°³ÀÔ', 0.01);
-insert into material values(4, 'caramel_macchiato', 105, '¿øµÎ 1kg', 0.02);
-insert into material values(4, 'caramel_macchiato', 106, '¿ìÀ¯ 1L', 0.2);
-insert into material values(4, 'caramel_macchiato', 111, 'Ä«¶ó¸á½Ã·´ 1L', 0.02);
+insert into material values(4, 'Ä«¶ó¸á¸¶³¢¾ß¶Ç', 101, '»¡´ë 100°³ÀÔ', 0.01);
+insert into material values(4, 'Ä«¶ó¸á¸¶³¢¾ß¶Ç', 102, 'ÄÅ 100°³ÀÔ', 0.01);
+insert into material values(4, 'Ä«¶ó¸á¸¶³¢¾ß¶Ç', 103, 'ÄÅ¶Ñ²± 100°³ÀÔ', 0.01);
+insert into material values(4, 'Ä«¶ó¸á¸¶³¢¾ß¶Ç', 104, 'ÄÅÈ¦´õ 100°³ÀÔ', 0.01);
+insert into material values(4, 'Ä«¶ó¸á¸¶³¢¾ß¶Ç', 105, '¿øµÎ 1kg', 0.02);
+insert into material values(4, 'Ä«¶ó¸á¸¶³¢¾ß¶Ç', 106, '¿ìÀ¯ 1L', 0.2);
+insert into material values(4, 'Ä«¶ó¸á¸¶³¢¾ß¶Ç', 111, 'Ä«¶ó¸á½Ã·´ 1L', 0.02);
 
 
 '·¹¸ó¿¡ÀÌµå'
-insert into material values(5, 'lemon_ade', 107, 'Åº»ê¼ö 20°³ÀÔ', 0.5);
-insert into material values(5, 'lemon_ade', 110, '·¹¸ó½Ã·´ 1L ', 0.02);
-insert into material values(5, 'lemon_ade', 101, '»¡´ë 100°³ÀÔ', 0.01);
-insert into material values(5, 'lemon_ade', 102, 'ÄÅ 100°³ÀÔ', 0.01);
-insert into material values(5, 'lemon_ade', 103, 'ÄÅ¶Ñ²± 100°³ÀÔ', 0.01);
-insert into material values(5, 'lemon_ade', 104, 'ÄÅÈ¦´õ 100°³ÀÔ', 0.01);
+insert into material values(5, '·¹¸ó¿¡ÀÌµå', 107, 'Åº»ê¼ö 20°³ÀÔ', 0.5);
+insert into material values(5, '·¹¸ó¿¡ÀÌµå', 110, '·¹¸ó½Ã·´ 1L ', 0.02);
+insert into material values(5, '·¹¸ó¿¡ÀÌµå', 101, '»¡´ë 100°³ÀÔ', 0.01);
+insert into material values(5, '·¹¸ó¿¡ÀÌµå', 102, 'ÄÅ 100°³ÀÔ', 0.01);
+insert into material values(5, '·¹¸ó¿¡ÀÌµå', 103, 'ÄÅ¶Ñ²± 100°³ÀÔ', 0.01);
+insert into material values(5, '·¹¸ó¿¡ÀÌµå', 104, 'ÄÅÈ¦´õ 100°³ÀÔ', 0.01);
 
 
 'ÆäÆÛ¹ÎÆ® Æ¼'
-insert into material values(6, 'peppermint_tea', 111, 'ÆäÆÛ¹ÎÆ®Æ¼ 20°³ÀÔ', 0.5);
-insert into material values(6, 'peppermint_tea', 101, '»¡´ë 100°³ÀÔ', 0.01);
-insert into material values(6, 'peppermint_tea', 102, 'ÄÅ 100°³ÀÔ', 0.01);
-insert into material values(6, 'peppermint_tea', 103, 'ÄÅ¶Ñ²± 100°³ÀÔ', 0.01);
-insert into material values(6, 'peppermint_tea', 104, 'ÄÅÈ¦´õ 100°³ÀÔ', 0.01);
+insert into material values(6, 'ÆäÆÛ¹ÎÆ®Æ¼', 111, 'ÆäÆÛ¹ÎÆ®Æ¼ 20°³ÀÔ', 0.5);
+insert into material values(6, 'ÆäÆÛ¹ÎÆ®Æ¼', 101, '»¡´ë 100°³ÀÔ', 0.01);
+insert into material values(6, 'ÆäÆÛ¹ÎÆ®Æ¼', 102, 'ÄÅ 100°³ÀÔ', 0.01);
+insert into material values(6, 'ÆäÆÛ¹ÎÆ®Æ¼', 103, 'ÄÅ¶Ñ²± 100°³ÀÔ', 0.01);
+insert into material values(6, 'ÆäÆÛ¹ÎÆ®Æ¼', 104, 'ÄÅÈ¦´õ 100°³ÀÔ', 0.01);
 
 --------------------------------------------------------------------
 

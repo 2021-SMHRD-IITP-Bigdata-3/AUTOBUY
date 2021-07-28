@@ -32,7 +32,7 @@ public class POSPanel extends JPanel {
 	String[] ColName = { "메뉴", "수량", "가격" };
 	String[][] Data;
 	ArrayList<String> sold_name = new ArrayList<>();
-	ArrayList<String> sold_qntty = new ArrayList<>();
+	ArrayList<Integer> sold_qntty = new ArrayList<>();
 	int count = 1;
 	DefaultTableModel model = new DefaultTableModel(Data, ColName);
 	JTable table = new JTable(model);
@@ -156,7 +156,7 @@ public class POSPanel extends JPanel {
 				int menu_seq=0;
 				for (int i = 0; i < rowCont; i++) {
 					sold_name.add((String) table.getValueAt(i, 0));
-					sold_qntty.add((String) table.getValueAt(i, 1));
+					sold_qntty.add((Integer) table.getValueAt(i, 1));
 					if(sold_name.get(i)=="아메리카노") {
 						menu_seq = 1;
 					}else if(sold_name.get(i)=="카페라떼") {
@@ -171,9 +171,8 @@ public class POSPanel extends JPanel {
 						menu_seq = 6;
 					}
 					String name = sold_name.get(i);
-					String qntty = sold_qntty.get(i);
-					String sysdate = null;
-					PosDAO.insertSale(menu_seq, name, qntty, sysdate);
+					int qntty = sold_qntty.get(i);
+					PosDAO.insertSale(menu_seq, name, qntty);
 
 				}
 				System.out.println(sold_name);

@@ -49,16 +49,15 @@ public class PosDAO {
 				e.printStackTrace();
 			}
 		}
-		public static int insertSale(int menu_seq, String menu_name, String qntty, String sysdate) {
+		public static int insertSale(int menu_seq, String menu_name, int qntty) {
 			
 				try {
 					conn();
-					String sql = "insert into sale values(?,?,?,?)";
+					String sql = "insert into sale values(?,?,?,sysdate)";
 					psmt = conn.prepareStatement(sql);
-					psmt.setLong(1, menu_seq);
+					psmt.setInt(1, menu_seq);
 					psmt.setString(2, menu_name);
-					psmt.setString(3, qntty);
-					psmt.setString(4, sysdate);
+					psmt.setInt(3, qntty);
 					cnt = psmt.executeUpdate(); 
 				} catch (Exception e) {
 					// TODO Auto-generated catch block
