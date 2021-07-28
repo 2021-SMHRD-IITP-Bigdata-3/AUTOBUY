@@ -139,7 +139,7 @@
 				</div>
 			<%} %>					
 			<div class="logout"><a href="LogoutServiceCon">로그아웃</a></div>
-			<div class="mypage"><a href="Update.jsp">마이페이지</a></div>			
+			<div class="mypage"><a href="Update.jsp"><img src="img/mypage.png" height="40px" width="40px"></a></div>			
 		</div>
 		<div class="list">
 			<div class="list_1 list_common"><p><a href="Main.jsp">제품목록</a></p></div>
