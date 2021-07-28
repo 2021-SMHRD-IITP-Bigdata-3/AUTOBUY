@@ -214,16 +214,16 @@
                <tr>
                   <td>제품명</td>
                   <td>거래처</td>
-                  <td>삭제</td>
                   <td>수량</td>
+                  <td>삭제</td>
                </tr>
  			   
                <%for(int i = 0; i<stock_list.size();i++){ %>
 					<tr>
 						<td><%=stock_list.get(i).getProduct_name() %></td>
 						<td><%=stock_list.get(i).getSupplier_name() %></td>
-						<td><a href="DeleteOneStockServiceCon?stock_num=<%=stock_list.get(i).getProduct_num()%>"><input type="button" value ="삭제"></a></td>
-						<td><input type="number"  name = "stock_qntty" min="0" value="0"></td>
+						<td><input type="number"  name = "stock_qntty" min="0" value="0" size="10px" style="width:50px;"></td>
+						<td><a href="DeleteOneStockServiceCon?stock_num=<%=stock_list.get(i).getProduct_num()%>"><input type="button" value ="삭제"></a></td>				
 					</tr>
 				<%} %>	
             </table>
