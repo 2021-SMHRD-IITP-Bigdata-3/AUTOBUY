@@ -5,6 +5,8 @@ public class PosDTO {
 	private String menu_seq;
 	private String menu_name;
 	private String menu_price;
+	private int sold_qntty;
+	private int sold_date;
 	
 	public PosDTO(String menu_seq, String menu_name, String menu_price) {
 		super();
