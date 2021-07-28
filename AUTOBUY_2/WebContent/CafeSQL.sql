@@ -123,6 +123,8 @@ stock_qntty number(20),
 minimum_qntty number(20),
 standard_qntty number(20),
 
+constraint stock_pk primary key(product_num, product_name),
+
 constraint stock_fk foreign key(product_num, product_name)
 references product(product_num, product_name)
 on delete cascade

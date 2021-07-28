@@ -223,7 +223,7 @@
 						<td><%=stock_list.get(i).getProduct_name() %></td>
 						<td><%=stock_list.get(i).getSupplier_name() %></td>
 						<td><a href="DeleteOneStockServiceCon?stock_num=<%=stock_list.get(i).getProduct_num()%>"><input type="button" value ="»èÁ¦"></a></td>
-						<td><input type="number" name = "stock_qntty"></td>
+						<td><input type="number"  name = "stock_qntty" min="0" value="0"></td>
 					</tr>
 				<%} %>	
             </table>
