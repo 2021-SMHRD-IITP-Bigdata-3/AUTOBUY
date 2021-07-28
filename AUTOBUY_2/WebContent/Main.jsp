@@ -1,3 +1,6 @@
+<%@page import="auto.model.StockDTO"%>
+<%@page import="java.util.ArrayList"%>
+<%@page import="auto.model.StockDAO"%>
 <%@page import="auto.model.MemberDTO"%>
 <%@ page language="java" contentType="text/html; charset=EUC-KR"
     pageEncoding="EUC-KR"%>
@@ -127,6 +130,10 @@
 <body>
 	<%
 		MemberDTO info = (MemberDTO)session.getAttribute("info");
+	
+		StockDAO stock_dao = new StockDAO();		
+		ArrayList<StockDTO> stock_list = new ArrayList<StockDTO>();
+		stock_list = stock_dao.showStock();
 	%>
 
 	<div class="container" >
@@ -152,7 +159,7 @@
 		</div>
 		<div class="content">
 			<div class="small_title"><p>제품목록</p></div>
-			<div class="add"><p><a href="StockAdd.jsp">+제품추가</a></p></div>
+			<div class="add"><p><a href="StockAdd.jsp">+제품 등록/삭제</a></p></div>
 			<div class="board">
 				<table class="list_board">
 					<tr>
@@ -161,15 +168,16 @@
 						<td>재고량</td>
 						<td>거래처</td>
 					</tr>
-					<tr>
-						<td></td>
-						<td></td>
-						<td></td>
-						<td></td>
-					</tr>		
+	               <%for(int i = 0; i<stock_list.size();i++){ %>
+						<tr>
+							<td>
+							<td><%=stock_list.get(i).getProduct_name() %></td>
+							<td><%=stock_list.get(i).getStock_qntty() %></td>
+							<td><%=stock_list.get(i).getSupplier_name() %></td>
+						</tr>
+					<%} %>	
 			 </table>
 			</div>
-			<input type="submit" value="제품 등록">
 		</div>
 		<div class ="footer">
 			<div class="banner">AUTOBUY</div>
