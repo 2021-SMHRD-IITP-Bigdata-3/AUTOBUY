@@ -117,8 +117,8 @@ insert into material values(6, '∆‰∆€πŒ∆Æ∆º', 104, 'ƒ≈»¶¥ı 100∞≥¿‘', 0.01);
 
 create table stock(
 product_num number(20) not null,
-product_name varchar2(20) not null,
-supplier_name varchar2(20) not null,
+product_name varchar2(50) not null,
+supplier_name varchar2(50) not null,
 stock_qntty number(20),
 minimum_qntty number(20),
 standard_qntty number(20),
@@ -132,7 +132,7 @@ select * from stock
 
 insert into stock values(101, 'ª°¥Î 100∞≥¿‘', 'æ¡Ó¿Ø≈Î', null, null, null);
 
-
+update stock set stock_qntty = 100 where product_num=101
 --------------------------------------------------------------------
 
 )

@@ -9,6 +9,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import auto.model.ProductDAO;
 import auto.model.ProductDTO;
@@ -18,7 +19,7 @@ public class RegistOneProductServiceCon extends HttpServlet {
 	protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
 		int product_num = Integer.parseInt(request.getParameter("product_num"));
-		
+
 		ProductDAO product_dao = new ProductDAO();
 		ArrayList<ProductDTO> product_list = new ArrayList<ProductDTO>();
 		product_list = product_dao.showProduct();
@@ -40,7 +41,6 @@ public class RegistOneProductServiceCon extends HttpServlet {
 			System.out.println("개별 제품 등록 실패");
 		}
 		response.sendRedirect("StockAdd.jsp");
-		
 		
 		
 	}

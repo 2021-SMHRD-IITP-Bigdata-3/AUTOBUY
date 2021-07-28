@@ -77,6 +77,9 @@ public class ProductDAO {
 		}
 		
 		
+		
+		
+		
 		// 제품 하나씩 등록하는 메소드
 		public int registOneProduct(int product_num, String product_name, String supplier_name){		
 			try {

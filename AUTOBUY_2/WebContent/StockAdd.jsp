@@ -203,25 +203,34 @@
 						<td><a href="RegistOneProductServiceCon?product_num=<%=product_list.get(i).getProduct_num()%>"><input type="button" value ="등록"></a></td>
 					</tr>
 					<%} %>
+			
 				</table>
+			
 			</div>
+			<form action="RegistProductQnttyServiceCon" method="post">
 			<div class="board2">
+			
             <table class="list_board2">
                <tr>
-                  <td>재품명</td>
+                  <td>제품명</td>
                   <td>거래처</td>
                   <td>삭제</td>
+                  <td>수량</td>
                </tr>
+ 			   
                <%for(int i = 0; i<stock_list.size();i++){ %>
 					<tr>
 						<td><%=stock_list.get(i).getProduct_name() %></td>
 						<td><%=stock_list.get(i).getSupplier_name() %></td>
 						<td><a href="DeleteOneStockServiceCon?stock_num=<%=stock_list.get(i).getProduct_num()%>"><input type="button" value ="삭제"></a></td>
+						<td><input type="number" name = "stock_qntty"></td>
 					</tr>
-				<%} %>
+				<%} %>	
             </table>
+            
         	</div>		
-        	<div><p><a href="Main.jsp">등록 완료</a></p></div>	
+        	<div><input type="submit" value="등록완료" ></div>	
+        	</form>
 		</div>
 		<div class ="footer">
 			<div class="banner">AUTOBUY</div>

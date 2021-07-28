@@ -1,6 +1,7 @@
 drop table supplier;
 drop table product;
 drop sequence product_num;
+delete from PRODUCT;
 
 --거래처 테이블 생성---------------------------------------------
 create table supplier(
@@ -57,5 +58,7 @@ insert into product values(product_num.nextval, '청포도시럽 1L ',   '니니언즈유�
 insert into product values(product_num.nextval, '자몽시럽 1L ',   '니니언즈유통', 10000, 100000);
 insert into product values(product_num.nextval, '페퍼민트티 20개입',   '니니언즈유통', 4000, 100000);
 insert into product values(product_num.nextval, '캐모마일티 20개입',   '니니언즈유통', 4000, 100000);
+
+
 
 --------------------------------------------------------------------

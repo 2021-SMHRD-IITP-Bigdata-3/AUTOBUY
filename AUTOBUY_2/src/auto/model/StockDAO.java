@@ -55,7 +55,7 @@ public class StockDAO {
 			
 			try {
 				conn();
-				String sql = "select * from stock";
+				String sql = "select * from stock order by product_num";
 				psmt = conn.prepareStatement(sql);				
 				rs = psmt.executeQuery();
 				
@@ -96,7 +96,24 @@ public class StockDAO {
 			return cnt;
 		}
 	
-	
+		// 재고 수량 등록하는 메소드
+		public int registQntty(int product_num, int stock_qntty) {
+			
+			try {
+				conn();
+				String sql = "update stock set stock_qntty = ? where product_num=? ";
+				psmt = conn.prepareStatement(sql);
+				psmt.setInt(1,stock_qntty);
+				psmt.setInt(2,product_num);
+				cnt = psmt.executeUpdate();
+				
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
+			return cnt;
+			
+			
+		}
 	
 
 }
