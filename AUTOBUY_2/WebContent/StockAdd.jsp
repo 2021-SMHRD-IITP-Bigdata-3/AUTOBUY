@@ -71,12 +71,13 @@
 					</tr>
 					<%for(int i = 0; i<product_list.size();i++){ %>
 					<tr>
-						<td width = ""><%=product_list.get(i).getProduct_name() %></td>
-						<td><%=product_list.get(i).getProduct_price() %><%=won %></td>
-						<td><%=product_list.get(i).getSupplier_name() %></td>
-						<td><a href="RegistOneProductServiceCon?product_num=<%=product_list.get(i).getProduct_num()%>"><input type="button" value ="등록"></a></td>
+						<td style = "width: 40%"><%=product_list.get(i).getProduct_name() %></td>
+						<td style = "width: 18%"><%=product_list.get(i).getProduct_price() %><%=won %></td>
+						<td style = "width: 27%"><%=product_list.get(i).getSupplier_name() %></td>
+						<td style = "width: 15%"><a href="RegistOneProductServiceCon?product_num=<%=product_list.get(i).getProduct_num()%>"><input type="button" value ="등록"></a></td>
 					</tr>
 					<%} %>
+				
 			
 				</table>
 			
@@ -96,14 +97,18 @@
 					<tr>
 						<td><%=stock_list.get(i).getProduct_name() %></td>
 						<td><%=stock_list.get(i).getSupplier_name() %></td>
-						<td><input type="number"  name = "stock_qntty" min="0" value="0" size="10px" style="width:50px;"></td>
+						<td><input type="number"  name = "stock_qntty" min="0" value=<%=stock_list.get(i).getStock_qntty() %> size="10px" style="width:50px;"></td>
 						<td><a href="DeleteOneStockServiceCon?stock_num=<%=stock_list.get(i).getProduct_num()%>"><input type="button" value ="삭제"></a></td>				
 					</tr>
-				<%} %>	
+				<%} %>
+				
+				<tr>
+					<td colspan="4" align="right"><input type="submit" value="등록완료" ></td>
+				</tr>
             </table>
             
         	</div>		
-        	<div><input type="submit" value="등록완료" ></div>	
+        	<div></div>	
         	</form>
 		</div>
 		<div class ="footer">

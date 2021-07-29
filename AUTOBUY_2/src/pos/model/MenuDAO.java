@@ -1,16 +1,14 @@
 package pos.model;
 
 import java.sql.Connection;
-import java.sql.Date;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.time.LocalDate;
 import java.util.ArrayList;
-
 import auto.model.StockDTO;
-public class PosDAO {
+
+public class MenuDAO {
 	
 	static Connection conn = null;
 	static PreparedStatement psmt = null;
@@ -18,6 +16,7 @@ public class PosDAO {
 	static PosDTO info  = null;
 	static int cnt = 0;	
 	static boolean ok = false;
+	MenuDTO dto = null;
 	
 		public static void conn() {
 		try {
@@ -71,37 +70,35 @@ public class PosDAO {
 				}	
 				return cnt;
 		}
+	
+	
+	public MenuDTO menuInfo(String menu) {
 		
-		public ArrayList<PosDTO> showSale() {
+		
+		try {
+			conn();
+			String sql = "select * from menu where menu_name = ?";
+			psmt = conn.prepareStatement(sql);
+			psmt.setString(1, menu);
+			rs = psmt.executeQuery();
 			
-			ArrayList<PosDTO> list = new ArrayList<PosDTO>();
 			
-			try {
-				conn();
-				String sql = "select * from sale order by menu_num";
-				psmt = conn.prepareStatement(sql);				
-				rs = psmt.executeQuery();
+			if(rs.next()) {
+				int menu_num = rs.getInt("menu_num");
+				String menu_name = rs.getString("menu_name");
+				int price = rs.getInt("price");
 				
-				while(rs.next()) {
-					int menu_num = rs.getInt("menu_num");
-					String menu_name = rs.getString("menu_name");
-					int sold_qntty = rs.getInt("sold_qntty");
-					String sold_date = rs.getString("sold_date");	
-					PosDTO dto = new PosDTO(menu_num, menu_name, sold_qntty, sold_date);
-					list.add(dto);
-				}
-			} catch (SQLException e) {
-				e.printStackTrace();
-			} finally {	
-				close();
+				dto = new MenuDTO(menu_num, menu_name, price);	
 			}
-			return list;
+		
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			close();
 		}
-			
+		return dto;
 		
 		
+	}
+
 }
-				
-
-
-

@@ -34,8 +34,10 @@ public class POSPanel extends JPanel {
 	ArrayList<String> sold_name = new ArrayList<>();
 	ArrayList<Integer> sold_qntty = new ArrayList<>();
 	int count = 1;
+	int j = 0;
 	DefaultTableModel model = new DefaultTableModel(Data, ColName);
 	JTable table = new JTable(model);
+	PosDAO dao = new PosDAO();
 
 	class Screen extends JPanel {
 		Screen() {
@@ -95,17 +97,55 @@ public class POSPanel extends JPanel {
 		add(sbtn);
 
 		// 메뉴
+		
 		for (int i = 0; i < MBtn.length; i++) {
+			System.out.println(MBtn.length);
+			count = 1;
+			j=0;
 			final int index = i;
 			MBtn[i].addActionListener(new ActionListener() {
 				@Override
 				public void actionPerformed(ActionEvent e) {
 					JButton MBtn = (JButton) e.getSource();
 					DefaultTableModel m = (DefaultTableModel) table.getModel();
-					m.addRow(new Object[] { menu[index], count, price[index] });
+					
+					int rowCount = m.getRowCount();
+					
+					System.out.println(rowCount);
+												
+					m.addRow(new Object[] { menu[index], count, price[index]*count });
+					
+					System.out.println( m.getRowCount());
+					
+					
+					
+						count++;
+									
+					if(j>0) {
+						if(menu[index] == m.getValueAt(j-1, 0)) {
+							m.removeRow(j-1);
+						
+							System.out.println(m.getValueAt(j-1, 0));
+						
+							j=m.getRowCount()-1;
+											
+						}			
+					}
+					j++;
+					
+					if(m.getRowCount()>1) {
+						if(rowCount!=m.getRowCount()) {
+								count=1;
+							}
+					
+					
+					}
+					
 				}
 			});
 		}
+					
+					
 		// 쿠폰
 		SBtn[0].addActionListener(new ActionListener() {
 

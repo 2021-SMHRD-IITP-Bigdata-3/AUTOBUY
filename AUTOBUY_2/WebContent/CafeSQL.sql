@@ -3,6 +3,7 @@ drop table menu;
 drop table sale;
 drop table material;
 drop table stock;
+delete from SALE 
 
 -- 메뉴 테이블 생성 ----------------------------------------------------
 create sequence menu_num
@@ -17,7 +18,7 @@ constraint menu_pk primary key(menu_num, menu_name)
 )
 -- 메뉴 테이블 값 삽입--
 insert into menu values(menu_num.nextval, '아메리카노',3000);
-insert into menu values(menu_num.nextval, '카페카페라떼',4000);
+insert into menu values(menu_num.nextval, '카페라떼',4000);
 insert into menu values(menu_num.nextval, '바닐라라떼',4500);
 insert into menu values(menu_num.nextval, '카라멜마끼야또',5000);
 insert into menu values(menu_num.nextval, '레몬에이드',4500);
@@ -40,7 +41,7 @@ references menu(menu_num, menu_name)
 on delete cascade
 )
 
-select * from sale
+select * from sale order by menu_num
 
 insert into sale values(1, '아메리카노', 101, sysdate);
 --------------------------------------------------------------------

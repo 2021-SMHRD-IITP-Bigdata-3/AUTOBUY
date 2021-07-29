@@ -34,6 +34,7 @@ public class RegistProductQnttyServiceCon extends HttpServlet {
 			int stock_qntty = Integer.parseInt(list[i]);
 			int product_num = stock_list.get(i).getProduct_num();
 			cnt = dao.registQntty(product_num, stock_qntty);
+			System.out.printf("%d번 제품이 %d개 등록 되었습니다\n",product_num,stock_qntty);
 			
 		}
 		
