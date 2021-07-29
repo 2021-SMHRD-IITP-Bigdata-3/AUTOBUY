@@ -9,7 +9,7 @@
 <head>
 <meta charset="EUC-KR">
 <title>Insert title here</title>
-	<link rel="stylesheet" href="assest/css/Main.css">
+<link rel="stylesheet" href="assest/css/Main.css">
 </head>
 <body>
 	<%
@@ -43,7 +43,7 @@
 		</div>
 		<form action="ModifyLimitQnttyServiceCon" method="post">
 		<div class="content">
-			<div class="small_title"><p>조정</p></div>
+			<div class="small_title"><p>조정 > 재고 수량 수정</p></div>
 			<div class="board">
 				<table class="list_board">
 					<tr>
@@ -51,8 +51,8 @@
 						<td>제품명</td>
 						<td>거래처</td>
 						<td>재고량</td>
-						<td>기준 재고량</td>
-						<td>최소 재고량</td>
+						<td>기준 재고량<br></td>
+						<td>최소 재고량<br></td>		
 					</tr>
 					<tr>
 		            <%for(int i = 0; i<stock_list.size();i++){ %>
@@ -60,13 +60,13 @@
 							<td>사진</td>
 							<td><%=stock_list.get(i).getProduct_name() %></td>
 							<td><%=stock_list.get(i).getSupplier_name() %></td>
-							<td><%=stock_list.get(i).getStock_qntty() %></td>
-							<td><%=stock_list.get(i).getStandard_qntty() %></td>	
-							<td><%=stock_list.get(i).getMinimum_qntty() %></td>
+							<td><%=stock_list.get(i).getStock_qntty() %></td>										
+							<td><input type="number"  name = "standard_qntty" min="0" value=<%=stock_list.get(i).getStandard_qntty() %> placeholder="<%=stock_list.get(i).getStandard_qntty() %>"size="10px" style="width:50px;"></td>
+							<td><input type="number"  name = "minimum_qntty" min="0" value=<%=stock_list.get(i).getMinimum_qntty() %> placeholder="<%=stock_list.get(i).getMinimum_qntty() %>" size="10px" style="width:50px;"></td>			
 						</tr>
 					<%} %>
 					<tr>
-					<td><a href="LimitModify.jsp">수정</a></td>
+					<td colspan="4" align="right"><input type="submit" value="수정완료" ></td>
 					</tr>
 			 </table>
 			</div>
