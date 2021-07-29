@@ -113,6 +113,26 @@ public class StockDAO {
 			return cnt;
 				
 		}
+		
+		// 기준/최소 재고 수량 등록하는 메소드
+		public int modifyQntty(int product_num, int standard_qntty, int minimum_qntty) {
+			
+			try {
+				conn();
+				String sql = "update stock set standard_qntty = ?, minimum_qntty = ? where product_num = ? ";
+				
+				psmt = conn.prepareStatement(sql);
+				psmt.setInt(1,standard_qntty);
+				psmt.setInt(2,minimum_qntty);
+				psmt.setInt(3,product_num);
+				cnt = psmt.executeUpdate();
+				
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
+			return cnt;
+				
+		}
 	
 
 }

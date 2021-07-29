@@ -16,7 +16,7 @@ supplier_email varchar2(20) not null,
 supplier_address varchar2(20) not null
 )
 
-insert into supplier values('´Ï´Ï¾ğÁîÀ¯Åë', '1022-110', '±è¿µ¹Î','01012341234', 'y11@naver.com', '±¤ÁÖ ±¤¿ª½Ã');
+insert into supplier values('11', '11', '´Ï´Ï¾ğÁîÀ¯Åë', '1022-110', '±è¿µ¹Î','01012341234', 'y11@naver.com', '±¤ÁÖ ±¤¿ª½Ã');
 insert into supplier values('¾ğÁîÀ¯Åë', '1022-110', '±è¿µ¹Î','01012341234', 'y11@naver.com', '±¤ÁÖ ±¤¿ª½Ã');
 
 

@@ -1,16 +1,21 @@
 package pos.view;
 
 import java.awt.Color;
+import java.awt.Desktop;
 import java.awt.Font;
 import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.IOException;
+import java.net.URI;
+import java.net.URISyntaxException;
 import java.sql.Date;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.Calendar;
 
 import javax.swing.JButton;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JTable;
@@ -29,7 +34,7 @@ public class POSPanel extends JPanel {
 
 	JTextField tf = new JTextField(30);
 	JButton[] SBtn = new JButton[4];
-	String[] Str = { "쿠폰", "선택취소", "전체취소", "결제" };
+	String[] Str = { "마감", "선택취소", "전체취소", "결제" };
 	String[] ColName = { "메뉴", "수량", "가격" };
 	String[][] Data;
 	ArrayList<String> sold_name = new ArrayList<>();
@@ -137,16 +142,25 @@ public class POSPanel extends JPanel {
 		}
 					
 					
-		// 쿠폰
-		SBtn[0].addActionListener(new ActionListener() {
+		// 마감
+				SBtn[0].addActionListener(new ActionListener() {
 
-			@Override
-			public void actionPerformed(ActionEvent e) {
-				JButton MBtn = (JButton) e.getSource();
-				table.setValueAt(0, table.getSelectedRow(), 2);
-			}
-		});
-
+					@Override
+					public void actionPerformed(ActionEvent e) {
+						JButton MBtn = (JButton) e.getSource();
+						if (Desktop.isDesktopSupported()) {
+				            Desktop desktop = Desktop.getDesktop();
+				            try {
+				                URI uri = new URI("http://localhost:8081/AUTOBUY_2/Closing.jsp");
+				                desktop.browse(uri);
+				            } catch (IOException ex) {
+				                ex.printStackTrace();
+				            } catch (URISyntaxException ex) {
+				                ex.printStackTrace();
+				            }
+				    }
+					}
+				});
 		// 선택취소
 		SBtn[1].addActionListener(new ActionListener() {
 			@Override
@@ -229,9 +243,11 @@ public class POSPanel extends JPanel {
 					count[i] = 0;
 				}
 				
+
 				while(m.getRowCount()>0) {	
 					m.removeRow(0);				
 				}
+
 			}
 
 		});
