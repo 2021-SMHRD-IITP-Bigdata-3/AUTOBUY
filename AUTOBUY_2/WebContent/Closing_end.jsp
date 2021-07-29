@@ -25,7 +25,7 @@ font-family: 돋움체;
 주문번호 : AB00001<br>
 주문금액 : 1000000원<br>
 안전하게 배송해드릴게요 !<br>
-<td><a href = "Main.jsp"><img src = "img/confirm.png" width=150" height="80"></a></td>
+<td><a href = "Main.jsp"><img src = "img/confirm.png" width="150" height="80"></a></td>
 </div>
 </body>
 </html>
