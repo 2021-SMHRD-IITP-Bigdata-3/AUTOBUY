@@ -1,0 +1,70 @@
+@charset "EUC-KR";
+.container{
+	width : 660px;
+	height : 440px;
+	border: 0.7px solid #accbee;
+
+}
+.menu{
+	width : 67%;
+	height: 100%;
+	background-color: white;
+	float : left;
+}
+
+.card{
+	width:100px;
+	height: 100px;
+	line-height: 100px;
+	background-color: #e7f0fd;
+	color : black;
+	font-size: 13px;
+	text-align: center;
+	float : left;
+	margin: 5px 5px;	
+}
+
+.bills{
+	height : 100%;	
+    font-size: 12px;
+	background-color: wihte;
+	text-align: center;
+}
+
+.bills1{
+	height : 55%;	
+    font-size: 12px;
+	background-color: wihte;
+	text-align: center;
+	border-top: 2px solid #e7f0fd;
+}
+.bills2{
+	height : 20%;
+	width : 33%;
+    font-size: 12px;
+	background-color: wihte;
+	text-align: center;
+	border-top: 2px solid #e7f0fd;
+}
+ button {
+	background-color:white;
+		
+	color: #29323c;
+	font-size: 13px; 
+	text-align: center;
+		
+	height: 40px;
+	width: 75px;
+	border: 0.7px solid #accbee;
+	border-radius: 10%;
+	align-content: center; 
+	margin: 10px 3px;	 	
+	
+	flex-wrap : wrap;
+}
+
+button:hover {
+  background-color: #cfd9df;
+  border: 0.7px solid #6991c7;
+  color: #29323c;
+} 
