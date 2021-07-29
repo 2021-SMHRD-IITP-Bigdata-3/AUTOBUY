@@ -6,30 +6,7 @@
 <head>
 <meta charset="EUC-KR">
 <title>Insert title here</title>
-<style type="text/css">
-.container{
-width:1400px;
-text-align:center;
-}
-.mypage_title{
-text-align:center;
-font-size:40px;
-margin-top:100px;
-height:100px;
-}
-.container p{
-margin-left:612px;
-margin-right:612px;
-text-align:left;
-line-height:0px;
-font-size:17px
-}
-.money{
-margin-left:612px;
-margin-right:612px;
-float:left;
-}
-</style>
+	<link rel="stylesheet" href="assest/css/Update.css">
 </head>
 <body>
 <%

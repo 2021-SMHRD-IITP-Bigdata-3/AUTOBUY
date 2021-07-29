@@ -32,7 +32,7 @@ select * from menu;
 
 create table sale(
 menu_num number(20),
-menu_name varchar2(20),
+menu_name varchar2(50),
 sold_qntty number(20),
 sold_date date,
 
@@ -44,6 +44,8 @@ on delete cascade
 select * from sale order by menu_num
 
 insert into sale values(1, '아메리카노', 101, sysdate);
+
+select * from sale where menu_num = 1
 --------------------------------------------------------------------
 
 -- 원자재 테이블 생성 -----------------------------------------------------
@@ -61,6 +63,7 @@ on delete cascade
 )
 
 select * from material
+select * from material where menu_num = 1 order by product_num
 
 '아메리카노' 
 insert into material values(1, '아메리카노', 101, '빨대 100개입', 0.01);
