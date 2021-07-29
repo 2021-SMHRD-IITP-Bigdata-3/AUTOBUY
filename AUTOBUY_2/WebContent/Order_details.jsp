@@ -6,149 +6,7 @@
 <head>
 <meta charset="EUC-KR">
 <title>Insert title here</title>
-<style>
-	.container{
-	border:1px solid black;
-	width:1400px;
-	}
-	.header{
-	float:left;
-	width:1400px;
-	height:84px;	
-	border-bottom:1px solid black;
-	}
-	.title{
-	width:25%;
-	height:6%;
-	}
-	.header p{
-	width:300px;
-	height:64px;
-	font-size:50px;
-	color:blue;
-	margin-left:30px;
-	margin-top:5px;
-	}
-	.mypage{
-	float:right;
-	font-size:25px;
-	margin-right:30px;
-	margin-top:12px;
-	}
-	.logout{
-	float:right;
-	font-size:25px;
-	margin-right:30px;
-	margin-top:12px;
-	}
-	.store_name{
-	float:right;
-	font-size:25px;
-	margin-right:30px;
-	margin-top:12px;
-	}
-	.list{
-	float:left;
-	width:280px;
-	height:1232px;
-	border-right: 1px solid black;
-	}
-	.list_common{
-	width:80%;
-	height:8%;
-	float:left;
-	margin:21.5px;
-	background-color: #bdf;
-  	border:2px solid #1bf;
-  	border-radius: 15px;
-	}
-	.list p {
-   	width:180px;
-   	margin:0 auto;
-   	margin-top:25px;
-   	text-align:center;
-   	font-size:28px;
-    }
-	.content{
-	float:left;
-	width:1118px;
-	height:1232px;
-	}
-	.small_title{
-	height:64px;
-   	font-size:28px;
-   	margin-left:50px;
-   	margin-right:50px;
-	}
-	.small_title p{
-	width:500px;
-	margin-right:30px;
-	}
-	.add{
-	float:right;
-	font-size:25px;
-	margin-right:30px;
-	margin-top:12px;
-	}
-	.footer{
-	clear:both;
-	width:1400px;
-	height:84px;
-	border-top: 1px solid black;
-	}
-	.banner {
-	font-size:40px;
-	width:15%;
-	float:left;
-	margin-top:12px;
-	margin-left:35px;
-	}
-	.company{
-	font-size:18px;
-	width:50%;
-	float:left;
-	margin-top:3px;
-	line-height:27px;
-	}
-	.list_board{
-	margin-top:30px;
-	float:top;
-	width:1018px;
-	text-align:center;
-	font-size:25px;
-	
-	}
-	.board{
-	border-top: 1px solid black;
-	margin-top:40px;
-	margin-left:50px;
-   	margin-right:50px;
-	}
-	.order_num{
-	margin-left:50px;
-	font-size:20px;
-	}
-	.cafe_name{
-	float:left;
-	margin-top:10px;
-	margin-left:50px;
-	}
-	.all_money{
-	margin-top:10px;
-	margin-left:30px;
-	float:left;
-	}
-	.order_date{
-	margin-top:10px;
-	margin-left:30px;
-	float:left;
-	}
-	.Delivery_status{
-	margin-top:10px;
-	margin-left:30px;
-	float:left;
-	}
-	</style>
+	<link rel="stylesheet" href="assest/css/Order_details.css">
 </head>
 <body>
 	<%
@@ -167,9 +25,9 @@
 			<div class="mypage"><a href="Update.jsp"><img src="img/mypage.png" height="40px" width="40px"></a></div>			
 		</div>
 		<div class="list">
-			<div class="list_1 list_common"><p><a href="Main_Sup.jsp">출고</a></p></div>
-			<div class="list_2 list_common"><p><a href="#">고객관리</a></p></div>
-			<div class="list_3 list_common"><p><a href="#">제품 등록</a></p></div>
+			<div class=""><p><a href="Main_Sup.jsp"><img src="img/out.png" height="30px" width="30px">출고</a></p></div>
+			<div class=""><p><a href="#"><img src="img/sup.png" height="30px" width="30px">고객관리</a></p></div>
+			<div class=""><p><a href="#"><img src="img/product.png" height="40px" width="40px">제품 등록</a></p></div>
 		</div>
 		<div class="content">
 			<div class="small_title"><p> 출고 > 주문 상세</p></div>

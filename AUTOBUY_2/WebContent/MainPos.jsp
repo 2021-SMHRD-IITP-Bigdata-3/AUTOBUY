@@ -13,8 +13,6 @@
 	border: 0.7px solid #accbee;
 
 }
-
-
 .menu{
 	width : 67%;
 	height: 100%;
