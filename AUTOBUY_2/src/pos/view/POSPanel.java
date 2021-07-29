@@ -15,6 +15,7 @@ import java.util.ArrayList;
 import java.util.Calendar;
 
 import javax.swing.JButton;
+import javax.swing.JDialog;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
@@ -147,17 +148,25 @@ public class POSPanel extends JPanel {
 
 					@Override
 					public void actionPerformed(ActionEvent e) {
+						
 						JButton MBtn = (JButton) e.getSource();
 						if (Desktop.isDesktopSupported()) {
 				            Desktop desktop = Desktop.getDesktop();
-				            try {
-				                URI uri = new URI("http://localhost:8081/AUTOBUY_2/Closing.jsp");
-				                desktop.browse(uri);
-				            } catch (IOException ex) {
-				                ex.printStackTrace();
-				            } catch (URISyntaxException ex) {
-				                ex.printStackTrace();
+				            int cnt = JOptionPane.showConfirmDialog(null, "발주 페이지로 이동하시겠습니까?", "", JOptionPane.YES_NO_OPTION);
+				            if(cnt==0){
+				            	try {
+				            		
+				            		URI uri = new URI("http://localhost:8081/AUTOBUY_2/Closing.jsp");
+				            		desktop.browse(uri);
+				            	} catch (IOException ex) {
+				            		ex.printStackTrace();
+				            	} catch (URISyntaxException ex) {
+				            		ex.printStackTrace();
+				            	}
 				            }
+				            
+				            
+				            
 				    }
 					}
 				});
