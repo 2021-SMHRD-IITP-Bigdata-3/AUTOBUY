@@ -45,21 +45,12 @@
 	height:1232px;
 	border-right: 1px solid black;
 	}
-	.list_common{
-	width:80%;
-	height:8%;
-	float:left;
-	margin:21.5px;
-	background-color: #bdf;
-  	border:2px solid #1bf;
-  	border-radius: 15px;
-	}
 	.list p {
    	width:180px;
    	margin:0 auto;
-   	margin-top:25px;
+   	margin-top:35px;
    	text-align:center;
-   	font-size:28px;
+   	font-size:20px;
     }
 	.content{
 	float:left;
@@ -107,32 +98,36 @@
 	float:top;
 	width:1018px;
 	text-align:center;
-	font-size:20px;
+	font-size:25px;
+	
 	}
 	.board{
-	border-top:1px solid black;
+	border-top: 1px solid black;
 	margin-top:40px;
 	margin-left:50px;
    	margin-right:50px;
 	}
-	.small{
-	font-size:10px;
-	}
-	.search{
-	float:left;
+	.order_num{
 	margin-left:50px;
-	margin-bottom:15px;
-	margin-right:15px;
+	font-size:20px;
 	}
-	.sub{
+	.cafe_name{
 	float:left;
-
+	margin-top:10px;
+	margin-left:50px;
 	}
-	.term{
-	float:left;
-	margin-left:180px;
-	}
-	.term p{
+	.all_money{
+	margin-top:10px;
+	margin-left:30px;
 	float:left;
 	}
+	.order_date{
+	margin-top:10px;
+	margin-left:30px;
+	float:left;
+	}
+	.Delivery_status{
+	margin-top:10px;
+	margin-left:30px;
+	float:left;
 	

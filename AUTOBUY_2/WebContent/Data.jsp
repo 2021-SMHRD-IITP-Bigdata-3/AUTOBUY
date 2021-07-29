@@ -25,14 +25,16 @@
 			<div class="mypage"><a href="Update.jsp"><img src="img/mypage.png" height="40px" width="40px"></a></div>			
 		</div>
 		<div class="list">
-			<div class="list_1 list_common"><p><a href="Main.jsp">제품목록</a></p></div>
-			<div class="list_2 list_common"><p><a href="Incoming.jsp">입고</a></p></div>
-			<div class="list_3 list_common"><p><a href="Outgoing.jsp">출고</a></p></div>
-			<div class="list_4 list_common"><p><a href="Shelf_life.jsp">유통기한 관리</a></p></div>
-			<div class="list_5 list_common"><p><a href="Sup_con.jsp">거래처 관리</a></p></div>
-			<div class="list_6 list_common"><p><a href="Data.jsp">대시보드</a></p></div>
-			<div class="list_7 list_common"><p><a href="Limit.jsp">조정</a></p></div>
-			<div class="list_8 list_common"><p><a href="Product_reg.jsp">제품 등록</a></p></div>
+			<div class="small_list">
+				<div class="main_p"><p><a href="Main.jsp"><img src="img/list_i.png" height="30px" width="30px">제품목록</a></p></div>
+				<div class="incoming"><p><a href="Incoming.jsp"><img src="img/in.png" height="30px" width="30px">입고</a></p></div>
+				<div class="outgoing"><p><a href="Outgoing.jsp"><img src="img/out.png" height="30px" width="30px">출고</a></p></div>
+				<div class="shelf"><p><a href="Shelf_life.jsp"><img src="img/shelf.png" height="30px" width="30px">유통기한 관리</a></p></div>
+				<div class="sup_con"><p><a href="Sup_con.jsp"><img src="img/sup.png" height="30px" width="30px">거래처 관리</a></p></div>
+				<div class="data"><p><a href="Data.jsp"><img src="img/chart.png" height="30px" width="30px">대시보드</a></p></div>
+				<div class="limit"><p><a href="Limit.jsp"><img src="img/li.png" height="30px" width="30px">조정</a></p></div>
+				<div class="product"><p><a href="Product_reg.jsp"><img src="img/product.png" height="30px" width="30px">수동발주</a></p></div>
+			</div>
 		</div>
 		<div class="content">
 			<div class="small_title"><p>대시보드</p></div>

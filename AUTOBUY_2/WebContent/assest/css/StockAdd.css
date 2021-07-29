@@ -45,22 +45,16 @@
    height:1232px;
    border-right: 1px solid black;
    }
-   .list_common{
-   width:80%;
-   height:8%;
-   float:left;
-   margin:21.5px;
-   background-color: #bdf;
-     border:2px solid #1bf;
-     border-radius: 15px;
-   }
+   .small_list{
+	margin-top:30px;
+	}
    .list p {
       width:180px;
       margin:0 auto;
       margin-top:25px;
       text-align:center;
-      font-size:28px;
-    }
+      font-size:20px;
+   }
    .content{
    float:left;
    width:1118px;
