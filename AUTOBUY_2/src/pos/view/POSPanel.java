@@ -16,6 +16,7 @@ import javax.swing.JScrollPane;
 import javax.swing.JTable;
 import javax.swing.JTextField;
 import javax.swing.table.DefaultTableModel;
+import javax.xml.ws.Response;
 
 import pos.model.PosDAO;
 
@@ -33,7 +34,7 @@ public class POSPanel extends JPanel {
 	String[][] Data;
 	ArrayList<String> sold_name = new ArrayList<>();
 	ArrayList<Integer> sold_qntty = new ArrayList<>();
-	int count = 1;
+	int[] count = {0,0,0,0,0,0};
 	int j = 0;
 	DefaultTableModel model = new DefaultTableModel(Data, ColName);
 	JTable table = new JTable(model);
@@ -46,6 +47,7 @@ public class POSPanel extends JPanel {
 			table.setRowHeight(50);
 			table.getTableHeader().setFont(new Font("맑은고딕", Font.BOLD, 15));
 			add(new JScrollPane(table));
+		
 		}
 	}
 
@@ -100,7 +102,7 @@ public class POSPanel extends JPanel {
 		
 		for (int i = 0; i < MBtn.length; i++) {
 			System.out.println(MBtn.length);
-			count = 1;
+			//count = 1;
 			j=0;
 			final int index = i;
 			MBtn[i].addActionListener(new ActionListener() {
@@ -113,34 +115,23 @@ public class POSPanel extends JPanel {
 					
 					System.out.println(rowCount);
 												
-					m.addRow(new Object[] { menu[index], count, price[index]*count });
+					count[index]++;
+					
+					m.addRow(new Object[] { menu[index], count[index], price[index]*count[index] });
 					
 					System.out.println( m.getRowCount());
 					
 					
-					
-						count++;
-									
-					if(j>0) {
-						if(menu[index] == m.getValueAt(j-1, 0)) {
-							m.removeRow(j-1);
+					for(j=0; j<m.getRowCount()-1;j++){
+						if(menu[index].equals(m.getValueAt(j, 0))) {
+							System.out.println(m.getValueAt(j, 0));
+							m.removeRow(j);
 						
-							System.out.println(m.getValueAt(j-1, 0));
-						
-							j=m.getRowCount()-1;
+
 											
 						}			
 					}
-					j++;
-					
-					if(m.getRowCount()>1) {
-						if(rowCount!=m.getRowCount()) {
-								count=1;
-							}
-					
-					
-					}
-					
+		
 				}
 			});
 		}
@@ -162,8 +153,18 @@ public class POSPanel extends JPanel {
 			public void actionPerformed(ActionEvent e) {
 				JButton MBtn = (JButton) e.getSource();
 				DefaultTableModel m = (DefaultTableModel) table.getModel();
-
-				m.removeRow(table.getSelectedRow());
+				int row = table.getSelectedRow();
+				
+				for(int i=0; i<menu.length;i++) {
+					if(m.getValueAt(row, 0)==menu[i]) {
+						m.removeRow(row);
+						count[i] = 0;
+						
+						break;
+					}
+				}
+				
+				
 			}
 		});
 
@@ -176,6 +177,9 @@ public class POSPanel extends JPanel {
 
 				m.setRowCount(0);
 				tf.setText(String.valueOf(""));
+				for(int i=0; i<count.length; i++) {
+					count[i] = 0;
+				}
 			}
 		});
 
@@ -183,6 +187,7 @@ public class POSPanel extends JPanel {
 		SBtn[3].addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
+				DefaultTableModel m = (DefaultTableModel) table.getModel();
 				JButton MBtn = (JButton) e.getSource();
 				int rowCont = table.getRowCount();
 				int sum = 0;
@@ -215,11 +220,18 @@ public class POSPanel extends JPanel {
 					PosDAO.insertSale(menu_seq, name, qntty);
 
 				}
+				
 				System.out.println(sold_name);
 				System.out.println("판매된 금액은");
 				System.out.println(sum);
+				System.out.println(m.getRowCount());
+				for(int i=0; i<count.length; i++) {
+					count[i] = 0;
+				}
 				
-				
+				while(m.getRowCount()>0) {	
+					m.removeRow(0);				
+				}
 			}
 
 		});
