@@ -219,6 +219,10 @@ public class POSPanel extends JPanel {
 				System.out.println("판매된 금액은");
 				System.out.println(sum);
 				
+				DefaultTableModel m = (DefaultTableModel) table.getModel();
+				m.setRowCount(0);
+				tf.setText(String.valueOf(""));
+				
 				
 			}
 
