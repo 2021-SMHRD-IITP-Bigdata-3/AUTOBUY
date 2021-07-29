@@ -6,7 +6,6 @@
 <head>
 <meta charset="EUC-KR">
 <title>Insert title here</title>
-<head>>
 <style>
 	.container{
 	border:1px solid black;
@@ -116,39 +115,46 @@
 	float:top;
 	width:1018px;
 	text-align:center;
-	font-size:20px;
+	font-size:25px;
+	
 	}
 	.board{
-	border-top:1px solid black;
+	border-top: 1px solid black;
 	margin-top:40px;
 	margin-left:50px;
    	margin-right:50px;
 	}
-	.small{
-	font-size:10px;
-	}
-	.search{
-	float:left;
+	.order_num{
 	margin-left:50px;
-	margin-bottom:15px;
-	margin-right:15px;
+	font-size:20px;
 	}
-	.sub{
+	.cafe_name{
 	float:left;
-
+	margin-top:10px;
+	margin-left:50px;
 	}
-	.term{
+	.all_money{
+	margin-top:10px;
+	margin-left:30px;
 	float:left;
-	margin-left:180px;
 	}
-	.term p{
-	float:left;}
+	.order_date{
+	margin-top:10px;
+	margin-left:30px;
+	float:left;
+	}
+	.Delivery_status{
+	margin-top:10px;
+	margin-left:30px;
+	float:left;
+	}
 	</style>
 </head>
-<body> 
+<body>
 	<%
 		MemberDTO info = (MemberDTO)session.getAttribute("info");
 	%>
+
 	<div class="container" >
 		<div class="header">
 			<div class="title"><p>AUTOBUY</p></div>
@@ -156,9 +162,9 @@
 				<div class="store_name">
 					<h4><%= info.getCustomer_id() %>님<h4>
 				</div>
-			<%} %>
+			<%} %>					
 			<div class="logout"><a href="LogoutServiceCon">로그아웃</a></div>
-			<div class="mypage"><a href="UpdateServiceCon">마이페이지</a></div>			
+			<div class="mypage"><a href="Update.jsp"><img src="img/mypage.png" height="40px" width="40px"></a></div>			
 		</div>
 		<div class="list">
 			<div class="list_1 list_common"><p><a href="Main_Sup.jsp">출고</a></p></div>
@@ -166,43 +172,35 @@
 			<div class="list_3 list_common"><p><a href="#">제품 등록</a></p></div>
 		</div>
 		<div class="content">
-			<div class="small_title"><p>출고</p></div>
-				<form><div class="search"><img src="img/search.png" height="35px" width="35px" >   <input type="text" name="Searching"> <input type="submit" value="검색"></div></form>
-			<div class="sup">거래처
-					<select name="sub_search" class="sub_search" >
-						<option value="선택">선택</option>
-				    	<option value="언즈유통">언즈유통</option>
-				   		<option value="니니언즈유통">니니언즈유통</option>
-		 			</select>
-		 	</div>
-		 	<div class="term">기간별                     
-		 		시작일 : <input type="date" value="start" min="yyy" max="zzz">
-		 		
-		 		종료일 : <input type="date" value="end" min="yyy" max="zzz">
-		 	</div>
+			<div class="small_title"><p> 출고 > 주문 상세</p></div>
+			<div class="order_num">주문번호 </div>
+			<div class="cafe_name">카페상호  </div>
+			<div class="all_money">총 주문금액  </div>
+			<div class="order_date">주문일자</div>
+			<div class="Delivery_status">출고현황</div>
+			
 			<div class="board">
 				<table class="list_board">
 					<tr>
-						<td>주문번호</td>
-						<td>카페상호</td>
-						<td>발주일</td>
-						<td>출고현황<br><p class="small">(납품 예정/확인/완료)</p></td>
-						<td>주문상세</td>
+						<td>항목</td>
+						<td>제품명</td>
+						<td>수량</td>
+						<td>가격</td>
 					</tr>
 					<tr>
 						<td></td>
 						<td></td>
 						<td></td>
 						<td></td>
-						<td><button ><a href="Order_details.jsp">주문상세</a></button></td>
 					</tr>		
 			 </table>
 			</div>
+
 		</div>
 		<div class ="footer">
 			<div class="banner">AUTOBUY</div>
 			<div class="company">주)오도바이절<br>
-								대표 : 송김정정 / 사업자 등록 번호 : 000-00-00000<br>
+								대표 : 송김정정 | 사업자 등록 번호 : 000-00-00000<br>
 								광주광역시 남구 송암로60 광주CGI센터</div>
 		</div>
 	</div>
