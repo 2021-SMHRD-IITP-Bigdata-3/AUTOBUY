@@ -80,11 +80,11 @@ public class ProductDAO {
 		
 		
 		
-		// 제품 하나씩 등록하는 메소드
+		// 재고 하나씩 등록하는 메소드
 		public int registOneProduct(int product_num, String product_name, String supplier_name){		
 			try {
 				conn();
-				String sql = "insert into stock(product_num, product_name, supplier_name) values(?, ?, ?)";
+				String sql = "insert into stock values(?, ?, ?, 0, 0, 0)";
 				psmt = conn.prepareStatement(sql);			
 				psmt.setInt(1, product_num);
 				psmt.setString(2, product_name);
