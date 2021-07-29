@@ -55,7 +55,7 @@ public class ProductDAO {
 			
 			try {
 				conn();
-				String sql = "select * from product";
+				String sql = "select * from product order by product_num";
 				psmt = conn.prepareStatement(sql);				
 				rs = psmt.executeQuery();
 				
