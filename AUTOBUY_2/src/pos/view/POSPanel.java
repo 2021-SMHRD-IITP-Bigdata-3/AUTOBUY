@@ -27,6 +27,9 @@ import javax.xml.ws.Response;
 import pos.model.PosDAO;
 
 public class POSPanel extends JPanel {
+	
+	
+	
 	JButton[] MBtn = new JButton[6];
 
 	String[] menu = { "아메리카노", "카페라떼", "바닐라라떼", "카라멜마끼야또", "레몬에이드", "페퍼민트티" };
@@ -118,14 +121,10 @@ public class POSPanel extends JPanel {
 					DefaultTableModel m = (DefaultTableModel) table.getModel();
 					
 					int rowCount = m.getRowCount();
-					
-					System.out.println(rowCount);
-												
-					count[index]++;
+														
+					count[index]++;		
 					
 					m.addRow(new Object[] { menu[index], count[index], price[index]*count[index] });
-					
-					System.out.println( m.getRowCount());
 					
 					
 					for(j=0; j<m.getRowCount()-1;j++){
@@ -156,7 +155,7 @@ public class POSPanel extends JPanel {
 				            if(cnt==0){
 				            	try {
 				            		
-				            		URI uri = new URI("http://localhost:8081/AUTOBUY_2/Closing.jsp");
+				            		URI uri = new URI("http://localhost:8081/AUTOBUY_2/StockManageServiceCon");
 				            		desktop.browse(uri);
 				            	} catch (IOException ex) {
 				            		ex.printStackTrace();

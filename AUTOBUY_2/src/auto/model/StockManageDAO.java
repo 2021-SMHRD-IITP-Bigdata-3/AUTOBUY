@@ -57,7 +57,7 @@ public class StockManageDAO {
 				conn();
 				for(int i=1; i<=6;i++) {
 					int sum = 0;
-					String sql = "select * from sale where menu_num = ?";
+					String sql = "select menu_num, sold_qntty from sale where to_char(sold_date, 'yyyy-mm-dd')=to_char(sysdate, 'yyyy-mm-dd') and menu_num = ?";
 				
 					psmt = conn.prepareStatement(sql);
 					psmt.setInt(1, i);
@@ -113,7 +113,7 @@ public class StockManageDAO {
 		}
 		
 		// 재고량 조절하는 메소드
-		public int updateStock() {
+		public int updateStock(String customer_id) {
 			
 			ArrayList<Integer> sold_qntty = showSoldQntty();
 			ArrayList<MaterialInfoDTO> material_info = showMaterialInfoList();
@@ -123,13 +123,15 @@ public class StockManageDAO {
 				
 				for(int i=0; i<material_info.size(); i++) {
 					int k=1;
-					String sql = "update stock set stock_qntty=(stock_qntty-?) where product_num = ?";
+					String sql = "update stock set stock_qntty=(stock_qntty-?) where customer_id = ? and product_num = ?";
 					psmt = conn.prepareStatement(sql);
 					for(int j=0;j<6;j++) {
 						if(k==material_info.get(i).getMenu_num()) {
-							psmt.setDouble(1,material_info.get(i).getNecessary_qntty()*sold_qntty.get(j));
-							psmt.setInt(2, material_info.get(i).getProduct_num());
+							psmt.setDouble(1, material_info.get(i).getNecessary_qntty()*sold_qntty.get(j));
+							psmt.setString(2, customer_id);
+							psmt.setInt(3, material_info.get(i).getProduct_num());
 							cnt = psmt.executeUpdate();
+							cnt++;
 							}else {
 								k++;
 							}

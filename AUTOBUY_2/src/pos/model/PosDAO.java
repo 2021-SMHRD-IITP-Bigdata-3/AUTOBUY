@@ -72,13 +72,14 @@ public class PosDAO {
 				return cnt;
 		}
 		
+		// 당일 판매메뉴, 판매량을 리스트에 담는 메소드
 		public ArrayList<PosDTO> showSale() {
 			
 			ArrayList<PosDTO> list = new ArrayList<PosDTO>();
 			
 			try {
 				conn();
-				String sql = "select * from sale order by menu_num";
+				String sql = "select * from sale where to_char(sold_date, 'yyyy-mm-dd')=to_char(sysdate, 'yyyy-mm-dd')";
 				psmt = conn.prepareStatement(sql);				
 				rs = psmt.executeQuery();
 				

@@ -5,6 +5,18 @@ drop table material;
 drop table stock;
 delete from SALE 
 
+select * from menu;
+select * from stock;
+select * from material;
+select * from sale;
+
+select menu_num, sold_qntty from sale where to_char(sold_date, 'yyyy-mm-dd')=to_char(sysdate, 'yyyy-mm-dd')
+select menu_num, sold_qntty from sale where to_char(sold_date, 'yyyy-mm-dd')=to_char(sysdate, 'yyyy-mm-dd') and menu_num = 1
+
+
+
+출처: https://photo199.tistory.com/253 [마따호쉐프의 블로그]
+
 -- 메뉴 테이블 생성 ----------------------------------------------------
 create sequence menu_num
 increment by 1
@@ -161,6 +173,8 @@ update stock set stock_qntty = 100 where product_num=101
 update stock set stock_qntty = 1 where product_num=101
 
 update stock set stock_qntty=(stock_qntty-10) where product_num = 101;
+
+update stock set stock_qntty=(stock_qntty-10) where customer_id = 'ym1828' and product_num = 102
 --------------------------------------------------------------------
 
 )
