@@ -5,39 +5,45 @@
 <head>
 <meta charset="EUC-KR">
 <title>Insert title here</title>
-<style>
-.container{
-width:1400px;
-text-align:center;
-}
-.Login_title{
-margin-top:200px;
-font-size:50px;
-
-}
-.small_title{
-font-size:25px;
-text-align:center;
-}
-.ID{
-font-size:20px;
-}
-.PW{
-font-size:20px;
-}
-</style>
+<link rel="stylesheet" href="assest/css/Login.css">
 </head>
 <body>
-	<div class="container">
-		<div class="Login_title"><p>AUTO BUY</p></div>
-		<div class="small_title"><p>어서오세요. 자동발주 시스템 AUTO BUY입니다.</div>
+	<div class="main-container">
+		<div class="main-wrap">
+		<header>
+			<div class="sel-lang-wrap">
+				<select class="lang-select">
+					<option>한국어</option>
+					<option>English</option>
+				</select>
+			</div>
+			<div class="logo-wrap">
+				AUTO BUY
+			</div>
+		</header>
+		
+		<div class="login-input-section-wrap">
 			<form action="LoginServiceCon" method="post">
-				<div class="ID">ID: <input type="text" placeholder="ID 입력하세요" name="id"></div>
-				<br>
-				<div class="PW">PW: <input type="text" placeholder="PW 입력하세요" name="pw"></div>
-				<input type="submit" value="Login">
+			<div class="login-input-wrap">	
+				<input placeholder="ID" type="text" name="id">
+			</div>
+			<div class="login-input-wrap password-wrap">	
+				<input placeholder="Password" type="password"  name="pw">
+			</div>
+			<div class="login-button-wrap">
+				<button type="submit" value="Login">
+				<span>Login</span>
+				</button>
+			</div>
 			</form>
-		<div class="Sign_Up"><a href="JoinServiceCon"><p>회원가입</p></a></div>
+			<div class="Sign_Up"><a href="JoinServiceCon"><p>회원가입</p></a></div>
+		</div>
+		<footer>
+			<div class="copyright-wrap">
+			<span><strong>AUTOBUY</strong> 주)오도바이절 대표 : 송김정정 | 사업자 등록 번호 : 000-00-00000광주광역시 남구 송암로60 광주CGI센터</span>
+			</div>
+		</footer>
+		</div>
 	</div>
 </body>
 </html>
