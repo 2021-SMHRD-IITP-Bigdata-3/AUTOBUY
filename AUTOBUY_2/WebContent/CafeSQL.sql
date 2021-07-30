@@ -53,7 +53,7 @@ ALTER TABLE sale DROP PRIMARY KEY;
 
 
 
-select * from sale order by menu_num
+select * from sale order by menu_num;
 
 insert into sale values(1, '아메리카노', 101, sysdate);
 

@@ -17,7 +17,7 @@
 	
 		StockDAO stock_dao = new StockDAO();		
 		ArrayList<StockDTO> stock_list = new ArrayList<StockDTO>();
-		stock_list = stock_dao.showStock();
+		stock_list = stock_dao.showStock(info.getCustomer_id());
 	%>
 
 	<div class="container" >
