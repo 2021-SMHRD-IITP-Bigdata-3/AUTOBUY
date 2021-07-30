@@ -49,15 +49,15 @@ insert into product values(product_num.nextval, '우유 1L',   '니니언즈유통', 150
 insert into product values(product_num.nextval, '탄산수 20개입',   '니니언즈유통', 6000, 100000);
 insert into product values(product_num.nextval, '골드메달 애플주스 20개입',   '니니언즈유통', 25000, 100000);
 insert into product values(product_num.nextval, '소다워터 탄산수 20개입',   '니니언즈유통', 35000, 100000);
-insert into product values(product_num.nextval, '바닐라시럽 1L',   '니니언즈유통', 6000, 100000);
-insert into product values(product_num.nextval, '카라멜시럽 1L',   '니니언즈유통', 12000, 100000);
-insert into product values(product_num.nextval, '헤이즐럿시럽 1L',   '니니언즈유통', 12000, 100000);
-insert into product values(product_num.nextval, '슈가시럽 1L',   '니니언즈유통', 2000, 100000);
-insert into product values(product_num.nextval, '레몬시럽 1L ',   '니니언즈유통', 12000, 100000);
-insert into product values(product_num.nextval, '청포도시럽 1L ',   '니니언즈유통', 10000, 100000);
-insert into product values(product_num.nextval, '자몽시럽 1L ',   '니니언즈유통', 10000, 100000);
-insert into product values(product_num.nextval, '페퍼민트티 20개입',   '니니언즈유통', 4000, 100000);
-insert into product values(product_num.nextval, '캐모마일티 20개입',   '니니언즈유통', 4000, 100000);
+insert into product values(product_num.nextval, '바닐라시럽 1L',   '오도바이유통', 6000, 100000);
+insert into product values(product_num.nextval, '카라멜시럽 1L',   '오도바이유통', 12000, 100000);
+insert into product values(product_num.nextval, '헤이즐럿시럽 1L',   '오도바이유통', 12000, 100000);
+insert into product values(product_num.nextval, '슈가시럽 1L',   '오도바이유통', 2000, 100000);
+insert into product values(product_num.nextval, '레몬시럽 1L ',   '오도바이유통', 12000, 100000);
+insert into product values(product_num.nextval, '청포도시럽 1L ',   '오도바이유통', 10000, 100000);
+insert into product values(product_num.nextval, '자몽시럽 1L ',   '오도바이유통', 10000, 100000);
+insert into product values(product_num.nextval, '페퍼민트티 20개입',   '오도바이유통', 4000, 100000);
+insert into product values(product_num.nextval, '캐모마일티 20개입',   '오도바이유통', 4000, 100000);
 
 
 

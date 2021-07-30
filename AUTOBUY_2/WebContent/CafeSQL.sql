@@ -3,7 +3,7 @@ drop table menu;
 drop table sale;
 drop table material;
 drop table stock;
-delete from SALE 
+delete from SALE
 
 select * from menu;
 select * from stock;
@@ -13,9 +13,6 @@ select * from sale;
 select menu_num, sold_qntty from sale where to_char(sold_date, 'yyyy-mm-dd')=to_char(sysdate, 'yyyy-mm-dd')
 select menu_num, sold_qntty from sale where to_char(sold_date, 'yyyy-mm-dd')=to_char(sysdate, 'yyyy-mm-dd') and menu_num = 1
 
-
-
-출처: https://photo199.tistory.com/253 [마따호쉐프의 블로그]
 
 -- 메뉴 테이블 생성 ----------------------------------------------------
 create sequence menu_num

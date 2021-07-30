@@ -23,10 +23,9 @@ public class StockManageServiceCon extends HttpServlet {
 		StockManageDAO dao = new StockManageDAO();
 		
 		int cnt = dao.updateStock(info.getCustomer_id());
-		System.out.println(cnt);
 		
 		if(cnt>0) {
-			System.out.println("성공");
+			System.out.println("마감성공");
 			
 			response.sendRedirect("Main.jsp");
 		}else {
