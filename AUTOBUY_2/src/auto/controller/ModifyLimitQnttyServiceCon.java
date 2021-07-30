@@ -8,13 +8,18 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
+import auto.model.MemberDTO;
 import auto.model.StockDAO;
 import auto.model.StockDTO;
 
 @WebServlet("/ModifyLimitQnttyServiceCon")
 public class ModifyLimitQnttyServiceCon extends HttpServlet {
 	protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		
+		HttpSession session = request.getSession();
+		MemberDTO info = (MemberDTO)session.getAttribute("info");
 		
 		request.setCharacterEncoding("EUC-KR");
 		
@@ -24,8 +29,8 @@ public class ModifyLimitQnttyServiceCon extends HttpServlet {
 		StockDAO dao = new StockDAO();
 		ArrayList<StockDTO> stand_list = new ArrayList<StockDTO>();
 		ArrayList<StockDTO> min_list = new ArrayList<StockDTO>();
-		stand_list = dao.showStock();
-		min_list = dao.showStock();
+		stand_list = dao.showStock(info.getCustomer_id());
+		min_list = dao.showStock(info.getCustomer_id());
 		
 		int cnt = 0;
 		

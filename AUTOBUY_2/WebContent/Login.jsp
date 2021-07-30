@@ -28,7 +28,7 @@
 				<input placeholder="ID" type="text" name="id">
 			</div>
 			<div class="login-input-wrap password-wrap">	
-				<input placeholder="Password" type="text"  name="pw">
+				<input placeholder="Password" type="password"  name="pw">
 			</div>
 			<div class="login-button-wrap">
 				<button type="submit" value="Login">
@@ -36,7 +36,7 @@
 				</button>
 			</div>
 			</form>
-			<div class="Sign_Up"><a href="JoinServiceCon"><p>회원가입</p></a></div>
+			<div class="Sign_Up"><a href="Join.jsp"><p>회원가입</p></a></div>
 		</div>
 		<footer>
 			<div class="copyright-wrap">

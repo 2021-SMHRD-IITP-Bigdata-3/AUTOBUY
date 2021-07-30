@@ -134,19 +134,25 @@ insert into material values(6, 117, '페퍼민트티 20개입', 0.5);
 -- 카페 전체 재고--------------------------------------------------------
 
 create table stock(
-product_num number(20) primary key,
+customer_id varchar2(30) not null,
+product_num number(20) not null,
 product_name varchar2(50) not null,
 supplier_name varchar2(50) not null,
 stock_qntty number(20,3),
 minimum_qntty number(20),
 standard_qntty number(20),
 
+constraint id_fk foreign key(customer_id)
+references member(customer_id)
+on delete cascade,
 
 constraint stock_fk foreign key(product_num, product_name)
 references product(product_num, product_name)
 on delete cascade
 )
 
+delete from stock where product_num = 101 and customer_id = 'ym1828'
+select * from stock where customer_id = 'ym1828' order by customer_id, product_num
 select * from stock
 
 insert into stock values(101, '빨대 100개입', '언즈유통', null, null, null);

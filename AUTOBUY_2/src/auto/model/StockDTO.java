@@ -2,6 +2,7 @@ package auto.model;
 
 public class StockDTO {
 	
+	private String customer_id;
 	private int product_num;
 	private String product_name;
 	private String supplier_name;
@@ -10,8 +11,10 @@ public class StockDTO {
 	private int standard_qntty;
 	
 	
-	public StockDTO(int product_num, String product_name, String supplier_name, int stock_qntty, int minimum_qntty,
+	public StockDTO(String customer_id, int product_num, String product_name, String supplier_name, int stock_qntty, int minimum_qntty,
 					int standard_qntty) {
+		
+		this.customer_id = customer_id;
 		this.product_num = product_num;
 		this.product_name = product_name;
 		this.supplier_name = supplier_name;
@@ -19,6 +22,20 @@ public class StockDTO {
 		this.minimum_qntty = minimum_qntty;
 		this.standard_qntty = standard_qntty;
 	}
+	
+
+	public String getCustomer_id() {
+		return customer_id;
+	}
+
+
+
+
+	public void setCustomer_id(String customer_id) {
+		this.customer_id = customer_id;
+	}
+
+
 
 
 	public int getProduct_num() {

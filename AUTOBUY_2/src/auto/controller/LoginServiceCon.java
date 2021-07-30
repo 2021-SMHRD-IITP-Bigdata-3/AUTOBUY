@@ -34,9 +34,9 @@ public class LoginServiceCon extends HttpServlet {
 			HttpSession session = request.getSession();  
 			session.setAttribute("info", info);  
 			
-			if(info.getCustomer_type().equals("거래처")){
+			if(info.getCustomer_type().equals("점포점주")){
 				moveURL = "Main.jsp";	
-			}else if(info.getCustomer_type().equals("점포점주")){
+			}else if(info.getCustomer_type().equals("거래처")){
 				moveURL = "Main_Sup.jsp";	
 			}
 					
