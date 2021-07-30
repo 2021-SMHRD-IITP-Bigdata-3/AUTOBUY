@@ -30,35 +30,23 @@
 			<div class=""><p><a href="Sup_Product_reg.jsp">제품 등록</a></p></div>
 		</div>
 		<div class="content">
-			<div class="small_title"><p>출고</p></div>
-				<form><div class="search"><img src="img/search.png" height="35px" width="35px" >   <input type="text" name="Searching"> <input type="submit" value="검색"></div></form>
-			<div class="sup">거래처
-					<select name="sub_search" class="sub_search" >
-						<option value="선택">선택</option>
-				    	<option value="언즈유통">언즈유통</option>
-				   		<option value="니니언즈유통">니니언즈유통</option>
-		 			</select>
-		 	</div>
-		 	<div class="term">기간별                     
-		 		시작일 : <input type="date" value="start" min="yyy" max="zzz">
-		 		
-		 		종료일 : <input type="date" value="end" min="yyy" max="zzz">
-		 	</div>
+			<div class="small_title"><p>고객 관리</p></div>
 			<div class="board">
 				<table class="list_board">
 					<tr>
-						<td>주문번호</td>
-						<td>카페상호</td>
-						<td>발주일</td>
-						<td>출고현황<br><p class="small">(납품 예정/확인/완료)</p></td>
-						<td>주문상세</td>
+						<td>이름</td>
+						<td>전화번호</td>
+						<td>이메일</td>
+						<td>메모</td>
+						<td></td>
+						
 					</tr>
 					<tr>
 						<td></td>
 						<td></td>
 						<td></td>
 						<td></td>
-						<td><button ><a href="Order_details.jsp">주문상세</a></button></td>
+						<td><a href="Cus_management_change.jsp"><button>수정</button></a></td>
 					</tr>		
 			 </table>
 			</div>

@@ -30,38 +30,42 @@
 			<div class=""><p><a href="Sup_Product_reg.jsp">제품 등록</a></p></div>
 		</div>
 		<div class="content">
-			<div class="small_title"><p>출고</p></div>
-				<form><div class="search"><img src="img/search.png" height="35px" width="35px" >   <input type="text" name="Searching"> <input type="submit" value="검색"></div></form>
-			<div class="sup">거래처
-					<select name="sub_search" class="sub_search" >
-						<option value="선택">선택</option>
-				    	<option value="언즈유통">언즈유통</option>
-				   		<option value="니니언즈유통">니니언즈유통</option>
-		 			</select>
-		 	</div>
-		 	<div class="term">기간별                     
-		 		시작일 : <input type="date" value="start" min="yyy" max="zzz">
-		 		
-		 		종료일 : <input type="date" value="end" min="yyy" max="zzz">
-		 	</div>
+			<div class="small_title"><p>제품 등록</p></div>
+			<form action="#" method="post">
 			<div class="board">
 				<table class="list_board">
+				
 					<tr>
-						<td>주문번호</td>
-						<td>카페상호</td>
-						<td>발주일</td>
-						<td>출고현황<br><p class="small">(납품 예정/확인/완료)</p></td>
-						<td>주문상세</td>
+						<td>제품명</td>
+						<td><input type="text" id="size" name="product_N"></td>
 					</tr>
 					<tr>
-						<td></td>
-						<td></td>
-						<td></td>
-						<td></td>
-						<td><button ><a href="Order_details.jsp">주문상세</a></button></td>
-					</tr>		
+						<td>재고 수량</td>
+						<td><input type="text" id="size" name="Sup_stock"></td>
+					</tr>
+					<tr>
+						<td>초기 재고</td>
+						<td><input type="text" id="size" name="first_stock"></td>					
+					</tr>
+					<tr>
+						<td>종류</td>
+						<td>
+							<select name="kinds" class="kinds" >
+						    <option value="Expendables">소모품</option>
+						    <option value="dairy_product">유제품</option>
+						    <option value="beans">원두</option>
+				 			</select>
+				 		</td>					
+					</tr>
+					<tr>
+						<td>사진</td>
+						<td><input type="file" name="fileName" style="float:center;">		
 			 </table>
+			 <input type="submit" value="입력 완료" style="float:center">
+			 <a href="Sup_Product_reg.jsp"></a><button style="float:center">취소</button>
 			</div>
+			
+			</form>
 		</div>
 		<div class ="footer">
 			<div class="banner">AUTOBUY</div>
