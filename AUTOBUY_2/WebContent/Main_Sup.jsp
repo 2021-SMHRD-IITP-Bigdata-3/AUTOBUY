@@ -22,7 +22,7 @@
 				</div>
 			<%} %>
 			<div class="logout"><a href="LogoutServiceCon">로그아웃</a></div>
-			<div class="mypage"><a href="UpdateServiceCon">마이페이지</a></div>			
+			<div class="mypage"><a href="Update.jsp"><img src="img/mypage.png" height="40px" width="40px"></a></div>		
 		</div>
 		<div class="list">
 			<div class=""><p><a href="Main_Sup.jsp">출고</a></p></div>

@@ -25,9 +25,9 @@
 			<div class="mypage"><a href="Update.jsp"><img src="img/mypage.png" height="40px" width="40px"></a></div>			
 		</div>
 		<div class="list">
-			<div class=""><p><a href="Main_Sup.jsp"><img src="img/out.png" height="30px" width="30px">출고</a></p></div>
-			<div class=""><p><a href="#"><img src="img/sup.png" height="30px" width="30px">고객관리</a></p></div>
-			<div class=""><p><a href="#"><img src="img/product.png" height="40px" width="40px">제품 등록</a></p></div>
+			<div class=""><p><a href="Main_Sup.jsp">출고</a></p></div>
+			<div class=""><p><a href="Cus_management.jsp">고객관리</a></p></div>
+			<div class=""><p><a href="Sup_Product_reg.jsp">제품 등록</a></p></div>
 		</div>
 		<div class="content">
 			<div class="small_title"><p> 출고 > 주문 상세</p></div>
