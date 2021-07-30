@@ -31,10 +31,11 @@ public class UpdateServiceCon extends HttpServlet {
 		// 현재 내가 로그인한 이메일 가지고 오기
 		HttpSession session = request.getSession();
 		MemberDTO info = (MemberDTO)session.getAttribute("info");
-		String id = info.getCustomer_id();		
+		String id = info.getCustomer_id();	
+		String customer_type = info.getCustomer_type();
 		
 		// 로그인정보가 담겨있는 info변수에 수정 할 pw, tel,addr로 덮어씌우기
-		info = new MemberDTO(id, pw, nickname, store_name, sup_num, address, ceo, tel, email, payment);
+		info = new MemberDTO(id, pw, nickname, customer_type, store_name, sup_num, address, ceo, tel, email, payment);
 		
 		MemberDAO dao = new MemberDAO();
 		int cnt = dao.update(info);

@@ -25,7 +25,7 @@ public class LoginServiceCon extends HttpServlet {
 		
 		MemberDAO dao = new MemberDAO();
 		MemberDTO info = dao.login(id, pw);
-		
+				
 		
 		String moveURL = "";
 		
@@ -33,7 +33,13 @@ public class LoginServiceCon extends HttpServlet {
 			System.out.println("로그인 성공");
 			HttpSession session = request.getSession();  
 			session.setAttribute("info", info);  
-			moveURL = "Main.jsp";			
+			
+			if(info.getCustomer_type().equals("거래처")){
+				moveURL = "Main.jsp";	
+			}else if(info.getCustomer_type().equals("점포점주")){
+				moveURL = "Main_Sup.jsp";	
+			}
+					
 		}else {
 			System.out.println("로그인 실패");
 			moveURL = "Login.jsp";

@@ -53,12 +53,13 @@ public class MemberDAO {
 		public int join(MemberDTO dto) {
 			try {
 				conn();
-				String sql = "insert into member(customer_id, customer_pw, nickName) values(?,?,?)";
+				String sql = "insert into member(customer_id, customer_pw, nickName, customer_type) values(?,?,?,?)";
 				psmt = conn.prepareStatement(sql);
 				
 				psmt.setString(1, dto.getCustomer_id());
 				psmt.setString(2, dto.getCustomer_pw());
 				psmt.setString(3, dto.getNickName());
+				psmt.setString(4, dto.getCustomer_type());
 				
 				cnt = psmt.executeUpdate();
 				
@@ -85,15 +86,16 @@ public class MemberDAO {
 					String customer_id = rs.getString(1);
 					String customer_pw = rs.getString(2);
 					String nickName = rs.getString(3);
-					String store_name = rs.getString(4);
-					String customer_regist_number = rs.getString(5);
-					String address = rs.getString(6);
-					String ceo = rs.getString(7);
-					String tel = rs.getString(8);
-					String email = rs.getString(9);
-					String payment = rs.getString(10);
+					String customer_type = rs.getString(4);
+					String store_name = rs.getString(5);
+					String customer_regist_number = rs.getString(6);
+					String address = rs.getString(7);
+					String ceo = rs.getString(8);
+					String tel = rs.getString(9);
+					String email = rs.getString(10);
+					String payment = rs.getString(11);
 					
-					info = new MemberDTO(customer_id, customer_pw, nickName, store_name, customer_regist_number, address, ceo, tel, email, payment);
+					info = new MemberDTO(customer_id, customer_pw, nickName, customer_type, store_name, customer_regist_number, address, ceo, tel, email, payment);
 				}
 		
 			} catch(SQLException e) {

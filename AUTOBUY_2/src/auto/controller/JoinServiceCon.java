@@ -20,12 +20,14 @@ public class JoinServiceCon extends HttpServlet {
 		String id = request.getParameter("id");
 		String pw = request.getParameter("pw");
 		String nickname = request.getParameter("nickname");
+		String customer_type = request.getParameter("Choice");
 		
 		System.out.println("id : " + id);
 		System.out.println("pw : " + pw);
 		System.out.println("nickname : " + nickname);
+		System.out.println("customer_type : " + customer_type);
 		
-		MemberDTO dto = new MemberDTO(id, pw, nickname);
+		MemberDTO dto = new MemberDTO(id, pw, nickname, customer_type);
 		MemberDAO dao = new MemberDAO();
 		int cnt = dao.join(dto);
 		

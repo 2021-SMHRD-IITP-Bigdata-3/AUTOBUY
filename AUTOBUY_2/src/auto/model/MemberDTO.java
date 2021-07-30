@@ -4,6 +4,7 @@ public class MemberDTO {
 	private String customer_id;
 	private String customer_pw;
 	private String nickName;
+	private String customer_type;
 	private String store_name;
 	private String customer_regist_number;
 	private String address;
@@ -12,12 +13,14 @@ public class MemberDTO {
 	private String email;
 	private String payment;
 	
-	public MemberDTO(String customer_id, String customer_pw, String nickName, String store_name,
+
+	public MemberDTO(String customer_id, String customer_pw, String nickName, String customer_type, String store_name,
 			String customer_regist_number, String address, String ceo, String tel, String email, String payment) {
 		super();
 		this.customer_id = customer_id;
 		this.customer_pw = customer_pw;
 		this.nickName = nickName;
+		this.customer_type = customer_type;
 		this.store_name = store_name;
 		this.customer_regist_number = customer_regist_number;
 		this.address = address;
@@ -26,18 +29,16 @@ public class MemberDTO {
 		this.email = email;
 		this.payment = payment;
 	}
-	
-	
 
-	public MemberDTO(String customer_id, String customer_pw, String nickName) {
+	public MemberDTO(String customer_id, String customer_pw, String nickName, String customer_type) {
 		super();
 		this.customer_id = customer_id;
 		this.customer_pw = customer_pw;
 		this.nickName = nickName;
+		this.customer_type = customer_type;
 	}
 
-
-
+	
 	public String getCustomer_id() {
 		return customer_id;
 	}
@@ -60,6 +61,14 @@ public class MemberDTO {
 
 	public void setNickName(String nickName) {
 		this.nickName = nickName;
+	}
+
+	public String getCustomer_type() {
+		return customer_type;
+	}
+
+	public void setCustomer_type(String customer_type) {
+		this.customer_type = customer_type;
 	}
 
 	public String getStore_name() {
@@ -117,6 +126,9 @@ public class MemberDTO {
 	public void setPayment(String payment) {
 		this.payment = payment;
 	}
-	
+
+
+
+
 	
 }
