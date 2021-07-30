@@ -53,13 +53,23 @@
 						<td>사진</td>
 						<td>제품명</td>
 						<td>재고량</td>
+						<td>재고 비율</td>
 						<td>거래처</td>
 					</tr>
-	               <%for(int i = 0; i<stock_list.size();i++){ %>
+					<%for(int i = 0; i<stock_list.size();i++){ %>
 						<tr>
 							<td>
 							<td><%=stock_list.get(i).getProduct_name() %></td>
 							<td><%=stock_list.get(i).getStock_qntty() %></td>
+							<td><% double stock_qntty = Integer.valueOf(stock_list.get(i).getStock_qntty()); 
+								   double standard_qntty = Integer.valueOf(stock_list.get(i).getStandard_qntty());
+								   double ratio = stock_qntty/standard_qntty * 100;
+								   if(standard_qntty == 0){%>
+										 - 
+								   <%}else {%>								   								  
+								<%= Math.round(ratio) %>%
+								<%} %>
+							</td>
 							<td><%=stock_list.get(i).getSupplier_name() %></td>
 						</tr>
 					<%} %>	

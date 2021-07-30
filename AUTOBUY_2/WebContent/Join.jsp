@@ -41,9 +41,9 @@
                     </span>
                 </div>
                 <input type="radio" value="거래처" id="Choice1" name="Choice">
-			 	<label for="Choice1">점포점주</label>
+			 	<label for="Choice1">거래처</label>
 				<input type="radio" value="점포점주"  id="Choice2" name="Choice">
-			 	<label for="Choice2">거래처</label>
+			 	<label for="Choice2">점포점주</label>
                 <div class="btn_area">
                     <button type="submit" id="btnJoin" value="회원가입">
                         <span>가입하기</span>
