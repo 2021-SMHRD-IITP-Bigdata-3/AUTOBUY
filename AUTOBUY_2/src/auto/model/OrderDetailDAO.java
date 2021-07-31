@@ -7,8 +7,8 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 
-public class ProductDAO {
-
+public class OrderDetailDAO {
+	
 	Connection conn = null;
 	PreparedStatement psmt = null;
 	ResultSet rs = null;
@@ -47,47 +47,26 @@ public class ProductDAO {
 			}
 		}
 		
-		// 제품별 가격 가져오기
-		public int getPrice(int product_num) {
-			int price = 0;
-			conn();
+		
+		// 점포점주 아이디별 주문 상세 보여주기		
+		public ArrayList<OrderDetailDTO> showOrderDetail(int order_num) {	
 			
-			String sql = "select product_price from product where product_num = ?";
-			try {
-				psmt = conn.prepareStatement(sql);
-				psmt.setInt(1, product_num);
-				rs = psmt.executeQuery();
-				if(rs.next()) {
-					price = rs.getInt(1);
-				}
-			} catch (SQLException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}finally {
-				close();
-			}
-			return price;
-		}
-		
-		
-		// 전체 제품 보여주기
-		public ArrayList<ProductDTO> showProduct() {	
-		
-			ArrayList<ProductDTO> list = new ArrayList<ProductDTO>();
+			ArrayList<OrderDetailDTO> list = new ArrayList<OrderDetailDTO>();
 			
 			try {
 				conn();
-				String sql = "select * from product order by product_num";
-				psmt = conn.prepareStatement(sql);				
+				String sql = "select * from detail_order where order_num = ?";
+				psmt = conn.prepareStatement(sql);	
+				psmt.setInt(1, order_num);
 				rs = psmt.executeQuery();
 				
 				while(rs.next()) {
+					order_num = rs.getInt("order_num");
 					int product_num = rs.getInt("product_num");
 					String product_name = rs.getString("product_name");
-					String supplier_name = rs.getString("supplier_name");
-					int product_price = rs.getInt("product_price");
-					int product_qntty = rs.getInt("product_qntty");	
-					ProductDTO dto = new ProductDTO(product_num, product_name, supplier_name, product_price, product_qntty);
+					int order_qntty = rs.getInt("order_qntty");
+					
+					OrderDetailDTO dto = new OrderDetailDTO(order_num, product_num, product_name, order_qntty);
 					list.add(dto);
 				}
 			} catch (SQLException e) {
@@ -97,6 +76,12 @@ public class ProductDAO {
 			}
 			return list;
 		}	
-	
+		
 
+		
+		
+		
+		
+		
+		
 }
