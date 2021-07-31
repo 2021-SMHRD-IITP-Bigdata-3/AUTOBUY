@@ -63,13 +63,16 @@ public class OrderDAO {
 				while(rs.next()) {
 					int order_num = rs.getInt("order_num");
 					String customer_id = rs.getString("customer_id");
+					String supplier_id = rs.getString("supplier_id");
 					String customer_store_name = rs.getString("customer_store_name");
-					String order_date = rs.getString("order_date");
-					String receipt_date = rs.getString("receipt_date");
 					String customer_tel = rs.getString("customer_tel");
 					String customer_add = rs.getString("customer_add");
-					int order_amount = rs.getInt("order_amount");
-					dto = new OrderDTO(order_num, customer_id, customer_store_name, order_date, receipt_date, customer_tel, customer_add, order_amount);
+					int order_amount = rs.getInt("order_amount");					
+					String order_date = rs.getString("order_date");
+					String receipt_date = rs.getString("receipt_date");
+					String forwarding_date = rs.getString("forwarding_date");
+					
+					dto = new OrderDTO(order_num, customer_id, supplier_id, customer_store_name, customer_tel, customer_add, order_amount, order_date, receipt_date, forwarding_date);
 					list.add(dto);
 				}
 			} catch (SQLException e) {

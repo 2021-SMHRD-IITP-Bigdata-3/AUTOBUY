@@ -1,3 +1,8 @@
+<%@page import="auto.model.AutomaticSuggestDTO"%>
+<%@page import="auto.model.AutomaticSuggestDAO"%>
+<%@page import="auto.model.StockDTO"%>
+<%@page import="java.util.ArrayList"%>
+<%@page import="auto.model.StockDAO"%>
 <%@page import="auto.model.MemberDTO"%>
 <%@ page language="java" contentType="text/html; charset=EUC-KR"
     pageEncoding="EUC-KR"%>
@@ -6,12 +11,22 @@
 <head>
 <meta charset="EUC-KR">
 <title>Insert title here</title>
-<link rel="stylesheet" href="assest/css/Closing.css">
+	<link rel="stylesheet" href="assest/css/StockAdd.css">
 </head>
 <body>
 	<%
 		MemberDTO info = (MemberDTO)session.getAttribute("info");
+	
+		StockDAO stock_dao = new StockDAO();		
+		ArrayList<StockDTO> stock_list = stock_dao.showStock(info.getCustomer_id());
+		
+		AutomaticSuggestDAO suggest_dao = new AutomaticSuggestDAO();
+		ArrayList<AutomaticSuggestDTO> list = new ArrayList<AutomaticSuggestDTO>();
+		ArrayList<AutomaticSuggestDTO> suggest_list = suggest_dao.showSuggest(info.getCustomer_id());	
+			
+		
 	%>
+
 
 	<div class="container" >
 		<div class="header">
@@ -37,60 +52,52 @@
 			</div>
 		</div>
 		<div class="content">
-			<div class="small_title"><p>발주 목록</p></div>
+			<div class="small_title"><p>발주제안</p></div>
 			<div class="board">
-				<table class="list_board">
+           		<table class="list_board">
 					<tr>
-						<td>번호</td>
-						<td>제품</td>
+						<td>제품명</td>
 						<td>거래처</td>
-						<td>수량</td>
-						<td>가격</td>
-						<td>삭제</td>
-						
+						<td>등록</td>
 					</tr>
-					
+					<%for(int i = 0; i<stock_list.size();i++){ %>
 					<tr>
-						<td>1</td>
-						<td>원두 900g</td>
-						<td>니니언즈유통</td>
-						<td><input type = "number"></td>
-						<td>10000원</td>
-						<td><a href = "#"><img src = "img/remove.png" width="30" height="30"></a></td>						
+						<td><%=stock_list.get(i).getProduct_name() %></td>
+						<td><%=stock_list.get(i).getSupplier_name() %></td>
+						<td style = "width: 15%"><a href="RegistOneProductServiceCon?product_num=<%=stock_list.get(i).getProduct_num()%>"><input type="button" value ="등록"></a></td>
 					</tr>
-					<tr>
-						<td>2</td>
-						<td>원두 900g</td>
-						<td>니니언즈유통</td>
-						<td><input type = "number"></td>
-						<td>10000원</td>
-						<td><a href = "#"><img src = "img/remove.png" width="30" height="30"></a></td>						
-					</tr>
-					<tr>
-						<td>3</td>
-						<td>원두 900g</td>
-						<td>니니언즈유통</td>
-						<td><input type = "number"></td>
-						<td>10000원</td>
-						<td><a href = "#"><img src = "img/remove.png" width="30" height="30"></a></td>						
-					</tr>
-					<tr>
-						<td colspan="4">총 주문 금액</td>
-						<td colspan="2">10000원</td>
-												
-					</tr>
-					<tr>
-						<td></td>
-						
-						<td></td>
-						<td><a href = "Product_reg.jsp"><img src = "img/add.png" width=90" height="50"></a></td> 
-						<td><a href="Closing_end.jsp" onclick="window.open(this.href, '_blank', 'width=가로사이즈px,height=세로사이즈px,toolbars=no,scrollbars=no'); return false;"><img src = "img/order.png" width=90" height="50"></a></td>
-											
-					</tr>
-							
-			 </table>
-			</div>
+					<%} %>
+				
 			
+				</table>
+			
+			</div>
+			<form action="RegistProductQnttyServiceCon" method="post">
+			<div class="board2">
+			
+            <table class="list_board2">
+               <tr>
+                  <td>제품명</td>
+                  <td>수량</td>
+                  <td>삭제</td>
+               </tr>
+ 			   
+               <%for(int i=0; i<suggest_list.size();i++){%>
+					<tr>
+						<td><%=suggest_list.get(i).getProduct_name()%></td>
+						<td><input type="number"  name = "stock_qntty" min="0" value=<%=suggest_list.get(i).getSuggest_qntty() %> size="10px" style="width:50px;"></td>
+						<td><a href="DeleteOneStockServiceCon?stock_num=<%=stock_list.get(i).getProduct_num()%>"><input type="button" value ="삭제"></a></td>				
+					</tr>
+				<%} %>
+				
+				<tr>
+					<td colspan="4" align="right"><input type="submit" value="발주" ></td>
+				</tr>
+            </table>
+            
+        	</div>		
+        	<div></div>	
+        	</form>
 		</div>
 		<div class ="footer">
 			<div class="banner">AUTOBUY</div>
@@ -98,7 +105,8 @@
 								대표 : 송김정정 | 사업자 등록 번호 : 000-00-00000<br>
 								광주광역시 남구 송암로60 광주CGI센터</div>
 		</div>
-	</div>
+	
 
 </body>
+
 </html>

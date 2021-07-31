@@ -1,6 +1,7 @@
 drop sequence order_num;
 drop table detail_order;
 drop table customer_order;
+drop table order_suggest;
 
 
 
@@ -13,16 +14,21 @@ increment by 1;
 create table customer_order(
 order_num number(20) primary key,
 customer_id varchar2(20) not null,
+supplier_id varchar2(20), 
 customer_store_name varchar2(30) not null,
-order_date date not null,
-receipt_date date, 
 customer_tel varchar2(20) not null,
 customer_add varchar2(50) not null,
 order_amount number(20) not null,
+order_date date not null,
+receipt_date date,
+forwarding_date date,
 
 constraint fk_cus_id foreign key(customer_id)
+references Member(customer_id),
+constraint fk_sup_id foreign key(supplier_id)
 references Member(customer_id)
 );
+
 
 select * from CUSTOMER_ORDER;
 select * from customer_order order by order_date desc;
@@ -30,9 +36,9 @@ select * from customer_order order by order_date desc;
 				주문번호, 고객아이디, 주문일자, 연락처, 주소, 주문금액
 insert into customer_order values(order_num.nextval, customer_id, order_date, customer_tel, customer_add, order_amount);
 
-insert into customer_order values(order_num.nextval, 'b', '스마트벅스','2021-07-30', null, '010-0000-0000', '광주광역시', 130000);
-insert into customer_order values(order_num.nextval, 'd', '스타박스','2021-07-28', null, '010-1111-1111', '나주혁신도시', 260000);
-insert into customer_order values(order_num.nextval, '1', '엔젤리너스','2021-07-31', null, '010-2222-2222', '목포시', 260000);
+insert into customer_order values(order_num.nextval, 'b', 'a', '스마트벅스','010-0000-0000', '광주광역시', 130000, '2021-07-30', null, null );
+insert into customer_order values(order_num.nextval, 'd',  'a', '스타박스', '010-1111-1111', '나주혁신도시', 260000,'2021-07-28',  null, null);
+insert into customer_order values(order_num.nextval, '1',  'a', '엔젤리너스', '010-2222-2222', '목포시', 260000,'2021-07-31',  null, null);
 
 
 
@@ -49,6 +55,22 @@ constraint fk_product_num foreign key(product_num, product_name)
 references product(product_num, product_name)
 );
 
+
+create table order_suggest(
+customer_id varchar2(30) not null,
+product_num number(20) not null,
+product_name varchar2(50) not null,
+suggest_qntty number(20) not null,
+
+constraint fk_id_sug foreign key(customer_id)
+references member(customer_id),
+
+constraint fk_pro_sug foreign key(product_num, product_name)
+references product(product_num, product_name)
+);
+
+select * from ORDER_SUGGEST;
+=======
 select * from DETAIL_ORDER order by order_num, PRODUCT_num;
 
 								주문번호, 제품번호, 제품명, 주문수량
@@ -88,3 +110,4 @@ insert into detail_order values(10003, 105, '원두 1kg', 10);
 
 
 
+>>>>>>> branch 'master' of https://github.com/2021-SMHRD-IITP-Bigdata-3/AUTOBUY.g
