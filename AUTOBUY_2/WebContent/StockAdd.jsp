@@ -14,13 +14,12 @@
 	<link rel="stylesheet" href="assest/css/StockAdd.css">
 </head>
 <body>
-<body>
 	<%
 		MemberDTO info = (MemberDTO)session.getAttribute("info");
 	
 	
 		ProductDAO product_dao = new ProductDAO();
-		String won = "원";
+		
 
 		ArrayList<ProductDTO> product_list = new ArrayList<ProductDTO>();
 		product_list = product_dao.showProduct();	
@@ -76,7 +75,7 @@
 					<%for(int i = 0; i<product_list.size();i++){ %>
 					<tr>
 						<td style = "width: 40%"><%=product_list.get(i).getProduct_name() %></td>
-						<td style = "width: 18%"><%=product_list.get(i).getProduct_price() %><%=won %></td>
+						<td style = "width: 18%"><%=product_list.get(i).getProduct_price() %>원</td>
 						<td style = "width: 27%"><%=product_list.get(i).getSupplier_name() %></td>
 						<td style = "width: 15%"><a href="RegistOneProductServiceCon?product_num=<%=product_list.get(i).getProduct_num()%>"><input type="button" value ="등록"></a></td>
 					</tr>
@@ -125,5 +124,4 @@
 
 </body>
 
-</body>
 </html>

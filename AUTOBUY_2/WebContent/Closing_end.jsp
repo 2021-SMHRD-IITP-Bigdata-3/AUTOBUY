@@ -20,6 +20,9 @@ font-family: 돋움체;
 </style>
 </head>
 <body>
+<%
+	
+%>
 <div class = "center">
 송가현 고객님 발주가 완료되었습니다.<br>
 주문번호 : AB00001<br>

@@ -164,6 +164,8 @@ delete from stock where product_num = 101 and customer_id = 'ym1828'
 select * from stock where customer_id = 'ym1828' order by customer_id, product_num
 select * from stock
 
+select stock_qntty, minimum_qntty, standard_qntty from stock where customer_id = 'ym1828'
+
 insert into stock values(101, '빨대 100개입', '언즈유통', null, null, null);
 
 update stock set stock_qntty = 100 where product_num=101
