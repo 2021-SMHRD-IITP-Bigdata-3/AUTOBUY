@@ -81,10 +81,10 @@
 					</tr>
 					<%} %>
 
-				</table> [                                                                                                                        '''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''']
+				</table>                                                                                                                         '''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''']
 			
 			</div>
-			<form action="#" method="post">
+			<form action="ManualOrderServiceCon" method="post">
 			<div class="board2">
 			
             <table class="list_board2">

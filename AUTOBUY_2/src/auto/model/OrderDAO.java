@@ -91,7 +91,7 @@ public class OrderDAO {
 				psmt.setString(2, dto.getCustomer_id());
 				psmt.setString(3, dto.getCustomer_store_name());
 				psmt.setString(4, dto.getOrder_date());
-				psmt.setInt(5, dto.getReceipt_date());
+				psmt.setString(5, dto.getReceipt_date());
 				psmt.setString(6, dto.getCustomer_tel());
 				psmt.setString(7, dto.getCustomer_add());
 				psmt.setInt(8, dto.getOrder_amount());
