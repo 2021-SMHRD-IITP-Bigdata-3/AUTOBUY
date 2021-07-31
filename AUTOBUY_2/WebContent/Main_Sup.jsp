@@ -1,3 +1,6 @@
+<%@page import="auto.model.OrderDTO"%>
+<%@page import="java.util.ArrayList"%>
+<%@page import="auto.model.OrderDAO"%>
 <%@page import="auto.model.MemberDTO"%>
 <%@ page language="java" contentType="text/html; charset=EUC-KR"
     pageEncoding="EUC-KR"%>
@@ -12,6 +15,10 @@
 <body> 
 	<%
 		MemberDTO info = (MemberDTO)session.getAttribute("info");
+		
+		OrderDAO dao = new OrderDAO();
+		ArrayList<OrderDTO> list = new ArrayList<OrderDTO>();
+		list = dao.showOrder();		
 	%>
 	<div class="container" >
 		<div class="header">
@@ -53,13 +60,15 @@
 						<td>출고현황<br><p class="small">(납품 예정/확인/완료)</p></td>
 						<td>주문상세</td>
 					</tr>
+					<%for(int i = 0; i<list.size();i++){ %>
 					<tr>
-						<td></td>
-						<td></td>
-						<td></td>
-						<td></td>
-						<td><button ><a href="Order_details.jsp">주문상세</a></button></td>
-					</tr>		
+						<td style = "width: 15%"><%=list.get(i).getOrder_num()%></td>
+						<td style = "width: 25%"><%=list.get(i).getCustomer_store_name()%></td>
+						<td style = "width: 20%"><%=list.get(i).getOrder_date()%></td>
+						<td style = "width: 20%">납품 예정</td>
+						<td><a href="OrderDetailServiceCon?order_num=<%=list.get(i).getOrder_num()%>"><input type="button" value ="주문상세"></a></td>	
+					</tr>
+					<%} %>					
 			 </table>
 			</div>
 		</div>
