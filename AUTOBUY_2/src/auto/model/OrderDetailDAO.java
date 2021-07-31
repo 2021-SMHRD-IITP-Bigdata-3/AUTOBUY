@@ -75,8 +75,37 @@ public class OrderDetailDAO {
 				close();
 			}
 			return list;
-		}	
-		
+		}
+		// 점포점주 아이디별 주문 상세 테이블에 등록하기
+		public int insertCustomerOrder(OrderDetailDTO dto) {
+			
+			try {
+				conn();
+				String sql = "insert into detail_order(order_num, product_num, product_name, order_qntty) values(?,?,?,?)";
+				psmt = conn.prepareStatement(sql);
+				
+				psmt.setInt(1, dto.getOrder_num());
+				psmt.setInt(2, dto.getProduct_num());
+				psmt.setString(3, dto.getProduct_name());
+				psmt.setInt(4, dto.getOrder_qntty());
+				
+				cnt = psmt.executeUpdate();
+				
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}finally {
+				close();
+			}
+			return cnt;
+			
+			
+			
+			
+			
+			
+			
+			
+		}
 
 		
 		

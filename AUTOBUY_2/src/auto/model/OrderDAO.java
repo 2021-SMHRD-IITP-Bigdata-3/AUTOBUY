@@ -77,7 +77,37 @@ public class OrderDAO {
 				close();
 			}
 			return list;
-		}	
+		}
+		
+		//주문 들어온 전체 제품 테이블에 담기
+		public int insertCustomerOrder() {
+			try {
+				conn();
+				String sql = "insert into customer_order(order_num, customer_id, customer_store_name, order_date, receipt_date, customer_tel, customer_add, order_amount) values(?,?,?,sysdate,?,?,?,?)";
+				psmt = conn.prepareStatement(sql);
+				
+				psmt.setInt(1, dto.getOrder_num());
+				psmt.setString(2, dto.getCustomer_id());
+				psmt.setString(3, dto.getCustomer_store_name());
+				psmt.setString(4, dto.getOrder_date());
+				psmt.setInt(5, dto.getReceipt_date());
+				psmt.setString(6, dto.getCustomer_tel());
+				psmt.setString(7, dto.getCustomer_add());
+				psmt.setInt(8, dto.getOrder_amount());
+				
+				cnt = psmt.executeUpdate();
+				
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}finally {
+				close();
+			}
+			return cnt;
+			
+			
+			
+		}
+		
 		
 		
 
