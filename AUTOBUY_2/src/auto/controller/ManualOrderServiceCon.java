@@ -14,6 +14,7 @@ public class ManualOrderServiceCon extends HttpServlet {
 		request.setCharacterEncoding("EUC-KR");
 		
 		
+		
 	}
 
 }
