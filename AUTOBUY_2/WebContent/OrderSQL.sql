@@ -15,6 +15,7 @@ order_num number(20) primary key,
 customer_id varchar2(20) not null,
 customer_store_name varchar2(30) not null,
 order_date date not null,
+receipt_date date, 
 customer_tel varchar2(20) not null,
 customer_add varchar2(50) not null,
 order_amount number(20) not null,
@@ -29,11 +30,9 @@ select * from customer_order order by order_date desc;
 				주문번호, 고객아이디, 주문일자, 연락처, 주소, 주문금액
 insert into customer_order values(order_num.nextval, customer_id, order_date, customer_tel, customer_add, order_amount);
 
-insert into customer_order values(order_num.nextval, 'b', '스마트벅스','2021-07-30', '010-0000-0000', '광주광역시', 130000);
-insert into customer_order values(order_num.nextval, 'd', '스타박스','2021-07-28', '010-1111-1111', '나주혁신도시', 260000);
-insert into customer_order values(order_num.nextval, '1', '엔젤리너스','2021-07-31', '010-2222-2222', '목포시', 260000);
-
-
+insert into customer_order values(order_num.nextval, 'b', '스마트벅스','2021-07-30', null, '010-0000-0000', '광주광역시', 130000);
+insert into customer_order values(order_num.nextval, 'd', '스타박스','2021-07-28', null, '010-1111-1111', '나주혁신도시', 260000);
+insert into customer_order values(order_num.nextval, '1', '엔젤리너스','2021-07-31', null, '010-2222-2222', '목포시', 260000);
 
 
 
@@ -54,6 +53,7 @@ select * from DETAIL_ORDER order by order_num, PRODUCT_num;
 
 								주문번호, 제품번호, 제품명, 주문수량
 insert into detail_order values(order_num.nextval, product_num, product_name, order_qntty);
+
 insert into detail_order values(10001, 101, '빨대 100개입', 5);  
 insert into detail_order values(10001, 102, '컵 100개입', 5);   
 insert into detail_order values(10001, 103, '컵뚜껑 100개입', 5);  

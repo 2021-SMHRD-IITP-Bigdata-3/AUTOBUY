@@ -65,10 +65,11 @@ public class OrderDAO {
 					String customer_id = rs.getString("customer_id");
 					String customer_store_name = rs.getString("customer_store_name");
 					String order_date = rs.getString("order_date");
+					String receipt_date = rs.getString("receipt_date");
 					String customer_tel = rs.getString("customer_tel");
 					String customer_add = rs.getString("customer_add");
 					int order_amount = rs.getInt("order_amount");
-					dto = new OrderDTO(order_num, customer_id, customer_store_name, order_date, customer_tel, customer_add, order_amount);
+					dto = new OrderDTO(order_num, customer_id, customer_store_name, order_date, receipt_date, customer_tel, customer_add, order_amount);
 					list.add(dto);
 				}
 			} catch (SQLException e) {
