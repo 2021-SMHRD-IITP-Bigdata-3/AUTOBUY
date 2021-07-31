@@ -6,19 +6,25 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
-/**
- * Servlet implementation class LoginServiceCon
- */
+import auto.model.MemberDTO;
+
 @WebServlet("/LoginServiceCon")
 public class LoginServiceCon extends HttpServlet {
-	private static final long serialVersionUID = 1L;
 
-	/**
-	 * @see HttpServlet#service(HttpServletRequest request, HttpServletResponse response)
-	 */
 	protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
+		String[] list = request.getParameterValues("stock_qntty");
+		
+		for(int i=0; i<list.length; i++) {
+			System.out.println(list[i]);
+		}
+		
+		HttpSession session = request.getSession();
+		MemberDTO info = (MemberDTO)session.getAttribute("info");
+		System.out.println("id : " +info.getCustomer_id());
+		
+		
 	}
 
 }
