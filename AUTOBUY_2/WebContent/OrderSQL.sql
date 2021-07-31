@@ -2,22 +2,42 @@ drop sequence order_num;
 drop table detail_order;
 drop table customer_order;
 
+
+
+---------- 주문 테이블 ------------
 create sequence order_num
-start with 1
+start with 10001
 increment by 1;
+
 
 create table customer_order(
 order_num number(20) primary key,
 customer_id varchar2(20) not null,
+customer_store_name varchar2(30) not null,
 order_date date not null,
 customer_tel varchar2(20) not null,
-customer_add varchar2(20) not null,
+customer_add varchar2(50) not null,
 order_amount number(20) not null,
 
 constraint fk_cus_id foreign key(customer_id)
 references Member(customer_id)
 );
 
+select * from CUSTOMER_ORDER;
+select * from customer_order order by order_date desc;
+
+				주문번호, 고객아이디, 주문일자, 연락처, 주소, 주문금액
+insert into customer_order values(order_num.nextval, customer_id, order_date, customer_tel, customer_add, order_amount);
+
+insert into customer_order values(order_num.nextval, 'b', '스마트벅스','2021-07-30', '010-0000-0000', '광주광역시', 130000);
+insert into customer_order values(order_num.nextval, 'd', '스타박스','2021-07-28', '010-1111-1111', '나주혁신도시', 260000);
+insert into customer_order values(order_num.nextval, '1', '엔젤리너스','2021-07-31', '010-2222-2222', '목포시', 260000);
+
+
+
+
+
+---------- 주문상세 테이블 ------------
 create table detail_order(
 order_num number(20) not null,
 product_num number(20) not null,
@@ -29,3 +49,42 @@ references customer_order(order_num),
 constraint fk_product_num foreign key(product_num, product_name)
 references product(product_num, product_name)
 );
+
+select * from DETAIL_ORDER order by order_num, PRODUCT_num;
+
+								주문번호, 제품번호, 제품명, 주문수량
+insert into detail_order values(order_num.nextval, product_num, product_name, order_qntty);
+insert into detail_order values(10001, 101, '빨대 100개입', 5);  
+insert into detail_order values(10001, 102, '컵 100개입', 5);   
+insert into detail_order values(10001, 103, '컵뚜껑 100개입', 5);  
+insert into detail_order values(10001, 104, '컵홀더 100개입', 5);  
+insert into detail_order values(10001, 105, '원두 1kg', 5);   
+
+
+insert into detail_order values(10002, 101, '빨대 100개입', 10);  
+insert into detail_order values(10002, 102, '컵 100개입', 10);   
+insert into detail_order values(10002, 103, '컵뚜껑 100개입', 10);  
+insert into detail_order values(10002, 104, '컵홀더 100개입', 10);  
+insert into detail_order values(10002, 105, '원두 1kg', 10);  
+
+insert into detail_order values(10003, 101, '빨대 100개입', 10);  
+insert into detail_order values(10003, 102, '컵 100개입', 10);   
+insert into detail_order values(10003, 103, '컵뚜껑 100개입', 10);  
+insert into detail_order values(10003, 104, '컵홀더 100개입', 10);  
+insert into detail_order values(10003, 105, '원두 1kg', 10);  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

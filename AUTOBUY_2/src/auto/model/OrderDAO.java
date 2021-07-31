@@ -7,11 +7,12 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 
-public class ProductDAO {
-
+public class OrderDAO {
+	
 	Connection conn = null;
 	PreparedStatement psmt = null;
 	ResultSet rs = null;
+	OrderDTO dto = null;
 	int cnt = 0;	
 
 	// 연결
@@ -47,47 +48,27 @@ public class ProductDAO {
 			}
 		}
 		
-		// 제품별 가격 가져오기
-		public int getPrice(int product_num) {
-			int price = 0;
-			conn();
+	
+	// 주문 들어온 전체 제품 보여주기		
+		public ArrayList<OrderDTO> showOrder() {	
 			
-			String sql = "select product_price from product where product_num = ?";
-			try {
-				psmt = conn.prepareStatement(sql);
-				psmt.setInt(1, product_num);
-				rs = psmt.executeQuery();
-				if(rs.next()) {
-					price = rs.getInt(1);
-				}
-			} catch (SQLException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}finally {
-				close();
-			}
-			return price;
-		}
-		
-		
-		// 전체 제품 보여주기
-		public ArrayList<ProductDTO> showProduct() {	
-		
-			ArrayList<ProductDTO> list = new ArrayList<ProductDTO>();
+			ArrayList<OrderDTO> list = new ArrayList<OrderDTO>();
 			
 			try {
 				conn();
-				String sql = "select * from product order by product_num";
+				String sql = "select * from customer_order order by order_date desc";
 				psmt = conn.prepareStatement(sql);				
 				rs = psmt.executeQuery();
 				
 				while(rs.next()) {
-					int product_num = rs.getInt("product_num");
-					String product_name = rs.getString("product_name");
-					String supplier_name = rs.getString("supplier_name");
-					int product_price = rs.getInt("product_price");
-					int product_qntty = rs.getInt("product_qntty");	
-					ProductDTO dto = new ProductDTO(product_num, product_name, supplier_name, product_price, product_qntty);
+					int order_num = rs.getInt("order_num");
+					String customer_id = rs.getString("customer_id");
+					String customer_store_name = rs.getString("customer_store_name");
+					String order_date = rs.getString("order_date");
+					String customer_tel = rs.getString("customer_tel");
+					String customer_add = rs.getString("customer_add");
+					int order_amount = rs.getInt("order_amount");
+					dto = new OrderDTO(order_num, customer_id, customer_store_name, order_date, customer_tel, customer_add, order_amount);
 					list.add(dto);
 				}
 			} catch (SQLException e) {
@@ -97,6 +78,14 @@ public class ProductDAO {
 			}
 			return list;
 		}	
+		
+		
+
+		
+		
+	
 	
 
+	
+		
 }
