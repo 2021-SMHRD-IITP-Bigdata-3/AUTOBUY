@@ -27,7 +27,7 @@
 		<div class="list">
 			<div class=""><p><a href="Main_Sup.jsp">免绊</a></p></div>
 			<div class=""><p><a href="Cus_management.jsp">绊按包府</a></p></div>
-			<div class=""><p><a href="Sup_Product_reg.jsp">力前 殿废</a></p></div>
+			<div class=""><p><a href="SupProductShow.jsp">力前格废</a></p></div>
 		</div>
 		<div class="content">
 			<div class="small_title"><p>免绊</p></div>

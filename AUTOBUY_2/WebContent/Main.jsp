@@ -32,7 +32,7 @@
 			<div class="logout"><a href="LogoutServiceCon">로그아웃</a></div>
 			<div class="mypage"><a href="Update.jsp"><img src="img/mypage.png" height="40px" width="40px"></a></div>			
 		</div>
-		<div class="list">
+		<div class="list">we
 			<div class="small_list">
 				<div class="main_p"><p><a href="Main.jsp"><img src="img/list_i.png" height="30px" width="30px">제품목록</a></p></div>
 				<div class="incoming"><p><a href="Incoming.jsp"><img src="img/in.png" height="30px" width="30px">입고</a></p></div>

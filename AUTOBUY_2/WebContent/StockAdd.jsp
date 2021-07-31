@@ -14,7 +14,6 @@
 	<link rel="stylesheet" href="assest/css/StockAdd.css">
 </head>
 <body>
-<body>
 	<%
 		MemberDTO info = (MemberDTO)session.getAttribute("info");
 	
@@ -122,8 +121,6 @@
 								±¤ÁÖ±¤¿ª½Ã ³²±¸ ¼Û¾Ï·Î60 ±¤ÁÖCGI¼¾ÅÍ</div>
 		</div>
 	
-
-</body>
 
 </body>
 </html>
