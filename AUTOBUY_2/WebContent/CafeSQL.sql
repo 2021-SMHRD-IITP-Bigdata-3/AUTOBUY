@@ -53,7 +53,7 @@ ALTER TABLE sale DROP PRIMARY KEY;
 
 
 
-select * from sale order by menu_num;
+select * from sale order by sold_date, menu_num;
 
 insert into sale values(1, '아메리카노', 101, sysdate);
 
@@ -147,6 +147,7 @@ customer_id varchar2(30) not null,
 product_num number(20) not null,
 product_name varchar2(50) not null,
 supplier_name varchar2(50) not null,
+product_price number(20) not null,
 stock_qntty number(20,3),
 minimum_qntty number(20),
 standard_qntty number(20),

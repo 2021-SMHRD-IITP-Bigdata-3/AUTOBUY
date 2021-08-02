@@ -21,8 +21,24 @@
 		ArrayList<StockDTO> stock_list = stock_dao.showStock(info.getCustomer_id());
 		
 		AutomaticSuggestDAO suggest_dao = new AutomaticSuggestDAO();
-		ArrayList<AutomaticSuggestDTO> list = new ArrayList<AutomaticSuggestDTO>();
-		ArrayList<AutomaticSuggestDTO> suggest_list = suggest_dao.showSuggest(info.getCustomer_id());	
+		ArrayList<AutomaticSuggestDTO> suggest_list = suggest_dao.showSuggest(info.getCustomer_id());
+		
+		for(int i=0; i<suggest_list.size();i++){
+			System.out.println(suggest_list.get(i).getSuggest_qntty());
+		}
+		
+		int default_num = 1;
+		
+		for(int i=0; i<stock_list.size(); i++){
+			for(int j=0; j<suggest_list.size(); j++){
+				if(stock_list.get(i).getProduct_num()==suggest_list.get(j).getProduct_num()){
+					stock_list.remove(i);
+					i=0;
+				}
+			}
+		}
+		
+		
 			
 		
 	%>
@@ -64,7 +80,7 @@
 					<tr>
 						<td><%=stock_list.get(i).getProduct_name() %></td>
 						<td><%=stock_list.get(i).getSupplier_name() %></td>
-						<td style = "width: 15%"><a href="RegistOneProductServiceCon?product_num=<%=stock_list.get(i).getProduct_num()%>"><input type="button" value ="등록"></a></td>
+						<td style = "width: 15%"><a href="RegistSuggestServiceCon?product_num=<%=stock_list.get(i).getProduct_num()%>"><input type="button" value ="등록"></a></td>
 					</tr>
 					<%} %>
 				
@@ -72,7 +88,7 @@
 				</table>
 			
 			</div>
-			<form action="RegistProductQnttyServiceCon" method="post">
+			<form action="SuggestOrderServiceCon" method="post">
 			<div class="board2">
 			
             <table class="list_board2">
@@ -84,14 +100,17 @@
  			   
                <%for(int i=0; i<suggest_list.size();i++){%>
 					<tr>
-						<td><%=suggest_list.get(i).getProduct_name()%></td>
-						<td><input type="number"  name = "stock_qntty" min="0" value=<%=suggest_list.get(i).getSuggest_qntty() %> size="10px" style="width:50px;"></td>
-						<td><a href="DeleteOneStockServiceCon?stock_num=<%=stock_list.get(i).getProduct_num()%>"><input type="button" value ="삭제"></a></td>				
+						<td style="width: '50%'"><%=suggest_list.get(i).getProduct_name()%></td>
+						<td style="width: '25%'"><input type="number"  name = "stock_qntty" min="0" value=<%if(suggest_list.get(i).getSuggest_qntty()<=1){%>
+																			<%=default_num %><%}else{ %>
+																			<%=suggest_list.get(i).getSuggest_qntty() %><%} %> size="10px" style="width:50px;"></td>
+						<td style="width: '25%'"><a href="DeleteSuggestServiceCon?stock_num=<%=suggest_list.get(i).getProduct_num()%>"><input type="button" value ="삭제"></a></td>				
 					</tr>
+		
 				<%} %>
 				
 				<tr>
-					<td colspan="4" align="right"><input type="submit" value="발주" ></td>
+					<td colspan="4" align="right"><a href="SuggestOrderServiceCon"><input type="submit" value="발주" ></a></td>
 				</tr>
             </table>
             

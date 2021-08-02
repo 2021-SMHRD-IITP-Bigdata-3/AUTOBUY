@@ -3,22 +3,94 @@ package auto.model;
 public class AutomaticSuggestDTO {
 	private int product_num;
 	private String product_name;
+	private String supplier_name;
 	private int stock_qntty;
 	private int minimum_qntty;
 	private int standard_qntty;
+	private int product_price;
 	private int suggest_qntty;
 	
 	
-	public AutomaticSuggestDTO(int product_num, String product_name, int stock_qntty, int minimum_qntty, int standard_qntty) {
+
+	
+	
+	
+
+
+
+
+	public AutomaticSuggestDTO(int product_num, String product_name, String supplier_name, int stock_qntty) {
+		super();
 		this.product_num = product_num;
+		this.product_name = product_name;
+		this.supplier_name = supplier_name;
+		this.stock_qntty = stock_qntty;
+	}
+
+
+
+
+	public AutomaticSuggestDTO(int product_num, String product_name, String supplier_name, int stock_qntty,
+			int minimum_qntty, int standard_qntty) {
+		super();
+		this.product_num = product_num;
+		this.product_name = product_name;
+		this.supplier_name = supplier_name;
 		this.stock_qntty = stock_qntty;
 		this.minimum_qntty = minimum_qntty;
 		this.standard_qntty = standard_qntty;
-		this.product_name = product_name;
 	}
+
+
+
+
 	
-	
-	
+
+
+
+
+	public AutomaticSuggestDTO(int product_num, String product_name, String supplier_name, int stock_qntty,
+			int minimum_qntty, int standard_qntty, int product_price) {
+		super();
+		this.product_num = product_num;
+		this.product_name = product_name;
+		this.supplier_name = supplier_name;
+		this.stock_qntty = stock_qntty;
+		this.minimum_qntty = minimum_qntty;
+		this.standard_qntty = standard_qntty;
+		this.product_price = product_price;
+	}
+
+
+
+
+	public AutomaticSuggestDTO(int product_num, String product_name, String supplier_name, int product_price,
+			int suggest_qntty) {
+		super();
+		this.product_num = product_num;
+		this.product_name = product_name;
+		this.supplier_name = supplier_name;
+		this.product_price = product_price;
+		this.suggest_qntty = suggest_qntty;
+	}
+
+
+
+
+	public int getProduct_price() {
+		return product_price;
+	}
+
+
+
+
+	public void setProduct_price(int product_price) {
+		this.product_price = product_price;
+	}
+
+
+
+
 	public AutomaticSuggestDTO(int product_num, String product_name, int suggest_qntty) {
 		super();
 		this.product_num = product_num;
@@ -72,6 +144,20 @@ public class AutomaticSuggestDTO {
 	}
 	public void setStandard_qntty(int standard_qntty) {
 		this.standard_qntty = standard_qntty;
+	}
+
+
+
+
+	public String getSupplier_name() {
+		return supplier_name;
+	}
+
+
+
+
+	public void setSupplier_name(String supplier_name) {
+		this.supplier_name = supplier_name;
 	}
 	
 	

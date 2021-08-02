@@ -30,11 +30,14 @@ public class MemberDTO {
 		this.payment = payment;
 	}
 
-	public MemberDTO(String customer_id, String customer_pw, String nickName, String customer_type) {
+	public MemberDTO(String customer_id, String customer_pw, String nickName, String store_name, String tel, String address, String customer_type) {
 		super();
 		this.customer_id = customer_id;
 		this.customer_pw = customer_pw;
 		this.nickName = nickName;
+		this.store_name = store_name;
+		this.tel = tel;
+		this.address = address;
 		this.customer_type = customer_type;
 	}
 

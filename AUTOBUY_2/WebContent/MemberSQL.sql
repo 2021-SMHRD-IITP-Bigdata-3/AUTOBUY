@@ -8,9 +8,9 @@ nickName varchar2(50) not null,
 customer_type varchar2(20) not null,
 store_name varchar2(30),
 client_resgist_number varchar2(30),
-address varchar2(50),
+address varchar2(50) not null,
 ceo varchar2(10),
-tel varchar2(13),
+tel varchar2(13) not null,
 email varchar2(20),
 payment varchar2(10)
 )
