@@ -20,6 +20,9 @@ public class JoinServiceCon extends HttpServlet {
 		String id = request.getParameter("id");
 		String pw = request.getParameter("pw");
 		String nickname = request.getParameter("nickname");
+		String store_name = request.getParameter("store_name");
+		String phone = request.getParameter("phone");
+		String addr = request.getParameter("addr");
 		String customer_type = request.getParameter("Choice");
 		
 		System.out.println("id : " + id);
@@ -27,7 +30,7 @@ public class JoinServiceCon extends HttpServlet {
 		System.out.println("nickname : " + nickname);
 		System.out.println("customer_type : " + customer_type);
 		
-		MemberDTO dto = new MemberDTO(id, pw, nickname, customer_type);
+		MemberDTO dto = new MemberDTO(id, pw, nickname, store_name, phone, addr,  customer_type);
 		MemberDAO dao = new MemberDAO();
 		int cnt = dao.join(dto);
 		

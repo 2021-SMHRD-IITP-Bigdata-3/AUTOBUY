@@ -30,6 +30,15 @@
 		
 		stock_list = stock_dao.showStock(info.getCustomer_id());
 		
+		for(int i=0; i<product_list.size(); i++){
+			for(int j=0; j<stock_list.size(); j++){
+				if(product_list.get(i).getProduct_num()==stock_list.get(j).getProduct_num()){
+					product_list.remove(i);
+					i=0;
+				}
+			}
+		}
+		
 		
 		if(product_list!=null){
 			System.out.println("¼º°ø");

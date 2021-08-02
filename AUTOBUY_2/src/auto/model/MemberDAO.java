@@ -53,13 +53,16 @@ public class MemberDAO {
 		public int join(MemberDTO dto) {
 			try {
 				conn();
-				String sql = "insert into member(customer_id, customer_pw, nickName, customer_type) values(?,?,?,?)";
+				String sql = "insert into member(customer_id, customer_pw, store_name, nickName, tel, address, customer_type) values(?,?,?,?,?,?)";
 				psmt = conn.prepareStatement(sql);
 				
 				psmt.setString(1, dto.getCustomer_id());
 				psmt.setString(2, dto.getCustomer_pw());
 				psmt.setString(3, dto.getNickName());
-				psmt.setString(4, dto.getCustomer_type());
+				psmt.setString(4, dto.getStore_name());
+				psmt.setString(5, dto.getTel());
+				psmt.setString(6, dto.getAddress());
+				psmt.setString(7, dto.getCustomer_type());
 				
 				cnt = psmt.executeUpdate();
 				

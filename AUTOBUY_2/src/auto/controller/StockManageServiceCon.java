@@ -32,7 +32,9 @@ public class StockManageServiceCon extends HttpServlet {
 		int max = 0;
 		int now = 0;
 		int num = 0;
+		int price = 0;
 		String name = "";
+		String supplier = "";
 		
 		int cnt1 = 0;
 		
@@ -48,10 +50,19 @@ public class StockManageServiceCon extends HttpServlet {
 			now = suggest_list.get(i).getStock_qntty();
 			min = suggest_list.get(i).getMinimum_qntty();
 			max = suggest_list.get(i).getStandard_qntty();
+			supplier = suggest_list.get(i).getSupplier_name();
 			name = suggest_list.get(i).getProduct_name();
 			num = suggest_list.get(i).getProduct_num();
+			price = suggest_list.get(i).getProduct_price();
+			int necessary_qntty = max-now;
+			
+			System.out.println("재고명 : " + name);
+			System.out.println("기초재고 : " + max);
+			System.out.println("최소재고 : " + min);
+			System.out.println("현재재고 : " + now);
+			System.out.println("필요수량 : " + necessary_qntty);
 			if(now<=min){
-				cnt1 = suggest_dao.registOrder(info.getCustomer_id(), num, name, max-now);
+				cnt1 = suggest_dao.registOrder(info.getCustomer_id(), num, name, supplier, price, necessary_qntty);
 			}
 		}
 		

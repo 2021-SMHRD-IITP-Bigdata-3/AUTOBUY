@@ -2,6 +2,9 @@ drop sequence order_num;
 drop table detail_order;
 drop table customer_order;
 drop table order_suggest;
+delete order_suggest where customer_id='ym1828';
+delete CUSTOMER_ORDER;
+delete makeordernum;
 
 
 
@@ -12,20 +15,17 @@ increment by 1;
 
 
 create table customer_order(
-order_num number(20) primary key,
-customer_id varchar2(20) not null,
-supplier_id varchar2(20), 
+order_num varchar2(50) primary key,
+customer_id varchar2(20) not null, 
 customer_store_name varchar2(30) not null,
 customer_tel varchar2(20) not null,
 customer_add varchar2(50) not null,
-order_amount number(20) not null,
+order_amount number(20),
 order_date date not null,
 receipt_date date,
 forwarding_date date,
 
 constraint fk_cus_id foreign key(customer_id)
-references Member(customer_id),
-constraint fk_sup_id foreign key(supplier_id)
 references Member(customer_id)
 );
 
@@ -39,14 +39,15 @@ insert into customer_order values(order_num.nextval, customer_id, order_date, cu
 insert into customer_order values(order_num.nextval, 'b', 'a', '스마트벅스','010-0000-0000', '광주광역시', 130000, '2021-07-30', null, null );
 insert into customer_order values(order_num.nextval, 'd',  'a', '스타박스', '010-1111-1111', '나주혁신도시', 260000,'2021-07-28',  null, null);
 insert into customer_order values(order_num.nextval, '1',  'a', '엔젤리너스', '010-2222-2222', '목포시', 260000,'2021-07-31',  null, null);
-
+insert into customer_order(order_num, customer_id, customer_store_name, customer_tel, customer_add, order_date) values(concat(to_char(sysdate, 'yyyymmdd'),10001),'ym1828','스벅','01077614401','빛가람동', sysdate);
 
 
 ---------- 주문상세 테이블 ------------
 create table detail_order(
-order_num number(20) not null,
+order_num varchar2(50) not null,
 product_num number(20) not null,
-product_name varchar2(20) not null,
+product_name varchar2(50) not null,
+supplier_name varchar2(50) not null,
 order_qntty number(20) not null,
 
 constraint fk_order_num foreign key(order_num)
@@ -55,11 +56,15 @@ constraint fk_product_num foreign key(product_num, product_name)
 references product(product_num, product_name)
 );
 
+select * from DETAIL_ORDER;
 
+-- 발주 제안 테이블---------------------------------
 create table order_suggest(
 customer_id varchar2(30) not null,
 product_num number(20) not null,
 product_name varchar2(50) not null,
+supplier_name varchar2(50) not null,
+product_price number(20) not null,
 suggest_qntty number(20) not null,
 
 constraint fk_id_sug foreign key(customer_id)
@@ -96,6 +101,12 @@ insert into detail_order values(10003, 104, '컵홀더 100개입', 10);
 insert into detail_order values(10003, 105, '원두 1kg', 10);  
 
 
+-- 주문번호 만드는 테이블------------------------
+create table makeordernum(
+num number(20) primary key
+);
+
+select * from makeordernum;
 
 
 
@@ -104,10 +115,3 @@ insert into detail_order values(10003, 105, '원두 1kg', 10);
 
 
 
-
-
-
-
-
-
->>>>>>> branch 'master' of https://github.com/2021-SMHRD-IITP-Bigdata-3/AUTOBUY.g
