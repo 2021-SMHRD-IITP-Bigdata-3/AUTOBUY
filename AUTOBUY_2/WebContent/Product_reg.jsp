@@ -1,3 +1,5 @@
+<%@page import="auto.model.CartDTO"%>
+<%@page import="auto.model.OrderDAO"%>
 <%@page import="auto.model.StockDAO"%>
 <%@page import="auto.model.StockDTO"%>
 <%@page import="auto.model.ProductDTO"%>
@@ -16,26 +18,25 @@
 <body>
 	<%
 		MemberDTO info = (MemberDTO)session.getAttribute("info");
-	
+		String customer_id = info.getCustomer_id();
 	
 		ProductDAO product_dao = new ProductDAO();
-		String won = "원";
 
 		ArrayList<ProductDTO> product_list = new ArrayList<ProductDTO>();
-		product_list = product_dao.showProduct();	
+		product_list = product_dao.showProduct();
 		
 		
-		StockDAO stock_dao = new StockDAO();		
-		ArrayList<StockDTO> stock_list = new ArrayList<StockDTO>();
 		
-		stock_list = stock_dao.showStock(info.getCustomer_id());
+		OrderDAO order_dao = new OrderDAO();		
+		ArrayList<CartDTO> cart_list = order_dao.showCart(customer_id);		
 		
-		
-		if(product_list!=null){
-			System.out.println("성공");
-
-		}else{
-			System.out.println("실패");
+		for(int i=0; i<product_list.size(); i++){
+			for(int j=0; j<cart_list.size(); j++){
+				if(product_list.get(i).getProduct_num()==cart_list.get(j).getProduct_num()){
+					product_list.remove(i);
+					i=0;
+				}
+			}
 		}
 	%>
 
@@ -75,14 +76,14 @@
 					<%for(int i = 0; i<product_list.size();i++){ %>
 					<tr>
 						<td style = "width: 40%"><%=product_list.get(i).getProduct_name() %></td>
-						<td style = "width: 18%"><%=product_list.get(i).getProduct_price() %><%=won %></td>
+						<td style = "width: 18%"><%=product_list.get(i).getProduct_price() %>원</td>
 						<td style = "width: 27%"><%=product_list.get(i).getSupplier_name() %></td>
-						<td style = "width: 15%"><a href="RegistOneProductServiceCon?product_num=<%=product_list.get(i).getProduct_num()%>"><input type="button" value ="추가"></a></td>
+						<td style = "width: 15%"><a href="CartServiceCon?product_num=<%=product_list.get(i).getProduct_num()%>"><input type="button" value ="추가"></a></td>
 					</tr>
 					<%} %>
 
-				</table>                                                                                                                         '''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''']
-			
+				</table>                                                                                                                        
+				
 			</div>
 			<form action="ManualOrderServiceCon" method="post">
 			<div class="board2">
@@ -95,12 +96,12 @@
                   <td>삭제</td>
                </tr>
  			   
-               <%for(int i = 0; i<stock_list.size();i++){ %>
+               <%for(int i=0; i<cart_list.size(); i++){ %>
 					<tr>
-						<td><%=stock_list.get(i).getProduct_name() %></td>
-						<td><%=stock_list.get(i).getSupplier_name() %></td>
-						<td><input type="number"  name = "stock_qntty" min="0" value=<%=stock_list.get(i).getStock_qntty() %> size="10px" style="width:50px;"></td>
-						<td><a href="DeleteOneStockServiceCon?stock_num=<%=stock_list.get(i).getProduct_num()%>"><input type="button" value ="삭제"></a></td>				
+						<td><%=cart_list.get(i).getProduct_name() %></td>
+						<td><%=cart_list.get(i).getSupplier_name() %></td>
+						<td><input type="number"  name = "order_qntty" min="0" value=0 size="10px" style="width:50px;"></td>
+						<td><a href="CartDeleteServiceCon?product_num=<%=cart_list.get(i).getProduct_num()%>"><input type="button" value ="삭제"></a></td>				
 					</tr>
 				<%} %>
 				

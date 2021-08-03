@@ -2,7 +2,8 @@ drop sequence order_num;
 drop table detail_order;
 drop table customer_order;
 drop table order_suggest;
-delete order_suggest where customer_id='ym1828';
+drop table cart;
+delete order_suggest
 delete CUSTOMER_ORDER;
 delete makeordernum;
 
@@ -22,8 +23,6 @@ customer_tel varchar2(20) not null,
 customer_add varchar2(50) not null,
 order_amount number(20),
 order_date date not null,
-receipt_date date,
-forwarding_date date,
 
 constraint fk_cus_id foreign key(customer_id)
 references Member(customer_id)
@@ -56,7 +55,7 @@ constraint fk_product_num foreign key(product_num, product_name)
 references product(product_num, product_name)
 );
 
-select * from DETAIL_ORDER;
+select * from DETAIL_ORDER order by order_num;
 
 -- 발주 제안 테이블---------------------------------
 create table order_suggest(
@@ -108,7 +107,18 @@ num number(20) primary key
 
 select * from makeordernum;
 
+--수동발주 장바구니 테이블------------------------
 
+create table cart(
+customer_id varchar2(40) not null,
+product_num number(20) primary key,
+product_name varchar2(50) not null,
+supplier_name varchar2(50) not null,
+product_price number(20) not null
+
+)
+
+select * from cart
 
 
 
