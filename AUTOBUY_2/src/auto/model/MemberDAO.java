@@ -53,7 +53,11 @@ public class MemberDAO {
 		public int join(MemberDTO dto) {
 			try {
 				conn();
+<<<<<<< HEAD
 				String sql = "insert into member(customer_id, customer_pw, nickName, store_name, store_name, tel, address, customer_type) values(?,?,?,?,?,?)";
+=======
+				String sql = "insert into member(customer_id, customer_pw, nickName,  store_name, tel, address, customer_type) values(?,?,?,?,?,?,?)";
+>>>>>>> branch 'master' of https://github.com/2021-SMHRD-IITP-Bigdata-3/AUTOBUY.git
 				psmt = conn.prepareStatement(sql);
 				
 				psmt.setString(1, dto.getCustomer_id());

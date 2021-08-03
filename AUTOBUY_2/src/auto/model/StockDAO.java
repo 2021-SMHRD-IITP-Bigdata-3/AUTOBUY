@@ -50,16 +50,17 @@ public class StockDAO {
 		}
 		
 		// 재고 하나씩 등록하는 메소드
-		public int registOneProduct(String customer_id, int product_num, String product_name, String supplier_name, int price){		
+		public int registOneProduct(String customer_id, int product_num, String product_name, String supplier_name, int product_price, String product_pic){		
 			try {
 				conn();
-				String sql = "insert into stock values(?, ?, ?, ?, ?, 0, 0, 0)";
+				String sql = "insert into stock values(?, ?, ?, ?, ?, 0, 0, 0, ?)";
 				psmt = conn.prepareStatement(sql);
 				psmt.setString(1, customer_id);
 				psmt.setInt(2, product_num);
 				psmt.setString(3, product_name);
 				psmt.setString(4, supplier_name);
-				psmt.setInt(5, price);
+				psmt.setInt(5, product_price);
+				psmt.setString(6, product_pic);
 				cnt = psmt.executeUpdate();
 				
 			} catch (SQLException e) {
@@ -89,10 +90,12 @@ public class StockDAO {
 					int product_num = rs.getInt("product_num");
 					String product_name = rs.getString("product_name");
 					String supplier_name = rs.getString("supplier_name");
+					int product_price = rs.getInt("product_price");
 					int stock_qntty = rs.getInt("stock_qntty");
 					int minimum_qntty = rs.getInt("minimum_qntty");	
 					int standard_qntty = rs.getInt("standard_qntty");	
-					StockDTO dto = new StockDTO(customer_id, product_num, product_name, supplier_name, stock_qntty, minimum_qntty, standard_qntty);
+					String product_pic = rs.getString("product_pic");	
+					StockDTO dto = new StockDTO(customer_id, product_num, product_name, supplier_name, product_price, stock_qntty, minimum_qntty, standard_qntty, product_pic);
 					list.add(dto);
 				}
 			} catch (SQLException e) {
