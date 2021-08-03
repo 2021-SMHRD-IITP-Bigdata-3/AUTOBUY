@@ -49,7 +49,7 @@ public class OrderDetailDAO {
 		
 		
 		// 점포점주 아이디별 주문 상세 보여주기		
-		public ArrayList<OrderDetailDTO> showOrderDetail(int order_num) {	
+		public ArrayList<OrderDetailDTO> showOrderDetail(String order_num) {	
 			
 			ArrayList<OrderDetailDTO> list = new ArrayList<OrderDetailDTO>();
 			
@@ -57,16 +57,20 @@ public class OrderDetailDAO {
 				conn();
 				String sql = "select * from detail_order where order_num = ?";
 				psmt = conn.prepareStatement(sql);	
-				psmt.setInt(1, order_num);
+				psmt.setString(1, order_num);
 				rs = psmt.executeQuery();
 				
 				while(rs.next()) {
-					order_num = rs.getInt("order_num");
+					order_num = rs.getString("order_num");
 					int product_num = rs.getInt("product_num");
 					String product_name = rs.getString("product_name");
 					int order_qntty = rs.getInt("order_qntty");
+					String supplier_name = rs.getString("supplier_name");
+					String receipt_date = rs.getString("receipt_date");
+					String forwarding_date = rs.getString("forwarding_date");
+					String product_pic = rs.getString("product_pic");
 					
-					OrderDetailDTO dto = new OrderDetailDTO(order_num, product_num, product_name, order_qntty);
+					OrderDetailDTO dto = new OrderDetailDTO(order_num, product_num, product_name, order_qntty, supplier_name, receipt_date, forwarding_date, product_pic);
 					list.add(dto);
 				}
 			} catch (SQLException e) {
@@ -76,18 +80,19 @@ public class OrderDetailDAO {
 			}
 			return list;
 		}
-		// 점포점주 아이디별 주문 상세 테이블에 등록하기
-		public int insertCustomerOrder(OrderDetailDTO dto) {
+		
+	
+		
+		// 개별 제품 출고완료시 -> 출고일 업데이트 메소드
+		public int updateOneForward(String order_num, int product_num) {
 			
 			try {
-				conn();
-				String sql = "insert into detail_order(order_num, product_num, product_name, order_qntty) values(?,?,?,?)";
+				conn();				
+				String sql = "update detail_order set forwarding_date = to_date(sysdate) where order_num = ? and product_num = ?";
 				psmt = conn.prepareStatement(sql);
 				
-				psmt.setInt(1, dto.getOrder_num());
-				psmt.setInt(2, dto.getProduct_num());
-				psmt.setString(3, dto.getProduct_name());
-				psmt.setInt(4, dto.getOrder_qntty());
+				psmt.setString(1, order_num);
+				psmt.setInt(2, product_num);
 				
 				cnt = psmt.executeUpdate();
 				
@@ -96,19 +101,30 @@ public class OrderDetailDAO {
 			}finally {
 				close();
 			}
-			return cnt;
-			
-			
-			
-			
-			
-			
-			
-			
+			return cnt;			
 		}
-
 		
 		
+		// 개별 제품 수령확인시 -> 입고일 업데이트 메소드
+		public int updateOneRecepit(String order_num, int product_num) {
+			
+			try {
+				conn();				
+				String sql = "update detail_order set receipt_date = to_date(sysdate) where order_num = ? and product_num = ?";
+				psmt = conn.prepareStatement(sql);
+				
+				psmt.setString(1, order_num);
+				psmt.setInt(2, product_num);
+				
+				cnt = psmt.executeUpdate();
+				
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}finally {
+				close();
+			}
+			return cnt;			
+		}
 		
 		
 		

@@ -62,7 +62,7 @@
  			String customer_store_name = "";
  			String order_date = "";
  			for(int i=0; i<order_dto.size();i++){ 
-				if(dto.get(i).getOrder_num()==order_dto.get(i).getOrder_num()){
+				if(dto.get(i).getOrder_num().equals(order_dto.get(i).getOrder_num())){
 					order_num = order_dto.get(i).getOrder_num();
 					customer_store_name = order_dto.get(i).getCustomer_store_name();
 					order_date = order_dto.get(i).getOrder_date();
@@ -83,6 +83,7 @@
 				<table class="list_board">
 					<tr>
 						<td>번호</td>
+						<td>사진</td>
 						<td>제품명</td>
 						<td>수량</td>
 						<td>제품 가격</td>
@@ -91,16 +92,17 @@
 					<%	sum = 0;
 						for(int i = 0; i<dto.size();i++){ %>
 						<tr>
-							<td style = "width: 10%"><%=i+1%></td>
-							<td style = "width: 30%"><%=dto.get(i).getProduct_name()%></td>
-							<td style = "width: 15%"><%=dto.get(i).getOrder_qntty()%></td>
+							<td style = "width: 5%"><%=i+1%></td>
+							<td style = "width: 25%"><%=dto.get(i).getProduct_name()%>.png</td>
+							<td style = "width: 25%"><%=dto.get(i).getProduct_name()%></td>
+							<td style = "width: 10%"><%=dto.get(i).getOrder_qntty()%></td>
 							<% int price = product_dao.getPrice(dto.get(i).getProduct_num());%>
-							<td style = "width: 20%"><%=price%></td>
-							<td style = "width: 25%"><%= dto.get(i).getOrder_qntty() * price %></td>																			
+							<td style = "width: 15%"><%=price%>원</td>
+							<td style = "width: 20%"><%= dto.get(i).getOrder_qntty() * price %>원</td>																			
 						</tr>
 					<%} %>		
 			 </table>
-			 <a href="Main_Sup.jsp"><input type="button" value ="출고완료"></a>
+			 <a href="Main_Sup.jsp"><input type="button" value ="전체 출고완료"></a>
 			 <a href="Main_Sup.jsp"><input type="button" value ="확인"></a>
 			</div>
 		</div>

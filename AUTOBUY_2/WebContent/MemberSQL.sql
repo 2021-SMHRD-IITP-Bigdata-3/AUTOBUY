@@ -6,14 +6,14 @@ create table member
 customer_pw varchar2(12) not null,
 nickName varchar2(50) not null,
 customer_type varchar2(20) not null,
-store_name varchar2(30),
+store_name varchar2(50) not null,
 client_resgist_number varchar2(30),
-address varchar2(50) not null,
-ceo varchar2(10),
+address varchar2(255) not null,
+ceo varchar2(30),
 tel varchar2(13) not null,
-email varchar2(20),
-payment varchar2(10)
-)
+email varchar2(30),
+payment varchar2(25)
+);
 
 select * from member;
 ------------------------------------------------------------------------------

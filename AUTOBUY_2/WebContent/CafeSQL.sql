@@ -1,9 +1,10 @@
-drop sequence menu_num;
-drop table menu;
-drop table sale;
-drop table material;
 drop table stock;
-delete from SALE
+drop table sale;
+drop table menu;
+drop sequence menu_num;
+drop table material;
+
+delete from SALE;
 
 select * from menu;
 select * from stock;
@@ -24,6 +25,7 @@ menu_num number(20) primary key,
 menu_name varchar2(40) not null,
 price number(20) not null
 );
+
 -- 메뉴 테이블 값 삽입--
 insert into menu values(menu_num.nextval, '아메리카노',3000);
 insert into menu values(menu_num.nextval, '카페라떼',4000);
@@ -47,7 +49,7 @@ sold_date date,
 constraint menu_fk foreign key(menu_num)
 references menu(menu_num)
 on delete cascade
-)
+);
 
 ALTER TABLE sale DROP PRIMARY KEY;
 
@@ -75,7 +77,7 @@ on delete cascade,
 constraint material_fk2 foreign key(product_num, product_name)
 references product(product_num, product_name)
 on delete cascade
-)
+);
 
 select * from material order by menu_num, product_num
 
@@ -151,6 +153,7 @@ product_price number(20) not null,
 stock_qntty number(20,3),
 minimum_qntty number(20),
 standard_qntty number(20),
+product_pic varchar2(100),
 
 constraint id_fk foreign key(customer_id)
 references member(customer_id)
@@ -159,7 +162,8 @@ on delete cascade,
 constraint stock_fk foreign key(product_num, product_name)
 references product(product_num, product_name)
 on delete cascade
-)
+);
+
 
 delete from stock where product_num = 101 and customer_id = 'ym1828'
 select * from stock where customer_id = 'ym1828' order by customer_id, product_num

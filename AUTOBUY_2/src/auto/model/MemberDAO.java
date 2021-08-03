@@ -53,7 +53,7 @@ public class MemberDAO {
 		public int join(MemberDTO dto) {
 			try {
 				conn();
-				String sql = "insert into member(customer_id, customer_pw, store_name, nickName, tel, address, customer_type) values(?,?,?,?,?,?)";
+				String sql = "insert into member(customer_id, customer_pw, nickName,  store_name, tel, address, customer_type) values(?,?,?,?,?,?,?)";
 				psmt = conn.prepareStatement(sql);
 				
 				psmt.setString(1, dto.getCustomer_id());
