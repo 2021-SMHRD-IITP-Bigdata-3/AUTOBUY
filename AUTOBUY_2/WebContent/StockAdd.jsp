@@ -149,7 +149,6 @@ a:hover {
 	<%
 		MemberDTO info = (MemberDTO)session.getAttribute("info");
 	
-	
 		ProductDAO product_dao = new ProductDAO();
 		
 

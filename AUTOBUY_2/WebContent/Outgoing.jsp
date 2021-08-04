@@ -15,11 +15,17 @@
 <body>
 	<%
 		MemberDTO info = (MemberDTO)session.getAttribute("info");
+<<<<<<< HEAD
 		StockManageDAO dao = new StockManageDAO();
 		ArrayList<MaterialInfoDTO> list = dao.showMaterialInfoList();
 		
 		
 		
+=======
+		
+		StockManageDAO dao = new StockManageDAO();
+		Array
+>>>>>>> branch 'master' of https://github.com/2021-SMHRD-IITP-Bigdata-3/AUTOBUY.git
 	%>
 
 	<div class="container" >
