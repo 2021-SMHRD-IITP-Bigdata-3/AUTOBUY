@@ -1,29 +1,20 @@
 package auto.model;
 
-public class StockDTO {
-	
+public class CartDTO {
 	private String customer_id;
 	private int product_num;
 	private String product_name;
 	private String supplier_name;
 	private int product_price;
-	private int stock_qntty;
-	private int minimum_qntty;
-	private int standard_qntty;
-	private String product_pic;
 	
-	public StockDTO(String customer_id, int product_num, String product_name, String supplier_name, int product_price,
-			int stock_qntty, int minimum_qntty, int standard_qntty, String product_pic) {
+	public CartDTO(String customer_id, int product_num, String product_name, String supplier_name,
+			int product_price) {
 		super();
 		this.customer_id = customer_id;
 		this.product_num = product_num;
 		this.product_name = product_name;
 		this.supplier_name = supplier_name;
 		this.product_price = product_price;
-		this.stock_qntty = stock_qntty;
-		this.minimum_qntty = minimum_qntty;
-		this.standard_qntty = standard_qntty;
-		this.product_pic = product_pic;
 	}
 
 	public String getCustomer_id() {
@@ -65,41 +56,8 @@ public class StockDTO {
 	public void setProduct_price(int product_price) {
 		this.product_price = product_price;
 	}
-
-	public int getStock_qntty() {
-		return stock_qntty;
-	}
-
-	public void setStock_qntty(int stock_qntty) {
-		this.stock_qntty = stock_qntty;
-	}
-
-	public int getMinimum_qntty() {
-		return minimum_qntty;
-	}
-
-	public void setMinimum_qntty(int minimum_qntty) {
-		this.minimum_qntty = minimum_qntty;
-	}
-
-	public int getStandard_qntty() {
-		return standard_qntty;
-	}
-
-	public void setStandard_qntty(int standard_qntty) {
-		this.standard_qntty = standard_qntty;
-	}
-
-	public String getProduct_pic() {
-		return product_pic;
-	}
-
-	public void setProduct_pic(String product_pic) {
-		this.product_pic = product_pic;
-	}
 	
 	
-
 	
 	
 

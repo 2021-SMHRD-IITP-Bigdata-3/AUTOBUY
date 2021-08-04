@@ -47,6 +47,37 @@ public class ProductDAO {
 			}
 		}
 		
+		
+		// 전체 제품 보여주기
+		public ArrayList<ProductDTO> showProduct() {	
+		
+			ArrayList<ProductDTO> list = new ArrayList<ProductDTO>();
+			
+			try {
+				conn();
+				String sql = "select * from product order by product_num";
+				psmt = conn.prepareStatement(sql);				
+				rs = psmt.executeQuery();
+				
+				while(rs.next()) {
+					int product_num = rs.getInt("product_num");
+					String product_name = rs.getString("product_name");
+					String supplier_name = rs.getString("supplier_name");
+					int product_price = rs.getInt("product_price");
+					int product_qntty = rs.getInt("product_qntty");	
+					String product_pic = rs.getString("product_pic");
+					ProductDTO dto = new ProductDTO(product_num, product_name, supplier_name, product_price, product_qntty, product_pic);
+					list.add(dto);
+				}
+			} catch (SQLException e) {
+				e.printStackTrace();
+			} finally {	
+				close();
+			}
+			return list;
+		}	
+	
+
 		// 제품별 가격 가져오기
 		public int getPrice(int product_num) {
 			int price = 0;
@@ -69,34 +100,5 @@ public class ProductDAO {
 			return price;
 		}
 		
-		
-		// 전체 제품 보여주기
-		public ArrayList<ProductDTO> showProduct() {	
-		
-			ArrayList<ProductDTO> list = new ArrayList<ProductDTO>();
-			
-			try {
-				conn();
-				String sql = "select * from product order by product_num";
-				psmt = conn.prepareStatement(sql);				
-				rs = psmt.executeQuery();
-				
-				while(rs.next()) {
-					int product_num = rs.getInt("product_num");
-					String product_name = rs.getString("product_name");
-					String supplier_name = rs.getString("supplier_name");
-					int product_price = rs.getInt("product_price");
-					int product_qntty = rs.getInt("product_qntty");	
-					ProductDTO dto = new ProductDTO(product_num, product_name, supplier_name, product_price, product_qntty);
-					list.add(dto);
-				}
-			} catch (SQLException e) {
-				e.printStackTrace();
-			} finally {	
-				close();
-			}
-			return list;
-		}	
-	
 
 }

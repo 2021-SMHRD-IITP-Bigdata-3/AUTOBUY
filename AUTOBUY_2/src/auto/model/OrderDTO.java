@@ -2,31 +2,50 @@ package auto.model;
 
 public class OrderDTO {
 	
+	private String order_num_s;
 	private int order_num;
 	private String customer_id;
-	private String supplier_id;
 	private String customer_store_name;	
 	private String customer_tel;
 	private String customer_add;
 	private int order_amount;
 	private String order_date;
-	private String receipt_date;
-	private String forwarding_date;
 	
 	
-	public OrderDTO(int order_num, String customer_id, String supplier_id, String customer_store_name,
-			String customer_tel, String customer_add, int order_amount, String order_date, String receipt_date,
-			String forwarding_date) {
+	public OrderDTO(int order_num, String customer_id, String customer_store_name, String customer_tel,
+			String customer_add, int order_amount, String order_date) {
 		this.order_num = order_num;
 		this.customer_id = customer_id;
-		this.supplier_id = supplier_id;
 		this.customer_store_name = customer_store_name;
 		this.customer_tel = customer_tel;
 		this.customer_add = customer_add;
 		this.order_amount = order_amount;
 		this.order_date = order_date;
-		this.receipt_date = receipt_date;
-		this.forwarding_date = forwarding_date;
+	}
+
+	
+	public OrderDTO(String order_num_s, String customer_id, String customer_store_name, String customer_tel,
+			String customer_add, int order_amount, String order_date) {
+		super();
+		this.order_num_s = order_num_s;
+		this.customer_id = customer_id;
+		this.customer_store_name = customer_store_name;
+		this.customer_tel = customer_tel;
+		this.customer_add = customer_add;
+		this.order_amount = order_amount;
+		this.order_date = order_date;
+	}
+
+	
+	
+
+	public String getOrder_num_s() {
+		return order_num_s;
+	}
+
+
+	public void setOrder_num_s(String order_num_s) {
+		this.order_num_s = order_num_s;
 	}
 
 
@@ -47,16 +66,6 @@ public class OrderDTO {
 
 	public void setCustomer_id(String customer_id) {
 		this.customer_id = customer_id;
-	}
-
-
-	public String getSupplier_id() {
-		return supplier_id;
-	}
-
-
-	public void setSupplier_id(String supplier_id) {
-		this.supplier_id = supplier_id;
 	}
 
 
@@ -108,26 +117,11 @@ public class OrderDTO {
 	public void setOrder_date(String order_date) {
 		this.order_date = order_date;
 	}
+	
+	
 
+	
 
-	public String getReceipt_date() {
-		return receipt_date;
-	}
-
-
-	public void setReceipt_date(String receipt_date) {
-		this.receipt_date = receipt_date;
-	}
-
-
-	public String getForwarding_date() {
-		return forwarding_date;
-	}
-
-
-	public void setForwarding_date(String forwarding_date) {
-		this.forwarding_date = forwarding_date;
-	}
 	
 	
 

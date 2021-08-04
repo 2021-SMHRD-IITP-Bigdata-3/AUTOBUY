@@ -34,17 +34,13 @@ public class RegistOneProductServiceCon extends HttpServlet {
 		int num = product_num - 101;
 		String product_name = product_list.get(num).getProduct_name();
 		String supplier_name = product_list.get(num).getSupplier_name();
-		int price = product_list.get(num).getProduct_price();
+		int product_price = product_list.get(num).getProduct_price();
+		String product_pic = product_list.get(num).getProduct_pic();
 		
-		
-		
-		
-		
-
-		
+				
 		System.out.println("등록할 제품 고유 번호 : " + product_num);
 		
-		int cnt = stock_dao.registOneProduct(customer_id, product_num, product_name, supplier_name, price);
+		int cnt = stock_dao.registOneProduct(customer_id, product_num, product_name, supplier_name, product_price, product_pic);
 		
 		
 		if(cnt>0) {

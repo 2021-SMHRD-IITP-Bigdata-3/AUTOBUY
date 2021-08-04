@@ -100,18 +100,15 @@ public class OrderDAO {
 				rs = psmt.executeQuery();
 				
 				while(rs.next()) {
-					int order_num = rs.getInt("order_num");
+					String order_num_s = rs.getString("order_num");
 					String customer_id = rs.getString("customer_id");
-					String supplier_id = rs.getString("supplier_id");
 					String customer_store_name = rs.getString("customer_store_name");
 					String customer_tel = rs.getString("customer_tel");
 					String customer_add = rs.getString("customer_add");
 					int order_amount = rs.getInt("order_amount");					
 					String order_date = rs.getString("order_date");
-					String receipt_date = rs.getString("receipt_date");
-					String forwarding_date = rs.getString("forwarding_date");
 					
-					dto = new OrderDTO(order_num, customer_id, supplier_id, customer_store_name, customer_tel, customer_add, order_amount, order_date, receipt_date, forwarding_date);
+					dto = new OrderDTO(order_num_s, customer_id, customer_store_name, customer_tel, customer_add, order_amount, order_date);
 					list.add(dto);
 				}
 			} catch (SQLException e) {
@@ -122,40 +119,15 @@ public class OrderDAO {
 			return list;
 		}
 		
-		//주문 들어온 전체 제품 테이블에 담기
-		public int insertCustomerOrder() {
-			try {
-				conn();
-				String sql = "insert into customer_order(order_num, customer_id, customer_store_name, order_date, receipt_date, customer_tel, customer_add, order_amount) values(?,?,?,sysdate,?,?,?,?)";
-				psmt = conn.prepareStatement(sql);
-				
-				psmt.setInt(1, dto.getOrder_num());
-				psmt.setString(2, dto.getCustomer_id());
-				psmt.setString(3, dto.getCustomer_store_name());
-				psmt.setString(4, dto.getOrder_date());
-				psmt.setString(5, dto.getReceipt_date());
-				psmt.setString(6, dto.getCustomer_tel());
-				psmt.setString(7, dto.getCustomer_add());
-				psmt.setInt(8, dto.getOrder_amount());
-				
-				cnt = psmt.executeUpdate();
-				
-			} catch (SQLException e) {
-				e.printStackTrace();
-			}finally {
-				close();
-			}
-			return cnt;
 			
-			
-			
-		}
+
 		
 		// 발주제안한 제품 발주 신청시 오더테이블로 이동
-		public int insertSuggestOrder(int order_num, String customer_id, String customer_store_name, String customer_tel, String customer_add ) {
+		public int insertSuggestOrder(int order_num, String customer_id, String customer_store_name, String customer_tel, String customer_add, int amount) {
 			try {
 				conn();
-				String sql = "insert into customer_order(order_num, customer_id, customer_store_name, order_date, customer_tel, customer_add) values(concat(to_char(sysdate, 'yyyymmdd'),?),?,?,sysdate,?,?)";
+				String sql = "insert into customer_order(order_num, customer_id, customer_store_name, order_date, customer_tel, customer_add, order_amount) "
+						+ "values(concat(to_char(sysdate, 'yyyymmdd'),?),?,?,sysdate,?,?,?)";
 				psmt = conn.prepareStatement(sql);
 				
 				psmt.setInt(1, order_num);
@@ -163,6 +135,7 @@ public class OrderDAO {
 				psmt.setString(3, customer_store_name);
 				psmt.setString(4, customer_tel);
 				psmt.setString(5, customer_add);
+				psmt.setInt(6, amount);
 			
 				
 				cnt = psmt.executeUpdate();
@@ -190,12 +163,13 @@ public class OrderDAO {
 					
 					
 					cnt = psmt.executeUpdate();
+<<<<<<< HEAD
+				}		
+				
+=======
 				}
-				
-			
-				
-				
-				
+								
+>>>>>>> branch 'master' of https://github.com/2021-SMHRD-IITP-Bigdata-3/AUTOBUY.git
 			} catch (SQLException e) {
 				e.printStackTrace();
 			}finally {
@@ -205,15 +179,119 @@ public class OrderDAO {
 		}
 			
 		
+		// 수동발주에서 제품 선택시 cart 테이블에 값 삽입
+		public int insertCart(String customer_id, int product_num, String product_name, String supplier_name, int product_price) {
+			try {
+				conn();
+					
+					String sql = "insert into cart values(?,?,?,?,?)";
+					psmt = conn.prepareStatement(sql);
+					psmt.setString(1, customer_id);
+					psmt.setInt(2, product_num);
+					psmt.setString(3, product_name);
+					psmt.setString(4, supplier_name);
+					psmt.setInt(5, product_price);
+					
+					
+					cnt = psmt.executeUpdate();
+						
+				
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}finally {
+				close();
+			}
+			return cnt;						
+		}
+		
+		// 카트에 담긴 제품을 삭제하는 메소드
+		public int deleteCart(String customer_id, int product_num){		
+			
+			try {
+				conn();
+				String sql = "delete from cart where customer_id = ? and product_num = ?";
+				psmt = conn.prepareStatement(sql);
+				psmt.setString(1, customer_id);
+				psmt.setInt(2, product_num);
+				cnt = psmt.executeUpdate();
+				
+			} catch (SQLException e) {
+				e.printStackTrace();
+			} finally {
+				close();
+			}			
+			return cnt;
+		}
 		
 		
-		
-
-		
+		public ArrayList<CartDTO> showCart(String customer_id) {	
+			
+			ArrayList<CartDTO> list = new ArrayList<CartDTO>();
+			
+			try {
+				conn();
+				String sql = "select * from cart where customer_id = ?  order by product_num";
+				psmt = conn.prepareStatement(sql);
+				psmt.setString(1, customer_id);
+				rs = psmt.executeQuery();
+				
+				while(rs.next()) {
+					int product_num = rs.getInt("product_num");
+					String product_name = rs.getString("product_name");
+					String supplier_name = rs.getString("supplier_name");
+					int product_price = rs.getInt("product_price");
+					CartDTO dto = new CartDTO(customer_id, product_num, product_name, supplier_name, product_price);
+					list.add(dto);
+				}
+			} catch (SQLException e) {
+				e.printStackTrace();
+			} finally {	
+				close();
+			}
+			return list;
+		}
 		
 	
-	
-
+		public int insertCartDetailOrder(int order_num,ArrayList<CartDTO> cartlist, String[] qntty) {
+			try {
+				conn();
+				for(int i=0; i<cartlist.size(); i++) {			
+					String sql = "insert into detail_order values(concat(to_char(sysdate, 'yyyymmdd'),?),?,?,?,?)";
+					psmt = conn.prepareStatement(sql);
+					psmt.setInt(1, order_num);
+					psmt.setInt(2, cartlist.get(i).getProduct_num());
+					psmt.setString(3, cartlist.get(i).getProduct_name());
+					psmt.setString(4, cartlist.get(i).getSupplier_name());
+					psmt.setInt(5, Integer.parseInt(qntty[i]));
+					
+					
+					cnt = psmt.executeUpdate();
+				}		
+				
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}finally {
+				close();
+			}
+			return cnt;						
+		}
+		
+		public int deleteCartTable(String customer_id){		
+			
+			try {
+				conn();
+				String sql = "delete from cart where customer_id = ?";
+				psmt = conn.prepareStatement(sql);
+				psmt.setString(1, customer_id);
+				cnt = psmt.executeUpdate();
+				
+			} catch (SQLException e) {
+				e.printStackTrace();
+			} finally {
+				close();
+			}			
+			return cnt;
+		}
 	
 		
 }
