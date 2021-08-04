@@ -126,6 +126,11 @@ a:hover {
 	text-decoration: underline;
 }
 
+.inputbutton:hover{
+	background : white;
+	border : 1px solid #5F04B4;
+	color : black;
+}
 
 
 @font-face{
