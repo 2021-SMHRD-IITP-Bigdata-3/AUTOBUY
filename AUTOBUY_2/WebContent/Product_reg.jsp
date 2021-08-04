@@ -66,19 +66,19 @@
 		<div class="content">
 			<div class="small_title"><p>상품주문</p></div>
 				<div class="board">
-           		<table class="list_board">
+           		<table class="list_board" style="width: 500px">
 					<tr>
-						<td>제품명</td>
-						<td>가격</td>
+						<td >제품명</td>
+						<td >가격</td>
 						<td>거래처</td>
 						<td>등록</td>
 					</tr>
 					<%for(int i = 0; i<product_list.size();i++){ %>
 					<tr>
-						<td style = "width: 40%"><%=product_list.get(i).getProduct_name() %></td>
-						<td style = "width: 18%"><%=product_list.get(i).getProduct_price() %>원</td>
-						<td style = "width: 27%"><%=product_list.get(i).getSupplier_name() %></td>
-						<td style = "width: 15%"><a href="CartServiceCon?product_num=<%=product_list.get(i).getProduct_num()%>"><input type="button" value ="추가"></a></td>
+						<td style = "width:25%"><%=product_list.get(i).getProduct_name() %></td>
+						<td style = "width:25%"><%=product_list.get(i).getProduct_price() %>원</td>
+						<td style = "width:25%"><%=product_list.get(i).getSupplier_name() %></td>
+						<td style = "width:25%"><a href="CartServiceCon?product_num=<%=product_list.get(i).getProduct_num()%>"><input type="button" value ="추가"></a></td>
 					</tr>
 					<%} %>
 

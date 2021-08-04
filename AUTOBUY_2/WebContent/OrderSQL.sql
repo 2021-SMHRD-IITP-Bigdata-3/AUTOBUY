@@ -51,22 +51,6 @@ insert into customer_order(order_num, customer_id, customer_store_name, customer
 create table detail_order(
 order_num varchar2(50) not null,
 product_num number(20) not null,
-product_name varchar2(50) not null,
-supplier_name varchar2(50) not null,
-order_qntty number(20) not null,
-
-constraint fk_order_num foreign key(order_num)
-references customer_order(order_num),
-constraint fk_product_num foreign key(product_num, product_name)
-references product(product_num, product_name)
-);
-
-<<<<<<< HEAD
-select * from DETAIL_ORDER order by order_num;
-=======
-create table detail_order(
-order_num varchar2(50) not null,
-product_num number(20) not null,
 product_name varchar2(20) not null,
 order_qntty number(20) not null,
 supplier_name varchar2(50) not null,
@@ -81,7 +65,6 @@ references product(product_num, product_name)
 );
 
 select * from DETAIL_ORDER;
->>>>>>> branch 'master' of https://github.com/2021-SMHRD-IITP-Bigdata-3/AUTOBUY.git
 
 -- 발주 제안 테이블---------------------------------
 create table order_suggest(
@@ -101,7 +84,7 @@ references product(product_num, product_name)
 );
 
 select * from ORDER_SUGGEST;
-=======
+
 select * from DETAIL_ORDER order by order_num, PRODUCT_num;
 
 								주문번호, 제품번호, 제품명, 주문수량
@@ -142,7 +125,6 @@ product_num number(20) primary key,
 product_name varchar2(50) not null,
 supplier_name varchar2(50) not null,
 product_price number(20) not null
-
 )
 
 select * from cart

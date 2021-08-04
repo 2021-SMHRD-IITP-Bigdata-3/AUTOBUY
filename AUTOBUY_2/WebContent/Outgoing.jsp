@@ -1,3 +1,7 @@
+<%@page import="auto.model.MaterialInfoDTO"%>
+<%@page import="java.util.ArrayList"%>
+<%@page import="auto.model.StockManageDAO"%>
+<%@page import="auto.model.AutomaticSuggestDAO"%>
 <%@page import="auto.model.MemberDTO"%>
 <%@ page language="java" contentType="text/html; charset=EUC-KR"
     pageEncoding="EUC-KR"%>
@@ -11,6 +15,11 @@
 <body>
 	<%
 		MemberDTO info = (MemberDTO)session.getAttribute("info");
+		StockManageDAO dao = new StockManageDAO();
+		ArrayList<MaterialInfoDTO> list = dao.showMaterialInfoList();
+		
+		
+		
 	%>
 
 	<div class="container" >

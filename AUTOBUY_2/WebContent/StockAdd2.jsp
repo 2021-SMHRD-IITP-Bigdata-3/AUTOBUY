@@ -8,13 +8,10 @@
     pageEncoding="EUC-KR"%>
 <!DOCTYPE html>
 <style>
-
-@import url(//spoqa.github.io/spoqa-han-sans/css/SpoqaHanSansNeo.css);
-
  #search {
 	height : 40px;
 	width : 400px;
-	border : 2px solid #5F04B4;
+	border : 2px solid #1b5ac2;
 	background : #ffffff;
 }
 #searchInput{
@@ -29,7 +26,7 @@ button{
 	width : 50px;
 	height : 100%;
 	border : 0px;
-	background : #5F04B4;
+	background : #1b5ac2;
 	outline : none;
 	float : right;
 	color : #ffffff;
@@ -40,7 +37,7 @@ button{
 width : 50px;
 	height : 100%;
 	border : 0px;
-	background : #5F04B4;
+	background : #1b5ac2;
 	outline : none;
 	float : right;
 	color : #ffffff
@@ -52,7 +49,7 @@ border-collapse: separate;
   line-height: 1.5;
   border-top: 1px solid #ccc;
   margin : 20px 10px;
-  border-left: 3px solid #5F04B4;
+  border-left: 3px solid #1b5ac2;
   margin-left: 0px;
 }
 
@@ -69,14 +66,13 @@ border-collapse: separate;
   padding: 10px;
   vertical-align: top;
   border-bottom: 1px solid #ccc;
-  font-family: 'Spoqa Han Sans Neo', 'sans-serif';
 }
 .submitbutton{
 	width : 100px;
 	height : 50px;
 	border : 0px;
 	border-radius : 3px;
-	background : #5F04B4;
+	background : #1b5ac2;
 	color : #ffffff;
 	font-size: 18px;
 	border-style: ridge;
@@ -103,35 +99,24 @@ a{
   	padding: 10px;
   	vertical-align: top;
   	height: 30px;
-  	font-family: 'Spoqa Han Sans Neo', 'sans-serif';
-  	
+  	font-family: "고딕";
   	
 }
-.select:hover {
-	border-left: 3px solid #5F04B4;
+#select:hover {
+	background-color: #EFF8FB;
+	border-left: 3px solid #1b5ac2;
+	font-weight: bolder;
+}
+#select{
 	font-weight: bold;
-	background-color: #5F04B4;
-	color: white;
-}
-.select{
-	font-weight: 450;
-	font-size : 18px;
-
 }
 #hello{
 	text-align: center;
 }
 	
-a:hover {
-	text-decoration: underline;
-}
 
 
 
-@font-face{
-	src: url("../assest/fonts/Cocogoose Pro Light-trial.ttf");
-    font-family: "Cocogoose"; 
- }
 
 </style>
 <html>
@@ -177,11 +162,11 @@ a:hover {
 
 	<div class="container" >
 		<div class="header">
-			<div class="title"><p style="color: black; font-family:Cocogoose">AUTOBUY</p></div>
+			<div class="title"><p style="color: #1b5ac2;">AUTOBUY</p></div>
 			
 			<%if(info != null){%>
-				<div class="logout" style="float : right; font-size:18px; font-family: 'Spoqa Han Sans Neo', 'sans-serif';;"  ><a href="LogoutServiceCon">로그아웃</a></div>
-				<div class="store_name" style="float: right; font-size: 18px; font-family: 'Spoqa Han Sans Neo', 'sans-serif';;">
+				<div class="logout" style="float : right; font-size: 20px;"  ><a href="LogoutServiceCon">로그아웃</a></div>
+				<div class="store_name" style="float: right; font-size: 20px;">
 					<a href="Update.jsp"><%= info.getCustomer_id() %>님</a>
 				</div>
 			<%} %>					
@@ -192,30 +177,30 @@ a:hover {
 			<table id="menu">
 				<tr>
 					<td id="hello" onclick="location.href='Update.jsp'"><h3><%=info.getStore_name() %>카페 사장님<br>환영합니다!!</h3></td>
+				<tr>
+				<tr>
+					<td id="select" onclick="location.href='Main.jsp'" style="background-color: red"> &emsp;&emsp;&nbsp;재고목록</td>
 				</tr>
 				<tr>
-					<td class="select" onclick="location.href='Main.jsp'" style="background-color: #5F04B4; color: white;"> &emsp;&emsp;&nbsp;재고목록</td>
-				</tr>
-				<tr >
-					<td class="select" onclick="location.href='Incoming.jsp'">&emsp;&emsp;&nbsp;입고</td>
+					<td id="select" onclick="location.href='Incoming.jsp'" style="background-color: orange">&emsp;&emsp;&nbsp;입고</td>
 				</tr>
 				<tr>
-					<td class="select" onclick="location.href='Outgoing.jsp'">&emsp;&emsp;&nbsp;출고</td>
+					<td id="select" onclick="location.href='Outgoing.jsp'" style="background-color: yellow">&emsp;&emsp;&nbsp;출고</td>
 				</tr>
 				<tr>
-					<td class="select" onclick="location.href='Shelf_life.jsp'">&emsp;&emsp;&nbsp;유통기한</td>
+					<td id="select" onclick="location.href='Shelf_life.jsp'" style="background-color: green">&emsp;&emsp;&nbsp;유통기한</td>
 				</tr>
 				<tr>
-					<td class="select" onclick="location.href='Sup_con.jsp'">&emsp;&emsp;&nbsp;거래처</td>
+					<td id="select" onclick="location.href='Sup_con.jsp'" style="background-color: blue">&emsp;&emsp;&nbsp;거래처</td>
 				</tr>
 				<tr>
-					<td class="select" onclick="location.href='Data.jsp'">&emsp;&emsp;&nbsp;대시보드</td>
+					<td id="select" onclick="location.href='Data.jsp'" style="background-color: navy">&emsp;&emsp;&nbsp;대시보드</td>
 				</tr>
 				<tr>
-					<td class="select" onclick="location.href='Limit.jsp'">&emsp;&emsp;&nbsp;조정</td>
+					<td id="select" onclick="location.href='Limit.jsp'" style="background-color: purple">&emsp;&emsp;&nbsp;조정</td>
 				</tr>
 				<tr>
-					<td class="select" onclick="location.href='Product_reg.jsp'">&emsp;&emsp;&nbsp;발주</td>
+					<td id="select" onclick="location.href='Product_reg.jsp'" style="background-color: gold">&emsp;&emsp;&nbsp;발주</td>
 				</tr>
 			</table>
 		</div>

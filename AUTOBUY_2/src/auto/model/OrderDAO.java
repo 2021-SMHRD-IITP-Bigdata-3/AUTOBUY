@@ -163,13 +163,8 @@ public class OrderDAO {
 					
 					
 					cnt = psmt.executeUpdate();
-<<<<<<< HEAD
-				}		
-				
-=======
 				}
-								
->>>>>>> branch 'master' of https://github.com/2021-SMHRD-IITP-Bigdata-3/AUTOBUY.git
+
 			} catch (SQLException e) {
 				e.printStackTrace();
 			}finally {
@@ -256,7 +251,7 @@ public class OrderDAO {
 			try {
 				conn();
 				for(int i=0; i<cartlist.size(); i++) {			
-					String sql = "insert into detail_order values(concat(to_char(sysdate, 'yyyymmdd'),?),?,?,?,?)";
+					String sql = "insert into detail_order(order_num,product_num,product_name,supplier_name,order_qntty) values(concat(to_char(sysdate, 'yyyymmdd'),?),?,?,?,?)";
 					psmt = conn.prepareStatement(sql);
 					psmt.setInt(1, order_num);
 					psmt.setInt(2, cartlist.get(i).getProduct_num());
@@ -276,8 +271,7 @@ public class OrderDAO {
 			return cnt;						
 		}
 		
-		public int deleteCartTable(String customer_id){		
-			
+		public int deleteCartTable(String customer_id){			
 			try {
 				conn();
 				String sql = "delete from cart where customer_id = ?";
@@ -292,6 +286,35 @@ public class OrderDAO {
 			}			
 			return cnt;
 		}
+		
+		
+		public OrderDTO showReceipt(String customer_id) {
+			OrderDTO Dto=null;
+			try {
+				conn();
+				String sql = "select * from (select * from customer_order where customer_id = ? order by order_num desc) where rownum=1";
+				psmt = conn.prepareStatement(sql);
+				psmt.setString(1, customer_id);
+				rs = psmt.executeQuery();
+				
+				while(rs.next()) {
+					String order_num = rs.getString("order_num");
+					int amount = rs.getInt("order_amount");
+					
+					 Dto = new OrderDTO(order_num, amount);
+					
+				}
+				
+			} catch (SQLException e) {
+				e.printStackTrace();
+			} finally {
+				close();
+			}			
+			return Dto;
+		}
+
+	
 	
 		
+	
 }
