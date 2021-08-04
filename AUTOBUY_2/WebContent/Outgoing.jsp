@@ -11,6 +11,9 @@
 <body>
 	<%
 		MemberDTO info = (MemberDTO)session.getAttribute("info");
+		
+		StockManageDAO dao = new StockManageDAO();
+		Array
 	%>
 
 	<div class="container" >
