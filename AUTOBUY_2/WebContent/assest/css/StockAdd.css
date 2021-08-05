@@ -13,6 +13,7 @@
    .title{
    width:25%;
    height:6%;
+   font-family: Cocogoose;
    }
    .header p{
    width:300px;
@@ -100,11 +101,11 @@
    width:92.9%;
    font-size:15px;
    margin-left:80px;
+   float: left;
    }
    .board1{
    margin-top:40px;
    margin-left:100px;
-   float:left;
    width:44.1%;
    font-size:15px;
    }
@@ -128,7 +129,7 @@
 
  #search {
 	height : 40px;
-	width : 400px;
+	width : 500px;
 	border : 2px solid #5F04B4;
 	background : #ffffff;
 }
@@ -148,6 +149,7 @@ button{
 	outline : none;
 	float : right;
 	color : #ffffff;
+	font-weight: bold;
 	
 }
 
@@ -163,13 +165,14 @@ width : 50px;
 #show{
 border-collapse: separate;
   border-spacing: 1px;
-  text-align: left;
   line-height: 1.5;
   border-top: 1px solid #ccc;
   margin : 20px 10px;
   border-left: 3px solid #5F04B4;
   margin-left: 0px;
+  width : 800px;
 }
+
 #show1{
 border-collapse: separate;
   border-spacing: 1px;
@@ -195,6 +198,11 @@ border-collapse: separate;
   vertical-align: top;
   border-bottom: 1px solid #ccc;
   font-family: 'Spoqa Han Sans Neo', 'sans-serif';
+}
+
+#date{
+	font-size: 17px;
+	
 }
 .submitbutton{
 	width : 100px;
@@ -247,9 +255,6 @@ a{
 	text-align: center;
 }
 	
-a:hover {
-	text-decoration: underline;
-}
 
 .inputbutton:hover{
 	background : white;

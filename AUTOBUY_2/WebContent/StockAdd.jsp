@@ -50,10 +50,10 @@
 
 	<div class="container" >
 		<div class="header">
-			<div class="title"><p><a href="Main.jsp" id="auto"><b><b>AUTO</b></b></a><a href="Main.jsp" id="buy">BUY</a></p></div>
+			<div class="title"><p><a href="Main.jsp" id="auto"><b><b>AUTO</b></b></a><a href="Main.jsp?after" id="buy">BUY</a></p></div>
 			
 			<%if(info != null){%>
-				<div style="margin-left: 1400px; margin-top: 20px">
+				<div style="margin-left: 1270px; margin-top: 20px">
 				<table id="topmenu">
 					<tr>
 						<td style="font-size: 18px; font-family: 'Spoqa Han Sans Neo', 'sans-serif';"><a href="Update.jsp">마이페이지</a></td>		
@@ -106,23 +106,23 @@
 				<button>검색</button>
 			</div>
 			</div>
-			<div class="board">
-           		<table id="show" style="margin:auto; width : 1300px; margin-top:40px;">
+			<div class="board1" style="float:left;">
+           		<table id="show"  style="margin-top:24px;">
 					<tr  style ="text-align: center; width: 400px; font-size: 18px;">
-						<td>사진</td>
-						<td style="width: 46%"><b>제품명</b></td>
-						<td style = "width: 18%"><b>가격</b></td>
-						<td style = "width: 30%"><b>거래처</b></td>
-						<td style = "width: 6%"><b></b></td>
+						<td style="whidth:15%; "><b>사진</b></td>
+						<td style="width: 37%"><b>제품명</b></td>
+						<td style = "width: 15%"><b>가격</b></td>
+						<td style = "width: 25%"><b>거래처</b></td>
+						<td style = "width: 8%"><b></b></td>
 					</tr>
 					<%for(int i = 0; i<product_list.size();i++){ %>
-					<tr style="height: 40px; width: 600px; cursor: pointer; font-size: 17px;" onMouseOver="this.style.backgroundColor='#EFF8FB';" onMouseOut="this.style.backgroundColor=''"
+					<tr id = "data" style="height: 40px; width: 600px; cursor: pointer; font-size: 17px;" onMouseOver="this.style.backgroundColor='#EFF8FB';" onMouseOut="this.style.backgroundColor=''"
 					onclick="location.href='RegistOneProductServiceCon?product_num=<%=product_list.get(i).getProduct_num()%>'">
-						<td style="width: 15%"><b>사진</b></td>
-						<td scope="row" style="width: 35%"><%=product_list.get(i).getProduct_name() %></td>
-						<td style = "width: 18%; text-align: center;"><%=product_list.get(i).getProduct_price() %>원</td>
-						<td style = "width: 32%; text-align: center;"><%=product_list.get(i).getSupplier_name() %></td>
-						<td style = "width: 10%; color: #5F04B4; " > <b>></b></td>
+						<td style="width: 15%">사진</td>
+						<td scope="row" style="width: 37%"><%=product_list.get(i).getProduct_name() %></td>
+						<td style = "width: 15%; text-align: center;"><%=product_list.get(i).getProduct_price() %>원</td>
+						<td style = "width: 25%; text-align: center;"><%=product_list.get(i).getSupplier_name() %></td>
+						<td style = "width: 8%; color: #5F04B4; " > <b>></b></td>
 					</tr>
 					
 					<%} %>
@@ -130,38 +130,40 @@
 			
 				</table>
 			<form action="RegistProductQnttyServiceCon" method="post">
-			<%if(stock_list.size()<product_list.size()){ %>
-			<div style="margin-left : 650px;"><input class="submitbutton" type="submit" value="등록완료" ></div>
-			<%} %>
+			
 			</div>
 			
+				
 			
-			<div class="board2">
+			<div class="board2" style="width: 700px;">
 			
-            <table style="margin-left: 30px" id = "show">
-               <tr style="text-align: center; width: 600px;">
-                  <td style="width: 45%"><b>제품명</b></td>
-                  <td style = "width: 30%;"><b>거래처</b></td>
-                  <td style = "width: 15%;"><b>수량</b></td>
-                  <td style = "width: 10%"><b></b></td>
+            <table id = "show" style="margin-left: -50px;">
+               <tr style="text-align: center; width: 600px; font-size: 18px;">
+               	  <td style="width: 15%;"><b>사진</b></td>
+                  <td style="width: 37%"><b>제품명</b></td>
+                  <td style="width: 25%;"><b>거래처</b></td>
+                  <td style="width: 15%;"><b>수량</b></td>
+                  <td style="width: 8%"><b></b></td>
                </tr>
  			   
                <%for(int i = 0; i<stock_list.size();i++){ %>
-					<tr style="height: 40px; width: 600px; cursor: pointer;" onMouseOver="this.style.backgroundColor='#EFF8FB';" onMouseOut="this.style.backgroundColor=''"
+					<tr id = "data" style="font-size:17px;  height: 40px; width: 600px; cursor: pointer;" onMouseOver="this.style.backgroundColor='#EFF8FB';" onMouseOut="this.style.backgroundColor=''"
 					onclick="location.href='DeleteOneStockServiceCon?stock_num=<%=stock_list.get(i).getProduct_num()%>'">
-						
-						<td scope="row" style="width: 45%"><%=stock_list.get(i).getProduct_name() %></td>
-						<td style = "width: 15%; text-align: center;"><%=stock_list.get(i).getSupplier_name() %></td>
-						<td><input type="number"  name = "stock_qntty" min="0" value=<%=stock_list.get(i).getStock_qntty() %> size="10px" style="width:50px;"></td>
-						<td style="color: #5F04B4;"><b>x</b></td>				
+						<td style="width: 15%;">사진</td>
+						<td style="width: 37%"><%=stock_list.get(i).getProduct_name() %></td>
+						<td style="width: 25%; text-align: center;"><%=stock_list.get(i).getSupplier_name() %></td>
+						<td style="width: 15%; text-align: center;"><input type="number"  name = "stock_qntty" min="0" value=<%=stock_list.get(i).getStock_qntty() %> size="10px" style="width:50px;"></td>
+						<td style="width: 8%; color: #5F04B4; text-align: center;"><b>x</b></td>				
 					</tr>
 				<%} %>
 				
             </table>
-            <%if(stock_list.size()>=product_list.size()){ %>		
-        	<div style="margin-left : -20px;"><input class="submitbutton" type="submit" value="등록완료" ></div>
-        	<%} %>
+          
             </div>
+          
+  				<button  class="submitbutton" style="margin-right: 1030px">등록완료</button>
+  			
+          
         	
         	
         	</form>

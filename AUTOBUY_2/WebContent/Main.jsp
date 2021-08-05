@@ -27,7 +27,7 @@
 			<div class="title"><p><a href="Main.jsp" id="auto"><b><b>AUTO</b></b></a><a href="Main.jsp" id="buy">BUY</a></p></div>
 			
 			<%if(info != null){%>
-				<div style="margin-left: 860px; margin-top: 20px">
+				<div style="margin-left: 1270px; margin-top: 20px">
 				<table id="topmenu">
 					<tr>
 						<td style="font-size: 18px; font-family: 'Spoqa Han Sans Neo', 'sans-serif';"><a href="Update.jsp">마이페이지</a></td>		
@@ -75,7 +75,7 @@
 		<div class="content">
 			<div class="small_title"><p>제품목록</p></div>
 			<div class="board">
-				<table id="show" style="margin:auto; width : 1300px; margin-top:40px;">
+				<table id="show" style="margin:auto; width : 1300px; margin-top:100px;">
 					<tr  style ="text-align: center; width: 400px; font-size: 18px;">
 						<td><b>사진</b></td>
 						<td><b>제품명</b></td>
@@ -102,7 +102,7 @@
 					<%} %>	
 			 </table>
 			</div>
-			<div><button type="button" class = "submitbutton" onclick="location.href='StockAdd.jsp'" style="margin-top: 10px; margin-right: 750px;">+등록/삭제</button></div>
+			<div><button type="button" class = "submitbutton" onclick="location.href='StockAdd.jsp'" style="margin-top: 20px; margin-right: 940px;">+등록/삭제</button></div>
 		</div>
 		<div class ="footer">
 			<div class="banner">AUTOBUY</div>
