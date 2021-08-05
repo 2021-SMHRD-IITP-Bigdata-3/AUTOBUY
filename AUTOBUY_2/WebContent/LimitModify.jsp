@@ -74,21 +74,21 @@
 		<div class="content">
 			<div class="small_title"><p>조정 > 재고 수량 수정</p></div>
 			<div class="board">
-				<table id="show" style="margin:auto; width : 1300px;">
+				<table id="show" style="margin:auto; width : 1300px; margin-top: 100px;">
 					<tr style="text-align: center; font-weight: bold; font-size: 18px">
-						<td>사진</td>
-						<td>제품명</td>
-						<td>거래처</td>
-						<td>재고량</td>
-						<td>기준 재고량<br></td>
-						<td>최소 재고량<br></td>		
+						<td style ="width: 15% ">사진</td>
+						<td style ="width: 30% ">제품명</td>
+						<td style ="width: 25% ">거래처</td>
+						<td style ="width: 10% ">재고량</td>
+						<td style ="width: 10% ">기준 재고량<br></td>
+						<td style ="width: 10% ">최소 재고량<br></td>		
 					</tr>
 					<tr>
 		            <%for(int i = 0; i<stock_list.size();i++){ %>
 						<tr style="text-align: center;">
 							<tr style="height: 40px; text-align: center; width: 400px; font-size: 17px;" onMouseOver="this.style.backgroundColor='#EFF8FB';" onMouseOut="this.style.backgroundColor=''">
 							<td>사진</td>
-							<td><%=stock_list.get(i).getProduct_name() %></td>
+							<td style="text-align: left;"><%=stock_list.get(i).getProduct_name() %></td>
 							<td><%=stock_list.get(i).getSupplier_name() %></td>
 							<td><%=stock_list.get(i).getStock_qntty() %></td>										
 							<td><input type="number"  name = "standard_qntty" min="0" value=<%=stock_list.get(i).getStandard_qntty() %> placeholder="<%=stock_list.get(i).getStandard_qntty() %>"size="10px" style="width:50px;"></td>
@@ -98,7 +98,7 @@
 			 </table>
 			 
 			</div>
-			<button  class="submitbutton" style="margin-right: 500px">수정완료</button>
+			<button  class="submitbutton" style="margin-right: 930px; margin-top: 20px;">수정완료</button>
 		</div>
 		</form>
 		<div class ="footer">
