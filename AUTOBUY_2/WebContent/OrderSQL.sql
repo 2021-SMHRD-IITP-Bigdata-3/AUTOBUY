@@ -24,7 +24,7 @@ increment by 1;
 create table customer_order(
 order_num varchar2(50) primary key,
 customer_id varchar2(20) not null, 
-customer_store_name varchar2(30) not null,
+customer_store_name varchar2(50) not null,
 customer_tel varchar2(20) not null,
 customer_add varchar2(50) not null,
 order_amount number(20),
@@ -34,7 +34,7 @@ constraint fk_cus_id foreign key(customer_id)
 references Member(customer_id)
 );
 
-
+alter table customer_order modify(customer_store_name varchar2(50));
 select * from CUSTOMER_ORDER;
 select * from customer_order order by order_date desc;
 
@@ -65,6 +65,8 @@ references product(product_num, product_name)
 );
 
 select * from DETAIL_ORDER;
+
+
 
 -- 발주 제안 테이블---------------------------------
 create table order_suggest(
@@ -121,7 +123,7 @@ select * from makeordernum;
 
 create table cart(
 customer_id varchar2(40) not null,
-product_num number(20) primary key,
+product_num number(20) not null,
 product_name varchar2(50) not null,
 supplier_name varchar2(50) not null,
 product_price number(20) not null

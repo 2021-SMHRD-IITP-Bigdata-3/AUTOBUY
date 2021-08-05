@@ -18,13 +18,13 @@ public class StockManageDAO {
 	ArrayList<Integer> total_necessary_qntty = null;
 
 	// ¿¬°á
-		public void conn() {
+	public void conn() {
 		try {
 			Class.forName("oracle.jdbc.driver.OracleDriver");
 			
-			String url = "jdbc:oracle:thin:@localhost:1521:xe";
-			String dbid = "hr";
-			String dbpw = "hr";
+			String url = "project-db-stu.ddns.net";
+			String dbid = "campus_f2";
+			String dbpw = "smhrd2";
 			
 			conn = DriverManager.getConnection(url, dbid, dbpw);
 			

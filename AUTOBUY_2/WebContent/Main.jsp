@@ -5,7 +5,9 @@
 <%@ page language="java" contentType="text/html; charset=EUC-KR"
     pageEncoding="EUC-KR"%>
 <!DOCTYPE html>
+
 <style>
+
 @import url(//spoqa.github.io/spoqa-han-sans/css/SpoqaHanSansNeo.css);
 
  #search {
@@ -15,6 +17,7 @@
 	background : #ffffff;
 }
 #searchInput{
+
 	font_size : 16px;
 	width : 325px;
 	padding : 10px;
@@ -42,7 +45,7 @@ width : 50px;
 	float : right;
 	color : #ffffff
 }
-.list_board{
+#show{
 border-collapse: separate;
   border-spacing: 1px;
   text-align: left;
@@ -51,6 +54,7 @@ border-collapse: separate;
   margin : 20px 10px;
   border-left: 3px solid #5F04B4;
   margin-left: 0px;
+  margin-top: 45px;
 }
 
 #show th {
@@ -61,12 +65,13 @@ border-collapse: separate;
   border-bottom: 1px solid #ccc;
 }
 
-.list_board td {
+#show td {
   width: 350px;
   padding: 10px;
   vertical-align: top;
   border-bottom: 1px solid #ccc;
   font-family: 'Spoqa Han Sans Neo', 'sans-serif';
+  font-size: 17px;
 }
 .submitbutton{
 	width : 100px;
@@ -79,6 +84,9 @@ border-collapse: separate;
 	border-style: ridge;
 	
 }
+.small_list div{
+	
+}
 
 a{
 	text-decoration: none;
@@ -89,7 +97,7 @@ a{
 #menu{
 	
 	text-align: left;
-	margin-top: 45px;
+	margin-top: 35px;
 	
 }
 #menu td{
@@ -116,8 +124,8 @@ a{
 	text-align: center;
 }
 	
-a:hover {
-	text-decoration: underline;
+#search{
+	margin-top: 43px;
 }
 
 .inputbutton:hover{
@@ -125,7 +133,18 @@ a:hover {
 	border : 1px solid #5F04B4;
 	color : black;
 }
+#topmenu a:hover {
+	text-decoration: underline;
+}
+#topmenu td{
+	width: 100px;
+	text-align: center;
+}
 
+@font-face{
+	src: url("../assest/fonts/Cocogoose Pro Light-trial.ttf");
+    font-family: "Cocogoose"; 
+ }
 
 @font-face{
 	src: url("../assest/fonts/Cocogoose Pro Light-trial.ttf");
@@ -136,7 +155,7 @@ a:hover {
 <head>
 <meta charset="EUC-KR">
 <title>Insert title here</title>
-	<link rel="stylesheet" href="assest/css/Main.css?after">
+	<link rel="stylesheet" href="assest/css/Main.css?">
 </head>
 <body>
 	<%
@@ -150,14 +169,22 @@ a:hover {
 
 	<div class="container" >
 		<div class="header">
-			<div class="title"><p style="color: black; font-family:Cocogoose">AUTOBUY</p></div>
+			<div class="title"><a href="Main.jsp"><p style="color: black; font-family:Cocogoose">AUTOBUY</p></a></div>
 			
 			<%if(info != null){%>
-				<div class="logout" style="float : right; font-size:18px; font-family: 'Spoqa Han Sans Neo', 'sans-serif';;"  ><a href="LogoutServiceCon">로그아웃</a></div>
-				<div class="store_name" style="float: right; font-size: 18px; font-family: 'Spoqa Han Sans Neo', 'sans-serif';;">
-					<a href="Update.jsp"><%= info.getCustomer_id() %>님</a>
+				<div style="margin-left: 1400px; margin-top: 20px">
+				<table id="topmenu">
+					<tr>
+						<td style="font-size: 18px; font-family: 'Spoqa Han Sans Neo', 'sans-serif';"><a href="Update.jsp">마이페이지</a></td>		
+						<td style="font-size: 18px; font-family: 'Spoqa Han Sans Neo', 'sans-serif'; border-left : 1px solid lightgray;"><a href="Incoming.jsp">주문배송</a></td>		
+						<td style="font-size: 18px; font-family: 'Spoqa Han Sans Neo', 'sans-serif'; border-left : 1px solid lightgray;"><a href="Product_reg.jsp">장바구니</a></td>
+						<td style="font-size: 18px; font-family: 'Spoqa Han Sans Neo', 'sans-serif'; border-left : 1px solid lightgray;"><a href="Update.jsp">고객센터</a></td>
+						<td style="font-size: 18px; font-family: 'Spoqa Han Sans Neo', 'sans-serif'; border-left : 1px solid lightgray;"><a href="LogoutServiceCon">로그아웃</a></td>				
+					</tr>
+				</table>
 				</div>
-			<%} %>								
+			
+			<%} %>										
 		</div>
 		<div class="list">
 			<table id="menu">
@@ -192,10 +219,9 @@ a:hover {
 		</div>
 		<div class="content">
 			<div class="small_title"><p>제품목록</p></div>
-			<div class="add"><p><a href="StockAdd.jsp">+제품 등록/삭제</a></p></div>
 			<div class="board">
-				<table class="list_board">
-					<tr>
+				<table id="show" style="margin:auto; width : 1300px;">
+					<tr style="font-size: 18px; font-weight: bold;">
 						<td>사진</td>
 						<td>제품명</td>
 						<td>재고량</td>
@@ -203,9 +229,9 @@ a:hover {
 						<td>거래처</td>
 					</tr>
 					<%for(int i = 0; i<stock_list.size();i++){ %>
-						<tr>
-							<td>
-							<td><%=stock_list.get(i).getProduct_name() %></td>
+						<tr style="font-size: 17px;">
+							<td>사진</td>
+							<td style="text-align: left;"><%=stock_list.get(i).getProduct_name() %></td>
 							<td><%=stock_list.get(i).getStock_qntty() %></td>
 							<td><% double stock_qntty = Integer.valueOf(stock_list.get(i).getStock_qntty()); 
 								   double standard_qntty = Integer.valueOf(stock_list.get(i).getStandard_qntty());
@@ -221,6 +247,7 @@ a:hover {
 					<%} %>	
 			 </table>
 			</div>
+			<div><button type="button" class = "submitbutton" onclick="location.href='StockAdd.jsp'" style="margin-top: 10px; margin-right: 750px;">+등록/삭제</button></div>
 		</div>
 		<div class ="footer">
 			<div class="banner">AUTOBUY</div>

@@ -39,7 +39,7 @@ button{
 
 .inputbutton{
 width : 50px;
-	height : 100%;
+	height : 23px;
 	border : 0px;
 	background : #5F04B4;
 	outline : none;
@@ -120,14 +120,19 @@ a{
 	text-align: center;
 }
 	
-a:hover {
-	text-decoration: underline;
-}
+
 
 .inputbutton:hover{
 	background : white;
 	border : 1px solid #5F04B4;
 	color : black;
+}
+#topmenu a:hover {
+	text-decoration: underline;
+}
+#topmenu td{
+	width: 100px;
+	text-align: center;
 }
 
 
@@ -135,6 +140,24 @@ a:hover {
 	src: url("../assest/fonts/Cocogoose Pro Light-trial.ttf");
     font-family: "Cocogoose"; 
  }
+ @font-face{
+	src: url("../assest/fonts/Cocogoose Pro Ultralight-trial.ttf");
+    font-family: "CocogooseThin"; 
+ }
+ @font-face{
+	src: url("../assest/fonts/Cocogoose Pro Cocogoose Pro Thin-trial.ttf");
+    font-family: "CocogooseThin2"; 
+ }
+#auto{
+	color: black; 
+	font-family:Cocogoose;
+	font-weight: 900;
+}
+#buy{
+	color: black; 
+	font-family:Cocogoose;
+	font-weight: 100;
+}
 </style>
 <html>
 <head>
@@ -169,14 +192,22 @@ a:hover {
 
 	<div class="container" >
 		<div class="header">
-			<div class="title"><p style="color: black; font-family:Cocogoose">AUTOBUY</p></div>
+			<div class="title"><p><a href="Main.jsp" id="auto"><b><b>AUTO</b></b></a><a href="Main.jsp" id="buy">BUY</a></p></div>
 			
 			<%if(info != null){%>
-				<div class="logout" style="float : right; font-size:18px; font-family: 'Spoqa Han Sans Neo', 'sans-serif';;"  ><a href="LogoutServiceCon">로그아웃</a></div>
-				<div class="store_name" style="float: right; font-size: 18px; font-family: 'Spoqa Han Sans Neo', 'sans-serif';;">
-					<a href="Update.jsp"><%= info.getCustomer_id() %>님</a>
+				<div style="margin-left: 860px; margin-top: 20px">
+				<table id="topmenu">
+					<tr>
+						<td style="font-size: 18px; font-family: 'Spoqa Han Sans Neo', 'sans-serif';"><a href="Update.jsp">마이페이지</a></td>		
+						<td style="font-size: 18px; font-family: 'Spoqa Han Sans Neo', 'sans-serif'; border-left : 1px solid lightgray;"><a href="Incoming.jsp">주문배송</a></td>		
+						<td style="font-size: 18px; font-family: 'Spoqa Han Sans Neo', 'sans-serif'; border-left : 1px solid lightgray;"><a href="Product_reg.jsp">장바구니</a></td>
+						<td style="font-size: 18px; font-family: 'Spoqa Han Sans Neo', 'sans-serif'; border-left : 1px solid lightgray;"><a href="Update.jsp">고객센터</a></td>
+						<td style="font-size: 18px; font-family: 'Spoqa Han Sans Neo', 'sans-serif'; border-left : 1px solid lightgray;"><a href="LogoutServiceCon">로그아웃</a></td>				
+					</tr>
+				</table>
 				</div>
-			<%} %>		
+			
+			<%} %>				
 		</div>
 		<div class="list">
 			<table id="menu">
@@ -212,19 +243,19 @@ a:hover {
 		<div class="content">
 			<div class="small_title"><p>상품주문</p></div>
 				<div class="board">
-           		<table class="list_board" style="width: 500px">
-					<tr>
-						<td >제품명</td>
-						<td >가격</td>
-						<td>거래처</td>
-						<td>등록</td>
+           		<table class="list_board">
+					<tr style="text-align: center; width: 400px; font-size:18px;">
+						<td style="width: 46%"><b>제품명</b></td>
+						<td style = "width: 18%"><b>가격</b></td>
+						<td style = "width: 30%"><b>거래처</b></td>
+						<td style = "width: 6%"><b>등록</b></td>
 					</tr>
 					<%for(int i = 0; i<product_list.size();i++){ %>
-					<tr>
-						<td style = "width:25%"><%=product_list.get(i).getProduct_name() %></td>
-						<td style = "width:25%"><%=product_list.get(i).getProduct_price() %>원</td>
-						<td style = "width:25%"><%=product_list.get(i).getSupplier_name() %></td>
-						<td style = "width:25%"><a href="CartServiceCon?product_num=<%=product_list.get(i).getProduct_num()%>"><input type="button" value ="추가"></a></td>
+					<tr style="height: 40px; width: 400px; font-size: 17px;" onMouseOver="this.style.backgroundColor='#EFF8FB';" onMouseOut="this.style.backgroundColor=''">
+						<td style = "width:45%"><%=product_list.get(i).getProduct_name() %></td>
+						<td style = "width:15%; text-align: center;"><%=product_list.get(i).getProduct_price() %>원</td>
+						<td style = "width:30%; text-align: center;"><%=product_list.get(i).getSupplier_name() %></td>
+						<td style = "width:10%; text-align: center;"><a href="CartServiceCon?product_num=<%=product_list.get(i).getProduct_num()%>"><input type="button" class="inputbutton" value ="추가"></a></td>
 					</tr>
 					<%} %>
 
@@ -234,30 +265,29 @@ a:hover {
 			<form action="ManualOrderServiceCon" method="post">
 			<div class="board2">
 			
-            <table class="list_board">
-               <tr>
-                  <td>제품명</td>
-                  <td>거래처</td>
-                  <td>수량</td>
-                  <td>삭제</td>
+            <table class="list_board" style="margin-left: 40px">
+               <tr style="text-align: center; width: 400px; font-size:18px;">
+                  <td style="width: 45%"><b>제품명</b></td>
+                  <td style = "width: 30%;"><b>거래처</b></td>
+                  <td style = "width: 15%;"><b>수량</b></td>
+                  <td style = "width: 10%"><b>삭제</b></td>
                </tr>
  			   
                <%for(int i=0; i<cart_list.size(); i++){ %>
-					<tr>
-						<td><%=cart_list.get(i).getProduct_name() %></td>
-						<td><%=cart_list.get(i).getSupplier_name() %></td>
-						<td><input type="number"  name = "order_qntty" min="0" value=0 size="10px" style="width:50px;"></td>
-						<td><a href="CartDeleteServiceCon?product_num=<%=cart_list.get(i).getProduct_num()%>"><input type="button" value ="삭제"></a></td>				
+					<tr style="height: 40px; width: 400px; font-size:17px;" onMouseOver="this.style.backgroundColor='#EFF8FB';" onMouseOut="this.style.backgroundColor=''">
+						<td style="width: 45%"><%=cart_list.get(i).getProduct_name() %></td>
+						<td style = "width: 15%;"><%=cart_list.get(i).getSupplier_name() %></td>
+						<td style = ""><input type="number"  name = "order_qntty" min="0" value=0 size="10px" style="width:50px;"></td>
+						<td style = ""><a href="CartDeleteServiceCon?product_num=<%=cart_list.get(i).getProduct_num()%>"><input type="button" class="inputbutton" value ="삭제"></a></td>				
 					</tr>
 				<%} %>
 				
-				<tr>
-					<td colspan="4" align="right"><input type="submit" value="발주" ></td>
-				</tr>
+				
             </table>
             
-        	</div>		
-        	<div></div>	
+        	</div>	
+        	
+        	<div><button  class="submitbutton" style="margin-right: 0px">발주</button></div>	
         	</form>
 		</div>
 		<div class ="footer">

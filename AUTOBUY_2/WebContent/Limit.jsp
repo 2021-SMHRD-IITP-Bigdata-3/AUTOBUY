@@ -116,9 +116,6 @@ a{
 	text-align: center;
 }
 	
-a:hover {
-	text-decoration: underline;
-}
 
 .inputbutton:hover{
 	background : white;
@@ -131,6 +128,13 @@ a:hover {
 	src: url("../assest/fonts/Cocogoose Pro Light-trial.ttf");
     font-family: "Cocogoose"; 
  }
+ #topmenu a:hover {
+	text-decoration: underline;
+}
+#topmenu td{
+	width: 100px;
+	text-align: center;
+}
 </style>
 <html>
 <head>
@@ -149,13 +153,21 @@ a:hover {
 
 	<div class="container" >
 		<div class="header">
-		<div class="title"><p style="color: black; font-family:Cocogoose">AUTOBUY</p></div>
+			<div class="title"><a href="Main.jsp?after"><p style="color: black; font-family:Cocogoose">AUTOBUY</p></a></div>
 			
 			<%if(info != null){%>
-				<div class="logout" style="float : right; font-size:18px; font-family: 'Spoqa Han Sans Neo', 'sans-serif';;"  ><a href="LogoutServiceCon">로그아웃</a></div>
-				<div class="store_name" style="float: right; font-size: 18px; font-family: 'Spoqa Han Sans Neo', 'sans-serif';;">
-					<a href="Update.jsp"><%= info.getCustomer_id() %>님</a>
+				<div style="margin-left: 860px; margin-top: 20px">
+				<table id="topmenu">
+					<tr>
+						<td style="font-size: 18px; font-family: 'Spoqa Han Sans Neo', 'sans-serif';"><a href="Update.jsp">마이페이지</a></td>		
+						<td style="font-size: 18px; font-family: 'Spoqa Han Sans Neo', 'sans-serif'; border-left : 1px solid lightgray;"><a href="Incoming.jsp">주문배송</a></td>		
+						<td style="font-size: 18px; font-family: 'Spoqa Han Sans Neo', 'sans-serif'; border-left : 1px solid lightgray;"><a href="Product_reg.jsp">장바구니</a></td>
+						<td style="font-size: 18px; font-family: 'Spoqa Han Sans Neo', 'sans-serif'; border-left : 1px solid lightgray;"><a href="Update.jsp">고객센터</a></td>
+						<td style="font-size: 18px; font-family: 'Spoqa Han Sans Neo', 'sans-serif'; border-left : 1px solid lightgray;"><a href="LogoutServiceCon">로그아웃</a></td>				
+					</tr>
+				</table>
 				</div>
+			
 			<%} %>				
 		</div>
 		<div class="list">
@@ -189,12 +201,11 @@ a:hover {
 				</tr>
 			</table>
 		</div>
-		<form action="ModifyLimitQnttyServiceCon" method="post">
 		<div class="content">
 			<div class="small_title"><p>조정</p></div>
 			<div class="board">
 				<table class="list_board">
-					<tr>
+					<tr style="text-align: center; font-weight: bold; font-size: 18px">
 						<td>사진</td>
 						<td>제품명</td>
 						<td>거래처</td>
@@ -204,7 +215,7 @@ a:hover {
 					</tr>
 					<tr>
 		            <%for(int i = 0; i<stock_list.size();i++){ %>
-						<tr>
+						<tr style="font-size: 17px;">
 							<td>사진</td>
 							<td><%=stock_list.get(i).getProduct_name() %></td>
 							<td><%=stock_list.get(i).getSupplier_name() %></td>
@@ -212,14 +223,14 @@ a:hover {
 							<td><%=stock_list.get(i).getStandard_qntty() %></td>	
 							<td><%=stock_list.get(i).getMinimum_qntty() %></td>
 						</tr>
-					<%} %>
-					<tr>
-					<td><a href="LimitModify.jsp">수정</a></td>
-					</tr>
+					<%} %>		
+				
+					
 			 </table>
 			</div>
+			<button type="button" onclick="location.href='LimitModify.jsp'" class="submitbutton" style="margin-right: 500px">수정</button>
 		</div>
-		</form>
+		
 		<div class ="footer">
 			<div class="banner">AUTOBUY</div>
 			<div class="company">주)오도바이절<br>

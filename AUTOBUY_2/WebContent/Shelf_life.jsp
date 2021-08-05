@@ -113,9 +113,7 @@ a{
 	text-align: center;
 }
 	
-a:hover {
-	text-decoration: underline;
-}
+
 
 .inputbutton:hover{
 	background : white;
@@ -128,6 +126,13 @@ a:hover {
 	src: url("../assest/fonts/Cocogoose Pro Light-trial.ttf");
     font-family: "Cocogoose"; 
  }
+ #topmenu a:hover {
+	text-decoration: underline;
+}
+#topmenu td{
+	width: 100px;
+	text-align: center;
+}
 </style>
 <html>
 <head>
@@ -142,14 +147,22 @@ a:hover {
 
 	<div class="container" >
 		<div class="header">
-	<div class="title"><p style="color: black; font-family:Cocogoose">AUTOBUY</p></div>
+			<div class="title"><a href="Main.jsp"><p style="color: black; font-family:Cocogoose">AUTOBUY</p></a></div>
 			
 			<%if(info != null){%>
-				<div class="logout" style="float : right; font-size:18px; font-family: 'Spoqa Han Sans Neo', 'sans-serif';;"  ><a href="LogoutServiceCon">로그아웃</a></div>
-				<div class="store_name" style="float: right; font-size: 18px; font-family: 'Spoqa Han Sans Neo', 'sans-serif';;">
-					<a href="Update.jsp"><%= info.getCustomer_id() %>님</a>
+				<div style="margin-left: 860px; margin-top: 20px">
+				<table id="topmenu">
+					<tr>
+						<td style="font-size: 18px; font-family: 'Spoqa Han Sans Neo', 'sans-serif';"><a href="Update.jsp">마이페이지</a></td>		
+						<td style="font-size: 18px; font-family: 'Spoqa Han Sans Neo', 'sans-serif'; border-left : 1px solid lightgray;"><a href="Incoming.jsp">주문배송</a></td>		
+						<td style="font-size: 18px; font-family: 'Spoqa Han Sans Neo', 'sans-serif'; border-left : 1px solid lightgray;"><a href="Product_reg.jsp">장바구니</a></td>
+						<td style="font-size: 18px; font-family: 'Spoqa Han Sans Neo', 'sans-serif'; border-left : 1px solid lightgray;"><a href="Update.jsp">고객센터</a></td>
+						<td style="font-size: 18px; font-family: 'Spoqa Han Sans Neo', 'sans-serif'; border-left : 1px solid lightgray;"><a href="LogoutServiceCon">로그아웃</a></td>				
+					</tr>
+				</table>
 				</div>
-			<%} %>					
+			
+			<%} %>						
 		</div>
 		<div class="list">
 			<table id="menu">
