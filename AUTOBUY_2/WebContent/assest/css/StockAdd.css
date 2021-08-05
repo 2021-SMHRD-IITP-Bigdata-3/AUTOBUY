@@ -1,14 +1,14 @@
 @charset "EUC-KR";
 @import url(//spoqa.github.io/spoqa-han-sans/css/SpoqaHanSansNeo.css);
    .container{
-   border:1px solid black;
+   
    width:100%;
    }
    .header{
    float:left;
    width:100%;
    height:84px;   
-   border-bottom:1px solid black;
+   border-bottom:1px solid lightgray;
    }
    .title{
    width:25%;
@@ -18,7 +18,7 @@
    .header p{
    width:300px;
    height:64px;
-   font-size:50px;
+   font-size:58px;
    color:blue;
    margin-left:30px;
    margin-top:5px;
@@ -45,7 +45,7 @@
    float:left;
    width:280px;
    height:1232px;
-   border-right: 1px solid black;
+   border-right: 1px solid lightgray;
    }
    .small_list{
 	margin-top:30px;
@@ -63,7 +63,7 @@
    height:1232px;
    }
    .small_title{
-   border-bottom:1px solid black;
+   border-bottom:1px solid lightgray;
    height:64px;
       font-size:28px;
       margin-left:100px;
@@ -200,7 +200,7 @@ border-collapse: separate;
   font-family: 'Spoqa Han Sans Neo', 'sans-serif';
 }
 
-#date{
+#data{
 	font-size: 17px;
 	
 }
@@ -277,5 +277,7 @@ a{
 	src: url("../assest/fonts/Cocogoose Pro Light-trial.ttf");
     font-family: "Cocogoose"; 
  }
-
+ @font-face{
+	src: url("../assest/fonts/Cocogoose Pro Semilight-trial.ttf");
+    font-family: "Cocogoose2"; 
  }

@@ -75,12 +75,12 @@
 						<td></td>
 					</tr>
 					<tr style="text-align: center;">
-						<tr style="height: 40px; text-align: center; width: 400px; font-size: 17px;" onMouseOver="this.style.backgroundColor='#EFF8FB';" onMouseOut="this.style.backgroundColor=''">
+						<tr style="height: 40px; text-align: center; width: 400px; font-size: 17px;" >
 						<td></td>
 						<td></td> 
 						<td></td>
 						<td></td>
-						<td><a href="Shelf_life.jsp"><button>삭제</button></a> </td>
+						<td><a href="Shelf_life.jsp" onMouseOver="this.style.backgroundColor='#EFF8FB';" onMouseOut="this.style.backgroundColor=''"><button>삭제</button></a> </td>
 					</tr>		
 			 </table>
 			</div>

@@ -92,8 +92,15 @@
 			</table>
 		</div>
 		<div class="content">
-			<div class="small_title"><p>상품주문</p></div>
+			<div class="small_title"><p>상품주문</p>
+			<div id="search">
+				<input id="searchInput" type="text" placeholder="검색어입력">
+				<button>검색</button>
+			</div>
+			</div>
+			
 				<div id="board1" style="float: left;">
+				<div style="width:930px; height:800px; overflow:auto">
            		<table id="show" style="margin-top:60px; margin-left: 100px;">
 					<tr style="text-align: center; width: 400px; font-size:18px;">
 						<td style="whidth:15%; "><b>사진</b></td>
@@ -103,7 +110,7 @@
 						<td style = "width:8%"><b></b></td>
 					</tr>
 					<%for(int i = 0; i<product_list.size();i++){ %>
-					<tr id = "data" style="height: 40px; width: 600px; cursor: pointer; font-size: 17px;" onMouseOver="this.style.backgroundColor='#EFF8FB';" onMouseOut="this.style.backgroundColor=''"
+					<tr id = "data" class="event" style="height: 40px; width: 600px; cursor: pointer; font-size: 17px;" onMouseOver="this.style.backgroundColor='#EFF8FB';" onMouseOut="this.style.backgroundColor=''"
 					onclick="location.href='CartServiceCon?product_num=<%=product_list.get(i).getProduct_num()%>'">
 						<td style="whidth:15%; ">사진</td>		
 						<td style = "width:37%"><%=product_list.get(i).getProduct_name() %></td>
@@ -113,7 +120,8 @@
 					</tr>
 					<%} %>
 
-				</table>                                                                                                                        
+				</table>
+				</div>                                                                                                                      
 				
 			</div>
 			<form action="ManualOrderServiceCon" method="post">
@@ -129,13 +137,14 @@
                </tr>
  			   
                <%for(int i=0; i<cart_list.size(); i++){ %>
-					<tr id = "data" style="font-size:17px;  height: 40px; width: 600px; cursor: pointer;" onMouseOver="this.style.backgroundColor='#EFF8FB';" onMouseOut="this.style.backgroundColor=''"
-					onclick="location.href='CartDeleteServiceCon?product_num=<%=cart_list.get(i).getProduct_num()%>'">
+					<tr id = "data" style="font-size:17px;  height: 40px; width: 600px; ">
 					    <td style="width: 15%">사진</td>
 						<td style="width: 37%"><%=cart_list.get(i).getProduct_name() %></td>
 						<td style = "width: 25%;"><%=cart_list.get(i).getSupplier_name() %></td>
 						<td style = "width: 15%; text-align: center;"><input type="number"  name = "order_qntty" min="0" value=0 size="10px" style="width:50px;"></td>
-						<td style="width: 8%; color: #5F04B4; text-align: center;"><b>x</b></td>					</tr>
+						<td class="event" style="width: 8%; color: #5F04B4; text-align: center; cursor: pointer;" onMouseOver="this.style.backgroundColor='#EFF8FB';" onMouseOut="this.style.backgroundColor=''"
+					onclick="location.href='CartDeleteServiceCon?product_num=<%=cart_list.get(i).getProduct_num()%>'"><b>x</b></td>
+					</tr>
 				<%} %>
 				
 				
@@ -143,7 +152,7 @@
             
         	</div>	
         	
-        	<button  class="submitbutton" style="margin-right: 1040px">발주</button>
+        	<button  class="submitbutton" style="margin-right: 1040px; margin-top: 20px;">발주</button>
         	</form>
 		</div>
 		<div class ="footer">
