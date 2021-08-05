@@ -1,4 +1,13 @@
 @charset "EUC-KR";
+
+
+.container p{
+margin-left:612px;
+margin-right:612px;
+text-align:left;
+line-height:0px;
+font-size:17px
+}
 :root{
 	--body-background-color: #f5f6f7;
 	--font-color: #4e4e4e;
@@ -54,7 +63,7 @@ body{
 	flex-direction: column;
 	align-items: center;
 	font-size:50px;
-	color:#0984e3;
+	color:#5F04B4;
 }
 .login-input-section-wrap{
 	padding-top: 60px;
@@ -63,16 +72,37 @@ body{
 	align-items: center;
 }
 
+
 .login-input-wrap{
 	width: 465px;
 	height :48px;
 	border: solid 1px var(	--border-gray-color );
 	background: white;
 }
+.login-input-wrap1{
+	width: 465px;
+	height :48px;
+	border: solid 1px var(	--border-gray-color );
+	background: white;
+	text-align:center;
+	font-size:20px;
+	pading-top:10px;
+}
+.login-input-wrap1 h4{
+	margin-top:9px;
+}
 .password-wrap{
 	margin-top: 13px;
 }
 .login-input-wrap input{
+	border: none;
+	width:430px;
+	margin-top: 10px;
+	font-size: 14px;
+	margin-left: 10px;
+	height:30px;
+}
+.login-input-wrap1 input{
 	border: none;
 	width:430px;
 	margin-top: 10px;
@@ -87,9 +117,9 @@ body{
 	width: 465px;
 	height :48px;
 	font-size: 18px;
-	background:#0984e3;
+	background:#5F04B4;
 	color: white;
-	border: solid 1px #0984e3;
+	border: solid 1px #5F04B4;
 }
 .login-stay-sign-in{
 	width: 465px;
@@ -175,9 +205,6 @@ footer{
 	flex-direction:column;
 	align-items:center;
 	width:768px;
-
-
-
 }
 .Sign_Up{
 	margin-top:20px;
@@ -188,8 +215,6 @@ footer{
 	flex-direction: column;
 	align-items: center;
 	height: 15px;
-
-
 }
 footer .copyright-wrap span img{
 	width: 59px;
@@ -199,4 +224,17 @@ footer .copyright-wrap span img{
 footer .copyright-wrap span{
 	font-size: 13px;
 	line-height: 15px;
+}
+.login-input-section-wrap p{
+	font-size:20px;
+}
+button{
+	width : 50px;
+	height : 100%;
+	border : 0px;
+	background : #5F04B4;
+	outline : none;
+	float : right;
+	color : #ffffff;
+	
 }

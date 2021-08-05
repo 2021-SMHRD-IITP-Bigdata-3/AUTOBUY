@@ -9,156 +9,7 @@
 <%@ page language="java" contentType="text/html; charset=EUC-KR"
     pageEncoding="EUC-KR"%>
 <!DOCTYPE html>
-<style>
-@import url(//spoqa.github.io/spoqa-han-sans/css/SpoqaHanSansNeo.css);
 
- #search {
-	height : 40px;
-	width : 400px;
-	border : 2px solid #5F04B4;
-	background : #ffffff;
-}
-#searchInput{
-	font_size : 16px;
-	width : 325px;
-	padding : 10px;
-	border : 0px;
-	outline : none;
-	float : left;
-}
-button{
-	width : 50px;
-	height : 100%;
-	border : 0px;
-	background : #5F04B4;
-	outline : none;
-	float : right;
-	color : #ffffff;
-	
-}
-
-.inputbutton{
-width : 50px;
-	height : 23px;
-	border : 0px;
-	background : #5F04B4;
-	outline : none;
-	float : right;
-	color : #ffffff
-}
-.list_board{
-border-collapse: separate;
-  border-spacing: 1px;
-  text-align: left;
-  line-height: 1.5;
-  border-top: 1px solid #ccc;
-  margin : 20px 10px;
-  border-left: 3px solid #5F04B4;
-  margin-left: 0px;
-}
-
-#show th {
-  width: 150px;
-  padding: 10px;
-  font-weight: bold;
-  vertical-align: top;
-  border-bottom: 1px solid #ccc;
-}
-
-.list_board td {
-  width: 350px;
-  padding: 10px;
-  vertical-align: top;
-  border-bottom: 1px solid #ccc;
-  font-family: 'Spoqa Han Sans Neo', 'sans-serif';
-}
-.submitbutton{
-	width : 100px;
-	height : 50px;
-	border : 0px;
-	border-radius : 3px;
-	background : #5F04B4;
-	color : #ffffff;
-	font-size: 18px;
-	border-style: ridge;
-	
-}
-
-a{
-	text-decoration: none;
-	color: black;
- 
-}
-
-#menu{
-	
-	text-align: left;
-	margin-top: 45px;
-	
-}
-#menu td{
-	width: 350px;
-  	padding: 10px;
-  	vertical-align: top;
-  	height: 30px;
-  	font-family: 'Spoqa Han Sans Neo', 'sans-serif';
-  	
-  	
-}
-.select:hover {
-	border-left: 3px solid #5F04B4;
-	font-weight: bold;
-	background-color: #5F04B4;
-	color: white;
-}
-.select{
-	font-weight: 450;
-	font-size : 18px;
-
-}
-#hello{
-	text-align: center;
-}
-	
-
-
-.inputbutton:hover{
-	background : white;
-	border : 1px solid #5F04B4;
-	color : black;
-}
-#topmenu a:hover {
-	text-decoration: underline;
-}
-#topmenu td{
-	width: 100px;
-	text-align: center;
-}
-
-
-@font-face{
-	src: url("../assest/fonts/Cocogoose Pro Light-trial.ttf");
-    font-family: "Cocogoose"; 
- }
- @font-face{
-	src: url("../assest/fonts/Cocogoose Pro Ultralight-trial.ttf");
-    font-family: "CocogooseThin"; 
- }
- @font-face{
-	src: url("../assest/fonts/Cocogoose Pro Cocogoose Pro Thin-trial.ttf");
-    font-family: "CocogooseThin2"; 
- }
-#auto{
-	color: black; 
-	font-family:Cocogoose;
-	font-weight: 900;
-}
-#buy{
-	color: black; 
-	font-family:Cocogoose;
-	font-weight: 100;
-}
-</style>
 <html>
 <head>
 <meta charset="EUC-KR">
@@ -195,7 +46,7 @@ a{
 			<div class="title"><p><a href="Main.jsp" id="auto"><b><b>AUTO</b></b></a><a href="Main.jsp" id="buy">BUY</a></p></div>
 			
 			<%if(info != null){%>
-				<div style="margin-left: 1400px; margin-top: 20px">
+				<div style="margin-left: 860px; margin-top: 20px">
 				<table id="topmenu">
 					<tr>
 						<td style="font-size: 18px; font-family: 'Spoqa Han Sans Neo', 'sans-serif';"><a href="Update.jsp">마이페이지</a></td>		
@@ -242,8 +93,8 @@ a{
 		</div>
 		<div class="content">
 			<div class="small_title"><p>상품주문</p></div>
-				<div class="board">
-           		<table class="list_board">
+				<div class="board1">
+           		<table id="show">
 					<tr style="text-align: center; width: 400px; font-size:18px;">
 						<td style="width: 46%"><b>제품명</b></td>
 						<td style = "width: 18%"><b>가격</b></td>

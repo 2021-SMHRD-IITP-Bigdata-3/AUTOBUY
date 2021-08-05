@@ -7,147 +7,7 @@
 <%@ page language="java" contentType="text/html; charset=EUC-KR"
     pageEncoding="EUC-KR"%>
 <!DOCTYPE html>
-<style>
 
-@import url(//spoqa.github.io/spoqa-han-sans/css/SpoqaHanSansNeo.css);
-
- #search {
-	height : 40px;
-	width : 400px;
-	border : 2px solid #5F04B4;
-	background : #ffffff;
-}
-#searchInput{
-
-	font_size : 16px;
-	width : 325px;
-	padding : 10px;
-	border : 0px;
-	outline : none;
-	float : left;
-}
-button{
-	width : 50px;
-	height : 100%;
-	border : 0px;
-	background : #5F04B4;
-	outline : none;
-	float : right;
-	color : #ffffff;
-	
-}
-
-.inputbutton{
-width : 50px;
-	height : 100%;
-	border : 0px;
-	background : #5F04B4;
-	outline : none;
-	float : right;
-	color : #ffffff
-}
-#show{
-border-collapse: separate;
-  border-spacing: 1px;
-  text-align: left;
-  line-height: 1.5;
-  border-top: 1px solid #ccc;
-  margin : 20px 10px;
-  border-left: 3px solid #5F04B4;
-  margin-left: 0px;
-  margin-top: 45px;
-}
-
-#show th {
-  width: 150px;
-  padding: 10px;
-  font-weight: bold;
-  vertical-align: top;
-  border-bottom: 1px solid #ccc;
-}
-
-#show td {
-  width: 350px;
-  padding: 10px;
-  vertical-align: top;
-  border-bottom: 1px solid #ccc;
-  font-family: 'Spoqa Han Sans Neo', 'sans-serif';
-  font-size: 17px;
-}
-.submitbutton{
-	width : 100px;
-	height : 50px;
-	border : 0px;
-	border-radius : 3px;
-	background : #5F04B4;
-	color : #ffffff;
-	font-size: 18px;
-	border-style: ridge;
-	
-}
-.small_list div{
-	
-}
-
-a{
-	text-decoration: none;
-	color: black;
- 
-}
-
-#menu{
-	
-	text-align: left;
-	margin-top: 35px;
-	
-}
-#menu td{
-	width: 350px;
-  	padding: 10px;
-  	vertical-align: top;
-  	height: 30px;
-  	font-family: 'Spoqa Han Sans Neo', 'sans-serif';
-  	
-  	
-}
-.select:hover {
-	border-left: 3px solid #5F04B4;
-	font-weight: bold;
-	background-color: #5F04B4;
-	color: white;
-}
-.select{
-	font-weight: 450;
-	font-size : 18px;
-
-}
-#hello{
-	text-align: center;
-}
-	
-#search{
-	margin-top: 43px;
-}
-
-.inputbutton:hover{
-	background : white;
-	border : 1px solid #5F04B4;
-	color : black;
-}
-#topmenu a:hover {
-	text-decoration: underline;
-}
-#topmenu td{
-	width: 100px;
-	text-align: center;
-}
-
-@font-face{
-	src: url("../assest/fonts/Cocogoose Pro Light-trial.ttf");
-    font-family: "Cocogoose"; 
- }
-
-</style>
 <html>
 <head>
 <meta charset="EUC-KR">
@@ -190,7 +50,7 @@ a{
 
 	<div class="container" >
 		<div class="header">
-			<div class="title"><a href="Main.jsp"><p style="color: black; font-family:Cocogoose">AUTOBUY</p></a></div>
+			<div class="title"><p><a href="Main.jsp" id="auto"><b><b>AUTO</b></b></a><a href="Main.jsp" id="buy">BUY</a></p></div>
 			
 			<%if(info != null){%>
 				<div style="margin-left: 1400px; margin-top: 20px">
@@ -247,8 +107,8 @@ a{
 			</div>
 			</div>
 			<div class="board">
-           		<table id = "show">
-					<tr style="text-align: center; width: 600px;">
+           		<table id="show" style="margin:auto; width : 1300px; margin-top:40px;">
+					<tr  style ="text-align: center; width: 400px; font-size: 18px;">
 						<td>사진</td>
 						<td style="width: 46%"><b>제품명</b></td>
 						<td style = "width: 18%"><b>가격</b></td>
@@ -256,9 +116,9 @@ a{
 						<td style = "width: 6%"><b></b></td>
 					</tr>
 					<%for(int i = 0; i<product_list.size();i++){ %>
-					<tr style="height: 40px; width: 600px; cursor: pointer;" onMouseOver="this.style.backgroundColor='#EFF8FB';" onMouseOut="this.style.backgroundColor=''"
+					<tr style="height: 40px; width: 600px; cursor: pointer; font-size: 17px;" onMouseOver="this.style.backgroundColor='#EFF8FB';" onMouseOut="this.style.backgroundColor=''"
 					onclick="location.href='RegistOneProductServiceCon?product_num=<%=product_list.get(i).getProduct_num()%>'">
-						<td style="width: 15%">사진</td>
+						<td style="width: 15%"><b>사진</b></td>
 						<td scope="row" style="width: 35%"><%=product_list.get(i).getProduct_name() %></td>
 						<td style = "width: 18%; text-align: center;"><%=product_list.get(i).getProduct_price() %>원</td>
 						<td style = "width: 32%; text-align: center;"><%=product_list.get(i).getSupplier_name() %></td>
