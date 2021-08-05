@@ -12,6 +12,16 @@ public class OrderDTO {
 	private String order_date;
 	
 	
+	
+	
+	
+	public OrderDTO(String order_num_s, int order_amount) {
+	
+		this.order_num_s = order_num_s;
+		this.order_amount = order_amount;
+	}
+
+
 	public OrderDTO(int order_num, String customer_id, String customer_store_name, String customer_tel,
 			String customer_add, int order_amount, String order_date) {
 		this.order_num = order_num;

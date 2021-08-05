@@ -68,5 +68,6 @@ public class ManualOrderServiceCon extends HttpServlet {
 		response.sendRedirect("Closing_end.jsp");
 		
 	}
+	
 
 }

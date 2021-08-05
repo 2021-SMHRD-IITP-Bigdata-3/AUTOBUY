@@ -8,17 +8,13 @@
     pageEncoding="EUC-KR"%>
 <!DOCTYPE html>
 <style>
-
-@import url(//spoqa.github.io/spoqa-han-sans/css/SpoqaHanSansNeo.css);
-
  #search {
 	height : 40px;
 	width : 400px;
-	border : 2px solid #5F04B4;
+	border : 2px solid #1b5ac2;
 	background : #ffffff;
 }
 #searchInput{
-
 	font_size : 16px;
 	width : 325px;
 	padding : 10px;
@@ -30,7 +26,7 @@ button{
 	width : 50px;
 	height : 100%;
 	border : 0px;
-	background : #5F04B4;
+	background : #1b5ac2;
 	outline : none;
 	float : right;
 	color : #ffffff;
@@ -41,7 +37,7 @@ button{
 width : 50px;
 	height : 100%;
 	border : 0px;
-	background : #5F04B4;
+	background : #1b5ac2;
 	outline : none;
 	float : right;
 	color : #ffffff
@@ -53,9 +49,8 @@ border-collapse: separate;
   line-height: 1.5;
   border-top: 1px solid #ccc;
   margin : 20px 10px;
-  border-left: 3px solid #5F04B4;
+  border-left: 3px solid #1b5ac2;
   margin-left: 0px;
-  margin-top: 45px;
 }
 
 #show th {
@@ -71,15 +66,13 @@ border-collapse: separate;
   padding: 10px;
   vertical-align: top;
   border-bottom: 1px solid #ccc;
-  font-family: 'Spoqa Han Sans Neo', 'sans-serif';
-  font-size: 17px;
 }
 .submitbutton{
 	width : 100px;
 	height : 50px;
 	border : 0px;
 	border-radius : 3px;
-	background : #5F04B4;
+	background : #1b5ac2;
 	color : #ffffff;
 	font-size: 18px;
 	border-style: ridge;
@@ -98,7 +91,7 @@ a{
 #menu{
 	
 	text-align: left;
-	margin-top: 35px;
+	margin-top: 45px;
 	
 }
 #menu td{
@@ -106,46 +99,24 @@ a{
   	padding: 10px;
   	vertical-align: top;
   	height: 30px;
-  	font-family: 'Spoqa Han Sans Neo', 'sans-serif';
-  	
+  	font-family: "고딕";
   	
 }
-.select:hover {
-	border-left: 3px solid #5F04B4;
+#select:hover {
+	background-color: #EFF8FB;
+	border-left: 3px solid #1b5ac2;
+	font-weight: bolder;
+}
+#select{
 	font-weight: bold;
-	background-color: #5F04B4;
-	color: white;
-}
-.select{
-	font-weight: 450;
-	font-size : 18px;
-
 }
 #hello{
 	text-align: center;
 }
 	
-#search{
-	margin-top: 43px;
-}
 
-.inputbutton:hover{
-	background : white;
-	border : 1px solid #5F04B4;
-	color : black;
-}
-#topmenu a:hover {
-	text-decoration: underline;
-}
-#topmenu td{
-	width: 100px;
-	text-align: center;
-}
 
-@font-face{
-	src: url("../assest/fonts/Cocogoose Pro Light-trial.ttf");
-    font-family: "Cocogoose"; 
- }
+
 
 </style>
 <html>
@@ -157,6 +128,7 @@ a{
 <body>
 	<%
 		MemberDTO info = (MemberDTO)session.getAttribute("info");
+	
 	
 		ProductDAO product_dao = new ProductDAO();
 		
@@ -190,57 +162,50 @@ a{
 
 	<div class="container" >
 		<div class="header">
-			<div class="title"><a href="Main.jsp"><p style="color: black; font-family:Cocogoose">AUTOBUY</p></a></div>
+			<div class="title"><p style="color: #1b5ac2;">AUTOBUY</p></div>
 			
 			<%if(info != null){%>
-				<div style="margin-left: 1400px; margin-top: 20px">
-				<table id="topmenu">
-					<tr>
-						<td style="font-size: 18px; font-family: 'Spoqa Han Sans Neo', 'sans-serif';"><a href="Update.jsp">마이페이지</a></td>		
-						<td style="font-size: 18px; font-family: 'Spoqa Han Sans Neo', 'sans-serif'; border-left : 1px solid lightgray;"><a href="Incoming.jsp">주문배송</a></td>		
-						<td style="font-size: 18px; font-family: 'Spoqa Han Sans Neo', 'sans-serif'; border-left : 1px solid lightgray;"><a href="Product_reg.jsp">장바구니</a></td>
-						<td style="font-size: 18px; font-family: 'Spoqa Han Sans Neo', 'sans-serif'; border-left : 1px solid lightgray;"><a href="Update.jsp">고객센터</a></td>
-						<td style="font-size: 18px; font-family: 'Spoqa Han Sans Neo', 'sans-serif'; border-left : 1px solid lightgray;"><a href="LogoutServiceCon">로그아웃</a></td>				
-					</tr>
-				</table>
+				<div class="logout" style="float : right; font-size: 20px;"  ><a href="LogoutServiceCon">로그아웃</a></div>
+				<div class="store_name" style="float: right; font-size: 20px;">
+					<a href="Update.jsp"><%= info.getCustomer_id() %>님</a>
 				</div>
+			<%} %>					
 			
-			<%} %>			
 
 		</div>
 		<div class="list">
 			<table id="menu">
 				<tr>
 					<td id="hello" onclick="location.href='Update.jsp'"><h3><%=info.getStore_name() %>카페 사장님<br>환영합니다!!</h3></td>
+				<tr>
+				<tr>
+					<td id="select" onclick="location.href='Main.jsp'" style="background-color: red"> &emsp;&emsp;&nbsp;재고목록</td>
 				</tr>
 				<tr>
-					<td class="select" onclick="location.href='Main.jsp'" style="background-color: #5F04B4; color: white;"> &emsp;&emsp;&nbsp;재고목록</td>
-				</tr>
-				<tr >
-					<td class="select" onclick="location.href='Incoming.jsp'">&emsp;&emsp;&nbsp;입고</td>
+					<td id="select" onclick="location.href='Incoming.jsp'" style="background-color: orange">&emsp;&emsp;&nbsp;입고</td>
 				</tr>
 				<tr>
-					<td class="select" onclick="location.href='Outgoing.jsp'">&emsp;&emsp;&nbsp;출고</td>
+					<td id="select" onclick="location.href='Outgoing.jsp'" style="background-color: yellow">&emsp;&emsp;&nbsp;출고</td>
 				</tr>
 				<tr>
-					<td class="select" onclick="location.href='Shelf_life.jsp'">&emsp;&emsp;&nbsp;유통기한</td>
+					<td id="select" onclick="location.href='Shelf_life.jsp'" style="background-color: green">&emsp;&emsp;&nbsp;유통기한</td>
 				</tr>
 				<tr>
-					<td class="select" onclick="location.href='Sup_con.jsp'">&emsp;&emsp;&nbsp;거래처</td>
+					<td id="select" onclick="location.href='Sup_con.jsp'" style="background-color: blue">&emsp;&emsp;&nbsp;거래처</td>
 				</tr>
 				<tr>
-					<td class="select" onclick="location.href='Data.jsp'">&emsp;&emsp;&nbsp;대시보드</td>
+					<td id="select" onclick="location.href='Data.jsp'" style="background-color: navy">&emsp;&emsp;&nbsp;대시보드</td>
 				</tr>
 				<tr>
-					<td class="select" onclick="location.href='Limit.jsp'">&emsp;&emsp;&nbsp;조정</td>
+					<td id="select" onclick="location.href='Limit.jsp'" style="background-color: purple">&emsp;&emsp;&nbsp;조정</td>
 				</tr>
 				<tr>
-					<td class="select" onclick="location.href='Product_reg.jsp'">&emsp;&emsp;&nbsp;발주</td>
+					<td id="select" onclick="location.href='Product_reg.jsp'" style="background-color: gold">&emsp;&emsp;&nbsp;발주</td>
 				</tr>
 			</table>
 		</div>
 		<div class="content">
-			<div class="small_title"><p>재고목록 > 재고등록</p>
+			<div class="small_title"><p>제품목록 > 제품등록</p>
 			<div id="search">
 				<input id="searchInput" type="text" placeholder="검색어입력">
 				<button>검색</button>
@@ -248,64 +213,56 @@ a{
 			</div>
 			<div class="board">
            		<table id = "show">
-					<tr style="text-align: center; width: 600px;">
-						<td>사진</td>
+					<tr style="text-align: center; width: 400px;">
 						<td style="width: 46%"><b>제품명</b></td>
 						<td style = "width: 18%"><b>가격</b></td>
 						<td style = "width: 30%"><b>거래처</b></td>
-						<td style = "width: 6%"><b></b></td>
+						<td style = "width: 6%"><b>등록</b></td>
 					</tr>
 					<%for(int i = 0; i<product_list.size();i++){ %>
-					<tr style="height: 40px; width: 600px; cursor: pointer;" onMouseOver="this.style.backgroundColor='#EFF8FB';" onMouseOut="this.style.backgroundColor=''"
-					onclick="location.href='RegistOneProductServiceCon?product_num=<%=product_list.get(i).getProduct_num()%>'">
-						<td style="width: 15%">사진</td>
-						<td scope="row" style="width: 35%"><%=product_list.get(i).getProduct_name() %></td>
-						<td style = "width: 18%; text-align: center;"><%=product_list.get(i).getProduct_price() %>원</td>
-						<td style = "width: 32%; text-align: center;"><%=product_list.get(i).getSupplier_name() %></td>
-						<td style = "width: 10%; color: #5F04B4; " > <b>></b></td>
+					<tr style="height: 40px; width: 400px;" onMouseOver="this.style.backgroundColor='#EFF8FB';" onMouseOut="this.style.backgroundColor=''">
+						<td scope="row" style="width: 45%"><%=product_list.get(i).getProduct_name() %></td>
+						<td style = "width: 15%; text-align: center;"><%=product_list.get(i).getProduct_price() %>원</td>
+						<td style = "width: 30%; text-align: center;"><%=product_list.get(i).getSupplier_name() %></td>
+						<td style = "width: 10%"><a href="RegistOneProductServiceCon?product_num=<%=product_list.get(i).getProduct_num()%>"><input class="inputbutton" type="button" value ="등록"></a></td>
 					</tr>
 					
 					<%} %>
 				
 			
 				</table>
-			<form action="RegistProductQnttyServiceCon" method="post">
 			<%if(stock_list.size()<product_list.size()){ %>
-			<div style="margin-left : 650px;"><input class="submitbutton" type="submit" value="등록완료" ></div>
+			<div style="margin-left : 455px;"><input class="submitbutton" type="submit" value="등록완료" ></div>
 			<%} %>
 			</div>
-			
-			
+			<form action="RegistProductQnttyServiceCon" method="post">
 			<div class="board2">
 			
-            <table style="margin-left: 30px" id = "show">
-               <tr style="text-align: center; width: 600px;">
+            <table style="margin-left: 10px" id = "show">
+               <tr style="text-align: center; width: 400px;">
                   <td style="width: 45%"><b>제품명</b></td>
                   <td style = "width: 30%;"><b>거래처</b></td>
                   <td style = "width: 15%;"><b>수량</b></td>
-                  <td style = "width: 10%"><b></b></td>
+                  <td style = "width: 10%"><b>삭제</b></td>
                </tr>
  			   
                <%for(int i = 0; i<stock_list.size();i++){ %>
-					<tr style="height: 40px; width: 600px; cursor: pointer;" onMouseOver="this.style.backgroundColor='#EFF8FB';" onMouseOut="this.style.backgroundColor=''"
-					onclick="location.href='DeleteOneStockServiceCon?stock_num=<%=stock_list.get(i).getProduct_num()%>'">
-						
+					<tr style="height: 40px; width: 400px;" onMouseOver="this.style.backgroundColor='#EFF8FB';" onMouseOut="this.style.backgroundColor=''">
 						<td scope="row" style="width: 45%"><%=stock_list.get(i).getProduct_name() %></td>
 						<td style = "width: 15%; text-align: center;"><%=stock_list.get(i).getSupplier_name() %></td>
 						<td><input type="number"  name = "stock_qntty" min="0" value=<%=stock_list.get(i).getStock_qntty() %> size="10px" style="width:50px;"></td>
-						<td style="color: #5F04B4;"><b>x</b></td>				
+						<td><a href="DeleteOneStockServiceCon?stock_num=<%=stock_list.get(i).getProduct_num()%>"><input class="inputbutton" type="button" value ="삭제"></a></td>				
 					</tr>
 				<%} %>
 				
             </table>
-            <%if(stock_list.size()>=product_list.size()){ %>		
-        	<div style="margin-left : -20px;"><input class="submitbutton" type="submit" value="등록완료" ></div>
+            
+        	</div>
+        	<%if(stock_list.size()>=product_list.size()){ %>		
+        	<div style="margin-left : 505px;"><input class="submitbutton" type="submit" value="등록완료" ></div>
         	<%} %>
-            </div>
-        	
-        	
         	</form>
-			</div>
+		</div>
 		<div class ="footer">
 			<div class="banner">AUTOBUY</div>
 			<div class="company">주)오도바이절<br>

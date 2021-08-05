@@ -18,7 +18,7 @@ public class StockManageDAO {
 	ArrayList<Integer> total_necessary_qntty = null;
 
 	// ¿¬°á
-		public void conn() {
+	public void conn() {
 		try {
 			Class.forName("oracle.jdbc.driver.OracleDriver");
 			

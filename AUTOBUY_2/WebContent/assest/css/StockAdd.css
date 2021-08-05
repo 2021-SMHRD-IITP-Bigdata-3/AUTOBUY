@@ -1,11 +1,11 @@
 @charset "EUC-KR";
    .container{
    border:1px solid black;
-   width:1400px;
+   width:100%;
    }
    .header{
    float:left;
-   width:1400px;
+   width:100%;
    height:84px;   
    border-bottom:1px solid black;
    }
@@ -57,12 +57,12 @@
    }
    .content{
    float:left;
-   width:1118px;
+   width:80%;
    height:1232px;
    }
    .small_title{
    border-bottom:1px solid black;
-   height:64px;
+   height:80px;
       font-size:28px;
       margin-left:50px;
       margin-right:50px;
@@ -79,7 +79,7 @@
    }
    .footer{
    clear:both;
-   width:1400px;
+   width:100%;
    height:84px;
    border-top: 1px solid black;
    }
@@ -100,12 +100,12 @@
    .board{
    margin-left:50px;
    float:left;
-   width:509px;
+   width:700px;
    font-size:15px;
    }
    .board2{
    float:left;
-   width:509px;
+   width:700px;
    font-size:15px;
    }
    .list_board{
@@ -114,6 +114,4 @@
    .lsit_board2{
    align:center;   
    }
-   .content td{
-   width:4%;
-   }
+  

@@ -16,7 +16,7 @@
 <body>
 	<%
 		MemberDTO info = (MemberDTO)session.getAttribute("info");
-	
+		
 		StockDAO stock_dao = new StockDAO();		
 		ArrayList<StockDTO> stock_list = stock_dao.showStock(info.getCustomer_id());
 		

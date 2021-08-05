@@ -1,7 +1,146 @@
+<%@page import="auto.model.MaterialInfoDTO"%>
+<%@page import="java.util.ArrayList"%>
+<%@page import="auto.model.StockManageDAO"%>
+<%@page import="auto.model.AutomaticSuggestDAO"%>
 <%@page import="auto.model.MemberDTO"%>
 <%@ page language="java" contentType="text/html; charset=EUC-KR"
     pageEncoding="EUC-KR"%>
 <!DOCTYPE html>
+<style>
+@import url(//spoqa.github.io/spoqa-han-sans/css/SpoqaHanSansNeo.css);
+
+ #search {
+	height : 40px;
+	width : 400px;
+	border : 2px solid #5F04B4;
+	background : #ffffff;
+}
+#searchInput{
+	font_size : 16px;
+	width : 325px;
+	padding : 10px;
+	border : 0px;
+	outline : none;
+	float : left;
+}
+button{
+	width : 50px;
+	height : 100%;
+	border : 0px;
+	background : #5F04B4;
+	outline : none;
+	float : right;
+	color : #ffffff;
+	
+}
+
+.inputbutton{
+width : 50px;
+	height : 100%;
+	border : 0px;
+	background : #5F04B4;
+	outline : none;
+	float : right;
+	color : #ffffff
+}
+#show{
+border-collapse: separate;
+  border-spacing: 1px;
+  text-align: left;
+  line-height: 1.5;
+  border-top: 1px solid #ccc;
+  margin : 20px 10px;
+  border-left: 3px solid #5F04B4;
+  margin-left: 0px;
+}
+
+#show th {
+  width: 150px;
+  padding: 10px;
+  font-weight: bold;
+  vertical-align: top;
+  border-bottom: 1px solid #ccc;
+}
+
+#show td {
+  width: 350px;
+  padding: 10px;
+  vertical-align: top;
+  border-bottom: 1px solid #ccc;
+  font-family: 'Spoqa Han Sans Neo', 'sans-serif';
+}
+.submitbutton{
+	width : 100px;
+	height : 50px;
+	border : 0px;
+	border-radius : 3px;
+	background : #5F04B4;
+	color : #ffffff;
+	font-size: 18px;
+	border-style: ridge;
+	
+}
+.small_list div{
+	
+}
+
+a{
+	text-decoration: none;
+	color: black;
+ 
+}
+
+#menu{
+	
+	text-align: left;
+	margin-top: 45px;
+	
+}
+#menu td{
+	width: 350px;
+  	padding: 10px;
+  	vertical-align: top;
+  	height: 30px;
+  	font-family: 'Spoqa Han Sans Neo', 'sans-serif';
+  	
+  	
+}
+.select:hover {
+	border-left: 3px solid #5F04B4;
+	font-weight: bold;
+	background-color: #5F04B4;
+	color: white;
+}
+.select{
+	font-weight: 450;
+	font-size : 18px;
+
+}
+#hello{
+	text-align: center;
+}
+	
+#topmenu a:hover {
+	text-decoration: underline;
+}
+#topmenu td{
+	width: 100px;
+	text-align: center;
+}
+
+.inputbutton:hover{
+	background : white;
+	border : 1px solid #5F04B4;
+	color : black;
+}
+
+
+
+@font-face{
+	src: url("../assest/fonts/Cocogoose Pro Light-trial.ttf");
+    font-family: "Cocogoose"; 
+ }
+</style>
 <html>
 <head>
 <meta charset="EUC-KR">
@@ -11,35 +150,69 @@
 <body>
 	<%
 		MemberDTO info = (MemberDTO)session.getAttribute("info");
+
+		StockManageDAO dao = new StockManageDAO();
+		ArrayList<MaterialInfoDTO> list = dao.showMaterialInfoList();
+		
+		
 	%>
 
 	<div class="container" >
 		<div class="header">
-			<div class="title"><p>AUTOBUY</p></div>
+			<div class="title"><a href="Main.jsp"><p style="color: black; font-family:Cocogoose">AUTOBUY</p></a></div>
+			
 			<%if(info != null){%>
-				<div class="store_name">
-					<h4><%= info.getCustomer_id() %>님<h4>
+				<div style="margin-left: 1400px; margin-top: 20px">
+				<table id="topmenu">
+					<tr>
+						<td style="font-size: 18px; font-family: 'Spoqa Han Sans Neo', 'sans-serif';"><a href="Update.jsp">마이페이지</a></td>		
+						<td style="font-size: 18px; font-family: 'Spoqa Han Sans Neo', 'sans-serif'; border-left : 1px solid lightgray;"><a href="Incoming.jsp">주문배송</a></td>		
+						<td style="font-size: 18px; font-family: 'Spoqa Han Sans Neo', 'sans-serif'; border-left : 1px solid lightgray;"><a href="Product_reg.jsp">장바구니</a></td>
+						<td style="font-size: 18px; font-family: 'Spoqa Han Sans Neo', 'sans-serif'; border-left : 1px solid lightgray;"><a href="Update.jsp">고객센터</a></td>
+						<td style="font-size: 18px; font-family: 'Spoqa Han Sans Neo', 'sans-serif'; border-left : 1px solid lightgray;"><a href="LogoutServiceCon">로그아웃</a></td>				
+					</tr>
+				</table>
 				</div>
-			<%} %>					
-			<div class="logout"><a href="LogoutServiceCon">로그아웃</a></div>
-			<div class="mypage"><a href="Update.jsp"><img src="img/mypage.png" height="40px" width="40px"></a></div>			
+			
+			<%} %>						
+			
+
 		</div>
 		<div class="list">
-			<div class="small_list">
-				<div class="main_p"><p><a href="Main.jsp"><img src="img/list_i.png" height="30px" width="30px">제품목록</a></p></div>
-				<div class="incoming"><p><a href="Incoming.jsp"><img src="img/in.png" height="30px" width="30px">입고</a></p></div>
-				<div class="outgoing"><p><a href="Outgoing.jsp"><img src="img/out.png" height="30px" width="30px">출고</a></p></div>
-				<div class="shelf"><p><a href="Shelf_life.jsp"><img src="img/shelf.png" height="30px" width="30px">유통기한 관리</a></p></div>
-				<div class="sup_con"><p><a href="Sup_con.jsp"><img src="img/sup.png" height="30px" width="30px">거래처 관리</a></p></div>
-				<div class="data"><p><a href="Data.jsp"><img src="img/chart.png" height="30px" width="30px">대시보드</a></p></div>
-				<div class="limit"><p><a href="Limit.jsp"><img src="img/li.png" height="30px" width="30px">조정</a></p></div>
-				<div class="product"><p><a href="Product_reg.jsp"><img src="img/product.png" height="30px" width="30px">수동발주</a></p></div>
-			</div>
-			</div>
+			<table id="menu">
+				<tr>
+					<td id="hello" onclick="location.href='Update.jsp'"><h3><%=info.getStore_name() %>카페 사장님<br>환영합니다!!</h3></td>
+				</tr>
+				<tr>
+					<td class="select" onclick="location.href='Main.jsp'" > &emsp;&emsp;&nbsp;재고목록</td>
+				</tr>
+				<tr >
+					<td class="select" onclick="location.href='Incoming.jsp'">&emsp;&emsp;&nbsp;입고</td>
+				</tr>
+				<tr>
+					<td class="select" onclick="location.href='Outgoing.jsp'" style="background-color: #5F04B4; color: white;">&emsp;&emsp;&nbsp;출고</td>
+				</tr>
+				<tr>
+					<td class="select" onclick="location.href='Shelf_life.jsp'">&emsp;&emsp;&nbsp;유통기한</td>
+				</tr>
+				<tr>
+					<td class="select" onclick="location.href='Sup_con.jsp'">&emsp;&emsp;&nbsp;거래처</td>
+				</tr>
+				<tr>
+					<td class="select" onclick="location.href='Data.jsp'">&emsp;&emsp;&nbsp;대시보드</td>
+				</tr>
+				<tr>
+					<td class="select" onclick="location.href='Limit.jsp'">&emsp;&emsp;&nbsp;조정</td>
+				</tr>
+				<tr>
+					<td class="select" onclick="location.href='Product_reg.jsp'">&emsp;&emsp;&nbsp;발주</td>
+				</tr>
+			</table>
+		</div>
 		<div class="content">
 			<div class="small_title"><p>출고</p></div>
 			<div class="board">
-				<table class="list_board">
+				<table id="show">
 					<tr>
 						<td>사진</td>
 						<td>제품명</td>

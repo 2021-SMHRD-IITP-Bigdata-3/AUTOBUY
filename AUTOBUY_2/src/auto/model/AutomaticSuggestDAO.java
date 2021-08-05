@@ -84,7 +84,7 @@ public class AutomaticSuggestDAO {
 	public int registOrder(String customer_id, int product_num, String product_name, String supplier_name,int product_price, int suggest_qntty){		
 		try {
 			conn();
-			String sql = "insert into order_suggest values(?, ?, ?, ?, ?, ?)";
+			String sql = "insert into order_suggest values(?, ?, ?, ?, ?, ?, null)";
 			psmt = conn.prepareStatement(sql);
 			psmt.setString(1, customer_id);
 			psmt.setInt(2, product_num);

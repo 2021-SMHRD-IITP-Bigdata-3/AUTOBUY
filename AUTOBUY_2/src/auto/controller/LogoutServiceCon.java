@@ -19,7 +19,7 @@ public class LogoutServiceCon extends HttpServlet {
 		MemberDTO info = (MemberDTO)session.getAttribute("info");
 		
 		AutomaticSuggestDAO dao = new AutomaticSuggestDAO();
-		dao.deleteSuggestTable(info.getCustomer_id());
+		//dao.deleteSuggestTable(info.getCustomer_id());
 		
 		session.removeAttribute("info");
 		
