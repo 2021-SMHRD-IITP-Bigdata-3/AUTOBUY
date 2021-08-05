@@ -23,7 +23,8 @@
 		</header>
 		
 		<div class="login-input-section-wrap">
-			<form action="LoginServiceCon" method="post">
+			<form action="LoginService
+			Con" method="post">
 			<div class="login-input-wrap">	
 				<input placeholder="ID" type="text" name="id">
 			</div>
