@@ -16,4 +16,5 @@ payment varchar2(25)
 );
 
 select * from member;
+update MEMBER set EMAIL = 'DBKiller@gmail.com' where customer_id ='ym1828';
 ------------------------------------------------------------------------------

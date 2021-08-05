@@ -22,7 +22,7 @@
 	%>
 	<div class="container" >
 		<div class="header">
-			<div class="title"><p>AUTOBUY</p></div>
+			<div class="title"><img src = "img/logo.png"></div>
 			<%if(info != null){%>
 				<div class="store_name">
 					<h4><%= info.getCustomer_id() %>ดิ<h4>
