@@ -150,7 +150,7 @@ a{
 			<div class="title"><a href="Main.jsp"><p style="color: black; font-family:Cocogoose">AUTOBUY</p></a></div>
 			
 		<%if(info != null){%>
-				<div style="margin-left: 860px; margin-top: 20px">
+				<div style="margin-left: 1400px; margin-top: 20px">
 				<table id="topmenu">
 					<tr>
 						<td style="font-size: 18px; font-family: 'Spoqa Han Sans Neo', 'sans-serif';"><a href="Update.jsp">마이페이지</a></td>		

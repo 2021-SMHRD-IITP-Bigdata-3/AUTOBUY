@@ -271,7 +271,7 @@ a{
 				</table>
 			<form action="RegistProductQnttyServiceCon" method="post">
 			<%if(stock_list.size()<product_list.size()){ %>
-			<div style="margin-left : 670px;"><input class="submitbutton" type="submit" value="등록완료" ></div>
+			<div style="margin-left : 650px;"><input class="submitbutton" type="submit" value="등록완료" ></div>
 			<%} %>
 			</div>
 			
@@ -298,13 +298,14 @@ a{
 				<%} %>
 				
             </table>
-            
-        	</div>
-        	<%if(stock_list.size()>=product_list.size()){ %>		
-        	<div style="margin-left : 720px;"><input class="submitbutton" type="submit" value="등록완료" ></div>
+            <%if(stock_list.size()>=product_list.size()){ %>		
+        	<div style="margin-left : -20px;"><input class="submitbutton" type="submit" value="등록완료" ></div>
         	<%} %>
+            </div>
+        	
+        	
         	</form>
-		</div>
+			</div>
 		<div class ="footer">
 			<div class="banner">AUTOBUY</div>
 			<div class="company">주)오도바이절<br>

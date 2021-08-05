@@ -195,7 +195,7 @@ a{
 			<div class="title"><p><a href="Main.jsp" id="auto"><b><b>AUTO</b></b></a><a href="Main.jsp" id="buy">BUY</a></p></div>
 			
 			<%if(info != null){%>
-				<div style="margin-left: 860px; margin-top: 20px">
+				<div style="margin-left: 1400px; margin-top: 20px">
 				<table id="topmenu">
 					<tr>
 						<td style="font-size: 18px; font-family: 'Spoqa Han Sans Neo', 'sans-serif';"><a href="Update.jsp">마이페이지</a></td>		
@@ -287,7 +287,7 @@ a{
             
         	</div>	
         	
-        	<div><button  class="submitbutton" style="margin-right: 0px">발주</button></div>	
+        	<div><button  class="submitbutton" style="margin-right: 850px">발주</button></div>	
         	</form>
 		</div>
 		<div class ="footer">
