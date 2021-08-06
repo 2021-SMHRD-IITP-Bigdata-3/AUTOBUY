@@ -208,7 +208,7 @@ public class POSPanel extends JPanel {
 					if (cnt == 0) {
 						try {
 
-							URI uri = new URI("http://localhost:8081/AUTOBUY_2/StockManageServiceCon");
+							URI uri = new URI("http://project-db-stu.ddns.net/AUTOBUY_2/StockManageServiceCon");
 							desktop.browse(uri);
 						} catch (IOException ex) {
 							ex.printStackTrace();

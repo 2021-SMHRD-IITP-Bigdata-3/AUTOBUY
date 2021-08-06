@@ -28,6 +28,7 @@
 			<div class="login-input-wrap">	
 				<input placeholder="ID" type="text" name="id">
 			</div>
+			
 			<div class="login-input-wrap password-wrap">	
 				<input placeholder="Password" type="password"  name="pw">
 			</div>
