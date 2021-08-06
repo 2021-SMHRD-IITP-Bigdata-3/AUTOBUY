@@ -76,7 +76,7 @@
 				 	</tr>
 			 </table>
 		 		<br><br>
-			 	<div class="login-button-wrap" style="margin-right:160px;">
+			 	<div class="login-button-wrap1" style="margin-right:160px;">
 			 	<button><input type="submit" value="수정 완료" style="background:#5F04B4; color:white; "></button>
 			 	</div>
 			</form>

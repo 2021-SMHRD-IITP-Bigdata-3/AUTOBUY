@@ -24,7 +24,7 @@
 		<div class="header">
 			<div class="title"><p><a href="Main.jsp" id="auto"><b><b>AUTO</b></b></a><a href="Main.jsp" id="buy">BUY</a></p></div>
 			<%if(info != null){%>
-				<div style="margin-left: 860px; margin-top: 20px">
+				<div style="margin-left: 1270px; margin-top: 20px">
 					<table id="topmenu">
 						<tr>
 							<td style="font-size: 18px; font-family: 'Spoqa Han Sans Neo', 'sans-serif';"><a href="Update.jsp">마이페이지</a></td>		
@@ -72,21 +72,21 @@
 		<div class="content">
 			<div class="small_title"><p>조정</p></div>
 			<div class="board">
-				<table id="show" style="margin:auto; width : 1300px; margin-top:40px;">
+				<table id="show" style="margin:auto; width : 1300px; margin-top:100px;">
 						<tr  style ="text-align: center; width: 400px; font-size: 18px; ">
 							<td style ="width: 15% "><b>사진</b></td>
-							<td style ="width: 20% "><b>제품명</b></td>
-							<td style ="width: 20% "><b>거래처</b></td>
-							<td style ="width: 15% "><b>재고량</b></td>
-							<td style ="width: 15% "><b>기준 재고량</b></td>
-							<td style ="width: 15% "><b>최소 재고량</b/td>
+							<td style ="width: 30%;"><b>제품명</b></td>
+							<td style ="width: 25% "><b>거래처</b></td>
+							<td style ="width: 10% "><b>재고량</b></td>
+							<td style ="width: 10% "><b>기준 재고량</b></td>
+							<td style ="width: 10% "><b>최소 재고량</b></td>
 						</tr>
 					<tr>
 		            <%for(int i = 0; i<stock_list.size();i++){ %>
 						<tr style="text-align: center;">
 							<tr style="height: 40px; text-align: center; width: 400px; font-size: 17px;" onMouseOver="this.style.backgroundColor='#EFF8FB';" onMouseOut="this.style.backgroundColor=''">
 								<td>사진</td>
-								<td><%=stock_list.get(i).getProduct_name() %></td>
+								<td style="text-align: left"><%=stock_list.get(i).getProduct_name() %></td>
 								<td><%=stock_list.get(i).getSupplier_name() %></td>
 								<td><%=stock_list.get(i).getStock_qntty() %></td>
 								<td><%=stock_list.get(i).getStandard_qntty() %></td>	
@@ -97,8 +97,9 @@
 					
 			 </table>
 			</div>
+			<button type="button" onclick="location.href='LimitModify.jsp'" class="submitbutton" style="margin-right: 930px; margin-top: 20px;">수정</button>
 			</div>
-					<button type="button" onclick="location.href='LimitModify.jsp'" class="submitbutton" style="margin-right: 700px">수정</button>
+					
 		</form>
 		</div>
 		<div class ="footer">

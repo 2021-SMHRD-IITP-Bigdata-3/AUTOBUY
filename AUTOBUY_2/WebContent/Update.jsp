@@ -97,7 +97,7 @@
 				</tr>
 				</table>
 		 		<br><br>
-		 		<div class="login-button-wrap">
+		 		<div class="login-button-wrap1">
 				<button><a href="Update_change.jsp" style="color:white">¼öÁ¤</a></button>
 		 		</div>
 			</div>

@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html>
+<style>
+
+body {
+  background : #000;
+  padding: 2rem;
+
+  margin-left: 850px;
+  width: 500px;
+  margin-top: 80px;
+}
+
+h2 {
+  font-family: 'Arial';
+  color: #fff;
+  text-transform: uppercase;
+  font-weight: bold;
+  font-size: 3rem;
+  line-height: 0.75;
+}
+
+span {
+  display: block;
+}
+
+span:not(.light) {
+  opacity: 0;
+  animation: flashText .5s ease-out alternate infinite;
+}
+
+span.light {
+  position: relative;
+  display: inline-block;
+  
+  &:before {
+    position: absolute;
+    left: 0;
+    top: -10%;
+    width: 100%;
+    height: 120%;
+    background: #fff;
+    filter: blur(10px);
+    content: "";
+    opacity: 0;
+    animation: flash .5s ease-out alternate infinite;
+  }
+}
+
+@keyframes flash{
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes flashText {
+  to {
+    opacity: 0.15;
+  }
+}
+a{
+	text-decoration: none;
+	color: black;
+ 
+}
+#topmenu{
+	width: 200px;
+	
+}
+#topmenu a:hover {
+	text-decoration: underline;
+}
+#topmenu td{
+	width: 100px;
+	text-align: center;
+	
+}
+#topmenu td a{
+color: white;
+}
+</style>
+<head>
+<meta charset="EUC-KR">
+<title>Insert title here</title>
+</head>
+
+<body onclick="location.href='Login.jsp'">
+<div style="margin-left: 850px; margin-bottom:250px;">
+				<table id="topmenu">
+					<tr>
+						<td style="font-size: 18px; font-family: 'Spoqa Han Sans Neo', 'sans-serif'; color:blue;"><a href="Update.jsp">로그인</a></td>
+						<td style="font-size: 18px; font-family: 'Spoqa Han Sans Neo', 'sans-serif'; color:white; border-left : 1px solid lightgray;"><a href="LogoutServiceCon">회원가입</a></td>				
+					</tr>
+				</table>
+				</div>
+<h2>
+  <span>Automate</span>  
+  <span class="light">AUTOBUY</span> 
+  <span>your</span> 
+  <span>work</span>  
+  <span>that's right</span>
+</h2>
+<div class="banner" style="color:white; margin-top: 300px; margin-left: 30px;"></div>
+			<div class="company"  style="color:white">주)오도바이절<br>
+								대표 : 송가현 | 이사 : 정채빈 김영민 정병곤<br>
+								사업자 등록 번호 : 000-00-00000<br>
+								광주광역시 남구 송암로60 광주CGI센터</div>
+		</div>
+</body>
+</html>

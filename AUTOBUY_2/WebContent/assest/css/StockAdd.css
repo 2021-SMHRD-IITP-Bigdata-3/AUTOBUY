@@ -1,23 +1,24 @@
 @charset "EUC-KR";
 @import url(//spoqa.github.io/spoqa-han-sans/css/SpoqaHanSansNeo.css);
    .container{
-   border:1px solid black;
+   
    width:100%;
    }
    .header{
    float:left;
    width:100%;
    height:84px;   
-   border-bottom:1px solid black;
+   border-bottom:1px solid lightgray;
    }
    .title{
    width:25%;
    height:6%;
+   font-family: Cocogoose;
    }
    .header p{
    width:300px;
    height:64px;
-   font-size:50px;
+   font-size:58px;
    color:blue;
    margin-left:30px;
    margin-top:5px;
@@ -44,7 +45,7 @@
    float:left;
    width:280px;
    height:1232px;
-   border-right: 1px solid black;
+   border-right: 1px solid lightgray;
    }
    .small_list{
 	margin-top:30px;
@@ -62,11 +63,12 @@
    height:1232px;
    }
    .small_title{
-   border-bottom:1px solid black;
+   border-bottom:1px solid lightgray;
    height:64px;
       font-size:28px;
       margin-left:100px;
       margin-right:100px;
+     font-family: 'Spoqa Han Sans Neo', 'sans-serif';
    }
   
    .add{
@@ -100,6 +102,7 @@
    width:92.9%;
    font-size:15px;
    margin-left:80px;
+   float: left;
    }
    .board1{
    margin-top:40px;
@@ -128,7 +131,7 @@
 
  #search {
 	height : 40px;
-	width : 400px;
+	width : 500px;
 	border : 2px solid #5F04B4;
 	background : #ffffff;
 }
@@ -148,6 +151,7 @@ button{
 	outline : none;
 	float : right;
 	color : #ffffff;
+	font-weight: bold;
 	
 }
 
@@ -163,13 +167,14 @@ width : 50px;
 #show{
 border-collapse: separate;
   border-spacing: 1px;
-  text-align: left;
   line-height: 1.5;
   border-top: 1px solid #ccc;
   margin : 20px 10px;
   border-left: 3px solid #5F04B4;
   margin-left: 0px;
+  width : 800px;
 }
+
 #show1{
 border-collapse: separate;
   border-spacing: 1px;
@@ -195,6 +200,11 @@ border-collapse: separate;
   vertical-align: top;
   border-bottom: 1px solid #ccc;
   font-family: 'Spoqa Han Sans Neo', 'sans-serif';
+}
+
+#data{
+	font-size: 17px;
+	
 }
 .submitbutton{
 	width : 100px;
@@ -247,9 +257,6 @@ a{
 	text-align: center;
 }
 	
-a:hover {
-	text-decoration: underline;
-}
 
 .inputbutton:hover{
 	background : white;
@@ -265,6 +272,9 @@ a:hover {
 #topmenu td{
    width: 100px;
    text-align: center;
+   font-size: 18px;
+   font-family: 'Spoqa Han Sans Neo', 'sans-serif';
+   border-left : 1px solid lightgray;
 }
 
 
@@ -272,5 +282,7 @@ a:hover {
 	src: url("../assest/fonts/Cocogoose Pro Light-trial.ttf");
     font-family: "Cocogoose"; 
  }
-
+ @font-face{
+	src: url("../assest/fonts/Cocogoose Pro Semilight-trial.ttf");
+    font-family: "Cocogoose2"; 
  }

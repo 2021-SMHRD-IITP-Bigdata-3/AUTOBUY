@@ -115,6 +115,13 @@ body{
 	padding-top: 13px;
 }
 .login-button-wrap button{
+	width: 465px;
+	height :48px;
+	font-size: 18px;
+	background:#5F04B4;
+	color: white;
+	border: solid 1px #5F04B4;
+}.login-button-wrap1 button{
 	width: 125px;
 	height :48px;
 	font-size: 18px;
