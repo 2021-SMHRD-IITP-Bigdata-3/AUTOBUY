@@ -14,6 +14,7 @@ import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.Calendar;
 
+import javax.swing.BorderFactory;
 import javax.swing.Icon;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
@@ -23,7 +24,10 @@ import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JTable;
 import javax.swing.JTextField;
+import javax.swing.SwingConstants;
+import javax.swing.table.DefaultTableCellRenderer;
 import javax.swing.table.DefaultTableModel;
+import javax.swing.table.TableColumnModel;
 import javax.xml.ws.Response;
 
 import com.sun.prism.Image;
@@ -51,13 +55,20 @@ public class POSPanel extends JPanel {
 	JTable table = new JTable(model);
 	PosDAO dao = new PosDAO();
 
+
 	class Screen extends JPanel {
 		Screen() {
 			setBackground(Color.WHITE);
+			setBorder(BorderFactory.createEmptyBorder(0,0,0,0));
 			DefaultTableModel m = (DefaultTableModel) table.getModel();
-			table.setRowHeight(50);
-			table.getTableHeader().setFont(new Font("G마켓 산스 TTF", Font.BOLD, 15));
+			table.setRowHeight(60);
+			table.setShowVerticalLines(false);
+			table.setShowHorizontalLines(false);
+			table.getTableHeader().setFont(new Font("IBMPlexSansKR-Medium", Font.BOLD, 15));
+			table.getTableHeader().setBackground(Color.WHITE);
+			
 			add(new JScrollPane(table));
+			table.getTableHeader().setBorder(null);
 			
 
 		}
@@ -116,15 +127,20 @@ public class POSPanel extends JPanel {
 	}
 
 	public POSPanel() {
+		this.setFont(new Font("돋움", Font.BOLD, 40));
 		setLayout(null);
 		setBackground(Color.WHITE);
 		MenuBtn mbtn = new MenuBtn();
 		StrBtn sbtn = new StrBtn();
 		Screen sc = new Screen();
+		
 
 		tf.setSize(450, 70);
 		tf.setLocation(50, 480);
+		tf.setBorder( null );
+		tf.setHorizontalAlignment(JTextField.RIGHT);
 		add(tf);
+		
 
 		sc.setSize(500, 500);
 		sc.setLocation(25, 20);
@@ -150,12 +166,22 @@ public class POSPanel extends JPanel {
 				public void actionPerformed(ActionEvent e) {
 					JButton MBtn = (JButton) e.getSource();
 					DefaultTableModel m = (DefaultTableModel) table.getModel();
+					
+					DefaultTableCellRenderer tScheduleCellRenderer = new DefaultTableCellRenderer();
+					tScheduleCellRenderer.setHorizontalAlignment(SwingConstants.CENTER);
+					TableColumnModel tcmSchedule = table.getColumnModel();
+					for (int i = 0; i < tcmSchedule.getColumnCount(); i++) {
+
+						tcmSchedule.getColumn(i).setCellRenderer(tScheduleCellRenderer);
+
+						}
 
 					int rowCount = m.getRowCount();
 
 					count[index]++;
 
 					m.addRow(new Object[] { menu[index], count[index], price[index] * count[index] });
+					
 
 					for (j = 0; j < m.getRowCount() - 1; j++) {
 						if (menu[index].equals(m.getValueAt(j, 0))) {
@@ -240,8 +266,8 @@ public class POSPanel extends JPanel {
 				for (int i = 0; i < rowCont; i++) {
 					sum += (int) table.getValueAt(i, 2);
 				}
-				tf.setText(String.valueOf(" 결제완료 : " + sum));
-				tf.setFont(new Font("맑은고딕", Font.BOLD, 40));
+				tf.setText(String.valueOf("결제 완료 :  "+sum+"원"));
+				tf.setFont(new Font("돋움", Font.PLAIN, 40));
 				System.out.println("판매된 것은");
 
 				int menu_seq = 0;
