@@ -102,19 +102,20 @@ body{
 	margin-left: 10px;
 	height:30px;
 }
-.login-input-wrap1 input{
+.login-input-wrap1{
 	border: none;
-	width:430px;
+	width:220px;
 	margin-top: 10px;
 	font-size: 14px;
 	margin-left: 10px;
 	height:30px;
+	border:1px solid lightgray;
 }
 .login-button-wrap {
 	padding-top: 13px;
 }
 .login-button-wrap button{
-	width: 465px;
+	width: 125px;
 	height :48px;
 	font-size: 18px;
 	background:#5F04B4;
