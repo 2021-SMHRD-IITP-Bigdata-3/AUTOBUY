@@ -5,142 +5,11 @@
 <%@ page language="java" contentType="text/html; charset=EUC-KR"
     pageEncoding="EUC-KR"%>
 <!DOCTYPE html>
-<style>
-@import url(//spoqa.github.io/spoqa-han-sans/css/SpoqaHanSansNeo.css);
-
- #search {
-	height : 40px;
-	width : 400px;
-	border : 2px solid #5F04B4;
-	background : #ffffff;
-}
-#searchInput{
-	font_size : 16px;
-	width : 325px;
-	padding : 10px;
-	border : 0px;
-	outline : none;
-	float : left;
-}
-button{
-	width : 50px;
-	height : 100%;
-	border : 0px;
-	background : #5F04B4;
-	outline : none;
-	float : right;
-	color : #ffffff;
-	
-}
-
-.inputbutton{
-width : 50px;
-	height : 100%;
-	border : 0px;
-	background : #5F04B4;
-	outline : none;
-	float : right;
-	color : #ffffff
-}
-.list_board{
-border-collapse: separate;
-  border-spacing: 1px;
-  text-align: left;
-  line-height: 1.5;
-  border-top: 1px solid #ccc;
-  margin : 20px 10px;
-  border-left: 3px solid #5F04B4;
-  margin-left: 0px;
-}
-
-#show th {
-  width: 150px;
-  padding: 10px;
-  font-weight: bold;
-  vertical-align: top;
-  border-bottom: 1px solid #ccc;
-}
-
-.list_board td {
-  width: 350px;
-  padding: 10px;
-  vertical-align: top;
-  border-bottom: 1px solid #ccc;
-  font-family: 'Spoqa Han Sans Neo', 'sans-serif';
-}
-.submitbutton{
-	width : 100px;
-	height : 50px;
-	border : 0px;
-	border-radius : 3px;
-	background : #5F04B4;
-	color : #ffffff;
-	font-size: 18px;
-	border-style: ridge;
-	
-}
-
-a{
-	text-decoration: none;
-	color: black;
- 
-}
-
-#menu{
-	
-	text-align: left;
-	margin-top: 45px;
-	
-}
-#menu td{
-	width: 350px;
-  	padding: 10px;
-  	vertical-align: top;
-  	height: 30px;
-  	font-family: 'Spoqa Han Sans Neo', 'sans-serif';
-  	
-  	
-}
-.select:hover {
-	border-left: 3px solid #5F04B4;
-	font-weight: bold;
-	background-color: #5F04B4;
-	color: white;
-}
-.select{
-	font-weight: 450;
-	font-size : 18px;
-
-}
-#hello{
-	text-align: center;
-}
-	
-
-.inputbutton:hover{
-	background : white;
-	border : 1px solid #5F04B4;
-	color : black;
-}
-
-
-@font-face{
-	src: url("../assest/fonts/Cocogoose Pro Light-trial.ttf");
-    font-family: "Cocogoose"; 
- }
- #topmenu a:hover {
-	text-decoration: underline;
-}
-#topmenu td{
-	width: 100px;
-	text-align: center;
-}
-</style>
 <html>
 <head>
 <meta charset="EUC-KR">
 <title>Insert title here</title>
-	<link rel="stylesheet" href="assest/css/Main.css?after">
+	<link rel="stylesheet" href="assest/css/StockAdd.css">
 </head>
 <body>
 	<%
@@ -153,10 +22,10 @@ a{
 
 	<div class="container" >
 		<div class="header">
-			<div class="title"><a href="Main.jsp"><p style="color: black; font-family:Cocogoose">AUTOBUY</p></a></div>
+			<div class="title"><p><a href="Main.jsp" id="auto"><b><b>AUTO</b></b></a><a href="Main.jsp" id="buy">BUY</a></p></div>
 			
 			<%if(info != null){%>
-				<div style="margin-left: 1400px; margin-top: 20px">
+				<div style="margin-left: 1270px; margin-top: 20px">
 				<table id="topmenu">
 					<tr>
 						<td style="font-size: 18px; font-family: 'Spoqa Han Sans Neo', 'sans-serif';"><a href="Update.jsp">마이페이지</a></td>		
@@ -205,20 +74,21 @@ a{
 		<div class="content">
 			<div class="small_title"><p>조정 > 재고 수량 수정</p></div>
 			<div class="board">
-				<table class="list_board">
+				<table id="show" style="margin:auto; width : 1300px; margin-top: 100px;">
 					<tr style="text-align: center; font-weight: bold; font-size: 18px">
-						<td>사진</td>
-						<td>제품명</td>
-						<td>거래처</td>
-						<td>재고량</td>
-						<td>기준 재고량<br></td>
-						<td>최소 재고량<br></td>		
+						<td style ="width: 15% ">사진</td>
+						<td style ="width: 30% ">제품명</td>
+						<td style ="width: 25% ">거래처</td>
+						<td style ="width: 10% ">재고량</td>
+						<td style ="width: 10% ">기준 재고량<br></td>
+						<td style ="width: 10% ">최소 재고량<br></td>		
 					</tr>
 					<tr>
 		            <%for(int i = 0; i<stock_list.size();i++){ %>
-						<tr style="font-size: 17px;">
+						<tr style="text-align: center;">
+							<tr style="height: 40px; text-align: center; width: 400px; font-size: 17px;" onMouseOver="this.style.backgroundColor='#EFF8FB';" onMouseOut="this.style.backgroundColor=''">
 							<td>사진</td>
-							<td><%=stock_list.get(i).getProduct_name() %></td>
+							<td style="text-align: left;"><%=stock_list.get(i).getProduct_name() %></td>
 							<td><%=stock_list.get(i).getSupplier_name() %></td>
 							<td><%=stock_list.get(i).getStock_qntty() %></td>										
 							<td><input type="number"  name = "standard_qntty" min="0" value=<%=stock_list.get(i).getStandard_qntty() %> placeholder="<%=stock_list.get(i).getStandard_qntty() %>"size="10px" style="width:50px;"></td>
@@ -226,8 +96,9 @@ a{
 						</tr>
 					<%} %>
 			 </table>
+			 
 			</div>
-			<button  class="submitbutton" style="margin-right: 500px">수정완료</button>
+			<button  class="submitbutton" style="margin-right: 930px; margin-top: 20px;">수정완료</button>
 		</div>
 		</form>
 		<div class ="footer">
