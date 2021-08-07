@@ -13,7 +13,7 @@
 <head>
 <meta charset="EUC-KR">
 <title>Insert title here</title>
-	<link rel="stylesheet" href="assest/css/Order_details.css">
+	<link rel="stylesheet" href="assest/css/StockAdd.css">
 </head>
 <body>
 	<%
@@ -36,26 +36,54 @@
 
 	<div class="container" >
 		<div class="header">
-			<div class="title"><p>AUTOBUY</p></div>
+			<div class="title"><p><a href="Main.jsp" id="auto"><b><b>AUTO</b></b></a><a href="Main.jsp" id="buy">BUY</a></p></div>
+			
 			<%if(info != null){%>
-				<div class="store_name">
-					<h4><%= info.getCustomer_id()%>님<h4>
-				</div>
-			<%} %>					
-			<div class="logout"><a href="LogoutServiceCon">로그아웃</a></div>
-			<div class="mypage"><a href="Update.jsp"><img src="img/mypage.png" height="40px" width="40px"></a></div>			
-		</div>
+            <div style="margin-left: 900px; margin-top: 20px">
+            <table id="topmenu">
+					<tr>
+						<td ><a href="Update.jsp">마이페이지</a></td>		
+						<td ><a href="Incoming.jsp">주문배송</a></td>		
+						<td ><a href="Product_reg.jsp">장바구니</a></td>
+						<td ><a href="Update.jsp">고객센터</a></td>
+						<td ><a href="LogoutServiceCon">로그아웃</a></td>				
+					</tr>
+			</table>
+            </div>
+         
+         <%} %>         
+
+      </div>
 		<div class="list">
-			<div class="small_list">
-				<div class="main_p"><p><a href="Main.jsp"><img src="img/list_i.png" height="30px" width="30px">제품목록</a></p></div>
-				<div class="incoming"><p><a href="Incoming.jsp"><img src="img/in.png" height="30px" width="30px">입고</a></p></div>
-				<div class="outgoing"><p><a href="Outgoing.jsp"><img src="img/out.png" height="30px" width="30px">출고</a></p></div>
-				<div class="shelf"><p><a href="Shelf_life.jsp"><img src="img/shelf.png" height="30px" width="30px">유통기한 관리</a></p></div>
-				<div class="sup_con"><p><a href="Sup_con.jsp"><img src="img/sup.png" height="30px" width="30px">거래처 관리</a></p></div>
-				<div class="data"><p><a href="Data.jsp"><img src="img/chart.png" height="30px" width="30px">대시보드</a></p></div>
-				<div class="limit"><p><a href="Limit.jsp"><img src="img/li.png" height="30px" width="30px">조정</a></p></div>
-				<div class="product"><p><a href="Product_reg.jsp"><img src="img/product.png" height="30px" width="30px">수동발주</a></p></div>
-			</div>
+			<table id="menu">
+				<tr>
+						<td id="hello" onclick="location.href='Update.jsp'"><h3><%=info.getStore_name() %>카페 사장님<br>환영합니다!!</h3></td>
+					</tr>
+					<tr>
+						<td class="select" onclick="location.href='Main.jsp'"> &emsp;&emsp;&nbsp;재고목록</td>
+					</tr>
+					<tr >
+						<td class="select" onclick="location.href='Incoming.jsp'" >&emsp;&emsp;&nbsp;입고</td>
+					</tr>
+					<tr>
+						<td class="select" onclick="location.href='Outgoing.jsp'" >&emsp;&emsp;&nbsp;출고</td>
+					</tr>
+					<tr>
+						<td class="select" onclick="location.href='Shelf_life.jsp'" >&emsp;&emsp;&nbsp;유통기한</td>
+					</tr>
+					<tr>
+						<td class="select" onclick="location.href='Sup_con.jsp'" style="background-color: #5F04B4; color: white;">&emsp;&emsp;&nbsp;거래처</td>
+					</tr>
+					<tr>
+						<td class="select" onclick="location.href='Data.jsp'">&emsp;&emsp;&nbsp;대시보드</td>
+					</tr>
+					<tr>
+						<td class="select" onclick="location.href='Limit.jsp'">&emsp;&emsp;&nbsp;조정</td>
+					</tr>
+					<tr>
+						<td class="select" onclick="location.href='Product_reg.jsp'">&emsp;&emsp;&nbsp;발주</td>
+				</tr>
+			</table>
 		</div>
 		<div class="content">
 			<div class="small_title"><p>입고 > 상세 내역</p></div>

@@ -1,8 +1,13 @@
 @charset "EUC-KR";
 @import url(//spoqa.github.io/spoqa-han-sans/css/SpoqaHanSansNeo.css);
    .container{
-   
+   height: 10px; background-color: #5F04B4;
    width:100%;
+   }
+   .container_line{
+   width:100%;
+   height: 10px;
+   background-color: #5F04B4;
    }
    .header{
    float:left;

@@ -34,6 +34,7 @@
 	%>
 
 	<div class="container" >
+	<div class="container_line"></div>
 		<div class="header">
 			<div class="title"><p><a href="Main.jsp" id="auto"><b><b>AUTO</b></b></a><a href="Main.jsp" id="buy">BUY</a></p></div>
 			
@@ -87,12 +88,9 @@
 		<div class="content">
 			<div class="small_title"><p>거래처 관리</p></div>
 			<div class="board">
-<<<<<<< HEAD
-				<table id="show" style="margin:auto; width : 1300px; margin-top:40px;">
-=======
 
-				<table id="show">
->>>>>>> branch 'master' of https://github.com/2021-SMHRD-IITP-Bigdata-3/AUTOBUY.git
+				<table id="show" style="margin:auto; width : 1300px; margin-top:40px;">		
+
 					<tr  style ="text-align: center; width: 400px; font-size: 18px;">
 						<td  style ="width: 25% "><b>이름</b></td>
 						<td  style ="width: 25% "><b>전화번호</b></td>

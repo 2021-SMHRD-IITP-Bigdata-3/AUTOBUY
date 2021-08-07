@@ -14,6 +14,7 @@
 	%>
 
 	<div class="container" >
+	<div class="container_line"></div>
 		<div class="header">
 			<div class="title"><p><a href="Main.jsp" id="auto"><b><b>AUTO</b></b></a><a href="Main.jsp" id="buy">BUY</a></p></div>
 			

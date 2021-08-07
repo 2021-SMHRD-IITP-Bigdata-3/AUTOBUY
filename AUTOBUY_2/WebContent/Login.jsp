@@ -6,6 +6,16 @@
 <meta charset="EUC-KR">
 <title>Insert title here</title>
 <link rel="stylesheet" href="assest/css/Login.css">
+<style>
+@font-face{
+	src: url("../assest/fonts/Cocogoose Pro Light-trial.ttf");
+    font-family: "Cocogoose"; 
+ }
+ @font-face{
+	src: url("../assest/fonts/Cocogoose Pro Semilight-trial.ttf");
+    font-family: "Cocogoose2"; 
+ }
+ </style>
 </head>
 <body>
 	<div class="main-container">
@@ -17,7 +27,7 @@
 					<option>English</option>
 				</select>
 			</div>
-			<div class="logo-wrap">
+			<div class="logo-wrap"style="font-family: 'Spoqa Han Sans Neo ,sans-serif";>
 				AUTO BUY
 			</div>
 		</header>

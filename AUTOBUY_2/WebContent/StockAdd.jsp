@@ -49,6 +49,7 @@
 	%>
 
 	<div class="container" >
+	<div class="container_line"></div>
 		<div class="header">
 			<div class="title"><p><a href="Main.jsp" id="auto"><b><b>AUTO</b></b></a><a href="Main.jsp?after" id="buy">BUY</a></p></div>
 			
@@ -171,6 +172,6 @@
 								대표 : 송김정정 | 사업자 등록 번호 : 000-00-00000<br>
 								광주광역시 남구 송암로60 광주CGI센터</div>
 	</div>
-
+</div>
 </body>
 </html>

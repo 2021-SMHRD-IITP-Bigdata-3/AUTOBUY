@@ -12,23 +12,14 @@
 <head>
 <meta charset="EUC-KR">
 <title>Insert title here</title>
-<style>
-.add{
-	float:right;
-	font-size:25px;
-	margin-right:30px;
-	margin-top:10%;
-	}
-
-</style>
 <head>
-	<link rel="stylesheet" href="assest/css/Main_Sup.css">
+	<link rel="stylesheet" href="assest/css/StockAdd.css">
 </head>
 <body> 
 	<%
 		MemberDTO info = (MemberDTO)session.getAttribute("info");
 	
-		
+	
 		ProductDAO product_dao = new ProductDAO();
 		String won = "원";
 
@@ -46,49 +37,67 @@
 	%>
 
 	<div class="container" >
+	<div class="container_line"></div>
 		<div class="header">
-			<div class="title"><p>AUTOBUY</p></div>
+			<div class="title"><p><a href="Main_Sup.jsp" id="auto"><b><b>AUTO</b></b></a><a href="Main_Sup.jsp" id="buy">BUY</a></p></div>
+			
 			<%if(info != null){%>
-				<div class="store_name">
-					<h4><%= info.getCustomer_id() %>님<h4>
+				<div style="margin-left: 900px; margin-top: 20px">
+				
+				 <table id="topmenu">
+					<tr>
+						<td ><a href="Update.jsp">마이페이지</a></td>		
+						<td ><a href="Incoming.jsp">주문배송</a></td>		
+						<td ><a href="Product_reg.jsp">장바구니</a></td>
+						<td ><a href="Update.jsp">고객센터</a></td>
+						<td ><a href="LogoutServiceCon">로그아웃</a></td>				
+					</tr>
+				</table>
+				
 				</div>
-			<%} %>
-			<div class="logout"><a href="LogoutServiceCon">로그아웃</a></div>
-			<div class="mypage"><a href="Update.jsp"><img src="img/mypage.png" height="40px" width="40px"></a></div>		
+			
+			<%} %>			
+
 		</div>
 		<div class="list">
-			<div class=""><p><a href="Main_Sup.jsp">출고</a></p></div>
-			<div class=""><p><a href="Cus_management.jsp">고객관리</a></p></div>
-			<div class=""><p><a href="SupProducShow.jsp">제품목록</a></p></div>
+			<table id="menu">
+				<tr>
+					<td id="hello" onclick="location.href='Update.jsp'"><h3><%=info.getStore_name() %> 사장님<br>환영합니다!!</h3></td>
+				</tr>
+				<tr>
+					<td class="select" onclick="location.href='Main_Sup.jsp'" > &emsp;&emsp;&nbsp;출고</td>
+				</tr>
+				<tr >
+					<td class="select" onclick="location.href='Cus_management.jsp'">&emsp;&emsp;&nbsp;고객관리</td>
+				</tr>
+				<tr>
+					<td class="select" onclick="location.href='SupProductShow.jsp'"style="background-color: #5F04B4; color: white;">&emsp;&emsp;&nbsp;제품목록</td>
+				</tr>
+				
+			</table>
 		</div>
 		<div class="content">
 			<div class="small_title"><p>제품목록</p></div>
-			<div class="add"><p><a href="Sup_Product_reg.jsp">+제품 등록/삭제</a></p></div>
 			<div class="board">
-           		<table class="list_board">
-					<tr>
-						<td>제품명</td>
-						<td>가격</td>
-						<td>거래처</td>
+           		<table id="show" style="margin:auto; width : 1400px; margin-top:50px;">
+					<tr  style ="text-align: center; width: 400px; font-size: 18px;">
+						<td><b>제품명</b></td>
+						<td><b>가격</b></td>
+						<td><b>거래처></b></td>
 					</tr>
 					<%for(int i = 0; i<product_list.size();i++){ 
 						if(info.getNickName().equals(product_list.get(i).getSupplier_name())){
 						%>
-					<tr>
+					<tr style="height: 40px; text-align: center; width: 400px; font-size: 17px;" onMouseOver="this.style.backgroundColor='#EFF8FB';" onMouseOut="this.style.backgroundColor=''">
 						<td style = "width: 40%"><%=product_list.get(i).getProduct_name() %></td>
 						<td style = "width: 18%"><%=product_list.get(i).getProduct_price() %><%=won %></td>
 						<td style = "width: 27%"><%=product_list.get(i).getSupplier_name() %></td>
 					</tr>
-					<%} }%>
-				
-			
+						<%} 
+					}%>
 				</table>
-			
-			</div>
-			
-			
-			
-			
+				</div>
+			<div><button type="button" class = "submitbutton" onclick="location.href='StockAdd.jsp'" style="margin-top: 20px; margin-right: 710px;">+등록/삭제</button></div>
 		</div>
 		<div class ="footer">
 			<div class="banner">AUTOBUY</div>

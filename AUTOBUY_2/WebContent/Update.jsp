@@ -10,6 +10,9 @@
 </head>
 <style>
 a { text-decoration:none } 
+body{
+font-family: 'Spoqa Han Sans Neo', 'sans-serif'
+}
 </style>
 <body>
 <%
@@ -62,7 +65,7 @@ a { text-decoration:none }
 					<td><p style="border-right:1px solid lightgray; width:200px">상호명</p></td>
 					<td>
 							<%if(info != null){%>
-									<%= info.getStore_name() %><
+									<%= info.getStore_name() %>
 							<%} %>
 					</td>
 				</tr>
@@ -78,7 +81,7 @@ a { text-decoration:none }
 					<td><p style="border-right:1px solid lightgray; width:200px">주소</p></td>
 					<td>
 							<%if(info != null){%>
-									<%= info.getAddress() %><
+									<%= info.getAddress() %>
 							<%} %>
 					</td>
 				</tr>
