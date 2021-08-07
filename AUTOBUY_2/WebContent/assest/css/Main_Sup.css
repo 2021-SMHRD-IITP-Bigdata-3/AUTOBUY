@@ -1,13 +1,13 @@
 @charset "EUC-KR";
 .container{
-	border:1px solid black;
+
 	width:1400px;
 	}
 	.header{
 	float:left;
 	width:1400px;
 	height:84px;	
-	border-bottom:1px solid black;
+
 	}
 	.title{
 	width:25%;
@@ -43,7 +43,7 @@
 	float:left;
 	width:280px;
 	height:1232px;
-	border-right: 1px solid black;
+
 	}
 	.list p {
    	width:180px;
@@ -77,7 +77,7 @@
 	clear:both;
 	width:1400px;
 	height:84px;
-	border-top: 1px solid black;
+
 	}
 	.banner {
 	font-size:40px;

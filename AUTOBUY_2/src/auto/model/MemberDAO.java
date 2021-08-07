@@ -5,6 +5,7 @@ import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
 
 import auto.model.MemberDTO;
 
@@ -53,7 +54,8 @@ public class MemberDAO {
 		public int join(MemberDTO dto) {
 			try {
 				conn();
-				String sql = "insert into member(customer_id, customer_pw, nickName,  store_name, tel, address, customer_type) values(?,?,?,?,?,?,?)";
+				String sql = "insert into member(customer_id, customer_pw, nickName, store_name, tel, address, customer_type) values(?,?,?,?,?,?,?)";
+
 				psmt = conn.prepareStatement(sql);
 				
 				psmt.setString(1, dto.getCustomer_id());
@@ -138,6 +140,48 @@ public class MemberDAO {
 			}
 			return cnt;
 		}
+		
+		// 전체 회원 보여주기
+		public ArrayList<MemberDTO> showMember(){
+			
+			ArrayList<MemberDTO> member_list = new ArrayList<MemberDTO>();
+			
+			
+			try {
+				conn();
+				String sql = "select * from member";
+				psmt = conn.prepareStatement(sql);
+				rs = psmt.executeQuery();
+				
+				while(rs.next()) {
+					String customer_id = rs.getString("customer_id");
+					String customer_pw = rs.getString("customer_pw");
+					String nickName = rs.getString("nickName");
+					String customer_type = rs.getString("customer_type");
+					String store_name = rs.getString("store_name");
+					String client_resgist_number = rs.getString("client_resgist_number");
+					String address = rs.getString("address");
+					String ceo = rs.getString("ceo");
+					String tel = rs.getString("tel");
+					String email = rs.getString("email");
+					String payment = rs.getString("payment");
+					
+					MemberDTO dto = new MemberDTO(customer_id, customer_pw, nickName, customer_type, store_name, client_resgist_number, address, ceo, tel, email, payment);
+					member_list.add(dto);
+					
+					
+				}
+		
+			} catch(SQLException e) {
+				e.printStackTrace();
+			} finally {
+				close();
+			}return member_list;
+		}
+				
+				
+				
+			
 	
 		
 }

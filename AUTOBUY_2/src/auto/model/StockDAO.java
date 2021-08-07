@@ -164,6 +164,47 @@ public class StockDAO {
 			return cnt;
 				
 		}
-	
+		
+		// 입고에 따른 기존 등록 상품 재고 수량 업데이트 메소드
+		public int AddQntty(String customer_id, int product_num, int order_qntty) {
+			
+			try {
+				conn();
+				String sql = "update stock set stock_qntty = stock_qntty + ? where customer_id = ? and product_num=? ";
+				psmt = conn.prepareStatement(sql);
+				psmt.setInt(1,order_qntty);
+				psmt.setString(2, customer_id);
+				psmt.setInt(3,product_num);
+				cnt = psmt.executeUpdate();
+				
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
+			return cnt;
+				
+		}
 
+		// 입고에 따른 추가 등록 제품 및 수량 삽입 메소드
+			public int AddProduct(String customer_id, int product_num, String product_name, String supplier_name, int product_price, int stock_qntty, String product_pic){		
+				try {
+					conn();
+					String sql = "insert into stock values(?, ?, ?, ?, ?, ?, 0, 0, ?)";
+					psmt = conn.prepareStatement(sql);
+					psmt.setString(1, customer_id);
+					psmt.setInt(2, product_num);
+					psmt.setString(3, product_name);
+					psmt.setString(4, supplier_name);
+					psmt.setInt(5, product_price);
+					psmt.setInt(6, stock_qntty);
+					psmt.setString(7, product_pic);
+					cnt = psmt.executeUpdate();
+					
+				} catch (SQLException e) {
+					e.printStackTrace();
+				} finally {
+					close();
+				}			
+				return cnt;
+			}
+		
 }

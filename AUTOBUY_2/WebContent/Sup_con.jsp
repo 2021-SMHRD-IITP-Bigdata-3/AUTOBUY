@@ -1,4 +1,6 @@
 <%@page import="auto.model.MemberDTO"%>
+<%@page import="auto.model.MemberDAO"%>
+<%@page import="java.util.ArrayList"%>
 <%@ page language="java" contentType="text/html; charset=EUC-KR"
     pageEncoding="EUC-KR"%>
 <!DOCTYPE html>
@@ -11,6 +13,24 @@
 <body>
 	<%
 		MemberDTO info = (MemberDTO)session.getAttribute("info");
+	
+		MemberDAO dao = new MemberDAO();
+		ArrayList<MemberDTO> member_list = new ArrayList<MemberDTO>();
+		member_list = dao.showMember();	
+		
+		System.out.println(member_list.size());
+		
+		for(int i=0; i<member_list.size(); i++){
+			System.out.println(member_list.get(i).getCustomer_type());
+		}
+		
+		if(member_list!=null){
+			System.out.println("성공");
+
+		}else{
+			System.out.println("실패");
+			}
+	
 	%>
 
 	<div class="container" >
@@ -67,20 +87,30 @@
 		<div class="content">
 			<div class="small_title"><p>거래처 관리</p></div>
 			<div class="board">
+<<<<<<< HEAD
 				<table id="show" style="margin:auto; width : 1300px; margin-top:40px;">
+=======
+
+				<table id="show">
+>>>>>>> branch 'master' of https://github.com/2021-SMHRD-IITP-Bigdata-3/AUTOBUY.git
 					<tr  style ="text-align: center; width: 400px; font-size: 18px;">
 						<td  style ="width: 25% "><b>이름</b></td>
 						<td  style ="width: 25% "><b>전화번호</b></td>
 						<td  style ="width: 25% "><b>이메일</b></td>
-						<td  style ="width: 25% "><b>메모</b></td>
+						<td  style ="width: 25% "><b>주소</b></td>
 					</tr>
-					<tr style="text-align: center;">
-							<tr style="height: 40px; text-align: center; width: 400px; font-size: 17px;" onMouseOver="this.style.backgroundColor='#EFF8FB';" onMouseOut="this.style.backgroundColor=''">
-						<td></td>
-						<td></td>
-						<td></td>
-						<td></td>
-					</tr>		
+
+					<%for(int i=0;i<member_list.size();i++){
+						if(member_list.get(i).getCustomer_type().equals("거래처")){						
+						%>
+					<tr>
+						<td><%=member_list.get(i).getStore_name() %></td>
+						<td><%=member_list.get(i).getTel() %></td>
+						<td><%=member_list.get(i).getEmail() %></td>
+						<td><%=member_list.get(i).getAddress() %></td>			
+					</tr>
+					<% } } %>	
+
 			 </table>
 			</div>
 		</div>

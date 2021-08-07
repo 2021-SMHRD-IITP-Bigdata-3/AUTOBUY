@@ -238,5 +238,3 @@ num number(20) primary key
 
 
 
-
-

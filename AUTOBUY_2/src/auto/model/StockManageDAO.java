@@ -22,7 +22,7 @@ public class StockManageDAO {
 		try {
 			Class.forName("oracle.jdbc.driver.OracleDriver");
 			
-			String url = "project-db-stu.ddns.net";
+			String url = "jdbc:oracle:thin:@project-db-stu.ddns.net:1524:xe";
 			String dbid = "campus_f2";
 			String dbpw = "smhrd2";
 			

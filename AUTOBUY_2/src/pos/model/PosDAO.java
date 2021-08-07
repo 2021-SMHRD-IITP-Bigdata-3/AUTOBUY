@@ -25,7 +25,8 @@ public class PosDAO {
 			
 			String url = "jdbc:oracle:thin:@project-db-stu.ddns.net:1524:xe";
 			String dbid = "campus_f2";
-			String dbpw = "smhrd2";			
+			String dbpw = "smhrd2";
+			
 			conn = DriverManager.getConnection(url, dbid, dbpw);
 			
 			
