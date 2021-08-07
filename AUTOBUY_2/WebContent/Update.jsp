@@ -8,6 +8,9 @@
 <title>Insert title here</title>
 	<link rel="stylesheet" href="assest/css/Login.css">
 </head>
+<style>
+a { text-decoration:none } 
+</style>
 <body>
 <%
 		MemberDTO info = (MemberDTO)session.getAttribute("info");

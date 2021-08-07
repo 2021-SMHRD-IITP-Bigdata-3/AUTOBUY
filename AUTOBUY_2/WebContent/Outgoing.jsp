@@ -25,7 +25,7 @@
 			<div class="title"><p><a href="Main.jsp" id="auto"><b><b>AUTO</b></b></a><a href="Main.jsp" id="buy">BUY</a></p></div>
 			
 			<%if(info != null){%>
-            <div style="margin-left: 1270px; margin-top: 20px">
+            <div style="margin-left: 900px; margin-top: 20px">
              <table id="topmenu">
 					<tr>
 						<td ><a href="Update.jsp">마이페이지</a></td>		
@@ -74,7 +74,7 @@
 		<div class="content">
 			<div class="small_title"><p>출고</p></div>
 			<div class="board">
-				<table id="show">
+				<table id="show"  style= "margin:auto; width : 1300px; margin-top:40px;">
 					<tr  style ="text-align: center; width: 400px; font-size: 18px;">
 						<td style ="width: 25% "><b>사진</b></td>
 						<td style ="width: 25% "><b>제품명</b></td>

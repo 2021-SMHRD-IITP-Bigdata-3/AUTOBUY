@@ -35,7 +35,6 @@ public class LoginServiceCon extends HttpServlet {
          System.out.println("로그인 성공");
          HttpSession session = request.getSession();  
          session.setAttribute("info", info);  
-         System.out.println(info.getStore_name() + "사장님 환영합니다");
          
          if(info.getCustomer_type().equals("점포점주")){
             moveURL = "Main.jsp";   

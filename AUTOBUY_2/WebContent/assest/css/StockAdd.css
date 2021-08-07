@@ -59,8 +59,8 @@
    }
    .content{
    float:left;
-   width:85%;
    height:1232px;
+   width:80%;
    }
    .small_title{
    border-bottom:1px solid lightgray;
@@ -99,22 +99,23 @@
    }
    .board{
    float:left;
-   width:92.9%;
+   width:90%;
    font-size:15px;
    margin-left:80px;
    float: left;
    }
    .board1{
    margin-top:40px;
-   margin-left:100px;
+   margin-left:70px;
    float:left;
-   width:43.1%;
+   width:42%;
    font-size:15px;
+   font-family: 'Spoqa Han Sans Neo', 'sans-serif';
    }
    .board2{
    margin-top:40px;
    float:left;
-   width:43.1%;
+   width:42%;
    font-size:15px;
    margin-left:0px;
    }
@@ -172,7 +173,8 @@ border-collapse: separate;
   margin : 20px 10px;
   border-left: 3px solid #5F04B4;
   margin-left: 0px;
-  width : 800px;
+  font-family: 'Spoqa Han Sans Neo', 'sans-serif';
+
 }
 
 #show1{

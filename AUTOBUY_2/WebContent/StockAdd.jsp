@@ -53,7 +53,7 @@
 			<div class="title"><p><a href="Main.jsp" id="auto"><b><b>AUTO</b></b></a><a href="Main.jsp?after" id="buy">BUY</a></p></div>
 			
 			<%if(info != null){%>
-				<div style="margin-left: 1270px; margin-top: 20px">
+				<div style="margin-left: 900px; margin-top: 20px">
 				
 				<table id="topmenu">
 					<tr>
@@ -110,74 +110,67 @@
 			</div>
 			
 			<div class="board1" style="float:left;">
-			<div style="width:810px; height:800px; overflow:auto">
-           		<table id="show"  style="margin-top:24px;">
+			<div style=" overflow:auto">
+           		<table id="show"  style="margin-top:0px;">
 					<tr  style ="text-align: center; width: 400px; font-size: 18px;">
-						<td style="whidth:15%; "><b>사진</b></td>
-						<td style="width: 37%"><b>제품명</b></td>
-						<td style = "width: 15%"><b>가격</b></td>
-						<td style = "width: 25%"><b>거래처</b></td>
-						<td style = "width: 8%"><b></b></td>
+						<td style="width: 72px"><b>사진</b></td>
+						<td style="width: 240px"><b>제품명</b></td>
+						<td style = "width:90px;"><b>가격</b></td>
+						<td style = "width:180px"><b>거래처</b></td>
+						<td style = "width: 48px"><b></b></td>
 					</tr>
 					<%for(int i = 0; i<product_list.size();i++){ %>
 					<tr id = "data" class="event" style="height: 40px; width: 600px; cursor: pointer; font-size: 17px;" onMouseOver="this.style.backgroundColor='#EFF8FB';" onMouseOut="this.style.backgroundColor=''"
 					onclick="location.href='RegistOneProductServiceCon?product_num=<%=product_list.get(i).getProduct_num()%>'">
-						<td style="width: 15%">사진</td>
-						<td scope="row" style="width: 37%"><%=product_list.get(i).getProduct_name() %></td>
-						<td style = "width: 15%; text-align: center;"><%=product_list.get(i).getProduct_price() %>원</td>
-						<td style = "width: 25%; text-align: center;"><%=product_list.get(i).getSupplier_name() %></td>
-						<td style = "width: 8%; color: #5F04B4; " > <b>></b></td>
+						<td style="width: 72px">사진</td>
+						<td style="width: 240px"><%=product_list.get(i).getProduct_name() %></td>
+						<td style = "width:90px; text-align: center;"><%=product_list.get(i).getProduct_price() %>원</td>
+						<td style = "width:180px; text-align: center;"><%=product_list.get(i).getSupplier_name() %></td>
+						<td style = "width: 48px; color: #5F04B4; " > <b>></b></td>
 					</tr>
 					<%} %>
 				</table>
 				</div>
-				</div>
-			<form action="RegistProductQnttyServiceCon" method="post">
+			</div>
 			
 			
 			
 				
+				<form action="RegistProductQnttyServiceCon" method="post">
 			
-			<div class="board2" style="width: 700px;">
+			<div class="board1" style=" float:left; margins-top:20px;">
 			
-            <table id = "show" style="margin-left: -50px;">
-               <tr style="text-align: center; width: 600px; font-size: 18px;">
-               	  <td style="width: 15%;"><b>사진</b></td>
-                  <td style="width: 37%"><b>제품명</b></td>
-                  <td style="width: 25%;"><b>거래처</b></td>
-                  <td style="width: 15%;"><b>수량</b></td>
-                  <td style="width: 8%"><b></b></td>
+            <table id = "show" style="margin-left: 20px; margin-top:0px;">
+               <tr style="text-align: center; width: 400px; font-size: 18px;">
+               	  <td style="width: 72px"><b>사진</b></td>
+                  <td style="width: 240px"><b>제품명</b></td>
+                  <td style="width:180px"><b>거래처</b></td>
+                  <td style="width:90px"><b>수량</b></td>
+                  <td style="width: 48px"><b></b></td>
                </tr>
  			   
                <%for(int i = 0; i<stock_list.size();i++){ %>
-					<tr id = "data" style="font-size:17px;  height: 40px; width: 600px; " >
-						<td style="width: 15%;">사진</td>
-						<td style="width: 37%"><%=stock_list.get(i).getProduct_name() %></td>
-						<td style="width: 25%; text-align: center;"><%=stock_list.get(i).getSupplier_name() %></td>
-						<td style="width: 15%; text-align: center;"><input type="number"  name = "stock_qntty" min="0" value=<%=stock_list.get(i).getStock_qntty() %> size="10px" style="width:50px;"></td>
-						<td  class="event" style="width: 8%; cursor: pointer; color: #5F04B4; text-align: center;" onMouseOver="this.style.backgroundColor='#EFF8FB';" onMouseOut="this.style.backgroundColor=''"
+					<tr id = "data"  style="font-size:17px; height: 40px; width: 600px;" >
+						<td style="width: 72px;">사진</td>
+						<td style="width: 240px;"><%=stock_list.get(i).getProduct_name() %></td>
+						<td style="width:180px; text-align: center;"><%=stock_list.get(i).getSupplier_name() %></td>
+						<td style="width:90px; text-align: center;"><input type="number"  name = "stock_qntty" min="0" value=<%=stock_list.get(i).getStock_qntty() %> size="10px" style="width:50px;"></td>
+						<td  class="event" style="width: 48px; cursor: pointer; color: #5F04B4; text-align: center;" onMouseOver="this.style.backgroundColor='#EFF8FB';" onMouseOut="this.style.backgroundColor=''"
 					onclick="location.href='DeleteOneStockServiceCon?stock_num=<%=stock_list.get(i).getProduct_num()%>'"><b>x</b></td>				
 					</tr>
 				<%} %>
-				
-            </table>
-          
-            </div>
-          
-  				<button  class="submitbutton" style="margin-right: 1030px; margin-top: 20px;">등록완료</button>
-  			
-          
-        	
-        	
-        	</form>
+           		</table>
+  				
+            	</div>
+          			<div><button  class="submitbutton" style="margin-right: 1030px; margin-top: 20px;">등록완료</button></div>
+        		</form>
 			</div>
 		<div class ="footer">
 			<div class="banner">AUTOBUY</div>
 			<div class="company">주)오도바이절<br>
 								대표 : 송김정정 | 사업자 등록 번호 : 000-00-00000<br>
 								광주광역시 남구 송암로60 광주CGI센터</div>
-		</div>
-	
-</div>
+	</div>
+
 </body>
 </html>
