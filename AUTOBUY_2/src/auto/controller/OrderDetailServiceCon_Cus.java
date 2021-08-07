@@ -10,51 +10,53 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import auto.model.MemberDAO;
 import auto.model.MemberDTO;
 import auto.model.OrderDAO;
 import auto.model.OrderDTO;
 import auto.model.OrderDetailDAO;
 import auto.model.OrderDetailDTO;
 
-@WebServlet("/ReceiptServiceCon")
-public class ReceiptServiceCon extends HttpServlet {
+@WebServlet("/OrderDetailServiceCon_Cus")
+public class OrderDetailServiceCon_Cus extends HttpServlet {
 	protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
-		
-
-		int product_num = Integer.parseInt(request.getParameter("product_num"));
-		
-		
-		HttpSession session = request.getSession();  
-		ArrayList<OrderDetailDTO> dto = (ArrayList<OrderDetailDTO>)session.getAttribute("dto");
-		
-		MemberDTO info = (MemberDTO)session.getAttribute("info");
-				
-		String order_num = ""; 
-		for(int i=0; i<dto.size();i++){ 											
-				order_num = dto.get(i).getOrder_num(); 
-		}
+		String order_num = request.getParameter("order_num");
 		
 		System.out.println("order_num : " + order_num);
-		System.out.println("product_num : " + product_num);
 		
+		HttpSession session = request.getSession();  
+		MemberDTO info = (MemberDTO)session.getAttribute("info");
 		
 		OrderDetailDAO dao = new OrderDetailDAO();
+		ArrayList<OrderDetailDTO> dto = dao.showOrderDetail(order_num);
 		
-		int cnt = dao.updateOneRecepit(order_num, product_num);
+		OrderDAO order_dao = new OrderDAO();
+		ArrayList<OrderDTO> order_dto = order_dao.showOrder();
 		
-		ArrayList<OrderDetailDTO> arr = dao.showOrderDetail(order_num);
-				
+
+		
 		String moveURL = "";
 		
-		if(cnt>0) {
-			session.setAttribute("dto", arr);
-			System.out.println("개별 수령확인 성공");
-						
+		if(dto != null) {
+			System.out.println("주문상세 페이지 가져오기 성공");			
+			session.setAttribute("dto", dto);
+
+			moveURL = "Incoming_details.jsp";	
+
+												
 		}else {
-			System.out.println("개별 수령확인 실패");
+			System.out.println("주문상세 페이지 가져오기 실패");
+			
+			if(info.getCustomer_type().equals("거래처")) {
+				moveURL = "Main_Sup.jsp";
+			}else if(info.getCustomer_type().equals("점포점주")) {
+				moveURL = "Incoming.jsp";	
+			}
+			
 		}
-		response.sendRedirect("Incoming_details.jsp");
+		response.sendRedirect(moveURL);
+		
 		
 		
 		

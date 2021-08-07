@@ -1,3 +1,4 @@
+<%@page import="auto.model.OrderDetailDAO"%>
 <%@page import="auto.model.OrderDetailDTO"%>
 <%@page import="auto.model.MemberDAO"%>
 <%@page import="auto.model.OrderDTO"%>
@@ -118,6 +119,9 @@ a{
 	text-align: center;
 }
 	
+a:hover {
+	text-decoration: underline;
+}
 
 .inputbutton:hover{
 	background : white;
@@ -130,13 +134,6 @@ a{
 	src: url("../assest/fonts/Cocogoose Pro Light-trial.ttf");
     font-family: "Cocogoose"; 
  }
- #topmenu a:hover {
-	text-decoration: underline;
-}
-#topmenu td{
-	width: 100px;
-	text-align: center;
-}
 </style>
 <html>
 <head>
@@ -147,34 +144,26 @@ a{
 <body>
 	<%
 		MemberDTO info = (MemberDTO)session.getAttribute("info");
-		ArrayList<OrderDetailDTO> dto = (ArrayList<OrderDetailDTO>)session.getAttribute("dto");
-		
-		MemberDAO member_dao = new MemberDAO();
-		
-		OrderDAO dao = new OrderDAO();
-		ArrayList<OrderDTO> list = new ArrayList<OrderDTO>();
-		list = dao.showOrder();	
-				
+								
+		OrderDAO order_dao = new OrderDAO();
+		ArrayList<OrderDTO> order_list = new ArrayList<OrderDTO>();
+		order_list = order_dao.showOrderCus(info.getCustomer_id());		
+
+		ArrayList<OrderDetailDTO> dto = null;
+		OrderDetailDAO dao = new OrderDetailDAO();
 	%>
+
 
 	<div class="container" >
 		<div class="header">
-			<div class="title"><a href="Main.jsp"><p style="color: black; font-family:Cocogoose">AUTOBUY</p></a></div>
+			<div class="title"><p style="color: black; font-family:Cocogoose">AUTOBUY</p></div>
 			
 			<%if(info != null){%>
-				<div style="margin-left: 1270px; margin-top: 20px">
-				<table id="topmenu">
-					<tr>
-						<td style="font-size: 18px; font-family: 'Spoqa Han Sans Neo', 'sans-serif';"><a href="Update.jsp">마이페이지</a></td>		
-						<td style="font-size: 18px; font-family: 'Spoqa Han Sans Neo', 'sans-serif'; border-left : 1px solid lightgray;"><a href="Incoming.jsp">주문배송</a></td>		
-						<td style="font-size: 18px; font-family: 'Spoqa Han Sans Neo', 'sans-serif'; border-left : 1px solid lightgray;"><a href="Product_reg.jsp">장바구니</a></td>
-						<td style="font-size: 18px; font-family: 'Spoqa Han Sans Neo', 'sans-serif'; border-left : 1px solid lightgray;"><a href="Update.jsp">고객센터</a></td>
-						<td style="font-size: 18px; font-family: 'Spoqa Han Sans Neo', 'sans-serif'; border-left : 1px solid lightgray;"><a href="LogoutServiceCon">로그아웃</a></td>				
-					</tr>
-				</table>
+				<div class="logout" style="float : right; font-size:18px; font-family: 'Spoqa Han Sans Neo', 'sans-serif';;"  ><a href="LogoutServiceCon">로그아웃</a></div>
+				<div class="store_name" style="float: right; font-size: 18px; font-family: 'Spoqa Han Sans Neo', 'sans-serif';;">
+					<a href="Update.jsp"><%= info.getCustomer_id() %>님</a>
 				</div>
-			
-			<%} %>					
+			<%} %>				
 		</div>
 		<div class="list">
 			<table id="menu">
@@ -207,24 +196,36 @@ a{
 				</tr>
 			</table>
 		</div>
+	</div>
 		<div class="content">
 			<div class="small_title"><p>입고</p></div>
 			<div class="board">
 				<table class="list_board">
 					<tr>
 						<td>주문번호</td>
-						<td>거래처</td>
 						<td>주문일자</td>
 						<td>입고율</td>
 						<td>주문상세</td>
 					</tr>				
-					<%for(int i = 0; i<list.size();i++){ %>
+					<%for(int i = 0; i<order_list.size();i++){ %>
 					<tr>
-						<td style = "width: 15%"><%=list.get(i).getOrder_num()%></td>
-						<td style = "width: 25%"><%= dto.get(i).getSupplier_name()%></td>
-						<td style = "width: 20%"><%=list.get(i).getOrder_date()%></td>
-						<td><%=i+1%>입고율%</td>
-						<td><a href="OrderDetailServiceCon?order_num=<%=list.get(i).getOrder_num()%>"><input type="button" value ="주문상세"></a></td>	
+						<td style = "width: 30%"><%=order_list.get(i).getOrder_num_s()%></td>
+						<td style = "width: 30%"><%=order_list.get(i).getOrder_date()%></td>
+						<td  style = "width: 20%"><% 
+							   dto = dao.showOrderDetail(order_list.get(i).getOrder_num_s());
+							   double a = dto.size();
+							   double b = 0;
+							   double result = 0;
+							   
+								   for(int j =0; j<dto.size(); j++){
+									   if(dto.get(j).getReceipt_date()==null){
+										   b++;
+									   }
+								   }
+								   result = (a-b)/a*100;
+							   %>							
+						<%=Math.round(result)%>%</td>
+						<td  style = "width: 20%"><a href="OrderDetailServiceCon_Cus?order_num=<%=order_list.get(i).getOrder_num_s()%>"><input type="button" value ="주문상세"></a></td>	
 					</tr>
 					<%} %>			
 			 </table>

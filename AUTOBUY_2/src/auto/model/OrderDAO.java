@@ -119,7 +119,74 @@ public class OrderDAO {
 			return list;
 		}
 		
+		// 점포점주 아이디별 발주 전체 내역 보여주기	 	
+		public ArrayList<OrderDTO> showOrderCus(String customerId) {	
 			
+			ArrayList<OrderDTO> list = new ArrayList<OrderDTO>();
+			
+			try {
+				conn();
+				String sql = "select * from customer_order where customer_id = ? order by order_date desc";
+				psmt = conn.prepareStatement(sql);		
+				
+				psmt.setString(1, customerId);
+				rs = psmt.executeQuery();
+				
+				while(rs.next()) {
+					String order_num_s = rs.getString("order_num");
+					String customer_id = rs.getString("customer_id");
+					String customer_store_name = rs.getString("customer_store_name");
+					String customer_tel = rs.getString("customer_tel");
+					String customer_add = rs.getString("customer_add");
+					int order_amount = rs.getInt("order_amount");					
+					String order_date = rs.getString("order_date");
+					
+					dto = new OrderDTO(order_num_s, customer_id, customer_store_name, customer_tel, customer_add, order_amount, order_date);
+					list.add(dto);
+				}
+			} catch (SQLException e) {
+				e.printStackTrace();
+			} finally {	
+				close();
+			}
+			return list;
+		}
+		
+			
+		
+		// 거래처 아이디별 발주 들어온 전체 내역 보여주기 
+		public ArrayList<OrderDTO> showOrderSup(String supStoreName) {	
+			
+			ArrayList<OrderDTO> list = new ArrayList<OrderDTO>();
+			
+			try {
+				conn();
+				String sql = "select * from customer_order where order_num = "
+							+ "any(select order_num from detail_order where supplier_name = ? ) order by order_date desc";
+				psmt = conn.prepareStatement(sql);		
+				
+				psmt.setString(1, supStoreName);
+				rs = psmt.executeQuery();
+				
+				while(rs.next()) {
+					String order_num_s = rs.getString("order_num");
+					String customer_id = rs.getString("customer_id");
+					String customer_store_name = rs.getString("customer_store_name");
+					String customer_tel = rs.getString("customer_tel");
+					String customer_add = rs.getString("customer_add");
+					int order_amount = rs.getInt("order_amount");					
+					String order_date = rs.getString("order_date");
+					
+					dto = new OrderDTO(order_num_s, customer_id, customer_store_name, customer_tel, customer_add, order_amount, order_date);
+					list.add(dto);
+				}
+			} catch (SQLException e) {
+				e.printStackTrace();
+			} finally {	
+				close();
+			}
+			return list;
+		}		
 
 		
 		// 발주제안한 제품 발주 신청시 오더테이블로 이동
