@@ -68,6 +68,7 @@
       font-size:28px;
       margin-left:100px;
       margin-right:100px;
+     font-family: 'Spoqa Han Sans Neo', 'sans-serif';
    }
   
    .add{
@@ -106,13 +107,14 @@
    .board1{
    margin-top:40px;
    margin-left:100px;
-   width:44.1%;
+   float:left;
+   width:43.1%;
    font-size:15px;
    }
    .board2{
    margin-top:40px;
    float:left;
-   width:44.1%;
+   width:43.1%;
    font-size:15px;
    margin-left:0px;
    }
@@ -270,6 +272,9 @@ a{
 #topmenu td{
    width: 100px;
    text-align: center;
+   font-size: 18px;
+   font-family: 'Spoqa Han Sans Neo', 'sans-serif';
+   border-left : 1px solid lightgray;
 }
 
 
