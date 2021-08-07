@@ -22,7 +22,6 @@
 		MemberDAO member_dao = new MemberDAO();
 		
 		ArrayList<OrderDetailDTO> dto = (ArrayList<OrderDetailDTO>)session.getAttribute("dto");
-		ArrayList<OrderDTO> order_dto = (ArrayList<OrderDTO>)session.getAttribute("order_dto");
 		
 		ProductDAO product_dao = new ProductDAO();
 		ArrayList<ProductDTO> product_list = new ArrayList<ProductDTO>();
@@ -40,7 +39,7 @@
 			<div class="title"><p>AUTOBUY</p></div>
 			<%if(info != null){%>
 				<div class="store_name">
-					<h4><%= info.getCustomer_id() %>님<h4>
+					<h4><%= info.getCustomer_id()%>님<h4>
 				</div>
 			<%} %>					
 			<div class="logout"><a href="LogoutServiceCon">로그아웃</a></div>
@@ -60,33 +59,28 @@
 		</div>
 		<div class="content">
 			<div class="small_title"><p>입고 > 상세 내역</p></div>
-			<%int sum = 0;
-				for(int i = 0; i<dto.size();i++){ 
-					int price = product_dao.getPrice(dto.get(i).getProduct_num()); 
-					int qntty = dto.get(i).getOrder_qntty();
-					sum += price * qntty;					
+			<%	int sum = 0;
+				for(int i = 0; i < dto.size(); i++){ 
+						int price = product_dao.getPrice(dto.get(i).getProduct_num()); 
+						int qntty = dto.get(i).getOrder_qntty();
+						sum += price * qntty;					
 				}
-			
-	 			int order_num = 0;
-	 			String supplier_store_name = "";
+				
+				String order_num = ""; 
 	 			String order_date = "";
-	 			for(int i=0; i<order_dto.size();i++){ 
-					if(dto.get(i).getOrder_num().equals(order_dto.get(i).getOrder_num())){
-						order_num = order_dto.get(i).getOrder_num();
-						supplier_store_name = dto.get(i).getSupplier_name();
-						order_date = order_dto.get(i).getOrder_date();
+	 			for(int i=0; i<list.size();i++){ 
+	 				if(dto.get(0).getOrder_num().equals(list.get(i).getOrder_num_s())){
+						order_num = list.get(i).getOrder_num_s();
+						order_date = list.get(i).getOrder_date();
 					}
- 			}%>
+ 				}%>
 									
 			<div class="order_num">주문번호 </div>
 			<div class="order_num"><%=order_num%></div>			
-			<div class="cafe_name">거래처명  </div>
-			<div class="cafe_name"><%=supplier_store_name%></div>	
 			<div class="all_money">총 주문금액  </div>			
 			<div class="all_money"><%=sum%>원</div>		
 			<div class="all_money">주문일자  </div>			
-			<div class="all_money"><%=order_date%></div>
-												
+			<div class="all_money"><%=order_date%></div>												
 			<div class="board">
 				<table class="list_board">
 					<tr>
@@ -94,32 +88,43 @@
 						<td>사진</td>
 						<td>제품명</td>
 						<td>수량</td>
+						<td>거래처명</td>
 						<td>출고일</td>
 						<td>수령확인</td>
 						<td>입고일</td>
 					</tr>
+					<form action=UpdateQnttyServiceCon method="post">		
 					<% for(int i = 0; i<dto.size();i++){ %>
 						<tr>
-							<td style = "width: 8%"><%=i+1%></td>
-							<td style = "width: 18%"><%=dto.get(i).getProduct_name()%>.png</td>
-							<td style = "width: 22%"><%=dto.get(i).getProduct_name()%></td>
-							<td style = "width: 6%"><%=dto.get(i).getOrder_qntty()%></td>																			
+							<td style = "width: 5%"><%=i+1%></td>
+							<td style = "width: 8%"><%=dto.get(i).getProduct_pic()%></td>
+							<td style = "width: 17%"><%=dto.get(i).getProduct_name()%></td>
+							<td style = "width: 5%" ><%=dto.get(i).getOrder_qntty()%></td>	
+							<td style = "width: 20%"><%=dto.get(i).getSupplier_name()%></td>	
+																									
 							<%if(dto.get(i).getForwarding_date()==null){%>							
 								<td style = "width: 17%">-</td>
 							<%}	else {%>
 								<td style = "width: 17%"><%=dto.get(i).getForwarding_date()%></td>	
 							<%} %>
-							<td style = "width: 13%"><a href="ReceiptServiceCon?product_num=<%=dto.get(i).getProduct_num()%>"><input type="checkbox"></a></td>
-							<%if(dto.get(i).getForwarding_date()==null){%>							
+							
+							<td style = "width: 10%" ><a href="ReceiptServiceCon?product_num=<%=dto.get(i).getProduct_num()%>">수령완료</a></td>
+							
+							<%if(dto.get(i).getReceipt_date()==null){%>							
 								<td style = "width: 17%">-</td>
 							<%}	else {%>
-								<td style = "width: 17%"><%=dto.get(i).getReceipt_date()%></td>	
+								<td style = "width: 17%" ><%=dto.get(i).getReceipt_date()%></td>	
+								
+							<input type="hidden" value="<%=dto.get(i).getOrder_qntty()%>" name = "order_qntty">
+							<input type="hidden" value="<%=dto.get(i).getProduct_num()%>" name = "product_num">
+							<input type="hidden" value="<%=dto.get(i).getReceipt_date()%>" name = "receipt_date">
 							<%} %>
 						</tr>	
 					<%} %>		
 			 </table>
-			 <a href="ReceiptServiceCon?order_num=<%=order_num%>"><input type="button" value ="수령 완료"></a>
-			 <a href="Incoming.jsp"><input type="button" value ="확인"></a>
+			
+		<a href="Incoming.jsp"> <input type="submit" value ="확인"></a>
+	</form>		
 			</div>
 		</div>
 		<div class ="footer">

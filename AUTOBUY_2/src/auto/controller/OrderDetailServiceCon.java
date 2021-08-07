@@ -25,21 +25,24 @@ public class OrderDetailServiceCon extends HttpServlet {
 		
 		System.out.println("order_num : " + order_num);
 		
+		HttpSession session = request.getSession();  
+		MemberDTO info = (MemberDTO)session.getAttribute("info");
+		
+		String supplier_name = info.getStore_name();
+		
 		OrderDetailDAO dao = new OrderDetailDAO();
-		ArrayList<OrderDetailDTO> dto = dao.showOrderDetail(order_num);
+		ArrayList<OrderDetailDTO> dto = dao.showOrderDetail_s(order_num, supplier_name);
 		
 		OrderDAO order_dao = new OrderDAO();
 		ArrayList<OrderDTO> order_dto = order_dao.showOrder();
 		
-		HttpSession session = request.getSession();  
-		MemberDTO info = (MemberDTO)session.getAttribute("info");
+
 		
 		String moveURL = "";
 		
 		if(dto != null) {
 			System.out.println("주문상세 페이지 가져오기 성공");			
 			session.setAttribute("dto", dto);
-			session.setAttribute("order_dto", order_dto);
 			
 			if(info.getCustomer_type().equals("거래처")) {
 				moveURL = "Order_details.jsp";	
