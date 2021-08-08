@@ -1,3 +1,6 @@
+<%@page import="auto.model.StockDTO"%>
+<%@page import="java.util.ArrayList"%>
+<%@page import="auto.model.StockManageDAO"%>
 <%@ page language="java" contentType="text/html; charset=EUC-KR"
     pageEncoding="EUC-KR"%>
 <!DOCTYPE html>
@@ -17,7 +20,7 @@
 					<option>English</option>
 				</select>
 			</div>
-			<div class="logo-wrap">
+			<div class="logo-wrap" style="font-family: Cocogoose; font-size: 58px; color:black;">
 				AUTO BUY
 			</div>
 		</header>

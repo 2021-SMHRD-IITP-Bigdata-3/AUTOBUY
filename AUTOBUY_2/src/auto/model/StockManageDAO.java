@@ -22,7 +22,7 @@ public class StockManageDAO {
 		try {
 			Class.forName("oracle.jdbc.driver.OracleDriver");
 			
-			String url = "project-db-stu.ddns.net";
+			String url = "jdbc:oracle:thin:@project-db-stu.ddns.net:1524:xe";
 			String dbid = "campus_f2";
 			String dbpw = "smhrd2";
 			
@@ -86,8 +86,7 @@ public class StockManageDAO {
 			try {
 				conn();		
 				for(int i=1;i<=6;i++){
-					String sql = "select menu_num, product_num, necessary_qntty"
-							+ " from material where menu_num = ? order by product_num";
+					String sql = "select * from material where menu_num = ? order by product_num";
 			
 					psmt = conn.prepareStatement(sql);
 					psmt.setInt(1, i );
@@ -96,9 +95,10 @@ public class StockManageDAO {
 					while(rs.next()) {
 						int menu_num = rs.getInt("menu_num");
 						int product_num = rs.getInt("product_num");
+						String product_name = rs.getString("product_name");
 						double necessary_qntty = rs.getDouble("necessary_qntty");
 						
-						MaterialInfoDTO dto = new MaterialInfoDTO(menu_num, product_num, necessary_qntty);
+						MaterialInfoDTO dto = new MaterialInfoDTO(menu_num, product_num, product_name, necessary_qntty);
 						
 						list.add(dto);					
 					}
@@ -109,6 +109,33 @@ public class StockManageDAO {
 			} finally {
 				close();
 			} return list;
+			
+		}
+		
+		public ArrayList<StockDTO> showOutgoing() {
+			
+			ArrayList<Integer> sold_qntty = showSoldQntty();
+			ArrayList<MaterialInfoDTO> material_info = showMaterialInfoList();
+			ArrayList<StockDTO> list = null;
+			
+			for(int i=0; i<material_info.size(); i++) {
+				int k=1;
+				for(int j=0;j<6;j++) {
+					if(k==material_info.get(i).getMenu_num()) {
+						double outgoing_qntty = material_info.get(i).getNecessary_qntty()*sold_qntty.get(j);
+						int product_num = material_info.get(i).getProduct_num();
+						String product_name = material_info.get(i).getProduct_name();
+						StockDTO dto = new StockDTO(product_num, product_name, outgoing_qntty);
+						list.add(dto);
+					}else {
+						k++;
+					}
+				}
+				
+			}
+			
+			return list;
+			
 			
 		}
 		

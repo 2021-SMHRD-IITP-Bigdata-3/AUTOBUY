@@ -11,7 +11,17 @@ public class StockDTO {
 	private int minimum_qntty;
 	private int standard_qntty;
 	private String product_pic;
+	private double outgoing_qntty;
 	
+	
+	
+	public StockDTO(int product_num, String product_name, double outgoing_qntty) {
+		super();
+		this.product_num = product_num;
+		this.product_name = product_name;
+		this.outgoing_qntty = outgoing_qntty;
+	}
+
 	public StockDTO(String customer_id, int product_num, String product_name, String supplier_name, int product_price,
 			int stock_qntty, int minimum_qntty, int standard_qntty, String product_pic) {
 		super();
@@ -96,6 +106,14 @@ public class StockDTO {
 
 	public void setProduct_pic(String product_pic) {
 		this.product_pic = product_pic;
+	}
+
+	public double getOutgoing_qntty() {
+		return outgoing_qntty;
+	}
+
+	public void setOutgoing_qntty(double outgoing_qntty) {
+		this.outgoing_qntty = outgoing_qntty;
 	}
 	
 	

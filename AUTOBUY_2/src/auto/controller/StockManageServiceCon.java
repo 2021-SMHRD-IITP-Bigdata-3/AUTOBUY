@@ -13,6 +13,7 @@ import javax.servlet.http.HttpSession;
 import auto.model.AutomaticSuggestDAO;
 import auto.model.AutomaticSuggestDTO;
 import auto.model.MemberDTO;
+import auto.model.StockDTO;
 import auto.model.StockManageDAO;
 @WebServlet("/StockManageServiceCon")
 public class StockManageServiceCon extends HttpServlet {
@@ -27,6 +28,16 @@ public class StockManageServiceCon extends HttpServlet {
 		
 		AutomaticSuggestDAO suggest_dao = new AutomaticSuggestDAO();
 		ArrayList<AutomaticSuggestDTO> suggest_list = suggest_dao.showAutoOrderInfo(info.getCustomer_id());
+		
+
+		ArrayList<StockDTO> list = dao.showOutgoing();
+		
+		System.out.println(list.size());
+		for(int i=0; i<list.size();i++){
+			System.out.println("Ãâ°í·® : " + list.get(i).getOutgoing_qntty());
+		}
+
+
 		
 		int min = 0;
 		int max = 0;

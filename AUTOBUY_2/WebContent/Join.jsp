@@ -9,7 +9,7 @@
         <link rel="stylesheet" href="assest/css/Join.css">
 </head>
 <body>
- <div id="header" >
+ <div id="header" style="font-family: Cocogoose; font-size: 58px;">
             AUTO BUY
         </div>
 		<div id="wrapper">

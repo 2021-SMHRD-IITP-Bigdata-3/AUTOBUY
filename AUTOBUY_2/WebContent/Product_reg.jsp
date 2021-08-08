@@ -40,8 +40,9 @@
 			}
 		}
 	%>
-
+	<div style="width:100%; height: 10px; background-color: #5F04B4;"></div>
 	<div class="container" >
+	
 		<div class="header">
 			<div class="title"><p><a href="Main.jsp" id="auto"><b><b>AUTO</b></b></a><a href="Main.jsp" id="buy">BUY</a></p></div>
 			

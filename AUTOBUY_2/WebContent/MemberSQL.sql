@@ -17,3 +17,6 @@ payment varchar2(25)
 
 select * from member;
 ------------------------------------------------------------------------------
+select * from v$resource_limit where resource_name = 'processes';
+
+conn system/1234

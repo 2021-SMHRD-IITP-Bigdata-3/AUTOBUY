@@ -181,4 +181,21 @@ update stock set stock_qntty=(stock_qntty-10) where product_num = 101;
 update stock set stock_qntty=(stock_qntty-10) where customer_id = 'ym1828' and product_num = 102
 --------------------------------------------------------------------
 
+create table outgoing(
+customer_id varchar2(50),
+product_num number(20),
+product_name varchar2(50),
+outgoing_qntty number(20),
+outgoing_date date,
+
+constraint outgoing_id_fk foreign key(customer_id)
+references member(customer_id)
+on delete cascade,
+
+constraint outgoing_stock_fk foreign key(product_num, product_name)
+references product(product_num, product_name)
+on delete cascade
+)
+
+
 )
