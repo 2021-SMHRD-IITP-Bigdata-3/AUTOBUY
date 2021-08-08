@@ -83,7 +83,7 @@
 					<tr  style ="text-align: center; width: 400px; font-size: 18px;">
 						<td><b>제품명</b></td>
 						<td><b>가격</b></td>
-						<td><b>거래처></b></td>
+						<td><b>거래처</b></td>
 					</tr>
 					<%for(int i = 0; i<product_list.size();i++){ 
 						if(info.getNickName().equals(product_list.get(i).getSupplier_name())){

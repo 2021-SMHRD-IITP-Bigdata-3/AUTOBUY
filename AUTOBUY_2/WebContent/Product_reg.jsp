@@ -100,30 +100,33 @@
 			</div>
 			</div>
 			
-				<div class="board1" style="float: left; overflow:auto">
-           		<table id="show" style="margin-top:0px; ">
-					<tr style="text-align: center; font-size:18px;">
-						<td style="width:72px;"><b>사진</b></td>
-						<td style="width:240px"><b>제품명</b></td>
-						<td style = "width:90px;"><b>가격</b></td>
-						<td style = "width:180px"><b>거래처</b></td>
-						<td style = "width: 48px;"><b></b></td>
-					</tr>
-					<%for(int i = 0; i<product_list.size();i++){ %>
-					<tr  id = "data" class="event"style=" cursor: pointer; font-size: 17px; onMouseOver="this.style.backgroundColor='#EFF8FB';" onMouseOut="this.style.backgroundColor=''"
-					onclick="location.href='CartServiceCon?product_num=<%=product_list.get(i).getProduct_num()%>'">
-						<td style="width:72px; ">사진</td>		
-						<td style = "width:240px;"><%=product_list.get(i).getProduct_name() %></td>
-						<td style = "width:90px; text-align: center;"><%=product_list.get(i).getProduct_price() %>원</td>
-						<td style = "width:180px; text-align: center;"><%=product_list.get(i).getSupplier_name() %></td>
-						<td style = "width: 48px; color: #5F04B4; text-align: center;" > <b>></b></td>
-					</tr>
-					<%} %>
-
-				</table>                                                                                                                    			
-			</div>
+				<div class="board1" style="float: left;">
+				<div style=" overflow:auto; height:600px;">
+           			<table id="show" style="margin-top:0px; ">
+						<tr style="text-align: center; font-size:18px;">
+							<td style="width:72px;"><b>사진</b></td>
+							<td style="width:240px"><b>제품명</b></td>
+							<td style = "width:90px;"><b>가격</b></td>
+							<td style = "width:180px"><b>거래처</b></td>
+							<td style = "width: 48px;"><b></b></td>
+						</tr>
+						<%for(int i = 0; i<product_list.size();i++){ %>
+						<tr  id = "data" class="event"style=" cursor: pointer; font-size: 17px; onMouseOver="this.style.backgroundColor='#EFF8FB';" onMouseOut="this.style.backgroundColor=''"
+						onclick="location.href='CartServiceCon?product_num=<%=product_list.get(i).getProduct_num()%>'">
+							<td style="width:72px; ">사진</td>		
+							<td style = "width:240px;"><%=product_list.get(i).getProduct_name() %></td>
+							<td style = "width:90px; text-align: center;"><%=product_list.get(i).getProduct_price() %>원</td>
+							<td style = "width:180px; text-align: center;"><%=product_list.get(i).getSupplier_name() %></td>
+							<td style = "width: 48px; color: #5F04B4; text-align: center;" > <b>></b></td>
+						</tr>
+						<%} %>
+	
+						</table>                                                                                                                    			
+				</div>
+				</div>
 			<form action="ManualOrderServiceCon" method="post">
-			<div class="board1"  style="float:left;  overflow:auto;">
+			<div class="board1"  style="float:left; ">
+			<div style=" overflow:auto; height:600px;">
 	            <table id="show" style="margin-left: 20px; margin-top:0px;">
 	               <tr style="text-align: center; width: 400px; font-size:18px;">
 	               	  <td style="width: 72px"><b>사진</b></td>
@@ -146,6 +149,7 @@
 					
 					
 	            </table>
+            	</div>
             	</div>
         	<button  class="submitbutton" style="margin-right: 1040px; margin-top: 20px;">발주</button>
         	</form>

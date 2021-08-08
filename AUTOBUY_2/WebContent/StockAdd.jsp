@@ -111,7 +111,7 @@
 			</div>
 			
 			<div class="board1" style="float:left;">
-			<div style=" overflow:auto">
+			<div style=" overflow:auto; height:600px;">
            		<table id="show"  style="margin-top:0px;">
 					<tr  style ="text-align: center; width: 400px; font-size: 18px;">
 						<td style="width: 72px"><b>사진</b></td>
@@ -124,7 +124,7 @@
 					<tr id = "data" class="event" style="height: 40px; width: 600px; cursor: pointer; font-size: 17px;" onMouseOver="this.style.backgroundColor='#EFF8FB';" onMouseOut="this.style.backgroundColor=''"
 					onclick="location.href='RegistOneProductServiceCon?product_num=<%=product_list.get(i).getProduct_num()%>'">
 						<td style="width: 72px">사진</td>
-						<td style="width: 240px"><%=product_list.get(i).getProduct_name() %></td>
+						<td style="width: 250px"><%=product_list.get(i).getProduct_name() %></td>
 						<td style = "width:90px; text-align: center;"><%=product_list.get(i).getProduct_price() %>원</td>
 						<td style = "width:180px; text-align: center;"><%=product_list.get(i).getSupplier_name() %></td>
 						<td style = "width: 48px; color: #5F04B4; " > <b>></b></td>
@@ -133,14 +133,10 @@
 				</table>
 				</div>
 			</div>
-			
-			
-			
-				
-				<form action="RegistProductQnttyServiceCon" method="post">
+			<form action="RegistProductQnttyServiceCon" method="post">
 			
 			<div class="board1" style=" float:left; margins-top:20px;">
-			
+			<div style=" overflow:auto; height:600px;">
             <table id = "show" style="margin-left: 20px; margin-top:0px;">
                <tr style="text-align: center; width: 400px; font-size: 18px;">
                	  <td style="width: 72px"><b>사진</b></td>
@@ -153,7 +149,7 @@
                <%for(int i = 0; i<stock_list.size();i++){ %>
 					<tr id = "data"  style="font-size:17px; height: 40px; width: 600px;" >
 						<td style="width: 72px;">사진</td>
-						<td style="width: 240px;"><%=stock_list.get(i).getProduct_name() %></td>
+						<td style="width: 250px;"><%=stock_list.get(i).getProduct_name() %></td>
 						<td style="width:180px; text-align: center;"><%=stock_list.get(i).getSupplier_name() %></td>
 						<td style="width:90px; text-align: center;"><input type="number"  name = "stock_qntty" min="0" value=<%=stock_list.get(i).getStock_qntty() %> size="10px" style="width:50px;"></td>
 						<td  class="event" style="width: 48px; cursor: pointer; color: #5F04B4; text-align: center;" onMouseOver="this.style.backgroundColor='#EFF8FB';" onMouseOut="this.style.backgroundColor=''"
@@ -161,9 +157,9 @@
 					</tr>
 				<%} %>
            		</table>
-  				
+  				</div>
             	</div>
-          			<div><button  class="submitbutton" style="margin-right: 1030px; margin-top: 20px;">등록완료</button></div>
+          			<div><button  class="submitbutton" style="margin-right: 500px; margin-top: 50px;">등록완료</button></div>
         		</form>
 			</div>
 		<div class ="footer">

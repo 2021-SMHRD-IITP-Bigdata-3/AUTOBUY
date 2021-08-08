@@ -101,7 +101,7 @@
 					<%for(int i=0;i<member_list.size();i++){
 						if(member_list.get(i).getCustomer_type().equals("°Å·¡Ã³")){						
 						%>
-					<tr>
+					<tr style="height: 40px; text-align: center; width: 400px; font-size: 17px;" onMouseOver="this.style.backgroundColor='#EFF8FB';" onMouseOut="this.style.backgroundColor=''">
 						<td><%=member_list.get(i).getStore_name() %></td>
 						<td><%=member_list.get(i).getTel() %></td>
 						<td><%=member_list.get(i).getEmail() %></td>

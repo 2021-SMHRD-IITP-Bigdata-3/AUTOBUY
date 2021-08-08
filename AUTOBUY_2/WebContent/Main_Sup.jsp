@@ -1,3 +1,5 @@
+<%@page import="auto.model.OrderDetailDAO"%>
+<%@page import="auto.model.OrderDetailDTO"%>
 <%@page import="auto.model.OrderDTO"%>
 <%@page import="java.util.ArrayList"%>
 <%@page import="auto.model.OrderDAO"%>
@@ -18,16 +20,18 @@
 		
 		OrderDAO dao = new OrderDAO();
 		ArrayList<OrderDTO> list = new ArrayList<OrderDTO>();
-		list = dao.showOrder();		
+		list = dao.showOrderSup(info.getStore_name());
+		
+		ArrayList<OrderDetailDTO> dto = null;
+		OrderDetailDAO orderdetail_dao = new OrderDetailDAO();
 	%>
 	<div class="container" >
 	<div class="container_line"></div>
 		<div class="header">
-			<div class="title"><p><a href="Main_Sup.jsp" id="auto"><b><b>AUTO</b></b></a><a href="Main_Sup.jsp" id="buy">BUY</a></p></div>
+			<div class="title"><p><a href="Main.jsp" id="auto"><b><b>AUTO</b></b></a><a href="Main.jsp" id="buy">BUY</a></p></div>
 			
 			<%if(info != null){%>
 				<div style="margin-left: 900px; margin-top: 20px">
-				
 				 <table id="topmenu">
 					<tr>
 						<td ><a href="Update.jsp">마이페이지</a></td>		
@@ -37,11 +41,9 @@
 						<td ><a href="LogoutServiceCon">로그아웃</a></td>				
 					</tr>
 				</table>
-				
 				</div>
 			
-			<%} %>			
-
+			<%} %>										
 		</div>
 		<div class="list">
 			<table id="menu">
@@ -57,8 +59,7 @@
 				<tr>
 					<td class="select" onclick="location.href='SupProductShow.jsp'">&emsp;&emsp;&nbsp;제품목록</td>
 				</tr>
-				
-			</table>
+				</table>
 		</div>
 		<div class="content">
 			<div class="small_title"><p>출고</p></div>
@@ -93,7 +94,30 @@
 						<td style = "width: 15%"><%=list.get(i).getOrder_num()%></td>
 						<td style = "width: 25%"><%=list.get(i).getCustomer_store_name()%></td>
 						<td style = "width: 20%"><%=list.get(i).getOrder_date()%></td>
-						<td style = "width: 20%">납품 예정</td>
+						<td style = "width: 20%">
+						<% dto = orderdetail_dao.showOrderDetail(list.get(i).getOrder_num_s());
+							dto = orderdetail_dao.showOrderDetail_s(list.get(i).getOrder_num_s(), info.getStore_name());
+								int Reccnt = 0;
+								int Forcnt = 0;
+								for(int j=0; j<dto.size(); j++){
+									if(dto.get(j).getReceipt_date()==null){
+										Reccnt++;
+									}
+									if(dto.get(j).getForwarding_date()==null){
+										Forcnt++;
+									}
+								}
+								Reccnt = dto.size() - Reccnt; 
+								Forcnt = dto.size() - Forcnt; 
+								
+								if(Forcnt == 0){%>
+								<div class="Delivery_status">납품예정</div> 							
+								<%}else if(Reccnt == dto.size()){%>
+									<div class="Delivery_status">납품완료</div> 							
+								<%}else {%>
+								<div class="Delivery_status">납품시작</div> 							
+								<%}%>
+						</td>
 						<td><a href="OrderDetailServiceCon?order_num=<%=list.get(i).getOrder_num()%>"><input type="button" value ="주문상세"></a></td>	
 					</tr>
 					<%} %>					

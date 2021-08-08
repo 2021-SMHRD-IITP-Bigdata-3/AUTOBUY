@@ -110,6 +110,7 @@
 			<div class="all_money">주문일자  </div>			
 			<div class="all_money"><%=order_date%></div>												
 			<div class="board">
+			<form action=UpdateQnttyServiceCon method="post">		
 				<table class="list_board">
 					<tr>
 						<td>번호</td>
@@ -121,7 +122,6 @@
 						<td>수령확인</td>
 						<td>입고일</td>
 					</tr>
-					<form action=UpdateQnttyServiceCon method="post">		
 					<% for(int i = 0; i<dto.size();i++){ %>
 						<tr>
 							<td style = "width: 5%"><%=i+1%></td>
@@ -151,8 +151,8 @@
 					<%} %>		
 			 </table>
 			
-		<a href="Incoming.jsp"> <input type="submit" value ="확인"></a>
-	</form>		
+			<a href="Incoming.jsp"> <input type="submit" value ="확인"></a>
+		</form>		
 			</div>
 		</div>
 		<div class ="footer">

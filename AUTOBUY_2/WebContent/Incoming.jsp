@@ -85,13 +85,14 @@
 			<div class="board">
 				<table id="show" style="margin:auto; width : 1300px; margin-top:40px;">
 					<tr  style ="text-align: center; width: 400px; font-size: 18px;">
-						<td>주문번호</td>
-						<td>주문일자</td>
-						<td>입고율</td>
-						<td>주문상세</td>
+						<td><b>주문번호</b></td>
+						<td><b>주문일자</b></td>
+						<td><b>입고율</b></td>
+						<td><b>주문상세</td>
 					</tr>				
 					<%for(int i = 0; i<order_list.size();i++){ %>
-					<tr style="height: 40px; text-align: center; width: 400px; font-size: 17px;" onMouseOver="this.style.backgroundColor='#EFF8FB';" onMouseOut="this.style.backgroundColor=''">						<td style = "width: 30%"><%=order_list.get(i).getOrder_num_s()%></td>
+					<tr style="height: 40px; text-align: center; width: 400px; font-size: 17px;" onMouseOver="this.style.backgroundColor='#EFF8FB';" onMouseOut="this.style.backgroundColor=''">
+						<td style = "width: 30%"><%=order_list.get(i).getOrder_num_s()%></td>
 						<td style = "width: 30%"><%=order_list.get(i).getOrder_date()%></td>
 						<td  style = "width: 20%"><% 
 							   dto = dao.showOrderDetail(order_list.get(i).getOrder_num_s());
