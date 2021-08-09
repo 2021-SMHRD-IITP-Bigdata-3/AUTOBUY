@@ -48,7 +48,7 @@
 		<div class="list">
 			<table id="menu">
 				<tr>
-					<td id="hello" onclick="location.href='Update.jsp'"><h3><%=info.getStore_name() %> 사장님<br>환영합니다!!</h3></td>
+					<td id="hello" onclick="location.href='Update.jsp'"><h3><%=info.getStore_name() %> 사장님<br>환영합니다</h3></td>
 				</tr>
 				<tr>
 					<td class="select" onclick="location.href='Main_Sup.jsp'" style="background-color: #5F04B4; color: white;"> &emsp;&emsp;&nbsp;출고</td>

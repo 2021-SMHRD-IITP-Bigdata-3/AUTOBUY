@@ -66,7 +66,7 @@
 		<div class="list">
 			<table id="menu">
 				<tr>
-					<td id="hello" onclick="location.href='Update.jsp'"><h3><%=info.getStore_name() %>카페 사장님<br>환영합니다!!</h3></td>
+					<td id="hello" onclick="location.href='Update.jsp'"><h3><%=info.getStore_name() %>카페 사장님<br>환영합니다</h3></td>
 				</tr>
 				<tr>
 					<td class="select" onclick="location.href='Main.jsp'" > &emsp;&emsp;&nbsp;재고목록</td>
@@ -98,7 +98,7 @@
 			<div class="small_title"><p>발주제안</p></div>
 			<div class="board1">
            		<table id="show" style="margin-left:3.8%;">
-					<tr style="text-align: center; width:; font-size: 18px;">
+					<tr style="text-align: center; width:; font-size: 18px; font-weight: bold;">
 						<td style="width: 15%; text-align: center;"><b>사진</b></td>					
 						<td style="width: 35%">제품명</td>
 						<td style="width: 35%;">거래처</td>
@@ -122,7 +122,7 @@
 			<div class="board2">
 			
             <table id="show" style="margin-left:3.8%; ">
-               <tr style="text-align: center; width:; font-size: 18px;">
+               <tr style="text-align: center; width:; font-size: 18px; font-weight: bold;">
               	  <td style="width: 15%;">사진</td>
                   <td style="width: 35%;">제품명</td>
                   <td style="width: 35%;">수량</td>
@@ -130,7 +130,7 @@
                </tr>
  			   
                <%for(int i=0; i<suggest_list.size();i++){%>
-					<tr>
+					<tr style="font-size: 17px;">
 						<td style="text-align: center;">사진</td>
 						<td style=""><%=suggest_list.get(i).getProduct_name()%></td>
 						<td style="text-align: center;"><input type="number"  name = "stock_qntty" min="0" value=<%if(suggest_list.get(i).getSuggest_qntty()<=1){%>

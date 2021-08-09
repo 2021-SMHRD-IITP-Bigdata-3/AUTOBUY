@@ -78,7 +78,7 @@ body{
 		<div class="list">
 			<table id="menu">
 				<tr>
-					<td id="hello" onclick="location.href='Update.jsp'"><h3><%=info.getStore_name() %>카페 사장님<br>환영합니다!!</h3></td>
+					<td id="hello" onclick="location.href='Update.jsp'"><h3><%=info.getStore_name() %>카페 사장님<br>환영합니다</h3></td>
 				</tr>
 				<tr>
 					<td class="select" onclick="location.href='Main.jsp'" style="background-color: #5F0080; color: white;"> &emsp;&emsp;&nbsp;재고목록</td>

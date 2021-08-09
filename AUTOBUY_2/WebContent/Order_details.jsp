@@ -48,7 +48,7 @@
 			<div class="title"><p><a href="Main_Sup.jsp" id="auto"><b><b>AUTO</b></b></a><a href="Main_Sup.jsp" id="buy">BUY</a></p></div>
 			
 			<%if(info != null){%>
-				<div style="margin-left: 900px; margin-top: 20px">
+				<div style="margin-left: 49%; margin-top: 20px">
 				
 				 <table id="topmenu">
 					<tr>
@@ -68,7 +68,7 @@
 		<div class="list">
 			<table id="menu">
 				<tr>
-					<td id="hello" onclick="location.href='Update.jsp'"><h3><%=info.getStore_name() %> 사장님<br>환영합니다!!</h3></td>
+					<td id="hello" onclick="location.href='Update.jsp'"><h3><%=info.getStore_name() %> 사장님<br>환영합니다</h3></td>
 				</tr>
 				<tr>
 					<td class="select" onclick="location.href='Main_Sup.jsp'" > &emsp;&emsp;&nbsp;출고</td>

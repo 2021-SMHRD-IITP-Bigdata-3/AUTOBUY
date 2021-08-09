@@ -35,6 +35,7 @@
 	%>
 
 	<div class="container" >
+	<div class="container_line"></div>
 		<div class="header">
 			<div class="title"><p><a href="Main.jsp" id="auto"><b><b>AUTO</b></b></a><a href="Main.jsp" id="buy">BUY</a></p></div>
 			
@@ -63,7 +64,7 @@
 						<td class="select" onclick="location.href='Main.jsp'"> &emsp;&emsp;&nbsp;재고목록</td>
 					</tr>
 					<tr >
-						<td class="select" onclick="location.href='Incoming.jsp'" >&emsp;&emsp;&nbsp;입고</td>
+						<td class="select" onclick="location.href='Incoming.jsp'" style="background-color: #5F0080; color: white;" >&emsp;&emsp;&nbsp;입고</td>
 					</tr>
 					<tr>
 						<td class="select" onclick="location.href='Outgoing.jsp'" >&emsp;&emsp;&nbsp;출고</td>
@@ -72,7 +73,7 @@
 						<td class="select" onclick="location.href='Shelf_life.jsp'" >&emsp;&emsp;&nbsp;유통기한</td>
 					</tr>
 					<tr>
-						<td class="select" onclick="location.href='Sup_con.jsp'" style="background-color: #5F0080; color: white;">&emsp;&emsp;&nbsp;거래처</td>
+						<td class="select" onclick="location.href='Sup_con.jsp'" >&emsp;&emsp;&nbsp;거래처</td>
 					</tr>
 					<tr>
 						<td class="select" onclick="location.href='Data.jsp'">&emsp;&emsp;&nbsp;대시보드</td>
@@ -103,16 +104,10 @@
 					}
  				}%>
 									
-			<div class="order_num">주문번호 </div>
-			<div class="order_num"><%=order_num%></div>			
-			<div class="all_money">총 주문금액  </div>			
-			<div class="all_money"><%=sum%>원</div>		
-			<div class="all_money">주문일자  </div>			
-			<div class="all_money"><%=order_date%></div>												
-			<div class="board">
+		
 			<form action=UpdateQnttyServiceCon method="post">		
-				<table class="list_board">
-					<tr>
+				<table id="show" style="width: 89%; margin:auto; margin-top:60px;">
+					<tr style="font-size: 18px; font-weight: bold; text-align: center;">
 						<td>번호</td>
 						<td>사진</td>
 						<td>제품명</td>
@@ -121,14 +116,14 @@
 						<td>출고일</td>
 						<td>수령확인</td>
 						<td>입고일</td>
-					</tr>
+					</tr >
 					<% for(int i = 0; i<dto.size();i++){ %>
-						<tr>
+						<tr style="font-size: 17px;  text-align: center;">
 							<td style = "width: 5%"><%=i+1%></td>
 							<td style = "width: 8%"><%=dto.get(i).getProduct_pic()%></td>
-							<td style = "width: 17%"><%=dto.get(i).getProduct_name()%></td>
-							<td style = "width: 5%" ><%=dto.get(i).getOrder_qntty()%></td>	
-							<td style = "width: 20%"><%=dto.get(i).getSupplier_name()%></td>	
+							<td style = "width: 22%"><%=dto.get(i).getProduct_name()%></td>
+							<td style = "width: 10%" ><%=dto.get(i).getOrder_qntty()%></td>	
+							<td style = "width: 12%"><%=dto.get(i).getSupplier_name()%></td>	
 																									
 							<%if(dto.get(i).getForwarding_date()==null){%>							
 								<td style = "width: 17%">-</td>
@@ -136,7 +131,7 @@
 								<td style = "width: 17%"><%=dto.get(i).getForwarding_date()%></td>	
 							<%} %>
 							
-							<td style = "width: 10%" ><a href="ReceiptServiceCon?product_num=<%=dto.get(i).getProduct_num()%>">수령완료</a></td>
+							<td style = "width: 7%" ><a onMouseOver="this.style.backgroundColor='lightgray';" onMouseOut="this.style.backgroundColor=''" href="ReceiptServiceCon?product_num=<%=dto.get(i).getProduct_num()%>">수령완료</a></td>
 							
 							<%if(dto.get(i).getReceipt_date()==null){%>							
 								<td style = "width: 17%">-</td>
@@ -150,8 +145,7 @@
 						</tr>	
 					<%} %>		
 			 </table>
-			
-			<a href="Incoming.jsp"> <input type="submit" value ="확인"></a>
+			<button onclick="location.href='Incoming.jsp'" class="submitbutton" style="margin-right: 50%; margin-top: 50px;">확인</button>
 		</form>		
 			</div>
 		</div>
