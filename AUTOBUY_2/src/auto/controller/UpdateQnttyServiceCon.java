@@ -37,24 +37,39 @@ public class UpdateQnttyServiceCon extends HttpServlet {
 		String[] qntty_list = request.getParameterValues("order_qntty");
 		String[] num_list = request.getParameterValues("product_num");
 		String[] redate_list = request.getParameterValues("receipt_date");
-		
-
-	
+			
 		for(int i=0; i<qntty_list.length; i++) {
-			System.out.println(qntty_list[i]);
-			System.out.println(num_list[i]);
+			System.out.println(qntty_list[i] + "개");
+			System.out.println(num_list[i] + "번");
 		}
 		
 		int cnt = 0;
 		int product_num = 0;
 		String customer_id = info.getCustomer_id();
+		int order_qntty = 0;
 		
+		boolean isCheck = false;
 		
+
 		for(int i=0; i<qntty_list.length; i++) {
-			if(redate_list[i]!= null) {						
-				if(dto.size()==0 || Integer.parseInt(num_list[i])!=dto.get(i).getProduct_num()) {
-					int order_qntty = Integer.parseInt(qntty_list[i]);
+			if(redate_list[i]!= null) {
+				for (int j = 0; j < dto.size(); j++) {				
+					if(Integer.parseInt(num_list[i])==dto.get(j).getProduct_num()){
+						order_qntty = Integer.parseInt(qntty_list[i]);
+						product_num = Integer.parseInt(num_list[i]);
+						cnt = dao.AddQntty(customer_id, product_num, order_qntty);
+						
+						System.out.printf("%d번 제품이 기존 %d개에서 %d개 추가 입고되어 재고수량 총 %d개 되었습니다.", product_num, dto.get(j).getStock_qntty(), order_qntty, Integer.parseInt(qntty_list[i])+dto.get(j).getStock_qntty());
+						System.out.println();
+						break;
+						
+					} else if(j==dto.size()-1){
+						isCheck = true;														
+					}	
+										
+				}if(isCheck) {
 					product_num = Integer.parseInt(num_list[i]);
+					order_qntty = Integer.parseInt(qntty_list[i]);
 					int num = product_num - 101;
 					String product_name = product_list.get(num).getProduct_name();
 					String supplier_name = product_list.get(num).getSupplier_name();
@@ -64,31 +79,19 @@ public class UpdateQnttyServiceCon extends HttpServlet {
 					cnt = dao.AddProduct(customer_id, product_num, product_name, supplier_name, product_price, order_qntty, product_pic);
 					
 					System.out.printf("%d번 제품이 새롭게 %d개 입고되었습니다.", product_num, order_qntty);
-					
-					
-					
-				}else if(Integer.parseInt(num_list[i])==dto.get(i).getProduct_num()){
-					
-					int order_qntty = Integer.parseInt(qntty_list[i]);
-					product_num = Integer.parseInt(num_list[i]);
-					cnt = dao.AddQntty(customer_id, product_num, order_qntty);
-					
-					System.out.printf("%d번 제품이 기존 %d개에서 %d개 추가 입고되어 재고수량 총 %d개 되었습니다.", product_num, dto.get(i).getStock_qntty(), order_qntty, Integer.parseInt(qntty_list[i])+dto.get(i).getStock_qntty());
-										
 				}
-				
-				if(cnt>0) {
-					System.out.println(product_num + "번 제품 입고 성공");
-				}else {
-					System.out.println("개별 제품 입고 실패");
-				}
-				
-			}							
-		}
-				
 
-		
-			response.sendRedirect("Incoming.jsp");
+			}
+			if(cnt>0) {
+				System.out.println(product_num + "번 제품 입고 성공");
+			}else {
+					System.out.println("개별 제품 입고 실패");
+			}
+			
+		}
+			
+									
+		response.sendRedirect("Incoming.jsp");
 		
 				
 	}

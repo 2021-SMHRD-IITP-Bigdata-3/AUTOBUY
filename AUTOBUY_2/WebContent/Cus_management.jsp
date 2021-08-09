@@ -80,7 +80,6 @@
 						<td><b>전화번호</b></td>
 						<td><b>이메일</b></td>
 						<td><b>주소</b></td>
-						<td><b>메모</b></td>
 					</tr>
 
 					<%for(int i=0;i<member_list.size();i++){
@@ -91,7 +90,6 @@
 						<td><%=member_list.get(i).getTel() %></td>
 						<td><%=member_list.get(i).getEmail() %></td>
 						<td><%=member_list.get(i).getAddress() %></td>			
-						<td><a href="Cus_management_change.jsp"><button>수정</button></a></td>
 					</tr>
 					<% }
 						} %>

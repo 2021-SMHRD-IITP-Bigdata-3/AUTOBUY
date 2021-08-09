@@ -97,7 +97,7 @@
 					}%>
 				</table>
 				</div>
-			<div><button type="button" class = "submitbutton" onclick="location.href='StockAdd.jsp'" style="margin-top: 20px; margin-right: 710px;">+등록/삭제</button></div>
+			<div><button type="button" class = "submitbutton" onclick="location.href='Sup_Product_reg.jsp'" style="margin-top: 20px; margin-right: 710px;">+등록/삭제</button></div>
 		</div>
 		<div class ="footer">
 			<div class="banner">AUTOBUY</div>
