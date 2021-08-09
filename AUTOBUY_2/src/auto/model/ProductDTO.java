@@ -11,6 +11,10 @@ public class ProductDTO {
 	private String product_pic;
 	
 	
+	
+
+
+
 	public ProductDTO(int product_num, String product_name, String supplier_name, int product_price, int product_qntty,
 			String product_pic) {
 		super();
@@ -24,10 +28,32 @@ public class ProductDTO {
 
 
 
+
+	public ProductDTO(String product_name, String supplier_name, int product_price, int product_qntty,
+			String product_pic) {
+		super();
+		this.product_name = product_name;
+		this.supplier_name = supplier_name;
+		this.product_price = product_price;
+		this.product_qntty = product_qntty;
+		this.product_pic = product_pic;
+	}
+
+
+
+
 	public ProductDTO(String product_name, String supplier_name) {
 		super();
 		this.product_name = product_name;
 		this.supplier_name = supplier_name;
+	}
+
+
+
+
+	public ProductDTO(String product_name, String product_price, String product_qntty, String product_pic,
+			String store_name) {
+		// TODO Auto-generated constructor stub
 	}
 
 
@@ -92,12 +118,7 @@ public class ProductDTO {
 	public void setProduct_pic(String product_pic) {
 		this.product_pic = product_pic;
 	}
-	
-	
 
-	
-	
-	
 	
 
 	

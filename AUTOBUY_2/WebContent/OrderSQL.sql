@@ -34,6 +34,8 @@ constraint fk_cus_id foreign key(customer_id)
 references Member(customer_id)
 );
 
+alter table customer_order modify(customer_store_name varchar2(60));
+
 alter table customer_order modify(customer_store_name varchar2(50));
 select * from CUSTOMER_ORDER;
 select * from customer_order order by order_date desc;
@@ -131,7 +133,7 @@ product_price number(20) not null
 
 select * from cart
 
-
+select * from outgoing
 
 
 

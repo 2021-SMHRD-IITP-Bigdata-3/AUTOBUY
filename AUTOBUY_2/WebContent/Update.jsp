@@ -8,6 +8,17 @@
 <title>Insert title here</title>
 	<link rel="stylesheet" href="assest/css/Login.css">
 </head>
+<style>
+@import url(//spoqa.github.io/spoqa-han-sans/css/SpoqaHanSansNeo.css);
+a { text-decoration:none } 
+body{
+font-family: 'Spoqa Han Sans Neo', 'sans-serif'
+}
+td{
+border-bottom: 10px solid #f5f6f7;
+
+}
+</style>
 <body>
 <%
 		MemberDTO info = (MemberDTO)session.getAttribute("info");
@@ -20,64 +31,89 @@
 				</div>
 			</header>
 		<div class="login-input-section-wrap">
-		<form action="UpdateServiceCon" method="post">
-		<p>대표자명</p><div class="login-input-wrap1">
-				<%if(info != null){%>
-						<h4><%= info.getCeo() %><h4>
-				<%} %></div>
-		<p>닉네임</p><div class="login-input-wrap1">
-				<%if(info != null){%>
-						<h4><%= info.getCustomer_id() %><h4>
-	
-				<%} %>
-				</div>
-		<p>비밀번호</p><div class="login-input-wrap1">
-				<%if(info != null){%>
-						<h4><%= info.getCustomer_pw() %><h4>
-				<%} %>	
-				</div>
+
+			<table style="line-height:40px; font-size: 22px; margin:auto;">
+			
+				<tr>
+					<td><p style="border-right:1px solid lightgray; width:200px">대표자</p></td>
+					<td>
+							<%if(info != null){%>
+									&emsp;&emsp;<%= info.getCeo() %>
+							<%} %></td>
+				</tr>
+				<tr>
+					<td><p style="border-right:1px solid lightgray; width:200px">닉네임</p></td>
+					<td>
+							<%if(info != null){%>
+									&emsp;&emsp;<%= info.getNickName() %>
 				
-		<p>이메일</p><div class="login-input-wrap1">
-				<%if(info != null){%>
-						<h4><%= info.getEmail() %><h4>
-				<%} %>
-				</div>
-		<p>상호명</p><div class="login-input-wrap1">
-				<%if(info != null){%>
-						<h4><%= info.getStore_name() %><h4>
-				<%} %>
-				</div>
-		<p>사업자 등록번호</p><div class="login-input-wrap1">
-				<%if(info != null){%>
-						<h4><%= info.getCustomer_regist_number() %><h4>
-				<%} %>
-				</div>
-		<p>주소</p><div class="login-input-wrap1">
-				<%if(info != null){%>
-						<h4><%= info.getAddress() %><h4>
-				<%} %>
-				</div>
-		<p>전화번호</p><div class="login-input-wrap1">
-				<%if(info != null){%>
-						<h4><%= info.getTel() %><h4>
-				<%} %>
-				</div>
-		<p>결제 방식</p><div class="login-input-wrap1">		
-		 		<%if(info != null){%>
-						<h4><%= info.getPayment() %><h4>
-				<%} %>
-				</div>
+							<%} %>
+					</td>
+				</tr>
+				<tr>
+					<td><p style="border-right:1px solid lightgray; width:200px">비밀번호</p></td>
+					<td>
+							<%if(info != null){%>
+									&emsp;&emsp;<%= info.getCustomer_pw() %>
+							<%} %>	
+					</td>
+				</tr>
+				<tr>		
+					<td><p style="border-right:1px solid lightgray; width:200px">이메일</p></td>
+					<td>
+							<%if(info != null){%>
+									&emsp;&emsp;<%= info.getEmail() %>
+							<%} %>
+					</td>
+				</tr>
+				<tr>
+					<td><p style="border-right:1px solid lightgray; width:200px">상호명</p></td>
+					<td>
+							<%if(info != null){%>
+									&emsp;&emsp;<%= info.getStore_name() %>
+							<%} %>
+					</td>
+				</tr>
+				<tr>
+					<td><p style="border-right:1px solid lightgray; width:200px">사업자 등록번호</p></td>
+					<td>
+							<%if(info != null){%>
+									&emsp;&emsp;<%= info.getCustomer_regist_number() %>
+							<%} %>
+					</td>
+				</tr>
+				<tr>
+					<td><p style="border-right:1px solid lightgray; width:200px">주소</p></td>
+					<td>
+							<%if(info != null){%>
+									&emsp;&emsp;<%= info.getAddress() %>
+							<%} %>
+					</td>
+				</tr>
+				<tr>
+					<td><p style="border-right:1px solid lightgray; width:200px">전화번호</p></td>
+					<td>
+							<%if(info != null){%>
+									&emsp;&emsp;<%= info.getTel() %>
+							<%} %>
+					</td>
+				</tr>
+				<tr>
+					<td><p style="border-right:1px solid lightgray; width:200px">결제방식</p></td>
+					<td>
+					 		<%if(info != null){%>
+									&emsp;&emsp;<%= info.getPayment() %>
+							<%} %>
+					</td>
+				</tr>
+				</table>
 		 		<br><br>
-		 		<div class="login-button-wrap">
-		 	<button><a href="Update_change.jsp" style="color:white">수정</a></button>
-		 	</div>
-		 	<br><br><br>
-		 	<div class="login-button-wrap">
-		 	<button><a href="Main.jsp" style="color:white">수정 완료</a></button>
-		 	</div>
-		</form>
+		 		<div class="login-button-wrap1">
+				<button><a href="Update_change.jsp" style="color:white">수정</a></button>
+		 		</div>
+			</div>
 		</div>
 	</div>
-</div>
+
 </body>
 </html>

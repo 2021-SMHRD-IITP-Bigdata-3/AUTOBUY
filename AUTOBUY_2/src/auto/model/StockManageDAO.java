@@ -66,6 +66,7 @@ public class StockManageDAO {
 					while(rs.next()) {
 						int sold_quntty = rs.getInt("sold_qntty");
 						sum+=sold_quntty;
+						//System.out.println("실행1");
 					}
 					list.add(sum);
 				}
@@ -100,7 +101,8 @@ public class StockManageDAO {
 						
 						MaterialInfoDTO dto = new MaterialInfoDTO(menu_num, product_num, product_name, necessary_qntty);
 						
-						list.add(dto);					
+						list.add(dto);			
+						//System.out.println("실행2");
 					}
 				}
 				
@@ -116,27 +118,24 @@ public class StockManageDAO {
 			
 			ArrayList<Integer> sold_qntty = showSoldQntty();
 			ArrayList<MaterialInfoDTO> material_info = showMaterialInfoList();
-			ArrayList<StockDTO> list = null;
+			ArrayList<StockDTO> list = new ArrayList<StockDTO>();
 			
-			for(int i=0; i<material_info.size(); i++) {
-				int k=1;
-				for(int j=0;j<6;j++) {
-					if(k==material_info.get(i).getMenu_num()) {
-						double outgoing_qntty = material_info.get(i).getNecessary_qntty()*sold_qntty.get(j);
-						int product_num = material_info.get(i).getProduct_num();
-						String product_name = material_info.get(i).getProduct_name();
+			int j = 0;
+			for(int menu=1; menu<=6; menu++) {
+				for(int i=0; i<material_info.size(); i++) {
+					if(menu==material_info.get(i).getMenu_num()) {
+						double outgoing_qntty = material_info.get(j).getNecessary_qntty()*sold_qntty.get(menu-1);
+						int product_num = material_info.get(j).getProduct_num();
+						String product_name = material_info.get(j).getProduct_name();
 						StockDTO dto = new StockDTO(product_num, product_name, outgoing_qntty);
 						list.add(dto);
-					}else {
-						k++;
+						j++;
 					}
 				}
-				
 			}
 			
 			return list;
-			
-			
+						
 		}
 		
 		// 재고량 조절하는 메소드
@@ -147,24 +146,24 @@ public class StockManageDAO {
 			
 			try {
 				conn();
-				
-				for(int i=0; i<material_info.size(); i++) {
-					int k=1;
+				int j=0;
+				for(int menu=1; menu<=6; menu++) {
 					String sql = "update stock set stock_qntty=(stock_qntty-?) where customer_id = ? and product_num = ?";
-					psmt = conn.prepareStatement(sql);
-					for(int j=0;j<6;j++) {
-						if(k==material_info.get(i).getMenu_num()) {
-							psmt.setDouble(1, material_info.get(i).getNecessary_qntty()*sold_qntty.get(j));
+					psmt = conn.prepareStatement(sql);			
+					for(int i=0; i<material_info.size(); i++) {
+						if(menu==material_info.get(i).getMenu_num()) {
+							psmt.setDouble(1, material_info.get(i).getNecessary_qntty()*sold_qntty.get(menu-1));
 							psmt.setString(2, customer_id);
 							psmt.setInt(3, material_info.get(i).getProduct_num());
 							cnt = psmt.executeUpdate();
 							cnt++;
-							}else {
-								k++;
-							}
+							j++;
 						}
-				
 					}
+				}
+				
+				
+					
 			} catch (Exception e) {
 				e.printStackTrace();
 			} finally {
@@ -172,6 +171,71 @@ public class StockManageDAO {
 			} return cnt;
 			
 			
+		}
+		// 출고 테이블 값 삽입
+		public int insertOutgoing(String customer_id) {
+			ArrayList<StockDTO> list = showOutgoing();
+			try {
+				String sql = "insert into outgoing values(?,?,?,?,to_char(sysdate, 'yyyy-mm-dd'))";
+				
+				for(int i=0; i<showOutgoing().size();i++) {
+					conn();
+					psmt = conn.prepareStatement(sql);
+					psmt.setString(1, customer_id);
+					psmt.setInt(2, list.get(i).getProduct_num());
+					psmt.setString(3, list.get(i).getProduct_name());
+					psmt.setDouble(4, list.get(i).getOutgoing_qntty());
+					
+					cnt = psmt.executeUpdate();
+					cnt++;
+					close();
+				}
+				
+				
+			} catch (SQLException e) {
+			
+				e.printStackTrace();
+			} finally {
+				close();
+			}
+		
+			return cnt;
+		}
+		
+		// 출고테이블 리스트로 담기
+		
+		public ArrayList<OutgoingDTO> outgoingList(String customer_id){
+			ArrayList<OutgoingDTO> list = new ArrayList<OutgoingDTO>();
+			try {
+				conn();
+				for(int i=1; i<=6;i++) {
+					int sum = 0;
+					String sql = "select product_num, product_name, outgoing_qntty, outgoing_date from outgoing where to_char(outgoing_date, 'yyyy-mm-dd')=to_char(sysdate, 'yyyy-mm-dd') "
+							+ "and customer_id = ? order by product_num";
+				
+					psmt = conn.prepareStatement(sql);
+					psmt.setString(1, customer_id);
+					rs = psmt.executeQuery();
+				
+					while(rs.next()) {
+						int product_num = rs.getInt("product_num");
+						String product_name = rs.getString("product_name");
+						double outgoing_qntty = rs.getDouble("outgoing_qntty");
+						String outgoing_date = rs.getString("outgoing_date");
+						
+						OutgoingDTO dto = new OutgoingDTO(product_num, product_name, outgoing_qntty, outgoing_date);
+						list.add(dto);
+						
+					}
+					
+				}
+				
+			} catch (Exception e) {
+				
+				e.printStackTrace();
+			} finally {
+				close();
+			} return list;
 		}
 		
 		

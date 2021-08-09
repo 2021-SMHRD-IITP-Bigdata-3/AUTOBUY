@@ -9,6 +9,16 @@
 <meta charset="EUC-KR">
 <title>Insert title here</title>
 <link rel="stylesheet" href="assest/css/Login.css">
+<style>
+@font-face{
+	src: url("../assest/fonts/Cocogoose Pro Light-trial.ttf");
+    font-family: "Cocogoose"; 
+ }
+ @font-face{
+	src: url("../assest/fonts/Cocogoose Pro Semilight-trial.ttf");
+    font-family: "Cocogoose2"; 
+ }
+ </style>
 </head>
 <body>
 	<div class="main-container">
@@ -20,8 +30,10 @@
 					<option>English</option>
 				</select>
 			</div>
-			<div class="logo-wrap" style="font-family: Cocogoose; font-size: 58px; color:black;">
-				AUTO BUY
+
+			<div class="logo-wrap" style="font-family: Cocogoose; font-size: 58px; color:black; margin-top: 100px">
+
+				<a><b>AUTO</b> BUY </a>
 			</div>
 		</header>
 		
@@ -31,6 +43,7 @@
 			<div class="login-input-wrap">	
 				<input placeholder="ID" type="text" name="id">
 			</div>
+			
 			<div class="login-input-wrap password-wrap">	
 				<input placeholder="Password" type="password"  name="pw">
 			</div>

@@ -14,19 +14,20 @@
 	%>
 
 	<div class="container" >
+	<div class="container_line"></div>
 		<div class="header">
 			<div class="title"><p><a href="Main.jsp" id="auto"><b><b>AUTO</b></b></a><a href="Main.jsp" id="buy">BUY</a></p></div>
 			<%if(info != null){%>
-            <div style="margin-left: 1270px; margin-top: 20px">
+           <div style="margin-left: 49%; margin-top: 20px">
             <table id="topmenu">
-               <tr>
-                  <td style="font-size: 18px; font-family: 'Spoqa Han Sans Neo', 'sans-serif';"><a href="Update.jsp">마이페이지</a></td>      
-                  <td style="font-size: 18px; font-family: 'Spoqa Han Sans Neo', 'sans-serif'; border-left : 1px solid lightgray;"><a href="Incoming.jsp">주문배송</a></td>      
-                  <td style="font-size: 18px; font-family: 'Spoqa Han Sans Neo', 'sans-serif'; border-left : 1px solid lightgray;"><a href="Product_reg.jsp">장바구니</a></td>
-                  <td style="font-size: 18px; font-family: 'Spoqa Han Sans Neo', 'sans-serif'; border-left : 1px solid lightgray;"><a href="Update.jsp">고객센터</a></td>
-                  <td style="font-size: 18px; font-family: 'Spoqa Han Sans Neo', 'sans-serif'; border-left : 1px solid lightgray;"><a href="LogoutServiceCon">로그아웃</a></td>            
-               </tr>
-            </table>
+					<tr>
+						<td ><a href="Update.jsp">마이페이지</a></td>		
+						<td ><a href="Incoming.jsp">주문배송</a></td>		
+						<td ><a href="Product_reg.jsp">장바구니</a></td>
+						<td ><a href="Update.jsp">고객센터</a></td>
+						<td ><a href="LogoutServiceCon">로그아웃</a></td>				
+					</tr>
+			</table>
             </div>
          
          <%} %>         					
@@ -47,7 +48,7 @@
 						<td class="select" onclick="location.href='Outgoing.jsp'" >&emsp;&emsp;&nbsp;출고</td>
 					</tr>
 					<tr>
-						<td class="select" onclick="location.href='Shelf_life.jsp'" style="background-color: #5F04B4; color: white;">&emsp;&emsp;&nbsp;유통기한</td>
+						<td class="select" onclick="location.href='Shelf_life.jsp'" style="background-color: #5F0080; color: white;">&emsp;&emsp;&nbsp;유통기한</td>
 					</tr>
 					<tr>
 						<td class="select" onclick="location.href='Sup_con.jsp'">&emsp;&emsp;&nbsp;거래처</td>

@@ -16,6 +16,7 @@ payment varchar2(25)
 );
 
 select * from member;
+update MEMBER set CLIENT_RESGIST_NUMBER = '332-04-55845' where customer_id ='ym1828';
 ------------------------------------------------------------------------------
 select * from v$resource_limit where resource_name = 'processes';
 

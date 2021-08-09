@@ -1,8 +1,19 @@
 @charset "EUC-KR";
 @import url(//spoqa.github.io/spoqa-han-sans/css/SpoqaHanSansNeo.css);
+
+ body{
+	background-color: #f5f6f7;
+}
+
    .container{
-   
+   height: 10px;
    width:100%;
+   
+   }
+   .container_line{
+   width:100%;
+   height: 10px;
+   background-color: #5F0080;
    }
    .header{
    float:left;
@@ -59,8 +70,8 @@
    }
    .content{
    float:left;
-   width:85%;
    height:1232px;
+   width:80%;
    }
    .small_title{
    border-bottom:1px solid lightgray;
@@ -68,6 +79,7 @@
       font-size:28px;
       margin-left:100px;
       margin-right:100px;
+     font-family: 'Spoqa Han Sans Neo', 'sans-serif';
    }
   
    .add{
@@ -98,21 +110,23 @@
    }
    .board{
    float:left;
-   width:92.9%;
+   width:90%;
    font-size:15px;
    margin-left:80px;
    float: left;
    }
    .board1{
    margin-top:40px;
-   margin-left:100px;
-   width:44.1%;
+   margin-left:70px;
+   float:left;
+   width:42%;
    font-size:15px;
+   font-family: 'Spoqa Han Sans Neo', 'sans-serif';
    }
    .board2{
    margin-top:40px;
    float:left;
-   width:44.1%;
+   width:42%;
    font-size:15px;
    margin-left:0px;
    }
@@ -130,7 +144,7 @@
  #search {
 	height : 40px;
 	width : 500px;
-	border : 2px solid #5F04B4;
+	border : 2px solid #5F0080;
 	background : #ffffff;
 }
 #searchInput{
@@ -145,7 +159,7 @@ button{
 	width : 50px;
 	height : 100%;
 	border : 0px;
-	background : #5F04B4;
+	background : #5F0080;
 	outline : none;
 	float : right;
 	color : #ffffff;
@@ -157,7 +171,7 @@ button{
 width : 50px;
 	height : 100%;
 	border : 0px;
-	background : #5F04B4;
+	background : #5F0080;
 	outline : none;
 	float : right;
 	color : #ffffff
@@ -168,9 +182,10 @@ border-collapse: separate;
   line-height: 1.5;
   border-top: 1px solid #ccc;
   margin : 20px 10px;
-  border-left: 3px solid #5F04B4;
+  border-left: 3px solid #5F0080;
   margin-left: 0px;
-  width : 800px;
+  font-family: 'Spoqa Han Sans Neo', 'sans-serif';
+
 }
 
 #show1{
@@ -180,7 +195,7 @@ border-collapse: separate;
   line-height: 1.5;
   border-top: 1px solid #ccc;
   margin : 20px 10px;
-  border-left: 3px solid #5F04B4;
+  border-left: 3px solid #5F0080;
   margin-left: 70px;
 }
 
@@ -209,7 +224,7 @@ border-collapse: separate;
 	height : 50px;
 	border : 0px;
 	border-radius : 3px;
-	background : #5F04B4;
+	background : #5F0080;
 	color : #ffffff;
 	font-size: 18px;
 	border-style: ridge;
@@ -241,9 +256,9 @@ a{
   	
 }
 .select:hover {
-	border-left: 3px solid #5F04B4;
+	border-left: 3px solid #5F0080;
 	font-weight: bold;
-	background-color: #5F04B4;
+	background-color: #5F0080;
 	color: white;
 }
 .select{
@@ -258,7 +273,7 @@ a{
 
 .inputbutton:hover{
 	background : white;
-	border : 1px solid #5F04B4;
+	border : 1px solid #5F0080;
 	color : black;
 }
 #topmenu{
@@ -270,6 +285,9 @@ a{
 #topmenu td{
    width: 100px;
    text-align: center;
+   font-size: 18px;
+   font-family: 'Spoqa Han Sans Neo', 'sans-serif';
+   border-left : 1px solid lightgray;
 }
 
 
@@ -281,3 +299,4 @@ a{
 	src: url("../assest/fonts/Cocogoose Pro Semilight-trial.ttf");
     font-family: "Cocogoose2"; 
  }
+

@@ -15,7 +15,7 @@
 <head>
 <meta charset="EUC-KR">
 <title>Insert title here</title>
-	<link rel="stylesheet" href="assest/css/Order_details.css">
+	<link rel="stylesheet" href="assest/css/StockAdd.css">
 </head>
 <body>
 	<%
@@ -28,9 +28,12 @@
 		ArrayList<ProductDTO> product_list = new ArrayList<ProductDTO>();
 		product_list = product_dao.showProduct();
 		
+		
 		OrderDAO dao = new OrderDAO();
 		ArrayList<OrderDTO> list = new ArrayList<OrderDTO>();
 		list = dao.showOrder();		
+		
+		
 	%>
 	<%	int sum = 0;
 		for(int i = 0; i<dto.size();i++){ 
@@ -40,32 +43,58 @@
 	}%>
 
 	<div class="container" >
+		<div class="container_line"></div>
 		<div class="header">
-			<div class="title"><p>AUTOBUY</p></div>
+			<div class="title"><p><a href="Main_Sup.jsp" id="auto"><b><b>AUTO</b></b></a><a href="Main_Sup.jsp" id="buy">BUY</a></p></div>
+			
 			<%if(info != null){%>
-				<div class="store_name">
-					<h4><%= info.getCustomer_id() %>님<h4>
+				<div style="margin-left: 900px; margin-top: 20px">
+				
+				 <table id="topmenu">
+					<tr>
+						<td ><a href="Update.jsp">마이페이지</a></td>		
+						<td ><a href="Incoming.jsp">주문배송</a></td>		
+						<td ><a href="Product_reg.jsp">장바구니</a></td>
+						<td ><a href="Update.jsp">고객센터</a></td>
+						<td ><a href="LogoutServiceCon">로그아웃</a></td>				
+					</tr>
+				</table>
+				
 				</div>
-			<%} %>					
-			<div class="logout"><a href="LogoutServiceCon">로그아웃</a></div>
-			<div class="mypage"><a href="Update.jsp"><img src="img/mypage.png" height="40px" width="40px"></a></div>			
+			
+			<%} %>			
+
 		</div>
 		<div class="list">
-			<div class=""><p><a href="Main_Sup.jsp">출고</a></p></div>
-			<div class=""><p><a href="Cus_management.jsp">고객관리</a></p></div>
-			<div class=""><p><a href="Sup_Product_reg.jsp">제품 등록</a></p></div>
+			<table id="menu">
+				<tr>
+					<td id="hello" onclick="location.href='Update.jsp'"><h3><%=info.getStore_name() %> 사장님<br>환영합니다!!</h3></td>
+				</tr>
+				<tr>
+					<td class="select" onclick="location.href='Main_Sup.jsp'" > &emsp;&emsp;&nbsp;출고</td>
+				</tr>
+				<tr >
+					<td class="select" onclick="location.href='Cus_management.jsp'"style="background-color: #5F04B4; color: white;">&emsp;&emsp;&nbsp;고객관리</td>
+				</tr>
+				<tr>
+					<td class="select" onclick="location.href='SupProductShow.jsp'">&emsp;&emsp;&nbsp;제품목록</td>
+				</tr>
+				
+			</table>
 		</div>
 		<div class="content">			
  			<div class="small_title"><p> 출고 > 주문 상세</p></div>
+ 			
+ 			
  			<%
- 			int order_num = 0;
+  			String order_num = ""; 
  			String customer_store_name = "";
  			String order_date = "";
- 			for(int i=0; i<order_dto.size();i++){ 
-				if(dto.get(i).getOrder_num().equals(order_dto.get(i).getOrder_num())){
-					order_num = order_dto.get(i).getOrder_num();
-					customer_store_name = order_dto.get(i).getCustomer_store_name();
-					order_date = order_dto.get(i).getOrder_date();
+ 			for(int i=0; i<list.size();i++){ 
+				if(dto.get(0).getOrder_num().equals(list.get(i).getOrder_num_s())){												
+ 					order_num = list.get(i).getOrder_num_s(); 
+					customer_store_name = list.get(i).getCustomer_store_name();
+					order_date = list.get(i).getOrder_date();
 				}
  			}%>
  			
@@ -78,7 +107,27 @@
 			<div class="order_date">주문일자</div>
 			<div class="order_date"><%=order_date%></div>
 			<div class="Delivery_status">출고현황</div> 
-			<div class="Delivery_status">(납품 예정/확인/완료)</div> 			
+				<%	int Reccnt = 0;
+					int Forcnt = 0;
+					for(int i=0; i<dto.size(); i++){
+						if(dto.get(i).getReceipt_date()==null){
+							Reccnt++;
+						}
+						if(dto.get(i).getForwarding_date()==null){
+							Forcnt++;
+						}
+					}
+					Reccnt = dto.size() - Reccnt; 
+					Forcnt = dto.size() - Forcnt; 
+					
+					if(Forcnt == 0){%>
+					<div class="Delivery_status">납품예정</div> 							
+					<%}else if(Reccnt == dto.size()){%>
+						<div class="Delivery_status">납품완료</div> 							
+					<%}else {%>
+					<div class="Delivery_status">납품시작</div> 							
+					<%}%>
+									
 			<div class="board">
 				<table class="list_board">
 					<tr>
@@ -88,21 +137,28 @@
 						<td>수량</td>
 						<td>제품 가격</td>
 						<td>주문 금액</td>
+						<td>출고확인</td>
+						<td>출고일</td>
 					</tr>
 					<%	sum = 0;
 						for(int i = 0; i<dto.size();i++){ %>
 						<tr>
 							<td style = "width: 5%"><%=i+1%></td>
-							<td style = "width: 25%"><%=dto.get(i).getProduct_name()%>.png</td>
-							<td style = "width: 25%"><%=dto.get(i).getProduct_name()%></td>
-							<td style = "width: 10%"><%=dto.get(i).getOrder_qntty()%></td>
+							<td style = "width: 10%"><%=dto.get(i).getProduct_pic()%></td>
+							<td style = "width: 20%"><%=dto.get(i).getProduct_name()%></td>
+							<td style = "width: 6%"><%=dto.get(i).getOrder_qntty()%></td>
 							<% int price = product_dao.getPrice(dto.get(i).getProduct_num());%>
 							<td style = "width: 15%"><%=price%>원</td>
-							<td style = "width: 20%"><%= dto.get(i).getOrder_qntty() * price %>원</td>																			
+							<td style = "width: 15%"><%= dto.get(i).getOrder_qntty() * price %>원</td>
+							<td style = "width: 13%"><a href="ForwardServiceCon?product_num=<%=dto.get(i).getProduct_num()%>">출고완료</a></td>	
+							<%if(dto.get(i).getForwarding_date()==null){%>							
+								<td style = "width: 15%">-</td>
+							<%}	else {%>
+								<td style = "width: 15%"><%=dto.get(i).getForwarding_date()%></td>	
+							<%} %>																		
 						</tr>
 					<%} %>		
 			 </table>
-			 <a href="Main_Sup.jsp"><input type="button" value ="전체 출고완료"></a>
 			 <a href="Main_Sup.jsp"><input type="button" value ="확인"></a>
 			</div>
 		</div>

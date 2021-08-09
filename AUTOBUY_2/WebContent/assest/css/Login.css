@@ -1,12 +1,17 @@
 @charset "EUC-KR";
+@import url(//spoqa.github.io/spoqa-han-sans/css/SpoqaHanSansNeo.css);
 
 
+body{
+	font-family: 'Spoqa Han Sans Neo', 'sans-serif'; 
+}
 .container p{
 margin-left:612px;
 margin-right:612px;
 text-align:left;
 line-height:0px;
-font-size:17px
+font-size:17px;
+
 }
 :root{
 	--body-background-color: #f5f6f7;
@@ -15,7 +20,17 @@ font-size:17px
 	--naver-green-color: #04c75a;
 	--naver-green-border-color: #06b350;
 }
-
+.submitbutton{
+	width : 100px;
+	height : 50px;
+	border : 0px;
+	border-radius : 3px;
+	background : #5F0080;
+	color : #ffffff;
+	font-size: 18px;
+	border-style: ridge;
+	
+}
 
 *{
 	margin:0;
@@ -32,6 +47,7 @@ body{
 	flex-direction:column;
 	align-items:center;
 	margin-top: 21px;
+	font-family: 'Spoqa Han Sans Neo', 'sans-serif';
 }
 .main-container .main-wrap{
 	width:768px;
@@ -62,7 +78,7 @@ body{
 	display:flex;	
 	flex-direction: column;
 	align-items: center;
-	font-size:50px;
+	font-size:58px;
 	color:black;
 }
 .login-input-section-wrap{
@@ -102,13 +118,14 @@ body{
 	margin-left: 10px;
 	height:30px;
 }
-.login-input-wrap1 input{
+.login-input-wrap1{
 	border: none;
-	width:430px;
+	width:220px;
 	margin-top: 10px;
 	font-size: 14px;
 	margin-left: 10px;
 	height:30px;
+	border:1px solid lightgray;
 }
 .login-button-wrap {
 	padding-top: 13px;
@@ -117,9 +134,16 @@ body{
 	width: 465px;
 	height :48px;
 	font-size: 18px;
-	background:#5F04B4;
+	background:#5F0080;
 	color: white;
-	border: solid 1px #5F04B4;
+	border: solid 1px #5F0080;
+}.login-button-wrap1 button{
+	width: 125px;
+	height :48px;
+	font-size: 18px;
+	background:#5F0080;
+	color: white;
+	border: solid 1px #5F0080;
 }
 .login-stay-sign-in{
 	width: 465px;
@@ -232,9 +256,17 @@ button{
 	width : 50px;
 	height : 100%;
 	border : 0px;
-	background : #5F04B4;
+	background : #5F0080;
 	outline : none;
 	float : right;
 	color : #ffffff;
 	
 }
+@font-face{
+	src: url("../assest/fonts/Cocogoose Pro Light-trial.ttf");
+    font-family: "Cocogoose"; 
+ }
+ @font-face{
+	src: url("../assest/fonts/Cocogoose Pro Semilight-trial.ttf");
+    font-family: "Cocogoose2"; 
+ }

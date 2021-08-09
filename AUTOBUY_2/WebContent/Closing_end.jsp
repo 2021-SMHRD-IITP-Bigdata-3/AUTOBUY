@@ -20,6 +20,36 @@ font-size: 50;
 line-height: 4;
 font-family: 돋움체;
 }
+.order_num{
+style:font-size:15px;
+color:gray;
+float:left;
+font-size:17px;
+margin-left:80px;
+}
+.order_num1{
+style:font-size:15px;
+color:red;
+float:left;
+font-size:17px;
+margin-left:20px;
+}
+#recipt{
+	border-top: 1px solid lightgray;
+	
+	
+}
+th{
+	color: gray;
+	text-align: left;
+	width: 130px;
+}
+td{
+	text-align:left;
+	margin-left: 50px;
+	font-weight: 550;
+	width: 300px;
+}
 </style>
 </head>
 <body>
@@ -32,11 +62,40 @@ font-family: 돋움체;
 
 %>
 <div class = "center">
-<%=info.getNickName() %> 고객님 발주가 완료되었습니다.<br>
-주문번호 : <%=dto.getOrder_num_s()%><br>
-주문금액 : <%=dto.getOrder_amount()%>원<br>
-안전하게 배송해드릴게요 !<br>
-<td><a href = "Main.jsp"><img src = "img/confirm.png" width="150" height="80"></a></td>
+<br>
+	<div name="title" style="font-size:30px;"><b>주문 완료</b></div>
+			<div class="order_num" >주문번호  :  </div><div class="order_num1"> <%=dto.getOrder_num_s()%></div><br><br>
+			<div style="font-szie:22px; float:left;"><b>배송정보</b></div><br>
+				
+				<table id="recipt">
+					<tr>
+						<th>받는 분</th>
+						<td><%=info.getCeo() %></td>
+					</tr>
+					<tr>
+						<th>상호명</th>
+						<td><%=info.getStore_name() %></td>
+					</tr>
+					<tr>
+						<th>주소</th>
+						<td><%=info.getAddress() %></td>
+					</tr>
+					<tr>
+						<th>결제금액</th>
+						<td><%=dto.getOrder_amount() %>원</td>
+					</tr>
+					<tr>
+					</tr>
+				</table>
+				<div style="font-szie:22px; float:left;"><b>결제수단</b></div><br>
+				<table id="recipt">
+					<tr>
+						<th>무통장 입금(기업은행)</th>
+						<td><%=dto.getOrder_amount() %>원</td>
+					</tr>
+				</table>
+				<button type="button" class = "submitbutton" onclick="location.href='Main.jsp'" style="margin-top: 20px; margin:auto;">확인</button>
+
 </div>
 </body>
 </html>

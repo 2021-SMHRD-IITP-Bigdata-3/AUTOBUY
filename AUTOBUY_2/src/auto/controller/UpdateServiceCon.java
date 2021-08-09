@@ -44,7 +44,7 @@ public class UpdateServiceCon extends HttpServlet {
 		if(cnt>0) {
 			System.out.println("회원 정보 수정");
 			session.setAttribute("info", info);
-			moveURL="Update.jsp";
+			moveURL="Main.jsp";
 		}else {
 			System.out.println("회원 정보 수정 실패");
 			moveURL="Update_change.jsp";

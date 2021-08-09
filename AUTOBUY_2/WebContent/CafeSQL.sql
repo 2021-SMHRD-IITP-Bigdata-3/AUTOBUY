@@ -5,11 +5,13 @@ drop sequence menu_num;
 drop table material;
 
 delete from SALE;
+delete from outgoing;
 
 select * from menu;
 select * from stock;
 select * from material;
 select * from sale;
+select * from outgoing;
 
 select menu_num, sold_qntty from sale where to_char(sold_date, 'yyyy-mm-dd')=to_char(sysdate, 'yyyy-mm-dd')
 select menu_num, sold_qntty from sale where to_char(sold_date, 'yyyy-mm-dd')=to_char(sysdate, 'yyyy-mm-dd') and menu_num = 1
@@ -197,5 +199,8 @@ references product(product_num, product_name)
 on delete cascade
 )
 
+select * from outgoing
 
+alter table outgoing modify(outgoing_qntty number(20,2))
+insert into outgoing values('ym1828',101,'ª°¥Î 100∞≥¿‘',1,to_char(sysdate, 'yyyy-mm-dd'))
 )

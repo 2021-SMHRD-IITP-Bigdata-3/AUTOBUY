@@ -1,3 +1,4 @@
+<%@page import="auto.model.OrderDetailDAO"%>
 <%@page import="auto.model.OrderDetailDTO"%>
 <%@page import="auto.model.MemberDAO"%>
 <%@page import="auto.model.OrderDTO"%>
@@ -7,174 +8,45 @@
 <%@ page language="java" contentType="text/html; charset=EUC-KR"
     pageEncoding="EUC-KR"%>
 <!DOCTYPE html>
-<style>
-@import url(//spoqa.github.io/spoqa-han-sans/css/SpoqaHanSansNeo.css);
 
- #search {
-	height : 40px;
-	width : 400px;
-	border : 2px solid #5F04B4;
-	background : #ffffff;
-}
-#searchInput{
-	font_size : 16px;
-	width : 325px;
-	padding : 10px;
-	border : 0px;
-	outline : none;
-	float : left;
-}
-button{
-	width : 50px;
-	height : 100%;
-	border : 0px;
-	background : #5F04B4;
-	outline : none;
-	float : right;
-	color : #ffffff;
-	
-}
-
-.inputbutton{
-width : 50px;
-	height : 100%;
-	border : 0px;
-	background : #5F04B4;
-	outline : none;
-	float : right;
-	color : #ffffff
-}
-.list_board{
-border-collapse: separate;
-  border-spacing: 1px;
-  text-align: left;
-  line-height: 1.5;
-  border-top: 1px solid #ccc;
-  margin : 20px 10px;
-  border-left: 3px solid #5F04B4;
-  margin-left: 0px;
-}
-
-#show th {
-  width: 150px;
-  padding: 10px;
-  font-weight: bold;
-  vertical-align: top;
-  border-bottom: 1px solid #ccc;
-}
-
-.list_board td {
-  width: 350px;
-  padding: 10px;
-  vertical-align: top;
-  border-bottom: 1px solid #ccc;
-  font-family: 'Spoqa Han Sans Neo', 'sans-serif';
-}
-.submitbutton{
-	width : 100px;
-	height : 50px;
-	border : 0px;
-	border-radius : 3px;
-	background : #5F04B4;
-	color : #ffffff;
-	font-size: 18px;
-	border-style: ridge;
-	
-}
-
-a{
-	text-decoration: none;
-	color: black;
- 
-}
-
-#menu{
-	
-	text-align: left;
-	margin-top: 45px;
-	
-}
-#menu td{
-	width: 350px;
-  	padding: 10px;
-  	vertical-align: top;
-  	height: 30px;
-  	font-family: 'Spoqa Han Sans Neo', 'sans-serif';
-  	
-  	
-}
-.select:hover {
-	border-left: 3px solid #5F04B4;
-	font-weight: bold;
-	background-color: #5F04B4;
-	color: white;
-}
-.select{
-	font-weight: 450;
-	font-size : 18px;
-
-}
-#hello{
-	text-align: center;
-}
-	
-
-.inputbutton:hover{
-	background : white;
-	border : 1px solid #5F04B4;
-	color : black;
-}
-
-
-@font-face{
-	src: url("../assest/fonts/Cocogoose Pro Light-trial.ttf");
-    font-family: "Cocogoose"; 
- }
- #topmenu a:hover {
-	text-decoration: underline;
-}
-#topmenu td{
-	width: 100px;
-	text-align: center;
-}
-</style>
 <html>
 <head>
 <meta charset="EUC-KR">
 <title>Insert title here</title>
-	<link rel="stylesheet" href="assest/css/Main.css">
+	<link rel="stylesheet" href="assest/css/StockAdd.css">
 </head>
 <body>
 	<%
 		MemberDTO info = (MemberDTO)session.getAttribute("info");
-		ArrayList<OrderDetailDTO> dto = (ArrayList<OrderDetailDTO>)session.getAttribute("dto");
-		
-		MemberDAO member_dao = new MemberDAO();
-		
-		OrderDAO dao = new OrderDAO();
-		ArrayList<OrderDTO> list = new ArrayList<OrderDTO>();
-		list = dao.showOrder();	
-				
+								
+		OrderDAO order_dao = new OrderDAO();
+		ArrayList<OrderDTO> order_list = new ArrayList<OrderDTO>();
+		order_list = order_dao.showOrderCus(info.getCustomer_id());		
+
+		ArrayList<OrderDetailDTO> dto = null;
+		OrderDetailDAO dao = new OrderDetailDAO();
 	%>
 
+
 	<div class="container" >
+	<div class="container_line"></div>
 		<div class="header">
-			<div class="title"><a href="Main.jsp"><p style="color: black; font-family:Cocogoose">AUTOBUY</p></a></div>
+			<div class="title"><p><a href="Main.jsp" id="auto"><b><b>AUTO</b></b></a><a href="Main.jsp" id="buy">BUY</a></p></div>
 			
 			<%if(info != null){%>
-				<div style="margin-left: 1270px; margin-top: 20px">
-				<table id="topmenu">
+				<div style="margin-left: 49%; margin-top: 20px">
+				 <table id="topmenu">
 					<tr>
-						<td style="font-size: 18px; font-family: 'Spoqa Han Sans Neo', 'sans-serif';"><a href="Update.jsp">마이페이지</a></td>		
-						<td style="font-size: 18px; font-family: 'Spoqa Han Sans Neo', 'sans-serif'; border-left : 1px solid lightgray;"><a href="Incoming.jsp">주문배송</a></td>		
-						<td style="font-size: 18px; font-family: 'Spoqa Han Sans Neo', 'sans-serif'; border-left : 1px solid lightgray;"><a href="Product_reg.jsp">장바구니</a></td>
-						<td style="font-size: 18px; font-family: 'Spoqa Han Sans Neo', 'sans-serif'; border-left : 1px solid lightgray;"><a href="Update.jsp">고객센터</a></td>
-						<td style="font-size: 18px; font-family: 'Spoqa Han Sans Neo', 'sans-serif'; border-left : 1px solid lightgray;"><a href="LogoutServiceCon">로그아웃</a></td>				
+						<td ><a href="Update.jsp">마이페이지</a></td>		
+						<td ><a href="Incoming.jsp">주문배송</a></td>		
+						<td ><a href="Product_reg.jsp">장바구니</a></td>
+						<td ><a href="Update.jsp">고객센터</a></td>
+						<td ><a href="LogoutServiceCon">로그아웃</a></td>				
 					</tr>
 				</table>
 				</div>
 			
-			<%} %>					
+			<%} %>										
 		</div>
 		<div class="list">
 			<table id="menu">
@@ -185,7 +57,7 @@ a{
 					<td class="select" onclick="location.href='Main.jsp'" > &emsp;&emsp;&nbsp;재고목록</td>
 				</tr>
 				<tr >
-					<td class="select" onclick="location.href='Incoming.jsp'" style="background-color: #5F04B4; color: white;">&emsp;&emsp;&nbsp;입고</td>
+					<td class="select" onclick="location.href='Incoming.jsp'" style="background-color: #5F0080; color: white;">&emsp;&emsp;&nbsp;입고</td>
 				</tr>
 				<tr>
 					<td class="select" onclick="location.href='Outgoing.jsp'">&emsp;&emsp;&nbsp;출고</td>
@@ -207,24 +79,36 @@ a{
 				</tr>
 			</table>
 		</div>
+	</div>
 		<div class="content">
 			<div class="small_title"><p>입고</p></div>
 			<div class="board">
-				<table class="list_board">
-					<tr>
-						<td>주문번호</td>
-						<td>거래처</td>
-						<td>주문일자</td>
-						<td>입고율</td>
-						<td>주문상세</td>
+				<table id="show" style="margin:auto; width : 1300px; margin-top:40px;">
+					<tr  style ="text-align: center; width: 400px; font-size: 18px;">
+						<td><b>주문번호</b></td>
+						<td><b>주문일자</b></td>
+						<td><b>입고율</b></td>
+						<td><b>주문상세</td>
 					</tr>				
-					<%for(int i = 0; i<list.size();i++){ %>
-					<tr>
-						<td style = "width: 15%"><%=list.get(i).getOrder_num()%></td>
-						<td style = "width: 25%"><%= dto.get(i).getSupplier_name()%></td>
-						<td style = "width: 20%"><%=list.get(i).getOrder_date()%></td>
-						<td><%=i+1%>입고율%</td>
-						<td><a href="OrderDetailServiceCon?order_num=<%=list.get(i).getOrder_num()%>"><input type="button" value ="주문상세"></a></td>	
+					<%for(int i = 0; i<order_list.size();i++){ %>
+					<tr style="height: 40px; text-align: center; width: 400px; font-size: 17px;" onMouseOver="this.style.backgroundColor='#EFF8FB';" onMouseOut="this.style.backgroundColor=''">
+						<td style = "width: 30%"><%=order_list.get(i).getOrder_num_s()%></td>
+						<td style = "width: 30%"><%=order_list.get(i).getOrder_date()%></td>
+						<td  style = "width: 20%"><% 
+							   dto = dao.showOrderDetail(order_list.get(i).getOrder_num_s());
+							   double a = dto.size();
+							   double b = 0;
+							   double result = 0;
+							   
+								   for(int j =0; j<dto.size(); j++){
+									   if(dto.get(j).getReceipt_date()==null){
+										   b++;
+									   }
+								   }
+								   result = (a-b)/a*100;
+							   %>							
+						<%=Math.round(result)%>%</td>
+						<td  style = "width: 20%"><a href="OrderDetailServiceCon_Cus?order_num=<%=order_list.get(i).getOrder_num_s()%>"><input type="button" value ="주문상세"></a></td>	
 					</tr>
 					<%} %>			
 			 </table>

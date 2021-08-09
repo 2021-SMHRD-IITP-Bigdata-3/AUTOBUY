@@ -31,35 +31,28 @@
 		</div>
 		<div class="content">
 			<div class="small_title"><p>제품 등록</p></div>
-			<form action="#" method="post">
+			<form action="SupplierRegistOneProductServiceCon" method="post" enctype = "multipart/form-data">
 			<div class="board">
 				<table class="list_board">
 				
 					<tr>
 						<td>제품명</td>
-						<td><input type="text" id="size" name="product_N"></td>
+						<td><input type="text" id="size" name="product_name"></td>
 					</tr>
 					<tr>
-						<td>재고 수량</td>
-						<td><input type="text" id="size" name="Sup_stock"></td>
+						<td>제품 가격</td>
+						<td><input type="text" id="size" name="product_price"></td>
 					</tr>
+					
 					<tr>
-						<td>초기 재고</td>
-						<td><input type="text" id="size" name="first_stock"></td>					
+						<td>보유 재고</td>
+						<td><input type="text" id="size" name="product_qntty"></td>					
 					</tr>
-					<tr>
-						<td>종류</td>
-						<td>
-							<select name="kinds" class="kinds" >
-						    <option value="Expendables">소모품</option>
-						    <option value="dairy_product">유제품</option>
-						    <option value="beans">원두</option>
-				 			</select>
-				 		</td>					
-					</tr>
+				
 					<tr>
 						<td>사진</td>
-						<td><input type="file" name="fileName" style="float:center;">		
+						<td><input type="file" name="product_pic" style="float:center;">
+						<input type="hidden" name="supplier_name" value ="<%= info.getStore_name() %>" >
 			 </table>
 			 <input type="submit" value="입력 완료" style="float:center">
 			 <a href="Sup_Product_reg.jsp"></a><button style="float:center">취소</button>

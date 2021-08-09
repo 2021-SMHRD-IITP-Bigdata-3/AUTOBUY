@@ -23,18 +23,21 @@
 	%>
 
 	<div class="container" >
+		<div class="container_line"></div>
 		<div class="header">
+		
 			<div class="title"><p><a href="Main.jsp" id="auto"><b><b>AUTO</b></b></a><a href="Main.jsp" id="buy">BUY</a></p></div>
 			
+
 			<%if(info != null){%>
-				<div style="margin-left: 1270px; margin-top: 20px">
-				<table id="topmenu">
+				<div style="margin-left: 49%; margin-top: 20px">
+				 <table id="topmenu">
 					<tr>
-						<td style="font-size: 18px; font-family: 'Spoqa Han Sans Neo', 'sans-serif';"><a href="Update.jsp">마이페이지</a></td>		
-						<td style="font-size: 18px; font-family: 'Spoqa Han Sans Neo', 'sans-serif'; border-left : 1px solid lightgray;"><a href="Incoming.jsp">주문배송</a></td>		
-						<td style="font-size: 18px; font-family: 'Spoqa Han Sans Neo', 'sans-serif'; border-left : 1px solid lightgray;"><a href="Product_reg.jsp">장바구니</a></td>
-						<td style="font-size: 18px; font-family: 'Spoqa Han Sans Neo', 'sans-serif'; border-left : 1px solid lightgray;"><a href="Update.jsp">고객센터</a></td>
-						<td style="font-size: 18px; font-family: 'Spoqa Han Sans Neo', 'sans-serif'; border-left : 1px solid lightgray;"><a href="LogoutServiceCon">로그아웃</a></td>				
+						<td ><a href="Update.jsp">마이페이지</a></td>		
+						<td ><a href="Incoming.jsp">주문배송</a></td>		
+						<td ><a href="Product_reg.jsp">장바구니</a></td>
+						<td ><a href="Update.jsp">고객센터</a></td>
+						<td ><a href="LogoutServiceCon">로그아웃</a></td>				
 					</tr>
 				</table>
 				</div>
@@ -47,7 +50,7 @@
 					<td id="hello" onclick="location.href='Update.jsp'"><h3><%=info.getStore_name() %>카페 사장님<br>환영합니다!!</h3></td>
 				</tr>
 				<tr>
-					<td class="select" onclick="location.href='Main.jsp'" style="background-color: #5F04B4; color: white;"> &emsp;&emsp;&nbsp;재고목록</td>
+					<td class="select" onclick="location.href='Main.jsp'" style="background-color: #5F0080; color: white;"> &emsp;&emsp;&nbsp;재고목록</td>
 				</tr>
 				<tr >
 					<td class="select" onclick="location.href='Incoming.jsp'">&emsp;&emsp;&nbsp;입고</td>
@@ -75,12 +78,12 @@
 		<div class="content">
 			<div class="small_title"><p>제품목록</p></div>
 			<div class="board">
-				<table id="show" style="margin:auto; width : 1300px; margin-top:100px;">
+				<table id="show" style="margin:auto; width : 1300px; margin-top:40px;">
 					<tr  style ="text-align: center; width: 400px; font-size: 18px;">
 						<td><b>사진</b></td>
 						<td><b>제품명</b></td>
 						<td><b>재고량</b></td>
-						<td><b>재고 비율<b></b></td>
+						<td><b>재고 비율</b></td>
 						<td><b>거래처</b></td>
 					</tr>
 					<%for(int i = 0; i<stock_list.size();i++){ %>
@@ -102,7 +105,7 @@
 					<%} %>	
 			 </table>
 			</div>
-			<div><button type="button" class = "submitbutton" onclick="location.href='StockAdd.jsp'" style="margin-top: 20px; margin-right: 940px;">+등록/삭제</button></div>
+			<div><button type="button" class = "submitbutton" onclick="location.href='StockAdd.jsp'" style="margin-top: 20px; margin-right: 48.2%;">+등록/삭제</button></div>
 		</div>
 		<div class ="footer">
 			<div class="banner">AUTOBUY</div>

@@ -23,7 +23,7 @@ public class ManualOrderServiceCon extends HttpServlet {
 		HttpSession session = request.getSession();
 		MemberDTO info = (MemberDTO)session.getAttribute("info");
 		
-		String[] qntty =   request.getParameterValues("order_qntty");
+		String[] qntty = request.getParameterValues("order_qntty");
 		
 		
 		int order_num = 0;

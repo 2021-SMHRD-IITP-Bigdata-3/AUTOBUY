@@ -30,12 +30,12 @@ public class StockManageServiceCon extends HttpServlet {
 		ArrayList<AutomaticSuggestDTO> suggest_list = suggest_dao.showAutoOrderInfo(info.getCustomer_id());
 		
 
-		ArrayList<StockDTO> list = dao.showOutgoing();
+		int insertOutgoing = dao.insertOutgoing(info.getCustomer_id());
 		
-		System.out.println(list.size());
-		for(int i=0; i<list.size();i++){
-			System.out.println("출고량 : " + list.get(i).getOutgoing_qntty());
+		if(insertOutgoing>0) {
+			System.out.println("출고성공");
 		}
+		
 
 
 		

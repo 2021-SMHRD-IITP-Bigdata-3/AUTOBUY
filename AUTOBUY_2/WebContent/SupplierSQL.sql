@@ -22,6 +22,8 @@ product_pic varchar2(100),
 constraint pk_product primary key(product_num, product_name)
 );
 
+select * from PRODUCT;
+delete from PRODUCT where PRODUCT_NUM = 125;
 
 insert into product values(product_num.nextval, '빨대 100개입',   '니니언즈유통', 1000, 100000, '101.jpg');
 insert into product values(product_num.nextval, '컵 100개입',   '니니언즈유통', 10000, 100000,'102.jpg');
