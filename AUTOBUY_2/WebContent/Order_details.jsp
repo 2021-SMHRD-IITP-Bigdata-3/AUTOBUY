@@ -22,7 +22,6 @@
 		MemberDTO info = (MemberDTO)session.getAttribute("info");
 	
 		ArrayList<OrderDetailDTO> dto = (ArrayList<OrderDetailDTO>)session.getAttribute("dto");
-		ArrayList<OrderDTO> order_dto = (ArrayList<OrderDTO>)session.getAttribute("order_dto");
 		
 		ProductDAO product_dao = new ProductDAO();
 		ArrayList<ProductDTO> product_list = new ArrayList<ProductDTO>();
