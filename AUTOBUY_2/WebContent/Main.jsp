@@ -88,10 +88,10 @@
 					</tr>
 					<%for(int i = 0; i<stock_list.size();i++){ %>
 						<tr style="height: 40px; text-align: center; width: 400px; font-size: 17px;" onMouseOver="this.style.backgroundColor='#EFF8FB';" onMouseOut="this.style.backgroundColor=''">
-							<td>ป็ม๘</td>
-							<td style="text-align: left;"><%=stock_list.get(i).getProduct_name() %></td>
-							<td><%=stock_list.get(i).getStock_qntty() %></td>
-							<td><% double stock_qntty = Integer.valueOf(stock_list.get(i).getStock_qntty()); 
+							<td><img src="img/<%=stock_list.get(i).getProduct_pic()%>"></td>
+							<td style="text-align: left; vertical-align:middle;"><%=stock_list.get(i).getProduct_name() %></td>
+							<td style="vertical-align:middle;"><%=stock_list.get(i).getStock_qntty() %></td>
+							<td style="vertical-align:middle;"><% double stock_qntty = Integer.valueOf(stock_list.get(i).getStock_qntty()); 
 								   double standard_qntty = Integer.valueOf(stock_list.get(i).getStandard_qntty());
 								   double ratio = stock_qntty/standard_qntty * 100;
 								   if(standard_qntty == 0){%>

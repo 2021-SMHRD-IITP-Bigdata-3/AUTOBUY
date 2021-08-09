@@ -14,6 +14,15 @@ drop sequence product_num;
 drop table makeordernum;
 
 
+select * from customer_order;
+select * from DETAIL_ORDER;
+
+
+delete DETAIL_ORDER;
+delete customer_order;
+
+
+
 --------- »ý¼º ---------
 
 create table member

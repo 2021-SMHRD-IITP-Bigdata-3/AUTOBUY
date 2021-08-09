@@ -28,7 +28,7 @@
 	<div class="container" >
 	<div class="container_line"></div>
 		<div class="header">
-			<div class="title"><p><a href="Main.jsp" id="auto"><b><b>AUTO</b></b></a><a href="Main.jsp" id="buy">BUY</a></p></div>
+			<div class="title"><p><a href="Main_Sup.jsp" id="auto"><b><b>AUTO</b></b></a><a href="Main_Sup.jsp" id="buy">BUY</a></p></div>
 			
 			<%if(info != null){%>
 				<div style="margin-left: 900px; margin-top: 20px">
