@@ -1,3 +1,5 @@
+<%@page import="auto.model.ProductDAO"%>
+<%@page import="auto.model.ProductDTO"%>
 <%@page import="java.text.SimpleDateFormat"%>
 <%@page import="auto.model.OutgoingDTO"%>
 <%@page import="auto.model.MaterialInfoDTO"%>
@@ -20,6 +22,7 @@
 		String customer_id = info.getCustomer_id();
 		StockManageDAO dao = new StockManageDAO();
 		ArrayList<OutgoingDTO> list = dao.outgoingList(customer_id);
+		ProductDAO pdao = new ProductDAO();
 		
 		for(int i=0; i<list.size(); i++){
 			System.out.println(list.get(i).getProduct_num());
@@ -35,8 +38,18 @@
 				
 			}
 		}
+		ArrayList<ProductDTO> product = pdao.showProduct();
+		ArrayList<String> pic_list = new ArrayList<String>();
 		
-		SimpleDateFormat date = new SimpleDateFormat("yyyy-MM-dd");
+		for(int i=0; i<list.size(); i++){
+			for(int j=i; j<product.size(); j++){
+				if(list.get(i).getProduct_num()==product.get(j).getProduct_num()){
+					pic_list.add(product.get(j).getProduct_pic());
+				}
+			}
+		}
+		
+		
 
 	
 		
@@ -108,7 +121,7 @@
 					</tr>
 					<%for(int i=0; i<list.size(); i++){ %>
 					<tr style="height: 40px; text-align: center; width: 400px; font-size: 17px;" onMouseOver="this.style.backgroundColor='#EFF8FB';" onMouseOut="this.style.backgroundColor=''">
-						<td>»çÁø</td>
+						<td style="text-align: center;"><img src="img/<%=pic_list.get(i)%>"></td>	
 						<td><%=list.get(i).getProduct_name() %></td>
 						<td><%=(int)list.get(i).getOutgoing_qntty() %></td>
 

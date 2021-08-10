@@ -33,10 +33,11 @@ public class CartServiceCon extends HttpServlet {
 		String product_name = product_list.get(num).getProduct_name();
 		String supplier_name = product_list.get(num).getSupplier_name();
 		int price = product_list.get(num).getProduct_price();
+		String product_pic = product_list.get(num).getProduct_pic();
 		
 		OrderDAO dao = new OrderDAO();
 		
-		int cnt = dao.insertCart(customer_id, product_num, product_name, supplier_name, price);
+		int cnt = dao.insertCart(customer_id, product_num, product_name, supplier_name, price, product_pic);
 		
 		if(cnt>0) {
 			System.out.println("장바구니 담기 성공");

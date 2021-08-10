@@ -140,7 +140,7 @@
 				<tr style="height: 40px; text-align: center; width: 400px; font-size: 17px;" onMouseOver="this.style.backgroundColor='#EFF8FB';" onMouseOut="this.style.backgroundColor=''">
 
 							<td style = "width: 5%"><%=i+1%></td>
-							<td style = "width: 10%"><%=dto.get(i).getProduct_pic()%></td>
+							<td style = "width: 10%; text-align: center;"><img src="img/<%=dto.get(i).getProduct_pic()%>"></td>
 							<td style = "width: 20%"><%=dto.get(i).getProduct_name()%></td>
 							<td style = "width: 6%"><%=dto.get(i).getOrder_qntty()%></td>
 							<% int price = product_dao.getPrice(dto.get(i).getProduct_num());%>

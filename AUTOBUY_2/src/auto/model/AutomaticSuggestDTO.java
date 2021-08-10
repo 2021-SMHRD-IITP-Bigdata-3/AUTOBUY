@@ -9,6 +9,7 @@ public class AutomaticSuggestDTO {
 	private int standard_qntty;
 	private int product_price;
 	private int suggest_qntty;
+	private String product_pic;
 	
 	
 
@@ -50,7 +51,7 @@ public class AutomaticSuggestDTO {
 
 
 	public AutomaticSuggestDTO(int product_num, String product_name, String supplier_name, int stock_qntty,
-			int minimum_qntty, int standard_qntty, int product_price) {
+			int minimum_qntty, int standard_qntty, int product_price, String product_pic) {
 		super();
 		this.product_num = product_num;
 		this.product_name = product_name;
@@ -59,19 +60,21 @@ public class AutomaticSuggestDTO {
 		this.minimum_qntty = minimum_qntty;
 		this.standard_qntty = standard_qntty;
 		this.product_price = product_price;
+		this.product_pic = product_pic;
 	}
 
 
 
 
 	public AutomaticSuggestDTO(int product_num, String product_name, String supplier_name, int product_price,
-			int suggest_qntty) {
+			int suggest_qntty, String product_pic) {
 		super();
 		this.product_num = product_num;
 		this.product_name = product_name;
 		this.supplier_name = supplier_name;
 		this.product_price = product_price;
 		this.suggest_qntty = suggest_qntty;
+		this.product_pic = product_pic;
 	}
 
 
@@ -145,20 +148,27 @@ public class AutomaticSuggestDTO {
 	public void setStandard_qntty(int standard_qntty) {
 		this.standard_qntty = standard_qntty;
 	}
-
-
-
-
 	public String getSupplier_name() {
 		return supplier_name;
 	}
-
-
-
-
 	public void setSupplier_name(String supplier_name) {
 		this.supplier_name = supplier_name;
 	}
+
+
+
+
+	public String getProduct_pic() {
+		return product_pic;
+	}
+
+
+
+
+	public void setProduct_pic(String product_pic) {
+		this.product_pic = product_pic;
+	}
+	
 	
 	
 }

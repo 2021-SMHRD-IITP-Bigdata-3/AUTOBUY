@@ -220,13 +220,14 @@ public class OrderDAO {
 			try {
 				conn();
 				for(int i=0; i<order_list.size(); i++) {			
-					String sql = "insert into detail_order values(concat(to_char(sysdate, 'yyyymmdd'),?),?,?,?,?,null)";
+					String sql = "insert into detail_order values(concat(to_char(sysdate, 'yyyymmdd'),?),?,?,?,?,?)";
 					psmt = conn.prepareStatement(sql);
 					psmt.setInt(1, order_num);
 					psmt.setInt(2, order_list.get(i).getProduct_num());
 					psmt.setString(3, order_list.get(i).getProduct_name());
 					psmt.setString(4, order_list.get(i).getSupplier_name());
 					psmt.setInt(5, Integer.parseInt(qntty[i]));
+					psmt.setString(6, order_list.get(i).getProduct_pic());
 					
 					
 					cnt = psmt.executeUpdate();
@@ -243,17 +244,18 @@ public class OrderDAO {
 			
 		
 		// 수동발주에서 제품 선택시 cart 테이블에 값 삽입
-		public int insertCart(String customer_id, int product_num, String product_name, String supplier_name, int product_price) {
+		public int insertCart(String customer_id, int product_num, String product_name, String supplier_name, int product_price, String product_pic) {
 			try {
 				conn();
 					
-					String sql = "insert into cart values(?,?,?,?,?)";
+					String sql = "insert into cart values(?,?,?,?,?,?)";
 					psmt = conn.prepareStatement(sql);
 					psmt.setString(1, customer_id);
 					psmt.setInt(2, product_num);
 					psmt.setString(3, product_name);
 					psmt.setString(4, supplier_name);
 					psmt.setInt(5, product_price);
+					psmt.setString(6, product_pic);
 					
 					
 					cnt = psmt.executeUpdate();
@@ -303,7 +305,8 @@ public class OrderDAO {
 					String product_name = rs.getString("product_name");
 					String supplier_name = rs.getString("supplier_name");
 					int product_price = rs.getInt("product_price");
-					CartDTO dto = new CartDTO(customer_id, product_num, product_name, supplier_name, product_price);
+					String product_pic = rs.getString("product_pic");
+					CartDTO dto = new CartDTO(customer_id, product_num, product_name, supplier_name, product_price, product_pic);
 					list.add(dto);
 				}
 			} catch (SQLException e) {
@@ -319,13 +322,14 @@ public class OrderDAO {
 			try {
 				conn();
 				for(int i=0; i<cartlist.size(); i++) {			
-					String sql = "insert into detail_order(order_num,product_num,product_name,supplier_name,order_qntty) values(concat(to_char(sysdate, 'yyyymmdd'),?),?,?,?,?)";
+					String sql = "insert into detail_order(order_num,product_num,product_name,supplier_name,order_qntty,product_pic) values(concat(to_char(sysdate, 'yyyymmdd'),?),?,?,?,?,?)";
 					psmt = conn.prepareStatement(sql);
 					psmt.setInt(1, order_num);
 					psmt.setInt(2, cartlist.get(i).getProduct_num());
 					psmt.setString(3, cartlist.get(i).getProduct_name());
 					psmt.setString(4, cartlist.get(i).getSupplier_name());
 					psmt.setInt(5, Integer.parseInt(qntty[i]));
+					psmt.setString(6, cartlist.get(i).getProduct_pic());
 					
 					
 					cnt = psmt.executeUpdate();
