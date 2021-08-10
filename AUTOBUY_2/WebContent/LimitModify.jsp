@@ -99,7 +99,7 @@
 			 </table>
 			 
 			</div>
-			<button  class="submitbutton" style="margin-right: 930px; margin-top: 20px;">수정완료</button>
+			<button  class="submitbutton" style="margin-right: 47%; margin-top: 20px;">수정완료</button>
 		</div>
 		</form>
 		<div class ="footer">

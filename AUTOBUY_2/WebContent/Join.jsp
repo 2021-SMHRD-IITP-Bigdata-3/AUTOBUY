@@ -9,7 +9,7 @@
         <link rel="stylesheet" href="assest/css/Join.css">
 </head>
 <body>
-<div class="logo-wrap" style="font-family: Cocogoose; font-size: 58px; color:black; margin-top: 100px; margin-left:810px;">
+<div class="logo-wrap" style="font-family: Cocogoose; font-size: 58px; color:black; margin-top: 100px; margin-left:43.5%;">
 
 				<a><b>AUTO</b> BUY </a>
 			</div>
