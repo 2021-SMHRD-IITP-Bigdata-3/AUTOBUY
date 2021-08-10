@@ -63,7 +63,7 @@
 					<td class="select" onclick="location.href='Main_Sup.jsp'" > &emsp;&emsp;&nbsp;免绊</td>
 				</tr>
 				<tr >
-					<td class="select" onclick="location.href='Cus_management.jsp'"style="background-color: #5F04B4; color: white;">&emsp;&emsp;&nbsp;绊按包府</td>
+					<td class="select" onclick="location.href='Cus_management.jsp'"style="background-color: #5F0080; color: white;">&emsp;&emsp;&nbsp;绊按包府</td>
 				</tr>
 				<tr>
 					<td class="select" onclick="location.href='SupProductShow.jsp'">&emsp;&emsp;&nbsp;力前格废</td>
