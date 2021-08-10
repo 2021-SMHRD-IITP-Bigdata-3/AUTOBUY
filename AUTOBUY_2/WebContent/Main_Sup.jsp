@@ -51,7 +51,7 @@
 					<td id="hello" onclick="location.href='Update.jsp'"><h3><%=info.getStore_name() %> 사장님<br>환영합니다</h3></td>
 				</tr>
 				<tr>
-					<td class="select" onclick="location.href='Main_Sup.jsp'" style="background-color: #5F04B4; color: white;"> &emsp;&emsp;&nbsp;출고</td>
+					<td class="select" onclick="location.href='Main_Sup.jsp'" style="background-color: #5F0080; color: white;"> &emsp;&emsp;&nbsp;출고</td>
 				</tr>
 				<tr >
 					<td class="select" onclick="location.href='Cus_management.jsp'">&emsp;&emsp;&nbsp;고객관리</td>
@@ -118,7 +118,7 @@
 								<div class="Delivery_status">납품시작</div> 							
 								<%}%>
 						</td>
-						<td><a href="OrderDetailServiceCon?order_num=<%=list.get(i).getOrder_num()%>"><input type="button" value ="주문상세"></a></td>	
+						<td><a href="OrderDetailServiceCon?order_num=<%=list.get(i).getOrder_num_s()%>"><input type="button" value ="주문상세"></a></td>	
 					</tr>
 					<%} %>					
 			 </table>

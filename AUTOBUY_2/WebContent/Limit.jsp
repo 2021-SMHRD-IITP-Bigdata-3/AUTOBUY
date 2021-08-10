@@ -98,7 +98,7 @@
 					
 			 </table>
 			</div>
-			<button type="button" onclick="location.href='LimitModify.jsp'" class="submitbutton" style="margin-right: 930px; margin-top: 20px;">수정</button>
+			<button type="button" onclick="location.href='LimitModify.jsp'" class="submitbutton" style="margin-right: 700px; margin-top: 20px;">수정</button>
 			</div>
 					
 		</form>

@@ -73,7 +73,7 @@
 					<td class="select" onclick="location.href='Main_Sup.jsp'" > &emsp;&emsp;&nbsp;출고</td>
 				</tr>
 				<tr >
-					<td class="select" onclick="location.href='Cus_management.jsp'"style="background-color: #5F04B4; color: white;">&emsp;&emsp;&nbsp;고객관리</td>
+					<td class="select" onclick="location.href='Cus_management.jsp'"style="background-color:#5F0080; color: white;">&emsp;&emsp;&nbsp;고객관리</td>
 				</tr>
 				<tr>
 					<td class="select" onclick="location.href='SupProductShow.jsp'">&emsp;&emsp;&nbsp;제품목록</td>
@@ -96,16 +96,12 @@
 					order_date = list.get(i).getOrder_date();
 				}
  			}%>
- 			
-			<div class="order_num">주문번호 </div>
-			<div class="order_num"><%=order_num%></div>			
-			<div class="cafe_name">카페상호  </div>
-			<div class="cafe_name"><%=customer_store_name%></div>			
-			<div class="all_money">총 주문금액  </div>			
-			<div class="all_money"><%=sum%>원</div>
-			<div class="order_date">주문일자</div>
-			<div class="order_date"><%=order_date%></div>
-			<div class="Delivery_status">출고현황</div> 
+ 			<div style="margin-top:20px; font-family: 'Spoqa Han Sans Neo', 'sans-serif';">
+			<div class="order_num" style="float:left; margin-left:105px;">주문번호<br><%=order_num%> </div>	
+			<div class="cafe_name" style="float:left; margin-left:80px;" >카페상호<br><%=customer_store_name%></div>			
+			<div class="all_money" style="float:left; margin-left:80px;">총 주문금액<br><%=sum%>원 </div>			
+			<div class="order_date" style="float:left; margin-left:80px;">주문일자<br><%=order_date%></div>
+			<div class="Delivery_status" style="float:left; margin-left:80px; margin-right:10px;">출고현황  :</div> 
 				<%	int Reccnt = 0;
 					int Forcnt = 0;
 					for(int i=0; i<dto.size(); i++){
@@ -120,16 +116,16 @@
 					Forcnt = dto.size() - Forcnt; 
 					
 					if(Forcnt == 0){%>
-					<div class="Delivery_status">납품예정</div> 							
+					<div class="Delivery_status" style=" " >납품예정</div> 							
 					<%}else if(Reccnt == dto.size()){%>
-						<div class="Delivery_status">납품완료</div> 							
+						<div class="Delivery_status" style=" ">납품완료</div> 							
 					<%}else {%>
-					<div class="Delivery_status">납품시작</div> 							
+					<div class="Delivery_status" style="">납품시작</div> 							
 					<%}%>
-									
+					</div>			
 			<div class="board">
-				<table class="list_board">
-					<tr>
+				<table id="show" style="margin:auto; width : 1300px; margin-top:20px;">
+					<tr  style ="text-align: center; width: 400px; font-size: 18px;">
 						<td>번호</td>
 						<td>사진</td>
 						<td>제품명</td>
@@ -141,7 +137,8 @@
 					</tr>
 					<%	sum = 0;
 						for(int i = 0; i<dto.size();i++){ %>
-						<tr>
+				<tr style="height: 40px; text-align: center; width: 400px; font-size: 17px;" onMouseOver="this.style.backgroundColor='#EFF8FB';" onMouseOut="this.style.backgroundColor=''">
+
 							<td style = "width: 5%"><%=i+1%></td>
 							<td style = "width: 10%; text-align: center;"><img src="img/<%=dto.get(i).getProduct_pic()%>"></td>
 							<td style = "width: 20%"><%=dto.get(i).getProduct_name()%></td>
@@ -158,7 +155,7 @@
 						</tr>
 					<%} %>		
 			 </table>
-			 <a href="Main_Sup.jsp"><input type="button" value ="확인"></a>
+			 <div><button type="button" class ="submitbutton" onclick="location.href='Main_Sup.jsp'" style="margin-top: 20px; margin-right: 48.2%;">확인</button></a></div>
 			</div>
 		</div>
 		<div class ="footer">

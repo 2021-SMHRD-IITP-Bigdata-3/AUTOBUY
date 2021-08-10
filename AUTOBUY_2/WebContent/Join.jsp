@@ -9,9 +9,10 @@
         <link rel="stylesheet" href="assest/css/Join.css">
 </head>
 <body>
- <div id="header" style="font-family: Cocogoose; font-size: 58px;">
-            AUTO BUY
-        </div>
+<div class="logo-wrap" style="font-family: Cocogoose; font-size: 58px; color:black; margin-top: 100px; margin-left:810px;">
+
+				<a><b>AUTO</b> BUY </a>
+			</div>
 		<div id="wrapper">
 
             <!-- content-->
@@ -80,7 +81,7 @@
 				<input type="radio" value="점포점주"  id="Choice2" name="Choice">
 			 	<label for="Choice2">점포점주</label>
 			 	</div>
-                <div class="btn_area">
+                <div class="btn_area" style="background-color:#5F0080">
                     <button type="submit" id="btnJoin" value="회원가입">
                         <span>가입하기</span>
                     </button>
