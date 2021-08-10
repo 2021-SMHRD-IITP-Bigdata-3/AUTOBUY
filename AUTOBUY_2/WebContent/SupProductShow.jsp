@@ -42,7 +42,7 @@
 			<div class="title"><p><a href="Main_Sup.jsp" id="auto"><b><b>AUTO</b></b></a><a href="Main_Sup.jsp" id="buy">BUY</a></p></div>
 			
 			<%if(info != null){%>
-				<div style="margin-left: 900px; margin-top: 20px">
+				<div style="margin-left: 49%; margin-top: 20px">
 				
 				 <table id="topmenu">
 					<tr>
@@ -97,7 +97,7 @@
 					}%>
 				</table>
 				</div>
-			<div><button type="button" class = "submitbutton" onclick="location.href='Sup_Product_reg.jsp'" style="margin-top: 20px; margin-right: 710px;">+등록/삭제</button></div>
+			<div><button type="button" class = "submitbutton" onclick="location.href='Sup_Product_reg.jsp'" style="margin-top: 20px; margin-right: 48%;">+등록/삭제</button></div>
 		</div>
 		<div class ="footer">
 			<div class="banner">AUTOBUY</div>

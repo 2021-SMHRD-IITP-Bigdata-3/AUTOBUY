@@ -19,7 +19,7 @@
 			<div class="title"><p><a href="Main_Sup.jsp" id="auto"><b><b>AUTO</b></b></a><a href="Main_Sup.jsp" id="buy">BUY</a></p></div>
 			
 			<%if(info != null){%>
-				<div style="margin-left: 900px; margin-top: 20px">
+				<div style="margin-left: 49%; margin-top: 20px">
 				 <table id="topmenu">
 					<tr>
 						<td ><a href="Update.jsp">마이페이지</a></td>		
@@ -39,13 +39,13 @@
 					<td id="hello" onclick="location.href='Update.jsp'"><h3><%=info.getStore_name() %> 사장님<br>환영합니다!!</h3></td>
 				</tr>
 				<tr>
-					<td class="select" onclick="location.href='Main_Sup.jsp'" style="background-color: #5F04B4; color: white;"> &emsp;&emsp;&nbsp;출고</td>
+					<td class="select" onclick="location.href='Main_Sup.jsp'" > &emsp;&emsp;&nbsp;출고</td>
 				</tr>
 				<tr >
 					<td class="select" onclick="location.href='Cus_management.jsp'">&emsp;&emsp;&nbsp;고객관리</td>
 				</tr>
 				<tr>
-					<td class="select" onclick="location.href='SupProductShow.jsp'">&emsp;&emsp;&nbsp;제품목록</td>
+					<td class="select" onclick="location.href='SupProductShow.jsp'" style="background-color: #5F0080; color: white;">&emsp;&emsp;&nbsp;제품목록</td>
 				</tr>
 				</table>
 		</div>
@@ -74,11 +74,10 @@
 						<td><input type="file" name="product_pic" style="float:center;">
 						<input type="hidden" name="supplier_name" value ="<%= info.getStore_name() %>" >
 			 </table>
-			 <div><button type="button" class = "submitbutton" onclick="location.href='Sup_Product_reg.jsp'" style="margin-top: 20px; margin-right: 10px;">취소</button></div>
-			 <div><button type="submit" class="submitbutton"  style="margin-top: 20px; margin-right: 10px; value="입력 완료">
-			 <span>입력 완료</span>
-			 </button>
+			 <div  style="margin-top: 40px;"><button type="button" class = "submitbutton" onclick="location.href='Sup_Product_reg.jsp'" style="margin-right:44%;">취소</button>
+				 <button type="submit" class="submitbutton"  value="입력완료" style="margin-right: 10px;">입력완료</button>
 			 </div>
+
 			</div>
 			
 			</form>
