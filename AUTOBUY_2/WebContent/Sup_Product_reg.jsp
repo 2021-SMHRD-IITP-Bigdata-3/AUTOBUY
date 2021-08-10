@@ -19,13 +19,11 @@
 			<div class="title"><p><a href="Main_Sup.jsp" id="auto"><b><b>AUTO</b></b></a><a href="Main_Sup.jsp" id="buy">BUY</a></p></div>
 			
 			<%if(info != null){%>
-				<div style="margin-left: 900px; margin-top: 20px">
+				<div style="margin-left: 1140px; margin-top: 20px">
 				 <table id="topmenu">
 					<tr>
 						<td ><a href="Update.jsp">마이페이지</a></td>		
-						<td ><a href="Incoming.jsp">주문배송</a></td>		
-						<td ><a href="Product_reg.jsp">장바구니</a></td>
-						<td ><a href="Update.jsp">고객센터</a></td>
+						<td ><a href="#">고객센터</a></td>
 						<td ><a href="LogoutServiceCon">로그아웃</a></td>				
 					</tr>
 				</table>
@@ -39,7 +37,7 @@
 					<td id="hello" onclick="location.href='Update.jsp'"><h3><%=info.getStore_name() %> 사장님<br>환영합니다!!</h3></td>
 				</tr>
 				<tr>
-					<td class="select" onclick="location.href='Main_Sup.jsp'" style="background-color: #5F04B4; color: white;"> &emsp;&emsp;&nbsp;출고</td>
+					<td class="select" onclick="location.href='Main_Sup.jsp'" style="background-color: #5F0080; color: white;"> &emsp;&emsp;&nbsp;출고</td>
 				</tr>
 				<tr >
 					<td class="select" onclick="location.href='Cus_management.jsp'">&emsp;&emsp;&nbsp;고객관리</td>
@@ -53,7 +51,7 @@
 			<div class="small_title"><p>제품 등록</p></div>
 			<form action="SupplierRegistOneProductServiceCon" method="post" enctype = "multipart/form-data">
 			<div class="board">
-				<table id="show" style="margin:auto; width : 1400px; margin-top:50px;">
+				<table id="show" style="margin:auto; width : 1400px; margin-top:40px;">
 
 					<tr  style ="text-align: center; width: 400px; font-size: 18px;">
 						<td>제품명</td>

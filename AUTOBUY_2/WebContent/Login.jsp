@@ -18,6 +18,7 @@
 	src: url("../assest/fonts/Cocogoose Pro Semilight-trial.ttf");
     font-family: "Cocogoose2"; 
  }
+ a { text-decoration:none } 
  </style>
 </head>
 <body>

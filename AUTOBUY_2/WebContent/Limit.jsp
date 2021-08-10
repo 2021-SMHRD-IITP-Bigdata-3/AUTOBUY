@@ -31,7 +31,7 @@
 						<td ><a href="Update.jsp">마이페이지</a></td>		
 						<td ><a href="Incoming.jsp">주문배송</a></td>		
 						<td ><a href="Product_reg.jsp">장바구니</a></td>
-						<td ><a href="Update.jsp">고객센터</a></td>
+						<td ><a href="#">고객센터</a></td>
 						<td ><a href="LogoutServiceCon">로그아웃</a></td>				
 					</tr>
 			</table>
@@ -73,7 +73,7 @@
 		<div class="content">
 			<div class="small_title"><p>조정</p></div>
 			<div class="board">
-				<table id="show" style="margin:auto; width : 1300px; margin-top:80px;">
+				<table id="show" style="margin:auto; width : 1300px; margin-top:40px;">
 						<tr  style ="text-align: center; width: 400px; font-size: 18px; ">
 							<td style ="width: 15% "><b>사진</b></td>
 							<td style ="width: 30%;"><b>제품명</b></td>

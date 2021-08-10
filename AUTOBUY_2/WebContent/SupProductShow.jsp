@@ -42,14 +42,12 @@
 			<div class="title"><p><a href="Main_Sup.jsp" id="auto"><b><b>AUTO</b></b></a><a href="Main_Sup.jsp" id="buy">BUY</a></p></div>
 			
 			<%if(info != null){%>
-				<div style="margin-left: 900px; margin-top: 20px">
+				<div style="margin-left: 1130px; margin-top: 20px">
 				
 				 <table id="topmenu">
 					<tr>
 						<td ><a href="Update.jsp">마이페이지</a></td>		
-						<td ><a href="Incoming.jsp">주문배송</a></td>		
-						<td ><a href="Product_reg.jsp">장바구니</a></td>
-						<td ><a href="Update.jsp">고객센터</a></td>
+						<td ><a href="#">고객센터</a></td>
 						<td ><a href="LogoutServiceCon">로그아웃</a></td>				
 					</tr>
 				</table>
@@ -79,7 +77,7 @@
 		<div class="content">
 			<div class="small_title"><p>제품목록</p></div>
 			<div class="board">
-           		<table id="show" style="margin:auto; width : 1400px; margin-top:50px;">
+           		<table id="show" style="margin:auto; width : 1400px; margin-top:40px;">
 					<tr  style ="text-align: center; width: 400px; font-size: 18px;">
 						<td><b>제품명</b></td>
 						<td><b>가격</b></td>

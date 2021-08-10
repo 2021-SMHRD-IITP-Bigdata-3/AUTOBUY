@@ -26,13 +26,13 @@ border-bottom: 10px solid #f5f6f7;
 <div class="main-container">
 		<div class="main-wrap">
 			<header>		
-				<div class="logo-wrap">
+				<div class="logo-wrap"style="margin-right:60px;">
 					마이페이지
 				</div>
 			</header>
 		<div class="login-input-section-wrap">
 
-			<table style="line-height:40px; font-size: 22px; margin:auto;">
+			<table style="line-height:40px; font-size: 20px; margin:auto;">
 			
 				<tr>
 					<td><p style="border-right:1px solid lightgray; width:200px">대표자</p></td>

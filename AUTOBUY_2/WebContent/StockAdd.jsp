@@ -68,7 +68,7 @@ body{
 						<td style="border-left: 0px;"><a href="Update.jsp">마이페이지</a></td>		
 						<td ><a href="Incoming.jsp">주문배송</a></td>		
 						<td ><a href="Product_reg.jsp">장바구니</a></td>
-						<td ><a href="Update.jsp">고객센터</a></td>
+						<td ><a href="#">고객센터</a></td>
 						<td ><a href="LogoutServiceCon">로그아웃</a></td>				
 					</tr>
 				</table>

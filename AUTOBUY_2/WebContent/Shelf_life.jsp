@@ -49,7 +49,7 @@ font-family: 'Spoqa Han Sans Neo', 'sans-serif';
 						<td ><a href="Update.jsp">마이페이지</a></td>		
 						<td ><a href="Incoming.jsp">주문배송</a></td>		
 						<td ><a href="Product_reg.jsp">장바구니</a></td>
-						<td ><a href="Update.jsp">고객센터</a></td>
+						<td ><a href="#">고객센터</a></td>
 						<td ><a href="LogoutServiceCon">로그아웃</a></td>				
 					</tr>
 			</table>
@@ -115,7 +115,7 @@ font-family: 'Spoqa Han Sans Neo', 'sans-serif';
 						<td></td>
 						<td></td>
 						<td></td>
-						<td><a href="Shelf_life_change.jsp"><button>수정</button></a>      
+						<td><a href="Shelf_life_change.jsp"><button>수정</button></a><br>      
 							<a href="Shelf_life_delete.jsp"><button>삭제</button></a></td>
 					</tr>		
 			 </table>
