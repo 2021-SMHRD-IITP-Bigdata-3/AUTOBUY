@@ -12,6 +12,9 @@
 body{
 	background-color: #f5f6f7;
 }
+#show tr td{
+	vertical-align: middle;
+}
 </style>
 <head>
 <meta charset="EUC-KR">
@@ -115,8 +118,8 @@ body{
 			</div>
 			
 			<div class="board1" style="float:left;">
-			<div style=" overflow:auto; height:600px;">
-           		<table id="show"  style="margin-top:0px; margin-left: 3.5%">
+			<div style=" overflow:auto; height:700px;">
+           		<table id="show"  style="margin-top:0px; margin-left: 3.5%;">
 					<tr  style ="text-align: center; width: 400px; font-size: 18px;">
 						<td style="width: 15%"><b>사진</b></td>
 						<td style="width: 35%"><b>제품명</b></td>
@@ -127,7 +130,7 @@ body{
 					<%for(int i = 0; i<product_list.size();i++){ %>
 					<tr id = "data" class="event" style="height: 40px; width: 600px; cursor: pointer; font-size: 17px;" onMouseOver="this.style.backgroundColor='#EFF8FB';" onMouseOut="this.style.backgroundColor=''"
 					onclick="location.href='RegistOneProductServiceCon?product_num=<%=product_list.get(i).getProduct_num()%>'">
-						<td style="width: ">사진</td>
+						<td style="text-align: center;"><img src="img/<%=product_list.get(i).getProduct_pic()%>"></td>	
 						<td style="width: "><%=product_list.get(i).getProduct_name() %></td>
 						<td style = "width:; text-align: center;"><%=product_list.get(i).getProduct_price() %>원</td>
 						<td style = "width:; text-align: center;"><%=product_list.get(i).getSupplier_name() %></td>
@@ -140,7 +143,7 @@ body{
 			<form action="RegistProductQnttyServiceCon" method="post">
 			
 			<div class="board1" style=" float:left; margins-top:20px;">
-			<div style=" overflow:auto; height:600px;">
+			<div style=" overflow:auto; height:700px;">
             <table id = "show" style="margin-left: 20px; margin-top:0px;">
                <tr style="text-align: center; width: 400px; font-size: 18px;">
                	  <td style="width: 15%"><b>사진</b></td>
@@ -152,7 +155,7 @@ body{
  			   
                <%for(int i = 0; i<stock_list.size();i++){ %>
 					<tr id = "data"  style="font-size:17px; height: 40px; width: 600px;" >
-						<td style="width: ;">사진</td>
+						<td style="text-align: center;"><img src="img/<%=stock_list.get(i).getProduct_pic()%>"></td>	
 						<td style="width: ;"><%=stock_list.get(i).getProduct_name() %></td>
 						<td style="width:; text-align: center;"><%=stock_list.get(i).getSupplier_name() %></td>
 						<td style="width:; text-align: center;"><input type="number"  name = "stock_qntty" min="0" value=<%=stock_list.get(i).getStock_qntty() %> size="10px" style="width:50px;"></td>

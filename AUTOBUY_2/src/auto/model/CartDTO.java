@@ -6,15 +6,18 @@ public class CartDTO {
 	private String product_name;
 	private String supplier_name;
 	private int product_price;
-	
-	public CartDTO(String customer_id, int product_num, String product_name, String supplier_name,
-			int product_price) {
+	private String product_pic;
+
+
+	public CartDTO(String customer_id, int product_num, String product_name, String supplier_name, int product_price,
+			String product_pic) {
 		super();
 		this.customer_id = customer_id;
 		this.product_num = product_num;
 		this.product_name = product_name;
 		this.supplier_name = supplier_name;
 		this.product_price = product_price;
+		this.product_pic = product_pic;
 	}
 
 	public String getCustomer_id() {
@@ -55,6 +58,14 @@ public class CartDTO {
 
 	public void setProduct_price(int product_price) {
 		this.product_price = product_price;
+	}
+
+	public String getProduct_pic() {
+		return product_pic;
+	}
+
+	public void setProduct_pic(String product_pic) {
+		this.product_pic = product_pic;
 	}
 	
 	

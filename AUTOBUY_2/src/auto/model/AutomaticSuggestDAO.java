@@ -64,8 +64,9 @@ public class AutomaticSuggestDAO {
 				int now = rs.getInt("stock_qntty");
 				int min = rs.getInt("minimum_qntty");
 				int max = rs.getInt("standard_qntty");
+				String pic = rs.getString("product_pic");
 				
-				AutomaticSuggestDTO dto = new AutomaticSuggestDTO(num, name, supplier, now, min, max, price);
+				AutomaticSuggestDTO dto = new AutomaticSuggestDTO(num, name, supplier, now, min, max, price, pic);
 				list.add(dto);
 				
 			}
@@ -81,10 +82,10 @@ public class AutomaticSuggestDAO {
 
 	
 	// 자동발주 테이블에 제안할 정보를 담는 메소드
-	public int registOrder(String customer_id, int product_num, String product_name, String supplier_name,int product_price, int suggest_qntty){		
+	public int registOrder(String customer_id, int product_num, String product_name, String supplier_name,int product_price, int suggest_qntty,String product_pic){		
 		try {
 			conn();
-			String sql = "insert into order_suggest values(?, ?, ?, ?, ?, ?, null)";
+			String sql = "insert into order_suggest values(?, ?, ?, ?, ?, ?, ?)";
 			psmt = conn.prepareStatement(sql);
 			psmt.setString(1, customer_id);
 			psmt.setInt(2, product_num);
@@ -92,6 +93,7 @@ public class AutomaticSuggestDAO {
 			psmt.setString(4,supplier_name);
 			psmt.setInt(5,product_price);
 			psmt.setInt(6,suggest_qntty);
+			psmt.setString(7, product_pic);
 			cnt = psmt.executeUpdate();
 			
 		} catch (SQLException e) {
@@ -118,8 +120,9 @@ public class AutomaticSuggestDAO {
 				String supplier_name = rs.getString("supplier_name");
 				int price = rs.getInt("product_price");
 				int order_qntty = rs.getInt("suggest_qntty");
+				String pic = rs.getString("product_pic");
 				
-				AutomaticSuggestDTO dto = new AutomaticSuggestDTO(product_num, product_name, supplier_name, price, order_qntty);
+				AutomaticSuggestDTO dto = new AutomaticSuggestDTO(product_num, product_name, supplier_name, price, order_qntty, pic);
 				list.add(dto);		
 			}
 			

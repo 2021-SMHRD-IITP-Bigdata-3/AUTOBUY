@@ -11,6 +11,7 @@ delete order_suggest
 delete order_suggest where customer_id='ym1828';
 >>>>>>> branch 'master' of https://github.com/2021-SMHRD-IITP-Bigdata-3/AUTOBUY.git
 delete CUSTOMER_ORDER;
+delete detail_order;
 delete makeordernum;
 
 
@@ -128,11 +129,12 @@ customer_id varchar2(40) not null,
 product_num number(20) not null,
 product_name varchar2(50) not null,
 supplier_name varchar2(50) not null,
-product_price number(20) not null
+product_price number(20) not null,
+product_pic varchar2(50)
 )
 
 select * from cart
-
+drop table cart
 select * from outgoing
 
 

@@ -143,7 +143,7 @@
 						for(int i = 0; i<dto.size();i++){ %>
 						<tr>
 							<td style = "width: 5%"><%=i+1%></td>
-							<td style = "width: 10%"><%=dto.get(i).getProduct_pic()%></td>
+							<td style = "width: 10%; text-align: center;"><img src="img/<%=dto.get(i).getProduct_pic()%>"></td>
 							<td style = "width: 20%"><%=dto.get(i).getProduct_name()%></td>
 							<td style = "width: 6%"><%=dto.get(i).getOrder_qntty()%></td>
 							<% int price = product_dao.getPrice(dto.get(i).getProduct_num());%>

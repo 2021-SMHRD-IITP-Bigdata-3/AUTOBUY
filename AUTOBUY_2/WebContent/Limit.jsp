@@ -73,7 +73,7 @@
 		<div class="content">
 			<div class="small_title"><p>조정</p></div>
 			<div class="board">
-				<table id="show" style="margin:auto; width : 1300px; margin-top:40px;">
+				<table id="show" style="margin:auto; width : 1300px; margin-top:80px;">
 						<tr  style ="text-align: center; width: 400px; font-size: 18px; ">
 							<td style ="width: 15% "><b>사진</b></td>
 							<td style ="width: 30%;"><b>제품명</b></td>
@@ -86,7 +86,7 @@
 		            <%for(int i = 0; i<stock_list.size();i++){ %>
 						<tr style="text-align: center;">
 							<tr style="height: 40px; text-align: center; width: 400px; font-size: 17px;" onMouseOver="this.style.backgroundColor='#EFF8FB';" onMouseOut="this.style.backgroundColor=''">
-								<td>사진</td>
+								<td style="text-align: center;"><img src="img/<%=stock_list.get(i).getProduct_pic()%>"></td>	
 								<td style="text-align: left"><%=stock_list.get(i).getProduct_name() %></td>
 								<td><%=stock_list.get(i).getSupplier_name() %></td>
 								<td><%=stock_list.get(i).getStock_qntty() %></td>

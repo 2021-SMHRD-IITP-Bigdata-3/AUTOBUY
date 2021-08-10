@@ -120,7 +120,7 @@
 					<% for(int i = 0; i<dto.size();i++){ %>
 						<tr style="font-size: 17px;  text-align: center;">
 							<td style = "width: 5%"><%=i+1%></td>
-							<td style = "width: 8%"><%=dto.get(i).getProduct_pic()%></td>
+							<td style = "width: 8%"><img src="img/<%=dto.get(i).getProduct_pic()%>"></td>
 							<td style = "width: 22%"><%=dto.get(i).getProduct_name()%></td>
 							<td style = "width: 10%" ><%=dto.get(i).getOrder_qntty()%></td>	
 							<td style = "width: 12%"><%=dto.get(i).getSupplier_name()%></td>	

@@ -306,13 +306,10 @@ public class POSPanel extends JPanel {
 				while (m.getRowCount() > 0) {
 					m.removeRow(0);
 				}
-				for(int i=0; i<sold_name.size();i++) {
-					sold_name.remove(i);
-				}
-				for(int i=0; i<sold_qntty.size();i++) {
-					sold_qntty.remove(i);
-				}
-
+				
+					sold_name = new ArrayList<String>();	
+					sold_qntty = new ArrayList<Integer>();
+	
 			}
 
 		});

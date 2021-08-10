@@ -97,7 +97,7 @@
 		<div class="content">
 			<div class="small_title"><p>발주제안</p></div>
 			<div class="board1">
-           		<table id="show" style="margin-left:3.8%;">
+           		<table id="show" style="margin-left:3.8%;  text-align: center;">
 					<tr style="text-align: center; width:; font-size: 18px; font-weight: bold;">
 						<td style="width: 15%; text-align: center;"><b>사진</b></td>					
 						<td style="width: 35%">제품명</td>
@@ -107,7 +107,7 @@
 					<%for(int i = 0; i<stock_list.size();i++){ %>
 					<tr id = "data" class="event" style="height: 40px; width: 600px; cursor: pointer; font-size: 17px;" onMouseOver="this.style.backgroundColor='#EFF8FB';" onMouseOut="this.style.backgroundColor=''"
 					onclick="location.href='RegistSuggestServiceCon?product_num=<%=stock_list.get(i).getProduct_num()%>'">
-						<td style="text-align: center;">사진</td>
+						<td style="text-align: center;"><img src="img/<%=stock_list.get(i).getProduct_pic()%>"></td>	
 						<td><%=stock_list.get(i).getProduct_name() %></td>
 						<td style="text-align: center;"><%=stock_list.get(i).getSupplier_name() %></td>
 						<td style = "width: 48px; color: #5F0080; text-align: center;" > <b>></b></td>
@@ -121,7 +121,7 @@
 			<form action="SuggestOrderServiceCon" method="post">
 			<div class="board2">
 			
-            <table id="show" style="margin-left:3.8%; ">
+            <table id="show" style="margin-left:3.8%;  text-align: center; ">
                <tr style="text-align: center; width:; font-size: 18px; font-weight: bold;">
               	  <td style="width: 15%;">사진</td>
                   <td style="width: 35%;">제품명</td>
@@ -131,7 +131,7 @@
  			   
                <%for(int i=0; i<suggest_list.size();i++){%>
 					<tr style="font-size: 17px;">
-						<td style="text-align: center;">사진</td>
+						<td style="text-align: center;"><img src="img/<%=suggest_list.get(i).getProduct_pic()%>"></td>	
 						<td style=""><%=suggest_list.get(i).getProduct_name()%></td>
 						<td style="text-align: center;"><input type="number"  name = "stock_qntty" min="0" value=<%if(suggest_list.get(i).getSuggest_qntty()<=1){%>
 																			<%=default_num %><%}else{ %>
