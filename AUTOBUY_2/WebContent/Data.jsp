@@ -53,7 +53,7 @@
 						<td ><a href="Update.jsp">마이페이지</a></td>		
 						<td ><a href="Incoming.jsp">주문배송</a></td>		
 						<td ><a href="Product_reg.jsp">장바구니</a></td>
-						<td ><a href="Update.jsp">고객센터</a></td>
+						<td ><a href="#">고객센터</a></td>
 						<td ><a href="LogoutServiceCon">로그아웃</a></td>				
 					</tr>
 			</table>
@@ -97,7 +97,7 @@
 		<div class="content">
 			<div class="small_title"><p>대시보드</p></div>
 			<div class="board">
-			<canvas width='500' height='500' id='canvas' style="margin-top:40px;"></canvas>
+			<canvas width='500' height='500' id='canvas' style="margin-top:40px;  font-family: 'Spoqa Han Sans Neo', 'sans-serif';"></canvas>
 			<script>
 			 const canvas = document.getElementById('canvas');
 			    const ctx = canvas.getContext('2d');

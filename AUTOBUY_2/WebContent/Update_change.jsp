@@ -28,7 +28,7 @@ font-family: 'Spoqa Han Sans Neo', 'sans-serif'
 			</header>
 		<div class="login-input-section-wrap">
 	<form action="UpdateServiceCon" method="post">
-		<table style="line-height:50px;">
+		<table style="line-height:45px; font-size: 20px; margin:auto;">
 		
 			<tr>
 				<td><p style="border-right:1px solid lightgray; width:200px">대표자</p></td>
@@ -72,8 +72,8 @@ font-family: 'Spoqa Han Sans Neo', 'sans-serif'
 			</tr>
 			<tr>
 				<td><p style="border-right:1px solid lightgray; width:200px">결제방식</p></td>	
-				 		<td>
-				 		<select name="payment" class="payment" >
+				 		<td >
+				 		<select name="payment" class="payment" style="margin-left:10px; width:222px; height:33px;" >
 						    <option value="choice">선택</option>
 						    <option value="bank_book">무통장 입금</option>
 						    <option value="card">카드 결제</option>

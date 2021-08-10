@@ -61,7 +61,7 @@ body{
 						<td ><a href="Update.jsp">마이페이지</a></td>		
 						<td ><a href="Incoming.jsp">주문배송</a></td>		
 						<td ><a href="Product_reg.jsp">장바구니</a></td>
-						<td ><a href="Update.jsp">고객센터</a></td>
+						<td ><a href="#">고객센터</a></td>
 						<td ><a href="LogoutServiceCon">로그아웃</a></td>				
 					</tr>
 			</table>
@@ -113,19 +113,19 @@ body{
            			<table id="show" style="margin-left:22px; ">
 						<tr style="text-align: center; font-size:18px;">
 							<td style="width:15%;"><b>사진</b></td>
-							<td style="width:35%"><b>제품명</b></td>
+							<td style="width:36%;"><b>제품명</b></td>
 							<td style = "width:15%;"><b>가격</b></td>
-							<td style = "width:25%"><b>거래처</b></td>
+							<td style = "width:24%;"><b>거래처</b></td>
 							<td style = "width:10%;"><b></b></td>
 						</tr>
 						<%for(int i = 0; i<product_list.size();i++){ %>
 						<tr  id = "data" class="event"style=" cursor: pointer; font-size: 17px; onMouseOver="this.style.backgroundColor='#EFF8FB';" onMouseOut="this.style.backgroundColor=''"
 						onclick="location.href='CartServiceCon?product_num=<%=product_list.get(i).getProduct_num()%>'">
-							<td style="text-align: center;"><img src="img/<%=product_list.get(i).getProduct_pic()%>"></td>	
-							<td style = "width:;"><%=product_list.get(i).getProduct_name() %></td>
-							<td style = "width:; text-align: center;"><%=product_list.get(i).getProduct_price() %>원</td>
-							<td style = "width:; text-align: center;"><%=product_list.get(i).getSupplier_name() %></td>
-							<td style = "width: ; color: #5F0080; text-align: center;" > <b>></b></td>
+							<td style="text-align: center; width:15%;"><img src="img/<%=product_list.get(i).getProduct_pic()%>"></td>	
+							<td style = "width:36%;"><%=product_list.get(i).getProduct_name() %></td>
+							<td style = "width:15%; text-align: center;"><%=product_list.get(i).getProduct_price() %>원</td>
+							<td style = "width:24%; text-align: center;"><%=product_list.get(i).getSupplier_name() %></td>
+							<td style = "width:10%; color: #5F0080; text-align: center;" > <b>></b></td>
 						</tr>
 						<%} %>
 	
@@ -146,11 +146,11 @@ body{
 	 			   
 	               <%for(int i=0; i<cart_list.size(); i++){ %>
 						<tr id = "data" class="event" style="font-size:17px;  height: 40px; width: 600px; onMouseOver="this.style.backgroundColor='#EFF8FB';" onMouseOut="this.style.backgroundColor=''">
-						    <td style="text-align: center;"><img src="img/<%=cart_list.get(i).getProduct_pic()%>"></td>	
-							<td style="width: ;"><%=cart_list.get(i).getProduct_name() %></td>
-							<td style = "text-align: center;"><%=cart_list.get(i).getSupplier_name() %></td>
-							<td style = "width:; text-align: center;"><input type="number"  name = "order_qntty" min="0" value=0 size="10px" style="width:50px;"></td>
-							<td class="event" style="width: 48px; color: #5F0080; text-align: center; cursor: pointer;" onMouseOver="this.style.backgroundColor='#EFF8FB';" onMouseOut="this.style.backgroundColor=''"
+						    <td style="width: 15%; text-align: center;"><img src="img/<%=cart_list.get(i).getProduct_pic()%>"></td>	
+							<td style="width: 35%;"><%=cart_list.get(i).getProduct_name() %></td>
+							<td style = "width:20%; text-align: center;"><%=cart_list.get(i).getSupplier_name() %></td>
+							<td style = "width:15%; text-align: center;"><input type="number"  name = "order_qntty" min="0" value=0 size="10px" style="width:50px;"></td>
+							<td class="event" style="width: 10%; color: #5F0080; text-align: center; cursor: pointer;" onMouseOver="this.style.backgroundColor='#EFF8FB';" onMouseOut="this.style.backgroundColor=''"
 						onclick="location.href='CartDeleteServiceCon?product_num=<%=cart_list.get(i).getProduct_num()%>'"><b>x</b></td>
 						</tr>
 					<%} %>

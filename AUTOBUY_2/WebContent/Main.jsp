@@ -4,6 +4,7 @@
 <%@page import="auto.model.MemberDTO"%>
 <%@ page language="java" contentType="text/html; charset=EUC-KR"
     pageEncoding="EUC-KR"%>
+
 <!DOCTYPE html>
 
 <html>
@@ -37,7 +38,7 @@
 						<td ><a href="Update.jsp">마이페이지</a></td>		
 						<td ><a href="Incoming.jsp">주문배송</a></td>		
 						<td ><a href="Product_reg.jsp">장바구니</a></td>
-						<td ><a href="Update.jsp">고객센터</a></td>
+						<td ><a href="#">고객센터</a></td>
 						<td ><a href="LogoutServiceCon">로그아웃</a></td>				
 					</tr>
 				</table>
@@ -106,7 +107,7 @@
 					<%} %>	
 			 </table>
 			</div>
-			<div><button type="button" class = "submitbutton" onclick="location.href='StockAdd.jsp'" style="margin-top: 20px; margin-right: 48.2%;">+등록/삭제</button></div>
+			<div><button type="button" class = "submitbutton" onclick="location.href='StockAdd.jsp'" style="margin-top: 20px; margin-right: 43.2%;">+등록/삭제</button></div>
 		</div>
 		<div class ="footer">
 			<div class="banner">AUTOBUY</div>
@@ -115,6 +116,8 @@
 								광주광역시 남구 송암로60 광주CGI센터</div>
 		</div>
 	</div>
+	
 
 </body>
+
 </html>
