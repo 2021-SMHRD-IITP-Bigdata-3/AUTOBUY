@@ -1,0 +1,67 @@
+@charset "EUC-KR";
+
+ body{
+	background-color: #f5f6f7;
+}
+
+@font-face{
+	src: url("../assest/fonts/Cocogoose Pro Light-trial.ttf");
+    font-family: "Cocogoose"; 
+ }
+ @font-face{
+	src: url("../assest/fonts/Cocogoose Pro Semilight-trial.ttf");
+    font-family: "Cocogoose2"; 
+ }
+
+.center{
+width: 400px; 
+position: absolute; 
+left: 50%; 
+margin-left: -200px;
+text-align:center;
+font-weight: bold; 
+font-size: 50;
+line-height: 4;
+font-family: 'Spoqa Han Sans Neo', 'sans-serif';
+}
+.order_num{
+style:font-size:15px;
+color:gray;
+float:left;
+font-size:17px;
+margin-left:80px;
+}
+.order_num1{
+style:font-size:15px;
+color:red;
+float:left;
+font-size:17px;
+margin-left:20px;
+}
+#recipt{
+	border-top: 1px solid lightgray;
+	
+	
+}
+th{
+	color: gray;
+	text-align: left;
+	width: 130px;
+}
+td{
+	text-align:left;
+	margin-left: 50px;
+	font-weight: 550;
+	width: 300px;
+}
+.submitbutton{
+	width : 100px;
+	height : 50px;
+	border : 0px;
+	border-radius : 3px;
+	background : #5F0080;
+	color : #ffffff;
+	font-size: 18px;
+	border-style: ridge;
+	margin-top:40px;
+}

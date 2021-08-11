@@ -74,11 +74,18 @@ body{
 	justify-content:flex-end;
 }
 
-.main-container .main-wrap header .logo-wrap{
+.main-container .main-wrap header{
 	display:flex;	
 	flex-direction: column;
 	align-items: center;
 	font-size:58px;
+	color:black;
+}
+.logo-wrap{
+	display:flex;	
+	flex-direction: column;
+	align-items: center;
+	font-size:45px;
 	color:black;
 }
 .login-input-section-wrap{

@@ -22,9 +22,10 @@ drop table makeordernum;
 select * from customer_order;
 select * from DETAIL_ORDER;
 
-delete member
+delete member;
 delete DETAIL_ORDER;
 delete customer_order;
+delete stock;
 
 
 
@@ -71,7 +72,7 @@ insert into product values(product_num.nextval, '우유 1L',   '니니언즈유통', 150
 insert into product values(product_num.nextval, '탄산수 20개입',   '니니언즈유통', 6000, 100000, '107.png');
 insert into product values(product_num.nextval, '골드메달 애플주스 20개입',   '니니언즈유통', 25000, 100000, '108.png');
 insert into product values(product_num.nextval, '소다워터 탄산수 20개입',   '니니언즈유통', 35000, 100000,'109.png');
-insert into product values(product_num.nextval, '바닐라시럽 1L',   '오도바이유통', 6000, 100000, '100.png');
+insert into product values(product_num.nextval, '바닐라시럽 1L',   '오도바이유통', 6000, 100000, '110.png');
 insert into product values(product_num.nextval, '카라멜시럽 1L',   '오도바이유통', 12000, 100000, '111.png');
 insert into product values(product_num.nextval, '헤이즐럿시럽 1L',   '오도바이유통', 12000, 100000, '112.png');
 insert into product values(product_num.nextval, '슈가시럽 1L',   '오도바이유통', 2000, 100000, '113.png');
@@ -81,6 +82,8 @@ insert into product values(product_num.nextval, '자몽시럽 1L ',   '오도바이유통'
 insert into product values(product_num.nextval, '페퍼민트티 20개입',   '오도바이유통', 4000, 100000, '117.png');
 insert into product values(product_num.nextval, '캐모마일티 20개입',   '오도바이유통', 4000, 100000, '118.png');
 
+update product set product_pic = '110.png' where product_pic = '100.png';
+select * from PRODUCT;
 
 create sequence menu_num
 increment by 1
@@ -207,6 +210,7 @@ references Member(customer_id)
 );
 
 
+
 create table detail_order(
 order_num varchar2(50) not null,
 product_num number(20) not null,
@@ -274,8 +278,9 @@ references product(product_num, product_name)
 );
 
 
-
-
+select * from customer_order;
+delete from customer_order where CUSTOMER_ID = 'smart';
+delete from sale;
 
 
 

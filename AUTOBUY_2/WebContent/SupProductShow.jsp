@@ -42,11 +42,9 @@
 			<div class="title"><p><a href="Main_Sup.jsp" id="auto"><b><b>AUTO</b></b></a><a href="Main_Sup.jsp" id="buy">BUY</a></p></div>
 			
 			<%if(info != null){%>
-<<<<<<< HEAD
-				<div style="margin-left: 49%; margin-top: 20px">
-=======
+
 				<div style="margin-left: 1130px; margin-top: 20px">
->>>>>>> branch 'master' of https://github.com/2021-SMHRD-IITP-Bigdata-3/AUTOBUY.git
+
 				
 				 <table id="topmenu">
 					<tr>
@@ -64,22 +62,22 @@
 		<div class="list">
 			<table id="menu">
 				<tr>
-					<td id="hello" onclick="location.href='Update.jsp'"><h3><%=info.getStore_name() %> 사장님<br>환영합니다</h3></td>
+					<td id="hello" onclick="location.href='Update.jsp'"><h3><%=info.getStore_name() %> 사장님<br>환영합니다.</h3></td>
 				</tr>
 				<tr>
 					<td class="select" onclick="location.href='Main_Sup.jsp'" > &emsp;&emsp;&nbsp;출고</td>
 				</tr>
 				<tr >
-					<td class="select" onclick="location.href='Cus_management.jsp'">&emsp;&emsp;&nbsp;고객관리</td>
+					<td class="select" onclick="location.href='Cus_management.jsp'">&emsp;&emsp;&nbsp;고객 관리</td>
 				</tr>
 				<tr>
-					<td class="select" onclick="location.href='SupProductShow.jsp'"style="background-color: #5F0080; color: white;">&emsp;&emsp;&nbsp;제품목록</td>
+					<td class="select" onclick="location.href='SupProductShow.jsp'"style="background-color: #5F0080; color: white;">&emsp;&emsp;&nbsp;제품 목록</td>
 				</tr>
 				
 			</table>
 		</div>
 		<div class="content">
-			<div class="small_title"><p>제품목록</p></div>
+			<div class="small_title"><p>제품 목록</p></div>
 			<div class="board">
            		<table id="show" style="margin:auto; width : 1400px; margin-top:40px;">
 					<tr  style ="text-align: center; width: 400px; font-size: 18px;">

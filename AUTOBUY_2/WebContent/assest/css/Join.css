@@ -1,4 +1,4 @@
-/* �뜝�럩�읉�뜝�럩逾졾뜝�럥�닡�뜝�럩�쐨 �뜝�룞�삕 */
+/*  뜝 럩 읉 뜝 럩逾졾뜝 럥 닡 뜝 럩 쐨  뜝 룞 삕 */
 html {
     height: 100%;
 }
@@ -7,7 +7,7 @@ body {
     margin: 0;
     height: 100%;
     background: #f5f6f7;
-    font-family: Dotum,'�뜝�럥利삣뜝�룞�삕',Helvetica,sans-serif;
+    font-family: Dotum,' 뜝 럥利삣뜝 룞 삕',Helvetica,sans-serif;
 }
 #logo {
     width: 240px;
@@ -36,7 +36,7 @@ body {
 
 
 
-/* �뜝�럩肉��뜝�럩�졑�뜝�럥夷� */
+/*  뜝 럩肉  뜝 럩 졑 뜝 럥夷  */
 
 input:focus {
     outline: none;
@@ -72,7 +72,7 @@ h3 {
 }
 
 input {
-    font-family: Dotum,'�뜝�럥利삣뜝�룞�삕',Helvetica,sans-serif;    
+    font-family: Dotum,' 뜝 럥利삣뜝 룞 삕',Helvetica,sans-serif;    
 }
 
 .box.int_id {
@@ -144,10 +144,10 @@ select {
     text-align: start;
     border: none;
     cursor: default;
-    font-family: Dotum,'�뜝�럥利삣뜝�룞�삕',Helvetica,sans-serif;
+    font-family: Dotum,' 뜝 럥利삣뜝 룞 삕',Helvetica,sans-serif;
 }
 
-/* �뜝�럥�뱺�뜝�럩�몠嶺뚮∥�뾼�땻占썹춯�쉻�삕 */
+/*  뜝 럥 뱺 뜝 럩 몠嶺뚮∥ 뾼 땻占썹춯 쉻 삕 */
 
 .error_next_box {
     margin-top: 9px;
@@ -165,7 +165,7 @@ select {
     display: none;
 }
 
-/* �뵓怨뚯뫓占쎈괏 */
+/*  뵓怨뚯뫓占쎈괏 */
 
 .btn_area {
     margin: 30px 0 91px;

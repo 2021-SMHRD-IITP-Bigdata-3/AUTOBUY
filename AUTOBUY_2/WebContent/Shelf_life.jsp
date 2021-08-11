@@ -61,10 +61,10 @@ font-family: 'Spoqa Han Sans Neo', 'sans-serif';
 		<div class="list">
 			<table id="menu">
 				<tr>
-						<td id="hello" onclick="location.href='Update.jsp'"><h3><%=info.getStore_name() %>카페 사장님<br>환영합니다!!</h3></td>
+						<td id="hello" onclick="location.href='Update.jsp'"><h3><%=info.getStore_name() %>카페 사장님<br>환영합니다.</h3></td>
 					</tr>
 					<tr>
-						<td class="select" onclick="location.href='Main.jsp'"> &emsp;&emsp;&nbsp;재고목록</td>
+						<td class="select" onclick="location.href='Main.jsp'"> &emsp;&emsp;&nbsp;제품 목록</td>
 					</tr>
 					<tr >
 						<td class="select" onclick="location.href='Incoming.jsp'" >&emsp;&emsp;&nbsp;입고</td>
@@ -73,10 +73,10 @@ font-family: 'Spoqa Han Sans Neo', 'sans-serif';
 						<td class="select" onclick="location.href='Outgoing.jsp'" >&emsp;&emsp;&nbsp;출고</td>
 					</tr>
 					<tr>
-						<td class="select" onclick="location.href='Shelf_life.jsp'" style="background-color: #5F0080; color: white;">&emsp;&emsp;&nbsp;유통기한</td>
+						<td class="select" onclick="location.href='Shelf_life.jsp'" style="background-color: #5F0080; color: white;">&emsp;&emsp;&nbsp;유통기한 관리</td>
 					</tr>
 					<tr>
-						<td class="select" onclick="location.href='Sup_con.jsp'">&emsp;&emsp;&nbsp;거래처</td>
+						<td class="select" onclick="location.href='Sup_con.jsp'">&emsp;&emsp;&nbsp;거래처 관리</td>
 					</tr>
 					<tr>
 						<td class="select" onclick="location.href='Data.jsp'">&emsp;&emsp;&nbsp;대시보드</td>
@@ -98,7 +98,7 @@ font-family: 'Spoqa Han Sans Neo', 'sans-serif';
 									2.유통기한 별로 유닛을 나누어 등록하세요.<br>
 									3.유통기한 임박 순으로 제품을 확인할 수 있습니다. (재고가 있는 제품만 표시됩니다.)</div>
 		</div>
-			<div class="small_title"><p>유통기한</p></div>
+			<div class="small_title"><p>유통기한 관리</p></div>
 				<div class="board">
 				<table id="show" style="margin:auto; width : 1300px; margin-top:40px;">
 					<tr  style ="text-align: center; width: 400px; font-size: 18px;">

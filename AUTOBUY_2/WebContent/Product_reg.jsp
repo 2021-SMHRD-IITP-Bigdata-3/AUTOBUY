@@ -72,10 +72,10 @@ body{
 		<div class="list">
 			<table id="menu">
 				<tr>
-					<td id="hello" onclick="location.href='Update.jsp'"><h3><%=info.getStore_name() %>카페 사장님<br>환영합니다</h3></td>
+					<td id="hello" onclick="location.href='Update.jsp'"><h3><%=info.getStore_name() %>카페 사장님<br>환영합니다.</h3></td>
 				</tr>
 				<tr>
-					<td class="select" onclick="location.href='Main.jsp'" > &emsp;&emsp;&nbsp;재고목록</td>
+					<td class="select" onclick="location.href='Main.jsp'" > &emsp;&emsp;&nbsp;제품 목록</td>
 				</tr>
 				<tr >
 					<td class="select" onclick="location.href='Incoming.jsp'">&emsp;&emsp;&nbsp;입고</td>
@@ -84,10 +84,10 @@ body{
 					<td class="select" onclick="location.href='Outgoing.jsp'">&emsp;&emsp;&nbsp;출고</td>
 				</tr>
 				<tr>
-					<td class="select" onclick="location.href='Shelf_life.jsp'">&emsp;&emsp;&nbsp;유통기한</td>
+					<td class="select" onclick="location.href='Shelf_life.jsp'">&emsp;&emsp;&nbsp;유통기한 관리</td>
 				</tr>
 				<tr>
-					<td class="select" onclick="location.href='Sup_con.jsp'">&emsp;&emsp;&nbsp;거래처</td>
+					<td class="select" onclick="location.href='Sup_con.jsp'">&emsp;&emsp;&nbsp;거래처 관리</td>
 				</tr>
 				<tr>
 					<td class="select" onclick="location.href='Data.jsp'">&emsp;&emsp;&nbsp;대시보드</td>
@@ -101,7 +101,7 @@ body{
 			</table>
 		</div>
 		<div class="content">
-			<div class="small_title"><p>상품주문</p>
+			<div class="small_title"><p>발주</p>
 			<div id="search">
 				<input id="searchInput" type="text" placeholder="검색어입력">
 				<button>검색</button>
